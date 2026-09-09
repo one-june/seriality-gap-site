@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experimental section contains the findings from `out/guidance/KEY_FINDINGS.md`, both comparison plots, and the full video viewer: 10 cases × 5 step counts × 5 methods.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and rollout-1 guidance results: a synchronized tuned example, two results plots, and a full experiment report.
 
 ## Preview
 
@@ -58,6 +58,9 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `index.html` | Page content and section structure |
 | `clean-latent-oracle.html` | Separate description of the oracle calculation, linked from the findings and oracle video card |
 | `rollout-1-guidance.html` | Rollout-1 guidance procedure, settings, and saved-run provenance, linked from the rollout-1 video card |
+| `rollout-1-results.html` | Full HTML version of `out/guidance/ROLLOUT1_GUIDANCE_REPORT.md` |
+| `assets/rollout1/` | Saved tuning clips, report figures, original metrics, configurations, and source references |
+| `assets/video-group.js` | Synchronized playback for the three-clip tuned Case 2 comparison |
 | `assets/style.css` | Shared layout and responsive styles |
 | `assets/math.js` | Render the page's LaTeX equations |
 | `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |
@@ -84,3 +87,11 @@ python scripts/export_project_page_guidance.py
 Run the export script in the project's Python environment. It uses Beautiful Soup (`beautifulsoup4`) to read the original report and the repository's simulation dependencies to compute missing original Rollout-1 and Rollout-5 scores. This also requires the corresponding source simulation files in `data/bounce/eval_49f_5n_0c/`. It copies the two figures, three summaries, and all referenced comparison clips, then rebuilds the viewer's data file. It does not change `index.html` or assets belonging to other results.
 
 Layout reference: [Nerfies](https://nerfies.github.io/), an example of a research project page with figures, videos, and interactive controls. This site uses its own HTML, CSS, and JavaScript.
+
+## Refresh rollout-1 results
+
+Run `python scripts/export_project_page_rollout1.py` with Python Markdown (`markdown`) and Beautiful Soup installed. It copies the saved videos and report assets and rebuilds `rollout-1-results.html` from `out/guidance/ROLLOUT1_GUIDANCE_REPORT.md`. It verifies the selected clips against the recorded video hashes. It performs no generation or metric evaluation.
+
+All figures, result tables, and comparison videos linked from the full report are included in this directory. Citations to the two older interactive reports retain their research-repository paths as text. The full report includes links to exported code and run metadata for reproduction.
+
+The summary section in `index.html` is edited separately. Its tuned example uses cap 50 and final-step strength 0.10. The update-budget plot uses final strength 0.20, and the separate ten-video experiment uses cap 75 with baseline-batch noise replay. The two viewers keep their own playback state.

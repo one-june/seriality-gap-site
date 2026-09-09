@@ -14,6 +14,7 @@
   <script defer src="assets/math.js"></script>
   <script defer src="assets/guidance/comparison-data.js"></script>
   <script defer src="assets/comparison.js"></script>
+  <script defer src="assets/video-group.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,6 +24,7 @@
       <a href="#theory">Argument</a>
       <a href="#guidance">Findings</a>
       <a href="#comparison">Videos</a>
+      <a href="#rollout1-results">Rollout-1</a>
       <a href="#data">Data</a>
     </nav>
   </header>
@@ -244,6 +246,92 @@
           <a href="assets/guidance/summaries/autoregressive.json" download><span>Autoregressive</span><small>JSON <span aria-hidden="true">↓</span></small></a>
           <a href="assets/guidance/summaries/bidirectional.json" download><span>Bidirectional</span><small>JSON <span aria-hidden="true">↓</span></small></a>
           <a href="assets/guidance/summaries/oracle.json" download><span>Clean-latent oracle</span><small>JSON <span aria-hidden="true">↓</span></small></a>
+        </div>
+      </div>
+    </section>
+    <section class="experiment" id="rollout1-results" aria-labelledby="rollout1-title">
+      <div class="section-heading reading-width">
+        <p class="eyebrow">03 / Rollout-1 guidance</p>
+        <h2 id="rollout1-title">Rollout-1 guidance results</h2>
+        <p class="section-intro">Guidance improves both original rollout metrics on a tuned Case 2 generation. In a separate ten-video experiment, the tested 75-update configuration worsens both metrics on every video.</p>
+        <div class="study-facts" aria-label="Rollout-1 experiment setup">
+          <span>5 balls · 49 frames</span><span>5 conditioning frames</span><span>Generation seed 0</span>
+        </div>
+        <p class="setup-note">Errors below use the original repository’s Rollout-1 and Rollout-5 metrics. Scorable-transition counts are separate ball-validity measurements.</p>
+        <p class="result-links"><a href="rollout-1-results.html">Read the full experiment report →</a><a href="rollout-1-guidance.html">How guidance is calculated →</a></p>
+      </div>
+
+      <div class="comparison-section" id="rollout1-tuned">
+        <div class="reading-width comparison-heading">
+          <p class="eyebrow">Single-video tuning · Case 2</p>
+          <h3>A tuned example improves both metrics</h3>
+          <p>At 50 denoising steps, the guided result lowers Rollout-1 from <strong>0.4316 to 0.3195</strong> and Rollout-5 from <strong>1.4111 to 1.1459</strong>. Scorable transitions increase from <strong>55/220 to 220/220</strong>.</p>
+          <p class="setup-note">Guidance runs at step indices 25–49 with 50 updates per step. Strength follows the 0.70 → 0.20 schedule, with the final step overridden to 0.10. This setting has the lowest original errors among the 21 final-batch variants tested on this Case 2 generation.</p>
+        </div>
+        <div class="viewer fixed-comparison" id="tuned-comparison" data-video-group data-frames="49" aria-label="Synchronized tuned Case 2 comparison">
+          <div class="viewer-selection"><p class="sample-info">00000/828.mp4 · 50 denoising steps · seed 0 · single-video tuning</p></div>
+          <div class="video-grid">
+            <article class="video-card" style="--method-color:#8a9082">
+              <h4>Ground truth</h4>
+              <video src="assets/rollout1/videos/ground-truth.mp4" muted playsinline preload="metadata" aria-label="Ground truth for tuned Case 2"></video>
+              <a class="clip-link" href="assets/rollout1/videos/ground-truth.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>0.0787</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.0162</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable transitions: 220/220</p>
+            </article>
+            <article class="video-card" style="--method-color:#64748b">
+              <h4>Vanilla bidirectional DiT</h4>
+              <video src="assets/rollout1/videos/vanilla.mp4" muted playsinline preload="metadata" aria-label="Vanilla control for the single-video tuning experiment"></video>
+              <a class="clip-link" href="assets/rollout1/videos/vanilla.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>1.4111</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.4316</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable transitions: 55/220</p>
+            </article>
+            <article class="video-card" style="--method-color:#9d792d">
+              <h4>Tuned rollout-1 guidance</h4>
+              <video src="assets/rollout1/videos/tuned-final-scale-0p10.mp4" muted playsinline preload="metadata" aria-label="Rollout-1 guidance with 50 updates per step and final-step strength 0.10"></video>
+              <a class="clip-link" href="assets/rollout1/videos/tuned-final-scale-0p10.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>1.1459</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.3195</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable transitions: 220/220</p>
+            </article>
+          </div>
+          <div class="playback-toolbar">
+            <div class="playback-buttons">
+              <button class="button primary" type="button" data-action="play" aria-pressed="false" disabled>Play all</button>
+              <button class="button" type="button" data-action="restart" disabled>Restart</button>
+              <button class="icon-button" type="button" data-action="previous" aria-label="Previous frame in tuned comparison" disabled>←</button>
+              <button class="icon-button" type="button" data-action="next" aria-label="Next frame in tuned comparison" disabled>→</button>
+            </div>
+            <label class="speed-control">Speed<select data-control="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+            <label class="loop-control"><input type="checkbox" data-control="loop" checked> Loop</label>
+            <output class="frame-output" for="tuned-frame-slider" data-output="frame">Frame 1 / 49</output>
+            <input id="tuned-frame-slider" class="frame-slider" data-control="frame" type="range" min="0" max="48" step="1" value="0" aria-label="Shared frame in tuned comparison" disabled>
+          </div>
+          <p class="viewer-status" data-output="status" role="status" aria-live="polite">Loading the three videos…</p>
+          <noscript><p class="metric-note">Open each clip using its Open video link.</p></noscript>
+        </div>
+        <p class="metric-note reading-width">These saved clips use the single-video tuning experiment’s starting noise and vanilla control. The ten-video comparison above uses its baseline batch’s noise for each sample. Both record seed 0, but their Case 2 noise samples differ. <a href="assets/rollout1/data/tuned-config.yaml" download>Download tuned settings</a>.</p>
+      </div>
+
+      <figure class="plot" id="rollout1-budget">
+        <div class="figure-heading"><h3>Larger update budgets did not improve this setting</h3><a href="assets/rollout1/plots/02_update_cap_sweep_original.svg" download>Download SVG ↓</a></div>
+        <img src="assets/rollout1/plots/02_update_cap_sweep_original.svg" alt="Case 2 update-cap sweep: caps 75 through 500 worsen both original rollout errors compared with cap 50; cap 51 improves errors slightly but loses complete ball validity" loading="lazy">
+        <figcaption><span class="figure-number">Figure 3.</span> Single-video tuning, Case 2 at 50 denoising steps. The sweep uses strength 0.70 → 0.20, including 0.20 on the final step; the tuned video above uses 0.10 on that step. Caps 75, 100, 200, and 500 all worsen both errors relative to cap 50. Cap 51 lowers both errors slightly, with 214/220 scorable transitions. Cap 500 uses ten times the guidance updates of cap 50. <a href="assets/rollout1/data/case2_update_caps.csv" download>Download data</a>.</figcaption>
+      </figure>
+
+      <figure class="plot" id="rollout1-ten-video">
+        <div class="figure-heading"><h3>The ten-video test worsened both metrics</h3><a href="assets/rollout1/plots/04_ten_video_aggregate_original.svg" download>Download SVG ↓</a></div>
+        <img src="assets/rollout1/plots/04_ten_video_aggregate_original.svg" alt="Ten-video means at 50, 100, and 200 denoising steps: the 75-update guidance variant increases original Rollout-1 and Rollout-5 error and reduces scorable transitions" loading="lazy">
+        <figcaption><span class="figure-number">Figure 4.</span> The 75-update configuration shown in the main video viewer, with strength 0.70 → 0.20 and guidance starting at step index 25. Both original metrics worsen on all ten videos at each active step count. At 50 steps, mean Rollout-1 rises from 0.2317 to 0.6175, and Rollout-5 from 0.9368 to 1.8875. These runs use the corresponding baseline batch’s noise samples. The 10- and 20-step runs apply zero guidance updates and are omitted here. <a href="assets/rollout1/data/ten_video_aggregate.csv" download>Download data</a>.</figcaption>
+      </figure>
+      <div class="data-section reading-width">
+        <h3>Full report and result tables</h3>
+        <p>The full report covers the five-video pilot, Case 2 tuning, all 21 final-batch variants, and the ten-video evaluation.</p>
+        <div class="data-links">
+          <a href="rollout-1-results.html"><span>Experiment report</span><small>Read →</small></a>
+          <a href="assets/rollout1/data/original_rollouts.csv" download><span>Original rollout scores</span><small>CSV ↓</small></a>
+          <a href="assets/rollout1/data/ten_video_results.csv" download><span>Ten-video results</span><small>CSV ↓</small></a>
         </div>
       </div>
     </section>

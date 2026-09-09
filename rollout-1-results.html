@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rollout-1 guidance experiments: single-video tuning, update budgets, and the ten-video evaluation, using the original repository metrics.">
+  <title>Rollout-1 guidance experiments · Mind the Seriality Gap</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Project page"><a href="index.html#rollout1-results">Results</a><a href="rollout-1-guidance.html">Method</a></nav>
+  </header>
+  <main id="main" class="method-page report-page">
+    <article class="reading-width">
+      <a class="back-link" href="index.html#rollout1-results">← Back to rollout-1 guidance results</a>
+      <header class="method-heading">
+        <p class="eyebrow">Full experiment report</p>
+        <h1>Rollout-1 guidance experiments</h1>
+      </header>
+      <div class="theory-prose method-content report-content">
+<p>Results from September 2–4, 2026, reevaluated with the original repository's <strong>rollout-1 and rollout-5 metrics</strong>. Every error value in the tables and figures below uses that evaluation. Ball validity is reported separately.</p>
+<p>The early five-video experiment improved ball validity but slightly worsened average original rollout error. Direct guidance then improved both original metrics on the tuned Case 2 generation. Larger update budgets did not help, while several nearby settings improved on the historically selected configuration. The later ten-video experiment, which used a 75-update cap, worsened both original metrics on every video at each active guidance step count.</p>
+<nav aria-label="Report contents" class="report-toc"><ol><li><a href="#1-evaluation-and-experimental-scope">Evaluation and experimental scope</a></li><li><a href="#2-the-five-video-pilot-improved-validity-but-not-average-original-error">The five-video pilot improved validity, but not average original error</a></li><li><a href="#3-direct-guidance-improved-the-tuned-case-2-generation">Direct guidance improved the tuned Case 2 generation</a></li><li><a href="#4-larger-update-budgets-did-not-help-nearby-caps-traded-error-against-validity">Larger update budgets did not help; nearby caps traded error against validity</a></li><li><a href="#5-some-nearby-settings-improve-the-original-metrics-without-losing-validity">Some nearby settings improve the original metrics without losing validity</a></li><li><a href="#6-update-behavior-and-alternative-guidance-losses">Update behavior and alternative guidance losses</a></li><li><a href="#7-the-ten-video-follow-up-worsened-both-original-metrics">The ten-video follow-up worsened both original metrics</a></li><li><a href="#8-saved-video-comparison">Saved-video comparison</a></li><li><a href="#data-and-reproduction">Data and reproduction</a></li></ol></nav><h2 id="1-evaluation-and-experimental-scope">1. Evaluation and experimental scope</h2>
+<p>These experiments generate <strong>49-frame, five-ball videos</strong>, conditioned on the first <strong>five frames</strong>, using the same bidirectional diffusion checkpoint. The detailed parameter sweep uses <strong>Case 2, <code>00000/828.mp4</code>, generation seed 0, and 50 denoising steps</strong>. Its tie-breaking seed tests vary the choice between equally scored guidance sources; they keep the video and generation seed fixed.</p>
+<p>The original repository reconstructs the generated trajectory with <code>Simulation.from_video</code>. For each evaluated target frame, it simulates forward from one or five video frames earlier and compares the predicted and reconstructed ball centers. <strong>Rollout-1</strong> and <strong>rollout-5</strong> are the mean Euclidean distances over frames <strong>5–48</strong> and all five balls, in the simulator's 10-by-10 world coordinates. They measure physical consistency within the generated video.</p>
+<p>The calculation is <code>Difference.from_simulations(sim_out, rollout(sim_out, horizon=h)).avg_center_error((5, None))</code>, with <code>h=1</code> or <code>h=5</code>. It uses the original tracker and adds no world-diagonal penalty. See the <a href="assets/rollout1/sources/scripts/sshv2/eval.py">evaluation code</a> and <a href="assets/rollout1/sources/src/sshv2/simulation/rollout.py">rollout implementation</a>.</p>
+<p>The separate <strong>scorable-transitions</strong> counts come from the newer tracker saved with the experiments. Complete coverage is <strong>44 future frames × 5 balls = 220</strong>. Missing, wrong-color, or extra balls and unavailable source states reduce this count. These counts describe validity; they do not weight or filter the original rollout errors.</p>
+<p>During the experiments, guidance selection and the recorded success gate used a different, validity-aware score. The historical selection decisions refer to that score. This report reevaluates the resulting videos with the original metrics, so the rankings below can differ from the historical rankings. The old success thresholds are not applied to these new values.</p>
+<h2 id="2-the-five-video-pilot-improved-validity-but-not-average-original-error">2. The five-video pilot improved validity, but not average original error</h2>
+<p>The initial method operated during denoising steps <strong>40–49</strong>. It selected the valid source frame with the largest guidance error, built a reference with only the next frame replaced by a physics prediction, and tried strengths <strong>0.1, 0.03, 0.01, and 0.003</strong>. It accepted a proposal only when the experiment's validity-aware score improved, allowing at most <strong>12 accepted updates per denoising step</strong>.</p>
+<p>Reevaluation of the saved outputs gives:</p>
+<div aria-label="2. The five-video pilot improved validity, but not average original error table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Case</th>
+<th>Source video</th>
+<th style="text-align: right;">Rollout-1 vanilla</th>
+<th style="text-align: right;">Rollout-1 guided</th>
+<th style="text-align: right;">Rollout-5 vanilla</th>
+<th style="text-align: right;">Rollout-5 guided</th>
+<th style="text-align: right;">Accepted updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>00000/164.mp4</code></td>
+<td style="text-align: right;">0.3482</td>
+<td style="text-align: right;">0.3936</td>
+<td style="text-align: right;">1.2995</td>
+<td style="text-align: right;">1.3559</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>00000/828.mp4</code></td>
+<td style="text-align: right;">0.4316</td>
+<td style="text-align: right;">0.4266</td>
+<td style="text-align: right;">1.4111</td>
+<td style="text-align: right;">1.5294</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>00000/037.mp4</code></td>
+<td style="text-align: right;">0.3653</td>
+<td style="text-align: right;">0.3713</td>
+<td style="text-align: right;">1.2368</td>
+<td style="text-align: right;">1.3090</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>00000/871.mp4</code></td>
+<td style="text-align: right;">0.4763</td>
+<td style="text-align: right;">0.4928</td>
+<td style="text-align: right;">1.4566</td>
+<td style="text-align: right;">1.4703</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><code>00000/066.mp4</code></td>
+<td style="text-align: right;">0.5053</td>
+<td style="text-align: right;">0.4815</td>
+<td style="text-align: right;">1.6778</td>
+<td style="text-align: right;">1.8373</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>Mean / total</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>0.4253</strong></td>
+<td style="text-align: right;"><strong>0.4332</strong></td>
+<td style="text-align: right;"><strong>1.4163</strong></td>
+<td style="text-align: right;"><strong>1.5004</strong></td>
+<td style="text-align: right;"><strong>117</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout1/plots/01_five_video_pilot_original.svg"><img alt="Five-video pilot: original rollout-1 and rollout-5 errors, with separate validity counts" loading="lazy" src="assets/rollout1/plots/01_five_video_pilot_original.svg"/></a></p>
+<p><em>Original rollout-1 improved on 2/5 videos; rollout-5 improved on 0/5. Scorable transitions nevertheless increased from 832 to 991 out of 1,100. The validity gain and the original error measurements therefore give different assessments of this pilot.</em></p>
+<p>The tracker was subsequently revised to retain every detected ball before identity matching. A separate Case 2 rerun accepted <strong>26 updates</strong> and retained <strong>204/220</strong> scorable transitions. Its original rollout-1/rollout-5 errors were <strong>0.4203/1.3926</strong>, versus <strong>0.4316/1.4111</strong> for its control. This rerun improved both original errors slightly and still lacked complete validity.</p>
+<p>Sources: <a href="assets/rollout1/data/five_video_results.csv">reevaluated five-video results</a>, <a href="assets/rollout1/sources/out/guidance/guidance-experiments-report/ROLLOUT1_SINGLE_SOURCE_REPORT_DATA.json">saved experiment metadata</a>, <span class="archive-reference">interactive pilot report (<code>out/guidance/guidance-experiments-report/rollout1-single-source-guidance.html</code>)</span>.</p>
+<h2 id="3-direct-guidance-improved-the-tuned-case-2-generation">3. Direct guidance improved the tuned Case 2 generation</h2>
+<p>The extensive sweep changed the procedure. At each active denoising step, it set a threshold from the initial minimum source error. It repeatedly selected the <strong>smallest error still above that threshold</strong>, formed a one-frame physics target, and applied the gradient directly, without proposal acceptance or rollback. Source selection, update policy, and budget changed together.</p>
+<p>The early runs tested guidance strength, thresholds, start/end steps, update counts, and whether to restrict updates to the target's latent time slice. Thirteen early runs retain their configurations and validity evaluations, but their final videos are absent. Their original rollout errors cannot be reconstructed from the saved newer-metric summaries. The <a href="assets/rollout1/data/case2_saved_evaluations.csv">run inventory</a> leaves those original-error entries blank.</p>
+<p>Further tuning selected <code>h1-run-29-sqrt-start0p7</code> in the historical report. Its video survives, and its configuration was:</p>
+<div aria-label="3. Direct guidance improved the tuned Case 2 generation table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active denoising steps</td>
+<td>25–49, inclusive; indices start at zero</td>
+</tr>
+<tr>
+<td>Update budget</td>
+<td>50 per active step; 1,250 total</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>Linear decay from 0.70 to 0.20</td>
+</tr>
+<tr>
+<td>Correction magnitude</td>
+<td>Strength × square root of latent loss, with an RMS-normalized gradient and denoising step size</td>
+</tr>
+<tr>
+<td>Source threshold</td>
+<td>0.5 × the step's initial minimum source error, floored at 10⁻⁶</td>
+</tr>
+<tr>
+<td>Source revisiting</td>
+<td>Repeated minimum-error selection above the threshold</td>
+</tr>
+<tr>
+<td>Gradient</td>
+<td>Through the denoiser, updating all future latent slices</td>
+</tr>
+<tr>
+<td>Guidance loss</td>
+<td>Encoded-latent target built from a detected-ball redraw</td>
+</tr>
+</tbody>
+</table></div>
+<div aria-label="3. Direct guidance improved the tuned Case 2 generation table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case 2 result</th>
+<th style="text-align: right;">Original rollout-1</th>
+<th style="text-align: right;">Original rollout-5</th>
+<th style="text-align: right;">Scorable / 220</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vanilla control</td>
+<td style="text-align: right;">0.4316</td>
+<td style="text-align: right;">1.4111</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr>
+<td>Historically selected cap-50 run</td>
+<td style="text-align: right;"><strong>0.3655</strong></td>
+<td style="text-align: right;"><strong>1.2949</strong></td>
+<td style="text-align: right;"><strong>220</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>This is a <strong>15.3% reduction in rollout-1</strong> and an <strong>8.2% reduction in rollout-5</strong>, alongside restored validity. No missing, wrong-color, or extra balls were detected in the selected run.</p>
+<p>The lower mean did not imply uniformly smaller errors. Under the original rollout-1 calculation, p95 fell from <strong>1.1887 to 1.0234</strong>, while maximum error rose from <strong>2.6335 to 3.1458</strong>.</p>
+<p>“Historically selected” identifies the run retained by the earlier investigation. It is not a claim that this configuration minimizes the original metrics across all subsequent tests.</p>
+<p>Sources: <a href="assets/rollout1/data/original_rollouts.json">original scores and provenance</a>, <span class="archive-reference">historical Case 2 report (<code>out/guidance/guidance-experiments-report/rollout-smallest-error-results-so-far.html</code>)</span>, <a href="assets/rollout1/videos/cap50.mp4">selected video</a>.</p>
+<h2 id="4-larger-update-budgets-did-not-help-nearby-caps-traded-error-against-validity">4. Larger update budgets did not help; nearby caps traded error against validity</h2>
+<p>The budget comparison held the selected settings fixed and changed the allowed updates per denoising step. The original-metric results are:</p>
+<div aria-label="4. Larger update budgets did not help; nearby caps traded error against validity table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Cap per step</th>
+<th style="text-align: right;">Total updates</th>
+<th style="text-align: right;">Rollout-1</th>
+<th style="text-align: right;">Rollout-5</th>
+<th style="text-align: right;">Scorable / 220</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">1,200</td>
+<td style="text-align: right;">0.6205</td>
+<td style="text-align: right;">1.7344</td>
+<td style="text-align: right;">163</td>
+</tr>
+<tr>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,225</td>
+<td style="text-align: right;">0.4530</td>
+<td style="text-align: right;">1.2526</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>50</strong></td>
+<td style="text-align: right;"><strong>1,250</strong></td>
+<td style="text-align: right;"><strong>0.3655</strong></td>
+<td style="text-align: right;"><strong>1.2949</strong></td>
+<td style="text-align: right;"><strong>220</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,275</td>
+<td style="text-align: right;"><strong>0.3483</strong></td>
+<td style="text-align: right;"><strong>1.2362</strong></td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">1,875</td>
+<td style="text-align: right;">0.4239</td>
+<td style="text-align: right;">1.3901</td>
+<td style="text-align: right;">207</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2,500</td>
+<td style="text-align: right;">0.4423</td>
+<td style="text-align: right;">1.5622</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">5,000</td>
+<td style="text-align: right;">0.5199</td>
+<td style="text-align: right;">1.7377</td>
+<td style="text-align: right;">204</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">12,500</td>
+<td style="text-align: right;">0.4852</td>
+<td style="text-align: right;">1.7596</td>
+<td style="text-align: right;">167</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout1/plots/02_update_cap_sweep_original.svg"><img alt="Update-cap sweep using original rollout-1 and rollout-5 errors, with validity shown separately" loading="lazy" src="assets/rollout1/plots/02_update_cap_sweep_original.svg"/></a></p>
+<p><em>Green marks the historically selected cap 50. Every cap from 75 through 500 worsened both original errors. Cap 51 improved both errors slightly, but reduced coverage to 214/220. Cap 49 improved rollout-5 while worsening rollout-1 and validity.</em></p>
+<p>Cap 500 used <strong>ten times as many updates</strong> as cap 50 and worsened both error metrics. Increasing the budget was not sufficient to improve this configuration.</p>
+<p>Sources: <a href="assets/rollout1/data/case2_update_caps.csv">cap comparison with source paths</a>, <a href="assets/rollout1/sources/out/guidance/smallest-error-rollout-case2/h1-best-u75/run.json">75-update configuration</a>, <a href="assets/rollout1/sources/out/guidance/smallest-error-rollout-case2/h1-best-u500/run.json">500-update configuration</a>.</p>
+<h2 id="5-some-nearby-settings-improve-the-original-metrics-without-losing-validity">5. Some nearby settings improve the original metrics without losing validity</h2>
+<p>The final batch contained <strong>21 completed generations</strong>: six tie-breaking seeds, three earlier stopping points, nine changes to the final step's strength, and the three nearby update caps above. All 21 videos survive and have been rescored with both original metrics.</p>
+<p><a href="assets/rollout1/plots/03_final_batch_original.svg"><img alt="Final tuning batch using original rollout errors and separate coverage counts" loading="lazy" src="assets/rollout1/plots/03_final_batch_original.svg"/></a></p>
+<p><em>Blue columns show the historical reference: seed 0, final active step 49, and step-49 strength 0.20. These are measured values, not pass/fail classifications under the old success gate.</em></p>
+<p>Several variants improved on the reference while retaining all 220 scorable transitions:</p>
+<div aria-label="5. Some nearby settings improve the original metrics without losing validity table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th style="text-align: right;">Rollout-1</th>
+<th style="text-align: right;">Rollout-5</th>
+<th style="text-align: right;">Scorable / 220</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Historical reference</td>
+<td style="text-align: right;">0.3655</td>
+<td style="text-align: right;">1.2949</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr>
+<td>Step-49 strength <strong>0.10</strong></td>
+<td style="text-align: right;"><strong>0.3195</strong></td>
+<td style="text-align: right;"><strong>1.1459</strong></td>
+<td style="text-align: right;"><strong>220</strong></td>
+</tr>
+<tr>
+<td>Tie-breaking seed 5</td>
+<td style="text-align: right;">0.3221</td>
+<td style="text-align: right;">1.2252</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr>
+<td>Stop guidance after step 46</td>
+<td style="text-align: right;">0.3244</td>
+<td style="text-align: right;">1.1513</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr>
+<td>Step-49 strength 0.05</td>
+<td style="text-align: right;">0.3476</td>
+<td style="text-align: right;">1.1927</td>
+<td style="text-align: right;">220</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step-49 strength 0.10 has the lowest original rollout-1 and rollout-5 errors among the 21 final-batch variants.</strong> It changes only the final step's strength. Ending guidance at step 46 also helps both original metrics; those saved configurations adjust the strength endpoint to preserve the intended earlier schedule.</p>
+<p>The historical report recorded no full success under its own validity-aware error thresholds. Reevaluation with the original metrics gives a different ranking: the reference is beaten by several nearby settings, including settings with complete validity. These are all still results on the same Case 2 generation.</p>
+<p>Sources: <a href="assets/rollout1/data/case2_saved_evaluations.csv">final-batch scores and configurations</a>, <a href="assets/rollout1/sources/out/guidance/smallest-error-rollout-case2/stopped-2026-09-03/README.md">historical archive description</a>.</p>
+<h2 id="6-update-behavior-and-alternative-guidance-losses">6. Update behavior and alternative guidance losses</h2>
+<p>The saved trace shows how the selected configuration spent its <strong>1,250 updates</strong>:</p>
+<p><a href="assets/rollout1/plots/rollout1-global-guidance-order.svg"><img alt="Order of guidance updates in the historically selected Case 2 run" loading="lazy" src="assets/rollout1/plots/rollout1-global-guidance-order.svg"/></a></p>
+<p><em>Horizontal position identifies the target video frame; vertical position gives cumulative update order. Each band contains one denoising step's 50 updates. The method repeatedly revisits target frames. The <a href="assets/rollout1/plots/rollout1-guidance-order.svg">exact per-step matrix</a> records every target index.</em></p>
+<p>A separate update audit in the historical report evaluated the guide's own local physics error. It decreased on <strong>44.9% of all updates</strong>, or <strong>52.0%</strong> of updates where the same source remained measurable. These are diagnostics of the guidance procedure, not the original final-video rollout scores plotted here.</p>
+<p>The investigation also changed the guidance loss and target construction:</p>
+<div aria-label="6. Update behavior and alternative guidance losses table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Recorded full-generation result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decoded-pixel loss</td>
+<td>All three runs lost ball validity</td>
+</tr>
+<tr>
+<td>Decoded color-moment loss</td>
+<td>The three runs retained only 144–149/220 scorable transitions</td>
+</tr>
+<tr>
+<td>Current decoded video as the reference for unchanged frames</td>
+<td>The three runs retained 60, 134, and 138/220 scorable transitions</td>
+</tr>
+</tbody>
+</table></div>
+<p>The original report preserves these outcomes and records <strong>66 full horizon-1 generations</strong> across the direct-update investigation. The alternative-loss videos are not in the surviving archive used for this reevaluation, so no original rollout scores are assigned to them.</p>
+<p>Source: <span class="archive-reference">historical diagnostics and variant results (<code>out/guidance/guidance-experiments-report/rollout-smallest-error-results-so-far.html</code>)</span>.</p>
+<h2 id="7-the-ten-video-follow-up-worsened-both-original-metrics">7. The ten-video follow-up worsened both original metrics</h2>
+<p>On September 4, one direct-update configuration was run on <strong>10 videos × 5 denoising-step counts: 10, 20, 50, 100, and 200</strong>.</p>
+<p>This experiment used <strong>cap 75</strong>, strength <strong>0.70 → 0.20</strong>, and absolute start step <strong>25</strong>. It therefore differs from both the historical cap-50 reference and the better final-step-strength variants above. The launcher replayed the corresponding baseline batch's noise position for each video.</p>
+<p>The <strong>10- and 20-step runs applied zero guidance updates</strong>, because they never reached step 25. Their scores are retained in the data tables. Their differences from saved controls cannot be attributed to guidance.</p>
+<p>For the three active step counts:</p>
+<div aria-label="7. The ten-video follow-up worsened both original metrics table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Denoising steps</th>
+<th style="text-align: right;">Updates per video</th>
+<th style="text-align: right;">Rollout-1 vanilla</th>
+<th style="text-align: right;">Rollout-1 guided</th>
+<th style="text-align: right;">Rollout-5 vanilla</th>
+<th style="text-align: right;">Rollout-5 guided</th>
+<th style="text-align: right;">Videos improved, either metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">1,875</td>
+<td style="text-align: right;">0.2317</td>
+<td style="text-align: right;">0.6175</td>
+<td style="text-align: right;">0.9368</td>
+<td style="text-align: right;">1.8875</td>
+<td style="text-align: right;">0/10</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">5,580–5,625</td>
+<td style="text-align: right;">0.2159</td>
+<td style="text-align: right;">0.5980</td>
+<td style="text-align: right;">0.8823</td>
+<td style="text-align: right;">1.8098</td>
+<td style="text-align: right;">0/10</td>
+</tr>
+<tr>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">13,125</td>
+<td style="text-align: right;">0.2387</td>
+<td style="text-align: right;">0.5516</td>
+<td style="text-align: right;">0.9035</td>
+<td style="text-align: right;">1.7335</td>
+<td style="text-align: right;">0/10</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout1/plots/04_ten_video_aggregate_original.svg"><img alt="Ten-video means for original rollout-1 and rollout-5, with separate validity" loading="lazy" src="assets/rollout1/plots/04_ten_video_aggregate_original.svg"/></a></p>
+<p><em>Each mean weights the ten videos equally. Guided coverage was 914/2,200, 917/2,200, and 990/2,200 at 50, 100, and 200 steps: 41.5%, 41.7%, and 45.0%. The corresponding controls had 91.4%, 95.7%, and 87.7% coverage.</em></p>
+<p><a href="assets/rollout1/plots/05_ten_video_cases_original.svg"><img alt="Per-video differences for both original rollout metrics and guided coverage" loading="lazy" src="assets/rollout1/plots/05_ten_video_cases_original.svg"/></a></p>
+<p><em>Every guided output has higher original rollout-1 and rollout-5 error than its corresponding control at each active step count. The two error panels use their own color scales. The right-hand panel gives separate validity counts.</em></p>
+<p>The Case 2 follow-up also uses a different noise realization from the single-video sweep, despite both recording seed 0: it replays position 1 of a 112-sample baseline batch. Its 50-step vanilla control scores <strong>0.1647/0.6973</strong> on original rollout-1/rollout-5, versus <strong>0.4316/1.4111</strong> for the sweep's control. These are different generated controls.</p>
+<p>This follow-up establishes poor performance for the tested cap-75 configuration. It does not test the cap-50 configuration with step-49 strength 0.10 across ten videos.</p>
+<p>Sources: <a href="assets/rollout1/data/ten_video_results.csv">per-video results</a>, <a href="assets/rollout1/data/ten_video_aggregate.csv">aggregate results</a>, <a href="assets/rollout1/sources/scripts/sshv2/run_best_rollout1_matched_matrix.py">launcher</a>, <a href="assets/rollout1/sources/out/guidance/best-rollout1-matched-10samples-5steps-v1/case-2/steps-50/run.json">Case 2 follow-up configuration</a>.</p>
+<h2 id="8-saved-video-comparison">8. Saved-video comparison</h2>
+<p>The following frames show the same Case 2 input at five fixed video-frame indices. The sweep's cap-50 output retains the five colors in these frames; cap 500 shows a changed color at the end. The follow-up has a different vanilla control and its own cap-75 output.</p>
+<p><a href="assets/rollout1/plots/06_case2_video_frames.svg"><img alt="Actual Case 2 frames: ground truth, sweep control, cap 50, cap 500, and the follow-up control and guided output" loading="lazy" src="assets/rollout1/plots/06_case2_video_frames.svg"/></a></p>
+<p><em>Frames 5, 16, 27, 38, and 48, indexed from zero. These are decoded frames from saved MP4s. The error metrics above cover all evaluated future frames.</em></p>
+<p>Full videos: <a href="assets/rollout1/videos/cap50.mp4">historical cap 50</a>, <a href="assets/rollout1/videos/tuned-final-scale-0p10.mp4">step-49 strength 0.10</a>, <a href="assets/rollout1/videos/cap500.mp4">cap 500</a>, <a href="assets/guidance/videos/case-2/steps-50/rollout1.mp4">follow-up Case 2 at 50 steps</a>.</p>
+<h2 id="data-and-reproduction">Data and reproduction</h2>
+<p>Both original metrics were recomputed for <strong>140 saved video files</strong>, including experiment outputs, controls, and the Case 2 ground truth. Each metric was checked against 50 stored original-metric baseline evaluations. Maximum absolute differences were <strong>1.1 × 10⁻⁸ for rollout-1</strong> and <strong>2.2 × 10⁻⁶ for rollout-5</strong>.</p>
+<p>The six new figures use these original scores and separate saved validity counts. The guidance-order figure is reused from the historical report. No new videos were generated.</p>
+<ul>
+<li><a href="assets/rollout1/data/original_rollouts.csv">Original scores</a> and <a href="assets/rollout1/data/original_rollouts.json">provenance</a>: per-video means, p95/max values, video hashes, implementation hashes, and validation.</li>
+<li><a href="assets/rollout1/data/figure_data.json">Figure data</a>, <a href="assets/rollout1/data/five_video_results.csv">pilot results</a>, and <a href="assets/rollout1/data/case2_update_caps.csv">cap comparison</a>.</li>
+<li><a href="assets/rollout1/data/case2_saved_evaluations.csv">Case 2 inventory</a>: original scores for the 21 final-batch videos; configurations and validity for 13 earlier runs whose videos are absent.</li>
+<li><a href="assets/rollout1/data/ten_video_results.csv">Ten-video results</a> and <a href="assets/rollout1/data/ten_video_aggregate.csv">aggregates</a>.</li>
+<li>Recompute scores with <a href="assets/rollout1/sources/out/guidance/rollout1-report-assets/score_original_rollouts.py">score_original_rollouts.py</a>, then rebuild figures and tables with <a href="assets/rollout1/sources/out/guidance/rollout1-report-assets/build_figures.py">build_figures.py</a>: <code>python out/guidance/rollout1-report-assets/score_original_rollouts.py</code>, followed by <code>python out/guidance/rollout1-report-assets/build_figures.py</code>.</li>
+</ul></div>
+      <p class="method-return"><a class="button" href="index.html#rollout1-results">Return to the results →</a></p>
+    </article>
+  </main>
+  <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="index.html">Project page →</a></footer>
+</body>
+</html>

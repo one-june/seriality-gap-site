@@ -33,7 +33,7 @@
       </header>
 
       <div class="theory-prose method-content">
-        <h2 id="settings">Settings used in the comparison</h2>
+        <h2 id="settings">Settings used in the ten-video comparison</h2>
         <table class="method-table">
           <tbody>
             <tr><th scope="row">Video</th><td>5 balls; 49 frames at 128 × 128 pixels</td></tr>
@@ -49,6 +49,7 @@
           </tbody>
         </table>
         <p>At 10 or 20 reverse steps, guidance never activates because the run ends before step index 25. The settings above are shared by all ten cases.</p>
+        <p>The separate <a href="index.html#rollout1-tuned">tuned Case 2 example</a> uses the same guidance procedure with 50 updates per step and a final-step strength override of 0.10.</p>
 
         <h2 id="prediction">1. Form the current clean-video estimate</h2>
         <p>The input video is VAE-encoded, and its first two latent frames become the fixed conditioning. The remaining latent entries start from seeded Gaussian noise. The comparison launcher reproduces each vanilla run’s noise batch shape and selects the same sample position from that batch.</p>
