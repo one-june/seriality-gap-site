@@ -14,14 +14,28 @@ Open <http://localhost:8000>. You can also open `index.html` directly in a brows
 
 ## Publish on GitHub Pages
 
-1. Commit and push `docs/` to the branch you want to publish.
-2. In the GitHub repository, open **Settings → Pages**.
-3. Under **Source**, select **Deploy from a branch**.
-4. Select that branch and **/docs**, then save.
+Continue editing `docs/` in the research repository. A separate public repository, `one-june/seriality-gap-site`, hosts the website. No second local working directory is needed.
 
-GitHub displays the published URL in the Pages settings. This setup follows [GitHub's publishing-source guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+After committing changes to `docs/`, run this from the research repository:
 
-To use a separate website repository, copy everything inside `docs/`, including `.nojekyll` and `.gitignore`, to its root. Select **/(root)** as that repository's Pages source. All site resources use relative paths within this directory.
+```bash
+bash scripts/publish_project_page.sh
+```
+
+The script extracts the committed `docs/` history and pushes it to the website repository's `main` branch, with `index.html` at the root. It checks that the exported tree exactly matches `docs/`. Research files outside `docs/` are not included. The command uses the existing Git SSH access and does not require GitHub CLI authentication for subsequent updates.
+
+For a preview of the push, use `bash scripts/publish_project_page.sh --dry-run`. To target a different website repository, set `PROJECT_PAGE_REMOTE` to its Git URL.
+
+One-time GitHub setup:
+
+1. Create an empty **public** repository named `seriality-gap-site` under `one-june`.
+2. Run the publishing command above.
+3. In that public repository, open **Settings → Pages**.
+4. Select **Deploy from a branch**, **main**, and **/(root)**, then save.
+
+After deployment, share <https://one-june.github.io/seriality-gap-site/>. Publishing from a public repository works with GitHub Free; the research repository can remain private. See [GitHub's Pages requirements](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) and [publishing-source guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
+For other static hosts, copy everything inside `docs/`, including `.nojekyll` and `.gitignore`, to the site's root. All site resources use relative paths within this directory.
 
 To export an archive from the repository root:
 
