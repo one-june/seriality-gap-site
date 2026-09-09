@@ -1,0 +1,2 @@
+# Curated project-page clips must be tracked despite the repo-wide MP4 rule.
+!assets/**/*.mp4

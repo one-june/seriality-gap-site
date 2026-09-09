@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimental findings on autoregressive generation, bidirectional video diffusion, and guidance, with interactive video comparisons.">
+  <meta name="theme-color" content="#faf9f6">
+  <title>The Seriality Gap · Experimental Findings</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/guidance/comparison-data.js"></script>
+  <script defer src="assets/comparison.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header class="site-header">
+    <a class="wordmark" href="#">Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Page sections">
+      <a href="#guidance">Findings</a>
+      <a href="#comparison">Videos</a>
+      <a href="#data">Data</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <p class="eyebrow">Experimental findings</p>
+      <h1>The Seriality Gap<br>in Video Diffusion Models</h1>
+      <p class="hero-description">Experiments on autoregressive generation,<br class="desktop-break"> bidirectional diffusion, and guidance.</p>
+      <div class="hero-links">
+        <a class="button primary" href="#comparison">Explore the videos <span aria-hidden="true">↗</span></a>
+        <a class="button" href="#guidance">Read the findings <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <!-- Add future experiment sections inside main, following this section. -->
+    <section class="experiment" id="guidance" aria-labelledby="guidance-title">
+      <div class="section-heading reading-width">
+        <p class="eyebrow">01 / Guidance</p>
+        <h2 id="guidance-title">Autoregressive and<br class="desktop-break"> bidirectional diffusion</h2>
+        <p class="section-intro">Autoregressive diffusion gives lower errors than vanilla bidirectional diffusion across the tested reverse-step counts. Clean-latent oracle guidance reveals how much the bidirectional sampler can improve when given the correct future.</p>
+        <div class="study-facts" aria-label="Experiment setup">
+          <span>5 balls · 49 frames</span>
+          <span>896 holdout videos per seed</span>
+          <span>Seeds 0–2</span>
+        </div>
+        <p class="setup-note">Both models use the same conditioning, targets, step counts, and metrics. We test 10, 20, 50, 100, and 200 reverse steps. Results are averaged over seeds, with no checkpoint averaging.</p>
+      </div>
+
+      <div class="findings reading-width">
+        <h3>What we found</h3>
+        <ol class="finding-list">
+          <li><strong>Autoregressive diffusion outperforms vanilla bidirectional diffusion.</strong> This holds at every tested step count on rollout-5 error, exact-future error, and penalized rollout-5 error.</li>
+          <li><strong>Autoregressive accuracy does not improve steadily with more reverse steps.</strong> Its rollout-5 and exact-future errors rise slightly at 100–200 steps; penalized rollout-5 stays near 0.9 across the sweep.</li>
+          <li><strong>Clean-latent oracle guidance shows that bidirectional diffusion can use the correct target.</strong> It sharply lowers exact-future error and reaches the autoregressive model’s rollout-5 error around 50 steps. This guide uses the exact ground-truth future video.</li>
+          <li><strong>Penalizing invalid balls changes the oracle comparison.</strong> Oracle penalized rollout-5 is 13.07 at 10 steps and 12.50 at 20 steps. It beats autoregressive diffusion at 100 and 200 steps, reaching about 0.73 versus 0.90–0.93.</li>
+        </ol>
+      </div>
+
+      <figure class="plot" id="reverse-step-results">
+        <div class="figure-heading"><h3>Rollout-5 and exact-future error</h3><a href="assets/guidance/plots/autoregressive_5ball49f_reverse_steps.svg" download>Download SVG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/guidance/plots/autoregressive_5ball49f_reverse_steps.svg" alt="Autoregressive results by seed and comparison with vanilla bidirectional diffusion and clean-latent oracle guidance" width="1801" height="1294" loading="lazy">
+        <figcaption><span class="figure-number">Figure 1.</span> The top row shows individual autoregressive seeds and their mean. The bottom row compares the three methods. Lower error is better.</figcaption>
+      </figure>
+
+      <figure class="plot" id="penalized-results">
+        <div class="figure-heading"><h3>Penalized rollout-5 error</h3><a href="assets/guidance/plots/autoregressive_5ball49f_penalized_rollout5.svg" download>Download SVG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/guidance/plots/autoregressive_5ball49f_penalized_rollout5.svg" alt="Penalized rollout-5 error for autoregressive diffusion, vanilla bidirectional diffusion, and clean-latent oracle guidance" width="1416" height="836" loading="lazy">
+        <figcaption><span class="figure-number">Figure 2.</span> This metric penalizes missing, extra, disappearing, reappearing, and color-changing balls. Lower error is better.</figcaption>
+      </figure>
+
+      <div class="comparison-section" id="comparison">
+        <div class="reading-width comparison-heading">
+          <p class="eyebrow">Watch the same sample across methods</p>
+          <h3>Generated video comparison</h3>
+          <p>Choose a sample and a reverse-step count. Play, pause, and step through all five videos together. Every clip has 49 frames; playback follows the same frame position.</p>
+        </div>
+
+        <div class="viewer" aria-label="Synchronized video comparison">
+          <div class="viewer-selection">
+            <label>Sample<select id="case-select"></select></label>
+            <label>Reverse steps<select id="steps-select"></select></label>
+            <p class="sample-info" id="sample-info" aria-live="polite"></p>
+          </div>
+          <div class="video-grid" id="video-grid"></div>
+          <div class="playback-toolbar">
+            <div class="playback-buttons">
+              <button class="button primary" id="play-button" type="button" disabled>Play all</button>
+              <button class="button" id="restart-button" type="button" disabled>Restart</button>
+              <button class="icon-button" id="previous-frame" type="button" aria-label="Previous frame" title="Previous frame" disabled>←</button>
+              <button class="icon-button" id="next-frame" type="button" aria-label="Next frame" title="Next frame" disabled>→</button>
+            </div>
+            <label class="speed-control">Speed<select id="speed-select"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+            <label class="loop-control"><input id="loop-toggle" type="checkbox" checked> Loop</label>
+            <output id="frame-output" for="frame-slider">Frame 1 / 49</output>
+            <input id="frame-slider" class="frame-slider" type="range" min="0" max="48" step="1" value="0" aria-label="Shared video frame" disabled>
+          </div>
+          <p class="viewer-status" id="viewer-status" role="status" aria-live="polite">Loading the comparison…</p>
+          <noscript><p class="viewer-status">Enable JavaScript for synchronized playback. Open the default clips individually: <a href="assets/guidance/videos/case-2/ground-truth.mp4">ground truth</a>, <a href="assets/guidance/videos/case-2/steps-50/bidirectional.mp4">bidirectional</a>, <a href="assets/guidance/videos/case-2/steps-50/autoregressive.mp4">autoregressive</a>, <a href="assets/guidance/videos/case-2/steps-50/oracle.mp4">oracle</a>, and <a href="assets/guidance/videos/case-2/steps-50/rollout1.mp4">rollout-1 guidance</a>.</p></noscript>
+        </div>
+
+        <p class="example-note reading-width" id="example-note"><strong>Case 2 at 50 steps.</strong> Rollout-1 guidance produces missing, wrong-color, and extra balls. Only 19 of 220 ball/frame pairs can be scored for rollout-5, explaining the large penalty.</p>
+        <p class="metric-note reading-width">Scores below each video belong to the selected sample, seed 0. The plots above summarize the full holdout set across seeds 0–2.</p>
+      </div>
+
+      <div class="data-section reading-width" id="data">
+        <p class="eyebrow">Data behind the figures</p>
+        <h3>Holdout summaries</h3>
+        <p>Download the autoregressive results and the bidirectional evaluations used for penalized rollout-5.</p>
+        <div class="data-links">
+          <a href="assets/guidance/summaries/autoregressive.json" download><span>Autoregressive</span><small>JSON <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/guidance/summaries/bidirectional.json" download><span>Bidirectional</span><small>JSON <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/guidance/summaries/oracle.json" download><span>Clean-latent oracle</span><small>JSON <span aria-hidden="true">↓</span></small></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>The Seriality Gap · Experimental findings</span><a href="#">Back to top ↑</a></footer>
+</body>
+</html>
