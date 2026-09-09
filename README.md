@@ -69,6 +69,8 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 
 The viewer loads only the five selected clips. Its URL records the selected case and step count so a comparison can be shared directly. The default is Case 2, seed 0, at 50 reverse steps. Frame stepping pauses playback; Restart preserves whether the viewer was playing. Playback speed is adjusted for each clip's duration so all methods follow the same frame position.
 
+The headline score beneath each clip is the repository's original `rollout_h5_error`. The exporter reads saved scores from `REPORT_DATA.json`; for ground-truth and rollout-1-guided clips, it computes missing scores with the same video tracker, five-step rollout, and center-error calculation used by `scripts/sshv2/eval.py`, excluding the five conditioning frames. The separate valid-pair and penalized metrics remain available under **All metrics**.
+
 ## Refresh the guidance assets
 
 With the original experiment outputs present, run this from the repository root:
@@ -77,6 +79,6 @@ With the original experiment outputs present, run this from the repository root:
 python scripts/export_project_page_guidance.py
 ```
 
-The export script uses Beautiful Soup (`beautifulsoup4`) to read the original report. It copies the two figures, three summaries, and all referenced comparison clips, then rebuilds the viewer's data file. It does not change `index.html` or assets belonging to other results.
+Run the export script in the project's Python environment. It uses Beautiful Soup (`beautifulsoup4`) to read the original report and the repository's simulation dependencies to compute missing original Rollout-5 scores. This also requires the corresponding source simulation files in `data/bounce/eval_49f_5n_0c/`. It copies the two figures, three summaries, and all referenced comparison clips, then rebuilds the viewer's data file. It does not change `index.html` or assets belonging to other results.
 
 Layout reference: [Nerfies](https://nerfies.github.io/), an example of a research project page with figures, videos, and interactive controls. This site uses its own HTML, CSS, and JavaScript.

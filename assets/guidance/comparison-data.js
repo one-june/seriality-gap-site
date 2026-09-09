@@ -68,7 +68,8 @@ window.guidanceComparison = {
             "valid": "0.0519",
             "penalized": "0.0519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0781"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -88,7 +89,8 @@ window.guidanceComparison = {
             "valid": "0.6315",
             "penalized": "5.5445",
             "scored": "140/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "1.1944"
           }
         },
         "validity": "Missing 20 ball-frames · Wrong color 0 ball-frames · Extra 11 frames / 11 instances"
@@ -108,7 +110,8 @@ window.guidanceComparison = {
             "valid": "0.2332",
             "penalized": "0.2332",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6630"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -128,7 +131,8 @@ window.guidanceComparison = {
             "valid": "0.2312",
             "penalized": "12.9407",
             "scored": "19/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "1.5478"
           }
         },
         "validity": "Missing 107 ball-frames · Wrong color 60 ball-frames · Extra 32 frames / 83 instances"
@@ -148,7 +152,8 @@ window.guidanceComparison = {
             "valid": "0.5127",
             "penalized": "5.4689",
             "scored": "140/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "1.3713"
           }
         },
         "validity": "Missing 20 ball-frames · Wrong color 0 ball-frames · Extra 11 frames / 11 instances"
@@ -170,7 +175,8 @@ window.guidanceComparison = {
             "valid": "0.0519",
             "penalized": "0.0519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0781"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -190,7 +196,8 @@ window.guidanceComparison = {
             "valid": "0.6029",
             "penalized": "2.0799",
             "scored": "196/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.9614"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 14 ball-frames · Extra 0 frames / 0 instances"
@@ -210,7 +217,8 @@ window.guidanceComparison = {
             "valid": "0.3701",
             "penalized": "0.3701",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7506"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -230,7 +238,8 @@ window.guidanceComparison = {
             "valid": "0.1899",
             "penalized": "12.8737",
             "scored": "20/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "2.0360"
           }
         },
         "validity": "Missing 48 ball-frames · Wrong color 49 ball-frames · Extra 32 frames / 45 instances"
@@ -250,7 +259,8 @@ window.guidanceComparison = {
             "valid": "0.6163",
             "penalized": "2.0919",
             "scored": "196/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "1.3337"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 14 ball-frames · Extra 0 frames / 0 instances"
@@ -272,7 +282,8 @@ window.guidanceComparison = {
             "valid": "0.0519",
             "penalized": "0.0519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0781"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -292,7 +303,8 @@ window.guidanceComparison = {
             "valid": "0.5945",
             "penalized": "1.0256",
             "scored": "213/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8721"
           }
         },
         "validity": "Missing 3 ball-frames · Wrong color 4 ball-frames · Extra 0 frames / 0 instances"
@@ -312,7 +324,8 @@ window.guidanceComparison = {
             "valid": "0.2301",
             "penalized": "0.2301",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6486"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -332,7 +345,8 @@ window.guidanceComparison = {
             "valid": "0.1871",
             "penalized": "0.1871",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5641"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -352,7 +366,8 @@ window.guidanceComparison = {
             "valid": "0.9313",
             "penalized": "2.9130",
             "scored": "187/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "1.8443"
           }
         },
         "validity": "Missing 5 ball-frames · Wrong color 3 ball-frames · Extra 0 frames / 0 instances"
@@ -374,7 +389,8 @@ window.guidanceComparison = {
             "valid": "0.0519",
             "penalized": "0.0519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0781"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -394,7 +410,8 @@ window.guidanceComparison = {
             "valid": "0.5502",
             "penalized": "1.3534",
             "scored": "207/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.7932"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 3 ball-frames · Extra 1 frames / 1 instances"
@@ -414,7 +431,8 @@ window.guidanceComparison = {
             "valid": "0.3123",
             "penalized": "0.3123",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6383"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -434,7 +452,8 @@ window.guidanceComparison = {
             "valid": "0.1544",
             "penalized": "0.7902",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.5279"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -454,7 +473,8 @@ window.guidanceComparison = {
             "valid": "0.6299",
             "penalized": "0.6299",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.4086"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -476,7 +496,8 @@ window.guidanceComparison = {
             "valid": "0.0519",
             "penalized": "0.0519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0781"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -496,7 +517,8 @@ window.guidanceComparison = {
             "valid": "0.6429",
             "penalized": "0.6429",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7846"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -516,7 +538,8 @@ window.guidanceComparison = {
             "valid": "0.2223",
             "penalized": "0.2223",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6496"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -536,7 +559,8 @@ window.guidanceComparison = {
             "valid": "0.1686",
             "penalized": "0.8038",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4601"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -556,7 +580,8 @@ window.guidanceComparison = {
             "valid": "0.5709",
             "penalized": "7.6650",
             "scored": "105/220",
-            "sourceAvailable": "130/220"
+            "sourceAvailable": "130/220",
+            "original": "1.7562"
           }
         },
         "validity": "Missing 18 ball-frames · Wrong color 2 ball-frames · Extra 23 frames / 23 instances"
@@ -578,7 +603,8 @@ window.guidanceComparison = {
             "valid": "0.0578",
             "penalized": "0.0578",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0787"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -598,7 +624,8 @@ window.guidanceComparison = {
             "valid": "0.5521",
             "penalized": "0.5521",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8231"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -618,7 +645,8 @@ window.guidanceComparison = {
             "valid": "0.3882",
             "penalized": "0.3882",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5609"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -638,7 +666,8 @@ window.guidanceComparison = {
             "valid": "0.1890",
             "penalized": "13.5079",
             "scored": "10/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "2.2661"
           }
         },
         "validity": "Missing 135 ball-frames · Wrong color 58 ball-frames · Extra 32 frames / 104 instances"
@@ -658,7 +687,8 @@ window.guidanceComparison = {
             "valid": "0.6044",
             "penalized": "0.6044",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.3200"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -680,7 +710,8 @@ window.guidanceComparison = {
             "valid": "0.0578",
             "penalized": "0.0578",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0787"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -700,7 +731,8 @@ window.guidanceComparison = {
             "valid": "0.5740",
             "penalized": "0.5740",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7718"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -720,7 +752,8 @@ window.guidanceComparison = {
             "valid": "0.4171",
             "penalized": "0.4171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5611"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -740,7 +773,8 @@ window.guidanceComparison = {
             "valid": "0.2729",
             "penalized": "13.4487",
             "scored": "11/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "1.7803"
           }
         },
         "validity": "Missing 74 ball-frames · Wrong color 42 ball-frames · Extra 38 frames / 71 instances"
@@ -760,7 +794,8 @@ window.guidanceComparison = {
             "valid": "0.6225",
             "penalized": "0.6225",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.2343"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -782,7 +817,8 @@ window.guidanceComparison = {
             "valid": "0.0578",
             "penalized": "0.0578",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0787"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -802,7 +838,8 @@ window.guidanceComparison = {
             "valid": "0.5579",
             "penalized": "0.5579",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6973"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -822,7 +859,8 @@ window.guidanceComparison = {
             "valid": "0.3647",
             "penalized": "0.3647",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4050"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -842,7 +880,8 @@ window.guidanceComparison = {
             "valid": "0.3159",
             "penalized": "0.3159",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5721"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -862,7 +901,8 @@ window.guidanceComparison = {
             "valid": "0.3994",
             "penalized": "12.9553",
             "scored": "19/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "2.4958"
           }
         },
         "validity": "Missing 56 ball-frames · Wrong color 30 ball-frames · Extra 38 frames / 51 instances"
@@ -884,7 +924,8 @@ window.guidanceComparison = {
             "valid": "0.0578",
             "penalized": "0.0578",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0787"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -904,7 +945,8 @@ window.guidanceComparison = {
             "valid": "0.5694",
             "penalized": "0.5694",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7354"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -924,7 +966,8 @@ window.guidanceComparison = {
             "valid": "0.5092",
             "penalized": "0.5092",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5648"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -944,7 +987,8 @@ window.guidanceComparison = {
             "valid": "0.3138",
             "penalized": "0.3138",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5353"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -964,7 +1008,8 @@ window.guidanceComparison = {
             "valid": "0.4697",
             "penalized": "13.0856",
             "scored": "17/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.7294"
           }
         },
         "validity": "Missing 42 ball-frames · Wrong color 5 ball-frames · Extra 39 frames / 49 instances"
@@ -986,7 +1031,8 @@ window.guidanceComparison = {
             "valid": "0.0578",
             "penalized": "0.0578",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0787"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1006,7 +1052,8 @@ window.guidanceComparison = {
             "valid": "0.5833",
             "penalized": "0.5833",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7375"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1026,7 +1073,8 @@ window.guidanceComparison = {
             "valid": "0.4152",
             "penalized": "0.4152",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4903"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1046,7 +1094,8 @@ window.guidanceComparison = {
             "valid": "0.3067",
             "penalized": "0.3067",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4603"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1066,7 +1115,8 @@ window.guidanceComparison = {
             "valid": "0.3298",
             "penalized": "12.8237",
             "scored": "21/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.8293"
           }
         },
         "validity": "Missing 45 ball-frames · Wrong color 23 ball-frames · Extra 36 frames / 36 instances"
@@ -1088,7 +1138,8 @@ window.guidanceComparison = {
             "valid": "0.0615",
             "penalized": "0.0615",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0817"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1108,7 +1159,8 @@ window.guidanceComparison = {
             "valid": "0.5757",
             "penalized": "0.5757",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6499"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1128,7 +1180,8 @@ window.guidanceComparison = {
             "valid": "0.2263",
             "penalized": "0.2263",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4032"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1148,7 +1201,8 @@ window.guidanceComparison = {
             "valid": "0.2945",
             "penalized": "13.7015",
             "scored": "7/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "2.2307"
           }
         },
         "validity": "Missing 122 ball-frames · Wrong color 73 ball-frames · Extra 42 frames / 105 instances"
@@ -1168,7 +1222,8 @@ window.guidanceComparison = {
             "valid": "0.5603",
             "penalized": "0.5603",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.2024"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1190,7 +1245,8 @@ window.guidanceComparison = {
             "valid": "0.0615",
             "penalized": "0.0615",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0817"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1210,7 +1266,8 @@ window.guidanceComparison = {
             "valid": "0.5923",
             "penalized": "0.5923",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6676"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1230,7 +1287,8 @@ window.guidanceComparison = {
             "valid": "0.2664",
             "penalized": "0.2664",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4334"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1250,7 +1308,8 @@ window.guidanceComparison = {
             "valid": "0.4412",
             "penalized": "11.0283",
             "scored": "50/220",
-            "sourceAvailable": "60/220"
+            "sourceAvailable": "60/220",
+            "original": "1.7795"
           }
         },
         "validity": "Missing 17 ball-frames · Wrong color 34 ball-frames · Extra 9 frames / 12 instances"
@@ -1270,7 +1329,8 @@ window.guidanceComparison = {
             "valid": "0.5794",
             "penalized": "3.0453",
             "scored": "180/220",
-            "sourceAvailable": "200/220"
+            "sourceAvailable": "200/220",
+            "original": "1.1937"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 4 frames / 4 instances"
@@ -1292,7 +1352,8 @@ window.guidanceComparison = {
             "valid": "0.0615",
             "penalized": "0.0615",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0817"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1312,7 +1373,8 @@ window.guidanceComparison = {
             "valid": "0.5708",
             "penalized": "0.5708",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6906"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1332,7 +1394,8 @@ window.guidanceComparison = {
             "valid": "0.2418",
             "penalized": "0.2418",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5468"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1352,7 +1415,8 @@ window.guidanceComparison = {
             "valid": "0.2021",
             "penalized": "0.2021",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4992"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1372,7 +1436,8 @@ window.guidanceComparison = {
             "valid": "0.4015",
             "penalized": "12.9554",
             "scored": "19/220",
-            "sourceAvailable": "40/220"
+            "sourceAvailable": "40/220",
+            "original": "1.5298"
           }
         },
         "validity": "Missing 41 ball-frames · Wrong color 0 ball-frames · Extra 40 frames / 40 instances"
@@ -1394,7 +1459,8 @@ window.guidanceComparison = {
             "valid": "0.0615",
             "penalized": "0.0615",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0817"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1414,7 +1480,8 @@ window.guidanceComparison = {
             "valid": "0.5635",
             "penalized": "0.5635",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6876"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1434,7 +1501,8 @@ window.guidanceComparison = {
             "valid": "0.2555",
             "penalized": "0.2555",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4813"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1454,7 +1522,8 @@ window.guidanceComparison = {
             "valid": "0.2195",
             "penalized": "0.2195",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4886"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1474,7 +1543,8 @@ window.guidanceComparison = {
             "valid": "0.5365",
             "penalized": "13.1526",
             "scored": "16/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.5900"
           }
         },
         "validity": "Missing 56 ball-frames · Wrong color 33 ball-frames · Extra 34 frames / 46 instances"
@@ -1496,7 +1566,8 @@ window.guidanceComparison = {
             "valid": "0.0615",
             "penalized": "0.0615",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0817"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1516,7 +1587,8 @@ window.guidanceComparison = {
             "valid": "0.5250",
             "penalized": "0.5250",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6298"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1536,7 +1608,8 @@ window.guidanceComparison = {
             "valid": "0.2608",
             "penalized": "0.2608",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5537"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1556,7 +1629,8 @@ window.guidanceComparison = {
             "valid": "0.2015",
             "penalized": "0.2015",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4717"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1576,7 +1650,8 @@ window.guidanceComparison = {
             "valid": "0.5417",
             "penalized": "9.5674",
             "scored": "74/220",
-            "sourceAvailable": "100/220"
+            "sourceAvailable": "100/220",
+            "original": "1.4849"
           }
         },
         "validity": "Missing 28 ball-frames · Wrong color 1 ball-frames · Extra 28 frames / 28 instances"
@@ -1598,7 +1673,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1512"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1618,7 +1694,8 @@ window.guidanceComparison = {
             "valid": "0.6215",
             "penalized": "0.6830",
             "scored": "219/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.0723"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -1638,7 +1715,8 @@ window.guidanceComparison = {
             "valid": "0.3466",
             "penalized": "0.3466",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5621"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1658,7 +1736,8 @@ window.guidanceComparison = {
             "valid": "0.5334",
             "penalized": "12.9668",
             "scored": "19/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "1.2297"
           }
         },
         "validity": "Missing 134 ball-frames · Wrong color 45 ball-frames · Extra 33 frames / 75 instances"
@@ -1678,7 +1757,8 @@ window.guidanceComparison = {
             "valid": "0.6344",
             "penalized": "0.6958",
             "scored": "219/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.5980"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -1700,7 +1780,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1512"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1720,7 +1801,8 @@ window.guidanceComparison = {
             "valid": "0.5576",
             "penalized": "1.1751",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.9426"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -1740,7 +1822,8 @@ window.guidanceComparison = {
             "valid": "0.3223",
             "penalized": "0.3223",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5673"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1760,7 +1843,8 @@ window.guidanceComparison = {
             "valid": "0.4366",
             "penalized": "11.8994",
             "scored": "36/220",
-            "sourceAvailable": "40/220"
+            "sourceAvailable": "40/220",
+            "original": "1.8326"
           }
         },
         "validity": "Missing 57 ball-frames · Wrong color 15 ball-frames · Extra 32 frames / 50 instances"
@@ -1780,7 +1864,8 @@ window.guidanceComparison = {
             "valid": "0.5427",
             "penalized": "1.1608",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "1.5236"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -1802,7 +1887,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1512"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1822,7 +1908,8 @@ window.guidanceComparison = {
             "valid": "0.5182",
             "penalized": "0.7040",
             "scored": "217/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8759"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 3 ball-frames · Extra 0 frames / 0 instances"
@@ -1842,7 +1929,8 @@ window.guidanceComparison = {
             "valid": "0.2838",
             "penalized": "0.2838",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5152"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1862,7 +1950,8 @@ window.guidanceComparison = {
             "valid": "0.3517",
             "penalized": "0.3517",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5492"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1882,7 +1971,8 @@ window.guidanceComparison = {
             "valid": "0.6577",
             "penalized": "1.4545",
             "scored": "207/220",
-            "sourceAvailable": "210/220"
+            "sourceAvailable": "210/220",
+            "original": "1.7309"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 3 ball-frames · Extra 0 frames / 0 instances"
@@ -1904,7 +1994,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1512"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1924,7 +2015,8 @@ window.guidanceComparison = {
             "valid": "0.5555",
             "penalized": "1.1731",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.9304"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -1944,7 +2036,8 @@ window.guidanceComparison = {
             "valid": "0.3025",
             "penalized": "0.3025",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5548"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1964,7 +2057,8 @@ window.guidanceComparison = {
             "valid": "0.3375",
             "penalized": "0.3375",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5217"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -1984,7 +2078,8 @@ window.guidanceComparison = {
             "valid": "0.6256",
             "penalized": "6.8309",
             "scored": "119/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "2.0280"
           }
         },
         "validity": "Missing 15 ball-frames · Wrong color 3 ball-frames · Extra 19 frames / 19 instances"
@@ -2006,7 +2101,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1512"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2026,7 +2122,8 @@ window.guidanceComparison = {
             "valid": "0.5806",
             "penalized": "1.1971",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.9236"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -2046,7 +2143,8 @@ window.guidanceComparison = {
             "valid": "0.2677",
             "penalized": "0.2677",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5927"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2066,7 +2164,8 @@ window.guidanceComparison = {
             "valid": "0.3314",
             "penalized": "0.3314",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5980"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2086,7 +2185,8 @@ window.guidanceComparison = {
             "valid": "0.7119",
             "penalized": "5.4736",
             "scored": "142/220",
-            "sourceAvailable": "170/220"
+            "sourceAvailable": "170/220",
+            "original": "2.1568"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 2 ball-frames · Extra 7 frames / 7 instances"
@@ -2108,7 +2208,8 @@ window.guidanceComparison = {
             "valid": "0.1259",
             "penalized": "0.1259",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1559"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2128,7 +2229,8 @@ window.guidanceComparison = {
             "valid": "0.7073",
             "penalized": "4.6767",
             "scored": "155/220",
-            "sourceAvailable": "165/220"
+            "sourceAvailable": "165/220",
+            "original": "1.7578"
           }
         },
         "validity": "Missing 25 ball-frames · Wrong color 22 ball-frames · Extra 10 frames / 24 instances"
@@ -2148,7 +2250,8 @@ window.guidanceComparison = {
             "valid": "0.2919",
             "penalized": "0.2919",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4978"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2168,7 +2271,8 @@ window.guidanceComparison = {
             "valid": "0.8512",
             "penalized": "13.0547",
             "scored": "18/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "2.5849"
           }
         },
         "validity": "Missing 109 ball-frames · Wrong color 26 ball-frames · Extra 38 frames / 126 instances"
@@ -2188,7 +2292,8 @@ window.guidanceComparison = {
             "valid": "0.7744",
             "penalized": "9.7672",
             "scored": "72/220",
-            "sourceAvailable": "75/220"
+            "sourceAvailable": "75/220",
+            "original": "2.3433"
           }
         },
         "validity": "Missing 26 ball-frames · Wrong color 54 ball-frames · Extra 10 frames / 23 instances"
@@ -2210,7 +2315,8 @@ window.guidanceComparison = {
             "valid": "0.1259",
             "penalized": "0.1259",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1559"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2230,7 +2336,8 @@ window.guidanceComparison = {
             "valid": "0.9740",
             "penalized": "2.2309",
             "scored": "199/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.0850"
           }
         },
         "validity": "Missing 4 ball-frames · Wrong color 1 ball-frames · Extra 4 frames / 4 instances"
@@ -2250,7 +2357,8 @@ window.guidanceComparison = {
             "valid": "0.3588",
             "penalized": "0.3588",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5924"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2270,7 +2378,8 @@ window.guidanceComparison = {
             "valid": "0.7712",
             "penalized": "12.6227",
             "scored": "25/220",
-            "sourceAvailable": "50/220"
+            "sourceAvailable": "50/220",
+            "original": "1.8600"
           }
         },
         "validity": "Missing 43 ball-frames · Wrong color 31 ball-frames · Extra 39 frames / 44 instances"
@@ -2290,7 +2399,8 @@ window.guidanceComparison = {
             "valid": "1.0839",
             "penalized": "6.0698",
             "scored": "136/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "2.3281"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 39 ball-frames · Extra 0 frames / 0 instances"
@@ -2312,7 +2422,8 @@ window.guidanceComparison = {
             "valid": "0.1259",
             "penalized": "0.1259",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1559"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2332,7 +2443,8 @@ window.guidanceComparison = {
             "valid": "0.7534",
             "penalized": "1.1185",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.9293"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2352,7 +2464,8 @@ window.guidanceComparison = {
             "valid": "0.3119",
             "penalized": "0.3119",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5320"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2372,7 +2485,8 @@ window.guidanceComparison = {
             "valid": "0.3100",
             "penalized": "0.3100",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8854"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2392,7 +2506,8 @@ window.guidanceComparison = {
             "valid": "0.8640",
             "penalized": "0.8640",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.7600"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2414,7 +2529,8 @@ window.guidanceComparison = {
             "valid": "0.1259",
             "penalized": "0.1259",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1559"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2434,7 +2550,8 @@ window.guidanceComparison = {
             "valid": "0.7898",
             "penalized": "0.8505",
             "scored": "219/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.9587"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2454,7 +2571,8 @@ window.guidanceComparison = {
             "valid": "0.3150",
             "penalized": "0.3150",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5058"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2474,7 +2592,8 @@ window.guidanceComparison = {
             "valid": "0.2865",
             "penalized": "0.2865",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8782"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2494,7 +2613,8 @@ window.guidanceComparison = {
             "valid": "0.7637",
             "penalized": "2.5880",
             "scored": "190/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "1.9910"
           }
         },
         "validity": "Missing 4 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -2516,7 +2636,8 @@ window.guidanceComparison = {
             "valid": "0.1259",
             "penalized": "0.1259",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1559"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2536,7 +2657,8 @@ window.guidanceComparison = {
             "valid": "0.6223",
             "penalized": "11.6840",
             "scored": "40/220",
-            "sourceAvailable": "65/220"
+            "sourceAvailable": "65/220",
+            "original": "0.8418"
           }
         },
         "validity": "Missing 36 ball-frames · Wrong color 5 ball-frames · Extra 33 frames / 33 instances"
@@ -2556,7 +2678,8 @@ window.guidanceComparison = {
             "valid": "0.3059",
             "penalized": "0.3059",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5049"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2576,7 +2699,8 @@ window.guidanceComparison = {
             "valid": "0.2896",
             "penalized": "0.2896",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8850"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2596,7 +2720,8 @@ window.guidanceComparison = {
             "valid": "0.9243",
             "penalized": "1.5852",
             "scored": "209/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "1.5109"
           }
         },
         "validity": "Missing 5 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -2618,7 +2743,8 @@ window.guidanceComparison = {
             "valid": "0.0539",
             "penalized": "0.0539",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0760"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2638,7 +2764,8 @@ window.guidanceComparison = {
             "valid": "0.7877",
             "penalized": "9.8930",
             "scored": "70/220",
-            "sourceAvailable": "95/220"
+            "sourceAvailable": "95/220",
+            "original": "1.1602"
           }
         },
         "validity": "Missing 23 ball-frames · Wrong color 1 ball-frames · Extra 30 frames / 30 instances"
@@ -2658,7 +2785,8 @@ window.guidanceComparison = {
             "valid": "0.2618",
             "penalized": "0.2618",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5892"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2678,7 +2806,8 @@ window.guidanceComparison = {
             "valid": "0.3924",
             "penalized": "12.4547",
             "scored": "27/220",
-            "sourceAvailable": "40/220"
+            "sourceAvailable": "40/220",
+            "original": "1.5133"
           }
         },
         "validity": "Missing 132 ball-frames · Wrong color 54 ball-frames · Extra 29 frames / 81 instances"
@@ -2698,7 +2827,8 @@ window.guidanceComparison = {
             "valid": "0.7323",
             "penalized": "4.6943",
             "scored": "155/220",
-            "sourceAvailable": "180/220"
+            "sourceAvailable": "180/220",
+            "original": "1.7196"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 8 frames / 8 instances"
@@ -2720,7 +2850,8 @@ window.guidanceComparison = {
             "valid": "0.0539",
             "penalized": "0.0539",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0760"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2740,7 +2871,8 @@ window.guidanceComparison = {
             "valid": "0.6331",
             "penalized": "4.9315",
             "scored": "150/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "1.0142"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 9 frames / 9 instances"
@@ -2760,7 +2892,8 @@ window.guidanceComparison = {
             "valid": "0.2191",
             "penalized": "0.2191",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4146"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2780,7 +2913,8 @@ window.guidanceComparison = {
             "valid": "0.2721",
             "penalized": "13.0704",
             "scored": "17/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.9641"
           }
         },
         "validity": "Missing 80 ball-frames · Wrong color 26 ball-frames · Extra 40 frames / 79 instances"
@@ -2800,7 +2934,8 @@ window.guidanceComparison = {
             "valid": "0.6591",
             "penalized": "4.6427",
             "scored": "155/220",
-            "sourceAvailable": "180/220"
+            "sourceAvailable": "180/220",
+            "original": "1.7534"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 8 frames / 8 instances"
@@ -2822,7 +2957,8 @@ window.guidanceComparison = {
             "valid": "0.0539",
             "penalized": "0.0539",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0760"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2842,7 +2978,8 @@ window.guidanceComparison = {
             "valid": "0.7695",
             "penalized": "6.9695",
             "scored": "118/220",
-            "sourceAvailable": "135/220"
+            "sourceAvailable": "135/220",
+            "original": "1.3982"
           }
         },
         "validity": "Missing 22 ball-frames · Wrong color 0 ball-frames · Extra 20 frames / 20 instances"
@@ -2862,7 +2999,8 @@ window.guidanceComparison = {
             "valid": "0.2548",
             "penalized": "0.8860",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.5220"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -2882,7 +3020,8 @@ window.guidanceComparison = {
             "valid": "0.1657",
             "penalized": "0.8010",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.3976"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -2902,7 +3041,8 @@ window.guidanceComparison = {
             "valid": "0.5001",
             "penalized": "13.1500",
             "scored": "16/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "2.2660"
           }
         },
         "validity": "Missing 111 ball-frames · Wrong color 22 ball-frames · Extra 39 frames / 110 instances"
@@ -2924,7 +3064,8 @@ window.guidanceComparison = {
             "valid": "0.0539",
             "penalized": "0.0539",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0760"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2944,7 +3085,8 @@ window.guidanceComparison = {
             "valid": "0.8772",
             "penalized": "1.0581",
             "scored": "217/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.3879"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 3 ball-frames · Extra 0 frames / 0 instances"
@@ -2964,7 +3106,8 @@ window.guidanceComparison = {
             "valid": "0.3182",
             "penalized": "0.3182",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6700"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -2984,7 +3127,8 @@ window.guidanceComparison = {
             "valid": "0.1619",
             "penalized": "0.7973",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4351"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -3004,7 +3148,8 @@ window.guidanceComparison = {
             "valid": "0.4233",
             "penalized": "12.5832",
             "scored": "25/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.9081"
           }
         },
         "validity": "Missing 43 ball-frames · Wrong color 0 ball-frames · Extra 36 frames / 36 instances"
@@ -3026,7 +3171,8 @@ window.guidanceComparison = {
             "valid": "0.0539",
             "penalized": "0.0539",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0760"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3046,7 +3192,8 @@ window.guidanceComparison = {
             "valid": "0.7342",
             "penalized": "0.7342",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8448"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3066,7 +3213,8 @@ window.guidanceComparison = {
             "valid": "0.2768",
             "penalized": "0.2768",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6451"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3086,7 +3234,8 @@ window.guidanceComparison = {
             "valid": "0.1674",
             "penalized": "0.8026",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4335"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -3106,7 +3255,8 @@ window.guidanceComparison = {
             "valid": "0.2660",
             "penalized": "13.0699",
             "scored": "17/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.3846"
           }
         },
         "validity": "Missing 42 ball-frames · Wrong color 1 ball-frames · Extra 40 frames / 40 instances"
@@ -3128,7 +3278,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0757"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3148,7 +3299,8 @@ window.guidanceComparison = {
             "valid": "0.7311",
             "penalized": "4.6325",
             "scored": "156/220",
-            "sourceAvailable": "165/220"
+            "sourceAvailable": "165/220",
+            "original": "1.3252"
           }
         },
         "validity": "Missing 3 ball-frames · Wrong color 39 ball-frames · Extra 0 frames / 0 instances"
@@ -3168,7 +3320,8 @@ window.guidanceComparison = {
             "valid": "0.3786",
             "penalized": "0.3786",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6568"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3188,7 +3341,8 @@ window.guidanceComparison = {
             "valid": "0.4369",
             "penalized": "11.8372",
             "scored": "37/220",
-            "sourceAvailable": "50/220"
+            "sourceAvailable": "50/220",
+            "original": "1.5602"
           }
         },
         "validity": "Missing 70 ball-frames · Wrong color 47 ball-frames · Extra 35 frames / 61 instances"
@@ -3208,7 +3362,8 @@ window.guidanceComparison = {
             "valid": "0.6812",
             "penalized": "5.1478",
             "scored": "147/220",
-            "sourceAvailable": "165/220"
+            "sourceAvailable": "165/220",
+            "original": "1.7462"
           }
         },
         "validity": "Missing 15 ball-frames · Wrong color 16 ball-frames · Extra 14 frames / 14 instances"
@@ -3230,7 +3385,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0757"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3250,7 +3406,8 @@ window.guidanceComparison = {
             "valid": "0.8009",
             "penalized": "4.3788",
             "scored": "161/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "1.1442"
           }
         },
         "validity": "Missing 9 ball-frames · Wrong color 1 ball-frames · Extra 6 frames / 6 instances"
@@ -3270,7 +3427,8 @@ window.guidanceComparison = {
             "valid": "0.4611",
             "penalized": "0.4611",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6451"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3290,7 +3448,8 @@ window.guidanceComparison = {
             "valid": "0.2824",
             "penalized": "12.5042",
             "scored": "26/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "2.2046"
           }
         },
         "validity": "Missing 29 ball-frames · Wrong color 41 ball-frames · Extra 22 frames / 23 instances"
@@ -3310,7 +3469,8 @@ window.guidanceComparison = {
             "valid": "0.6986",
             "penalized": "4.9761",
             "scored": "150/220",
-            "sourceAvailable": "160/220"
+            "sourceAvailable": "160/220",
+            "original": "1.6549"
           }
         },
         "validity": "Missing 3 ball-frames · Wrong color 31 ball-frames · Extra 0 frames / 0 instances"
@@ -3332,7 +3492,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0757"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3352,7 +3513,8 @@ window.guidanceComparison = {
             "valid": "0.7410",
             "penalized": "4.7005",
             "scored": "155/220",
-            "sourceAvailable": "170/220"
+            "sourceAvailable": "170/220",
+            "original": "1.0675"
           }
         },
         "validity": "Missing 9 ball-frames · Wrong color 3 ball-frames · Extra 7 frames / 7 instances"
@@ -3372,7 +3534,8 @@ window.guidanceComparison = {
             "valid": "0.3654",
             "penalized": "0.3654",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5585"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3392,7 +3555,8 @@ window.guidanceComparison = {
             "valid": "0.2028",
             "penalized": "0.8364",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4871"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -3412,7 +3576,8 @@ window.guidanceComparison = {
             "valid": "0.9715",
             "penalized": "9.4127",
             "scored": "79/220",
-            "sourceAvailable": "95/220"
+            "sourceAvailable": "95/220",
+            "original": "2.0387"
           }
         },
         "validity": "Missing 28 ball-frames · Wrong color 22 ball-frames · Extra 25 frames / 25 instances"
@@ -3434,7 +3599,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0757"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3454,7 +3620,8 @@ window.guidanceComparison = {
             "valid": "0.6896",
             "penalized": "2.5852",
             "scored": "189/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "0.8581"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 9 ball-frames · Extra 0 frames / 0 instances"
@@ -3474,7 +3641,8 @@ window.guidanceComparison = {
             "valid": "0.3917",
             "penalized": "0.3917",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5351"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3494,7 +3662,8 @@ window.guidanceComparison = {
             "valid": "0.2058",
             "penalized": "0.8393",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4710"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -3514,7 +3683,8 @@ window.guidanceComparison = {
             "valid": "0.7960",
             "penalized": "6.6804",
             "scored": "123/220",
-            "sourceAvailable": "150/220"
+            "sourceAvailable": "150/220",
+            "original": "1.7560"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 2 ball-frames · Extra 10 frames / 10 instances"
@@ -3536,7 +3706,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0757"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3556,7 +3727,8 @@ window.guidanceComparison = {
             "valid": "0.5612",
             "penalized": "5.3763",
             "scored": "142/220",
-            "sourceAvailable": "160/220"
+            "sourceAvailable": "160/220",
+            "original": "1.3270"
           }
         },
         "validity": "Missing 30 ball-frames · Wrong color 23 ball-frames · Extra 15 frames / 29 instances"
@@ -3576,7 +3748,8 @@ window.guidanceComparison = {
             "valid": "0.4056",
             "penalized": "0.4056",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5875"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3596,7 +3769,8 @@ window.guidanceComparison = {
             "valid": "0.2119",
             "penalized": "0.8451",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4988"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 1 frames / 1 instances"
@@ -3616,7 +3790,8 @@ window.guidanceComparison = {
             "valid": "0.2372",
             "penalized": "12.5620",
             "scored": "25/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "2.1430"
           }
         },
         "validity": "Missing 59 ball-frames · Wrong color 16 ball-frames · Extra 32 frames / 48 instances"
@@ -3638,7 +3813,8 @@ window.guidanceComparison = {
             "valid": "0.1245",
             "penalized": "0.1245",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1214"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3658,7 +3834,8 @@ window.guidanceComparison = {
             "valid": "0.4408",
             "penalized": "9.4712",
             "scored": "75/220",
-            "sourceAvailable": "80/220"
+            "sourceAvailable": "80/220",
+            "original": "1.5525"
           }
         },
         "validity": "Missing 33 ball-frames · Wrong color 16 ball-frames · Extra 16 frames / 16 instances"
@@ -3678,7 +3855,8 @@ window.guidanceComparison = {
             "valid": "0.2688",
             "penalized": "0.2688",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6593"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3698,7 +3876,8 @@ window.guidanceComparison = {
             "valid": "0.2880",
             "penalized": "12.3159",
             "scored": "29/220",
-            "sourceAvailable": "35/220"
+            "sourceAvailable": "35/220",
+            "original": "2.3083"
           }
         },
         "validity": "Missing 118 ball-frames · Wrong color 45 ball-frames · Extra 31 frames / 72 instances"
@@ -3718,7 +3897,8 @@ window.guidanceComparison = {
             "valid": "0.3831",
             "penalized": "9.4515",
             "scored": "75/220",
-            "sourceAvailable": "80/220"
+            "sourceAvailable": "80/220",
+            "original": "2.1989"
           }
         },
         "validity": "Missing 33 ball-frames · Wrong color 16 ball-frames · Extra 16 frames / 16 instances"
@@ -3740,7 +3920,8 @@ window.guidanceComparison = {
             "valid": "0.1245",
             "penalized": "0.1245",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1214"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3760,7 +3941,8 @@ window.guidanceComparison = {
             "valid": "0.5709",
             "penalized": "0.8176",
             "scored": "216/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8307"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 4 ball-frames · Extra 0 frames / 0 instances"
@@ -3780,7 +3962,8 @@ window.guidanceComparison = {
             "valid": "0.3179",
             "penalized": "0.3179",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5648"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3800,7 +3983,8 @@ window.guidanceComparison = {
             "valid": "0.2551",
             "penalized": "12.7534",
             "scored": "22/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "2.1510"
           }
         },
         "validity": "Missing 73 ball-frames · Wrong color 70 ball-frames · Extra 31 frames / 58 instances"
@@ -3820,7 +4004,8 @@ window.guidanceComparison = {
             "valid": "0.4540",
             "penalized": "9.4757",
             "scored": "75/220",
-            "sourceAvailable": "80/220"
+            "sourceAvailable": "80/220",
+            "original": "2.0347"
           }
         },
         "validity": "Missing 33 ball-frames · Wrong color 16 ball-frames · Extra 15 frames / 15 instances"
@@ -3842,7 +4027,8 @@ window.guidanceComparison = {
             "valid": "0.1245",
             "penalized": "0.1245",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1214"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3862,7 +4048,8 @@ window.guidanceComparison = {
             "valid": "0.5750",
             "penalized": "0.5750",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7456"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3882,7 +4069,8 @@ window.guidanceComparison = {
             "valid": "0.2286",
             "penalized": "0.2286",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4789"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3902,7 +4090,8 @@ window.guidanceComparison = {
             "valid": "0.3276",
             "penalized": "0.3276",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7863"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3922,7 +4111,8 @@ window.guidanceComparison = {
             "valid": "0.3736",
             "penalized": "13.6415",
             "scored": "8/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "1.7483"
           }
         },
         "validity": "Missing 77 ball-frames · Wrong color 3 ball-frames · Extra 42 frames / 75 instances"
@@ -3944,7 +4134,8 @@ window.guidanceComparison = {
             "valid": "0.1245",
             "penalized": "0.1245",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1214"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3964,7 +4155,8 @@ window.guidanceComparison = {
             "valid": "0.6281",
             "penalized": "0.6281",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7921"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -3984,7 +4176,8 @@ window.guidanceComparison = {
             "valid": "0.2592",
             "penalized": "0.2592",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6774"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4004,7 +4197,8 @@ window.guidanceComparison = {
             "valid": "0.3188",
             "penalized": "0.3188",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7252"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4024,7 +4218,8 @@ window.guidanceComparison = {
             "valid": "0.4906",
             "penalized": "10.2328",
             "scored": "63/220",
-            "sourceAvailable": "70/220"
+            "sourceAvailable": "70/220",
+            "original": "1.6442"
           }
         },
         "validity": "Missing 43 ball-frames · Wrong color 4 ball-frames · Extra 29 frames / 36 instances"
@@ -4046,7 +4241,8 @@ window.guidanceComparison = {
             "valid": "0.1245",
             "penalized": "0.1245",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1214"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4066,7 +4262,8 @@ window.guidanceComparison = {
             "valid": "0.5507",
             "penalized": "0.5507",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8130"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4086,7 +4283,8 @@ window.guidanceComparison = {
             "valid": "0.3478",
             "penalized": "0.3478",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6557"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4106,7 +4304,8 @@ window.guidanceComparison = {
             "valid": "0.3213",
             "penalized": "0.3213",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8058"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4126,7 +4325,8 @@ window.guidanceComparison = {
             "valid": "0.7816",
             "penalized": "1.1460",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "1.5369"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4148,7 +4348,8 @@ window.guidanceComparison = {
             "valid": "0.1541",
             "penalized": "0.1541",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1278"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4168,7 +4369,8 @@ window.guidanceComparison = {
             "valid": "0.6519",
             "penalized": "0.6519",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.3260"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4188,7 +4390,8 @@ window.guidanceComparison = {
             "valid": "0.2700",
             "penalized": "5.3144",
             "scored": "140/220",
-            "sourceAvailable": "165/220"
+            "sourceAvailable": "165/220",
+            "original": "0.6683"
           }
         },
         "validity": "Missing 16 ball-frames · Wrong color 0 ball-frames · Extra 16 frames / 16 instances"
@@ -4208,7 +4411,8 @@ window.guidanceComparison = {
             "valid": "0.1445",
             "penalized": "13.5059",
             "scored": "10/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "2.7803"
           }
         },
         "validity": "Missing 123 ball-frames · Wrong color 75 ball-frames · Extra 35 frames / 103 instances"
@@ -4228,7 +4432,8 @@ window.guidanceComparison = {
             "valid": "0.6134",
             "penalized": "0.9824",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "1.4183"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -4250,7 +4455,8 @@ window.guidanceComparison = {
             "valid": "0.1541",
             "penalized": "0.1541",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1278"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4270,7 +4476,8 @@ window.guidanceComparison = {
             "valid": "0.6058",
             "penalized": "0.6058",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.3542"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4290,7 +4497,8 @@ window.guidanceComparison = {
             "valid": "0.2230",
             "penalized": "0.2230",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.1219"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4310,7 +4518,8 @@ window.guidanceComparison = {
             "valid": "0.3136",
             "penalized": "11.1879",
             "scored": "47/220",
-            "sourceAvailable": "50/220"
+            "sourceAvailable": "50/220",
+            "original": "1.9558"
           }
         },
         "validity": "Missing 36 ball-frames · Wrong color 31 ball-frames · Extra 26 frames / 29 instances"
@@ -4330,7 +4539,8 @@ window.guidanceComparison = {
             "valid": "0.6026",
             "penalized": "0.6026",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.6656"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4352,7 +4562,8 @@ window.guidanceComparison = {
             "valid": "0.1541",
             "penalized": "0.1541",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1278"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4372,7 +4583,8 @@ window.guidanceComparison = {
             "valid": "0.6138",
             "penalized": "0.6138",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.4537"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4392,7 +4604,8 @@ window.guidanceComparison = {
             "valid": "0.3552",
             "penalized": "0.3552",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.0319"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4412,7 +4625,8 @@ window.guidanceComparison = {
             "valid": "0.2238",
             "penalized": "0.2238",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.1655"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4432,7 +4646,8 @@ window.guidanceComparison = {
             "valid": "0.6471",
             "penalized": "4.4502",
             "scored": "158/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "1.9579"
           }
         },
         "validity": "Missing 14 ball-frames · Wrong color 4 ball-frames · Extra 10 frames / 10 instances"
@@ -4454,7 +4669,8 @@ window.guidanceComparison = {
             "valid": "0.1541",
             "penalized": "0.1541",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1278"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4474,7 +4690,8 @@ window.guidanceComparison = {
             "valid": "0.6159",
             "penalized": "0.6159",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.0253"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4494,7 +4711,8 @@ window.guidanceComparison = {
             "valid": "0.4016",
             "penalized": "0.4016",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.1279"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4514,7 +4732,8 @@ window.guidanceComparison = {
             "valid": "0.2130",
             "penalized": "0.2130",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.8013"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4534,7 +4753,8 @@ window.guidanceComparison = {
             "valid": "0.9455",
             "penalized": "4.7845",
             "scored": "156/220",
-            "sourceAvailable": "180/220"
+            "sourceAvailable": "180/220",
+            "original": "2.2654"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 4 ball-frames · Extra 7 frames / 7 instances"
@@ -4556,7 +4776,8 @@ window.guidanceComparison = {
             "valid": "0.1541",
             "penalized": "0.1541",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1278"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4576,7 +4797,8 @@ window.guidanceComparison = {
             "valid": "0.5150",
             "penalized": "0.5150",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.3993"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4596,7 +4818,8 @@ window.guidanceComparison = {
             "valid": "0.3276",
             "penalized": "0.3276",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7611"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4616,7 +4839,8 @@ window.guidanceComparison = {
             "valid": "0.2207",
             "penalized": "0.2207",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7025"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4636,7 +4860,8 @@ window.guidanceComparison = {
             "valid": "0.6162",
             "penalized": "1.7228",
             "scored": "202/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "2.0143"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 2 ball-frames · Extra 0 frames / 0 instances"
@@ -4658,7 +4883,8 @@ window.guidanceComparison = {
             "valid": "0.0514",
             "penalized": "0.0514",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0674"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4678,7 +4904,8 @@ window.guidanceComparison = {
             "valid": "0.6745",
             "penalized": "2.2050",
             "scored": "195/220",
-            "sourceAvailable": "200/220"
+            "sourceAvailable": "200/220",
+            "original": "0.9405"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 5 ball-frames · Extra 0 frames / 0 instances"
@@ -4698,7 +4925,8 @@ window.guidanceComparison = {
             "valid": "0.2416",
             "penalized": "0.2416",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5399"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4718,7 +4946,8 @@ window.guidanceComparison = {
             "valid": "0.2780",
             "penalized": "13.1338",
             "scored": "16/220",
-            "sourceAvailable": "25/220"
+            "sourceAvailable": "25/220",
+            "original": "1.9162"
           }
         },
         "validity": "Missing 102 ball-frames · Wrong color 76 ball-frames · Extra 35 frames / 65 instances"
@@ -4738,7 +4967,8 @@ window.guidanceComparison = {
             "valid": "0.6387",
             "penalized": "0.6387",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "1.4589"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4760,7 +4990,8 @@ window.guidanceComparison = {
             "valid": "0.0514",
             "penalized": "0.0514",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0674"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4780,7 +5011,8 @@ window.guidanceComparison = {
             "valid": "0.5351",
             "penalized": "1.7721",
             "scored": "200/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.8082"
           }
         },
         "validity": "Missing 4 ball-frames · Wrong color 1 ball-frames · Extra 0 frames / 0 instances"
@@ -4800,7 +5032,8 @@ window.guidanceComparison = {
             "valid": "0.2425",
             "penalized": "0.2425",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4556"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4820,7 +5053,8 @@ window.guidanceComparison = {
             "valid": "0.3309",
             "penalized": "11.3799",
             "scored": "44/220",
-            "sourceAvailable": "55/220"
+            "sourceAvailable": "55/220",
+            "original": "1.6570"
           }
         },
         "validity": "Missing 45 ball-frames · Wrong color 20 ball-frames · Extra 25 frames / 44 instances"
@@ -4840,7 +5074,8 @@ window.guidanceComparison = {
             "valid": "0.4222",
             "penalized": "2.2931",
             "scored": "190/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "1.3409"
           }
         },
         "validity": "Missing 1 ball-frames · Wrong color 4 ball-frames · Extra 0 frames / 0 instances"
@@ -4862,7 +5097,8 @@ window.guidanceComparison = {
             "valid": "0.0514",
             "penalized": "0.0514",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0674"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4882,7 +5118,8 @@ window.guidanceComparison = {
             "valid": "0.4612",
             "penalized": "0.4612",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6375"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4902,7 +5139,8 @@ window.guidanceComparison = {
             "valid": "0.2604",
             "penalized": "0.2604",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4968"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4922,7 +5160,8 @@ window.guidanceComparison = {
             "valid": "0.2157",
             "penalized": "0.2157",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5831"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4942,7 +5181,8 @@ window.guidanceComparison = {
             "valid": "0.3896",
             "penalized": "11.3291",
             "scored": "45/220",
-            "sourceAvailable": "70/220"
+            "sourceAvailable": "70/220",
+            "original": "1.5032"
           }
         },
         "validity": "Missing 35 ball-frames · Wrong color 0 ball-frames · Extra 35 frames / 45 instances"
@@ -4964,7 +5204,8 @@ window.guidanceComparison = {
             "valid": "0.0514",
             "penalized": "0.0514",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0674"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -4984,7 +5225,8 @@ window.guidanceComparison = {
             "valid": "0.4381",
             "penalized": "0.4381",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.6544"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5004,7 +5246,8 @@ window.guidanceComparison = {
             "valid": "0.2623",
             "penalized": "0.2623",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5266"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5024,7 +5267,8 @@ window.guidanceComparison = {
             "valid": "0.2051",
             "penalized": "0.2051",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5687"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5044,7 +5288,8 @@ window.guidanceComparison = {
             "valid": "0.3859",
             "penalized": "12.7665",
             "scored": "22/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.7777"
           }
         },
         "validity": "Missing 83 ball-frames · Wrong color 7 ball-frames · Extra 38 frames / 78 instances"
@@ -5066,7 +5311,8 @@ window.guidanceComparison = {
             "valid": "0.0514",
             "penalized": "0.0514",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0674"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5086,7 +5332,8 @@ window.guidanceComparison = {
             "valid": "0.6007",
             "penalized": "0.6007",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.7334"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5106,7 +5353,8 @@ window.guidanceComparison = {
             "valid": "0.1937",
             "penalized": "0.1937",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4805"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5126,7 +5374,8 @@ window.guidanceComparison = {
             "valid": "0.1950",
             "penalized": "0.1950",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5770"
           }
         },
         "validity": "Missing 0 ball-frames · Wrong color 0 ball-frames · Extra 0 frames / 0 instances"
@@ -5146,7 +5395,8 @@ window.guidanceComparison = {
             "valid": "0.2005",
             "penalized": "13.0648",
             "scored": "17/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "1.5187"
           }
         },
         "validity": "Missing 42 ball-frames · Wrong color 1 ball-frames · Extra 39 frames / 39 instances"

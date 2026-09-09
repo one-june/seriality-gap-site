@@ -68,9 +68,9 @@
     const score = element("div", "score");
     const rollout5 = entry.metrics["Rollout-5"];
     score.append(
-      element("small", "", "Penalized rollout-5 ↓"),
-      element("strong", "", rollout5.penalized),
-      element("span", "", `${rollout5.scored} pairs scored`),
+      element("small", "", "Rollout-5 ↓"),
+      element("strong", "", rollout5.original),
+      element("span", "", "Original repo metric"),
     );
     card.append(score);
     const details = element("details", "metric-details");
@@ -78,6 +78,9 @@
     for (const [horizon, metric] of Object.entries(entry.metrics)) {
       details.append(element("h5", "", horizon));
       const list = element("dl");
+      if (metric.original !== undefined) {
+        list.append(element("dt", "", "Original"), element("dd", "", metric.original));
+      }
       for (const [label, key] of [["Valid error", "valid"], ["Penalized", "penalized"],
         ["Scored", "scored"], ["Source available", "sourceAvailable"]]) {
         list.append(element("dt", "", label), element("dd", "", metric[key]));

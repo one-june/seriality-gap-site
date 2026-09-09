@@ -232,8 +232,8 @@
           <noscript><p class="viewer-status">Enable JavaScript for synchronized playback. Open the default clips individually: <a href="assets/guidance/videos/case-2/ground-truth.mp4">ground truth</a>, <a href="assets/guidance/videos/case-2/steps-50/bidirectional.mp4">bidirectional</a>, <a href="assets/guidance/videos/case-2/steps-50/autoregressive.mp4">autoregressive</a>, <a href="assets/guidance/videos/case-2/steps-50/oracle.mp4">oracle</a>, and <a href="assets/guidance/videos/case-2/steps-50/rollout1.mp4">rollout-1 guidance</a>.</p></noscript>
         </div>
 
-        <p class="example-note reading-width" id="example-note"><strong>Case 2 at 50 steps.</strong> Rollout-1 guidance produces missing, wrong-color, and extra balls. Only 19 of 220 ball/frame pairs can be scored for rollout-5, explaining the large penalty.</p>
-        <p class="metric-note reading-width">Scores below each video belong to the selected sample, seed 0. The plots above summarize the full holdout set across seeds 0–2.</p>
+        <p class="example-note reading-width" id="example-note"><strong>Case 2 at 50 steps.</strong> Rollout-1 guidance produces missing, wrong-color, and extra balls. The stricter validity checks in “All metrics” score 19 of 220 ball/frame pairs.</p>
+        <p class="metric-note reading-width">Scores below each video use the repository’s original Rollout-5 metric for the selected sample, seed 0. The plots above summarize the full holdout set across seeds 0–2.</p>
       </div>
 
       <div class="data-section reading-width" id="data">
