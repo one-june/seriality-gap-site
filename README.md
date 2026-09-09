@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and rollout-1 guidance results: a synchronized tuned example, two results plots, and a full experiment report.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and rollout-1 guidance results: a synchronized tuned example, two results plots, and a full experiment report. A Rollout-5 section adds a matched Case 2 comparison, five-video results, the broad oracle comparison, and its full report.
 
 ## Preview
 
@@ -60,7 +60,9 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `rollout-1-guidance.html` | Rollout-1 guidance procedure, settings, and saved-run provenance, linked from the rollout-1 video card |
 | `rollout-1-results.html` | Full HTML version of `out/guidance/ROLLOUT1_GUIDANCE_REPORT.md` |
 | `assets/rollout1/` | Saved tuning clips, report figures, original metrics, configurations, and source references |
-| `assets/video-group.js` | Synchronized playback for the three-clip tuned Case 2 comparison |
+| `rollout-5-results.html` | Full HTML version of `out/guidance/ROLLOUT5_GUIDANCE_REPORT.md` |
+| `assets/rollout5/` | Saved Rollout-5 clips, figures, original metrics, and source references |
+| `assets/video-group.js` | Independent synchronized playback for each fixed three-clip comparison |
 | `assets/style.css` | Shared layout and responsive styles |
 | `assets/math.js` | Render the page's LaTeX equations |
 | `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |
@@ -95,3 +97,11 @@ Run `python scripts/export_project_page_rollout1.py` with Python Markdown (`mark
 All figures, result tables, and comparison videos linked from the full report are included in this directory. Citations to the two older interactive reports retain their research-repository paths as text. The full report includes links to exported code and run metadata for reproduction.
 
 The summary section in `index.html` is edited separately. Its tuned example uses cap 50 and final-step strength 0.10. The update-budget plot uses final strength 0.20, and the separate ten-video experiment uses cap 75 with baseline-batch noise replay. The two viewers keep their own playback state.
+
+## Refresh rollout-5 results
+
+Run `python scripts/export_project_page_rollout5.py` with Python Markdown and Beautiful Soup installed. It rebuilds `rollout-5-results.html` from `out/guidance/ROLLOUT5_GUIDANCE_REPORT.md`, copies the report figures and linked data, and verifies both saved Rollout-5 clips against the recorded hashes. The vanilla and ground-truth clips reuse the identical files in `assets/rollout1/videos/`. Historical HTML reports and run directories appear as research-repository paths; their full archives are not exported.
+
+The cap-50 viewer also shows original Rollout-1, computed from that saved clip using the same evaluator as the existing viewer. To recompute its two metrics, use `python scripts/export_project_page_rollout5.py --score-viewer` in the project environment with the simulation dependencies and source data available. Rollout-5 is checked against the report archive. Scores and the video hash are stored in `assets/rollout5/data/viewer_original_rollouts.json`. No videos are generated.
+
+The summary in `index.html` is edited separately. Its Case 2 player compares vanilla, cap-50 Rollout-5 guidance (strength 0.20 → 0.06), and the existing tuned Rollout-1 clip. The five-video plot uses late guidance with up to 12 accepted updates per step, not this cap-50 setting. Each viewer has independent playback controls.

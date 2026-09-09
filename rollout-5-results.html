@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rollout-5 guidance experiments: Case 2 tuning, five-video tests, and the broad oracle comparison, using the original repository metrics.">
+  <title>Rollout-5 guidance experiments · Mind the Seriality Gap</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Project page"><a href="index.html#rollout5-results">Results</a></nav>
+  </header>
+  <main id="main" class="method-page report-page">
+    <article class="reading-width">
+      <a class="back-link" href="index.html#rollout5-results">← Back to rollout-5 guidance results</a>
+      <header class="method-heading">
+        <p class="eyebrow">Full experiment report</p>
+        <h1>Rollout-5 guidance experiments</h1>
+      </header>
+      <div class="theory-prose method-content report-content">
+<p>This report reconstructs the rollout-5 guidance work in <code>out/guidance</code> and evaluates saved outputs with the <strong>original rollout-5 metric from this repository</strong>. Ball validity is shown separately. No figure uses the later penalized rollout-5 error.</p>
+<p>The experiments progressed from broad latent-guidance tests to increasingly direct and selective corrections. The broad tests established that the sampler responds strongly to an exact future target, but rollout targets built from the generated video did not improve physical consistency. Stronger corrections made this worse. Later work removed ground-truth inputs, built continuous physics windows, checked proposals before accepting them, waited for clean late-step detections, and changed the latent target. Those changes often restored missing or incorrect balls, but all six five-video variants raised mean original rollout-5 error. A final 60-run sweep on one Case 2 generation produced one saved output with a <strong>7.2% lower original rollout-5 mean</strong> than its control. That result was not tested across more videos.</p>
+<nav aria-label="Report contents" class="report-toc"><ol><li><a href="#1-metric-and-scope">Metric and scope</a></li><li><a href="#2-the-initial-matrix-isolated-the-target-as-the-main-problem">The initial matrix isolated the target as the main problem</a></li><li><a href="#3-increasing-the-correction-strength-exposed-a-bad-direction">Increasing the correction strength exposed a bad direction</a></li><li><a href="#4-cleaner-state-handling-and-local-trajectories-reduced-known-defects-but-not-rollout-5">Cleaner state handling and local trajectories reduced known defects, but not rollout-5</a></li><li><a href="#5-late-guidance-tested-every-usable-five-frame-window">Late guidance tested every usable five-frame window</a></li><li><a href="#6-the-focused-case-2-sweep-found-a-single-original-metric-improvement">The focused Case 2 sweep found a single original-metric improvement</a></li><li><a href="#7-result">Result</a></li><li><a href="#data-and-reproduction">Data and reproduction</a></li></ol></nav><h2 id="1-metric-and-scope">1. Metric and scope</h2>
+<p>The original metric reconstructs the generated trajectory with <code>Simulation.from_video</code>. For each target frame from 5 through 48, it starts five frames earlier, simulates forward for five frames, and compares the simulated and reconstructed ball centers. The reported value is the mean Euclidean distance over <strong>44 target frames × 5 balls = 220 comparisons</strong>, in the simulator's 10-by-10 world coordinates.</p>
+<p>The exact calculation is:</p>
+<pre class="method-code"><code class="language-python">Difference.from_simulations(
+    simulation,
+    rollout(simulation, horizon=5),
+).avg_center_error((5, None))
+</code></pre>
+<p>See the <a href="assets/rollout5/sources/scripts/sshv2/eval.py">evaluation code</a> and <a href="assets/rollout5/sources/src/sshv2/simulation/rollout.py">rollout implementation</a>.</p>
+<p>The separate <strong>scorable-pair count</strong> comes from the stricter tracker introduced during these experiments. Complete coverage is 220 pairs per video. Missing balls, wrong-color balls, extra balls, or an unavailable source state reduce that count. It describes ball validity and does not alter the original rollout-5 value.</p>
+<p>Two data sources are used below:</p>
+<ul>
+<li>The initial holdout summaries already contain the original <code>rollout_h5_error</code> produced by the repository evaluator.</li>
+<li>Later MP4s were rescored directly. The new score archive covers <strong>136 saved videos</strong>. Thirty-two identical files overlap the independently validated rollout-1 report archive; all 32 rollout-5 values match exactly.</li>
+</ul>
+<h2 id="2-the-initial-matrix-isolated-the-target-as-the-main-problem">2. The initial matrix isolated the target as the main problem</h2>
+<p>The first large experiment compared ordinary diffusion with four interventions across six model conditions, five reverse-step counts, and three seeds. Each seed evaluated 896 videos.</p>
+<div aria-label="2. The initial matrix isolated the target as the main problem table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gaussian control</td>
+<td>Add a random latent correction of matched size.</td>
+</tr>
+<tr>
+<td>Absolute rollout target</td>
+<td>Decode the Tweedie estimate, construct a five-frame physics rollout using the exact evaluation initial state, encode the complete reference, and pull toward it.</td>
+</tr>
+<tr>
+<td>Physics-delta target</td>
+<td>Use only the latent displacement caused by the physics rollout, removing the encode/decode round-trip offset.</td>
+</tr>
+<tr>
+<td>Exact-future oracle</td>
+<td>Pull toward the encoded future from the target video.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The table gives percent improvement in the original rollout-5 error, averaged over 50, 100, and 200 reverse steps. Positive values mean lower error.</p>
+<div aria-label="2. The initial matrix isolated the target as the main problem table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th style="text-align: right;">Gaussian</th>
+<th style="text-align: right;">Absolute rollout</th>
+<th style="text-align: right;">Physics delta</th>
+<th style="text-align: right;">Exact-future oracle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 ball, 25 frames</td>
+<td style="text-align: right;">-0.02%</td>
+<td style="text-align: right;">-0.40%</td>
+<td style="text-align: right;">+0.09%</td>
+<td style="text-align: right;"><strong>+36.68%</strong></td>
+</tr>
+<tr>
+<td>1 ball, 49 frames</td>
+<td style="text-align: right;">-0.01%</td>
+<td style="text-align: right;">+2.07%</td>
+<td style="text-align: right;">-0.01%</td>
+<td style="text-align: right;"><strong>+39.74%</strong></td>
+</tr>
+<tr>
+<td>5 balls, 25 frames</td>
+<td style="text-align: right;">-0.24%</td>
+<td style="text-align: right;">+0.72%</td>
+<td style="text-align: right;">-0.65%</td>
+<td style="text-align: right;"><strong>+16.12%</strong></td>
+</tr>
+<tr>
+<td>5 balls, 33 frames</td>
+<td style="text-align: right;">-0.10%</td>
+<td style="text-align: right;">+0.16%</td>
+<td style="text-align: right;">-0.10%</td>
+<td style="text-align: right;"><strong>+19.38%</strong></td>
+</tr>
+<tr>
+<td>5 balls, 41 frames</td>
+<td style="text-align: right;">+0.03%</td>
+<td style="text-align: right;">-0.14%</td>
+<td style="text-align: right;">-0.15%</td>
+<td style="text-align: right;"><strong>+32.23%</strong></td>
+</tr>
+<tr>
+<td>5 balls, 49 frames</td>
+<td style="text-align: right;">+0.16%</td>
+<td style="text-align: right;">+0.08%</td>
+<td style="text-align: right;">+0.12%</td>
+<td style="text-align: right;"><strong>+34.92%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout5/plots/01_initial_matrix_original.svg"><img alt="Initial holdout matrix using original rollout-5" loading="lazy" src="assets/rollout5/plots/01_initial_matrix_original.svg"/></a></p>
+<p>The exact-future oracle improved all six conditions by 16–40%. Gaussian noise and both rollout-derived targets stayed within 2.1% of diffusion and changed sign across conditions. The sampler could use a good direction. The rollout construction did not supply one consistently.</p>
+<p>Sources: <a href="assets/rollout5/sources/out/guidance/latent-rollout-hf-seriality-subset-v1/HOLDOUT_SUMMARY.json">absolute-target holdout</a>, <a href="assets/rollout5/sources/out/guidance/delta-latent-rollout-hf-seriality-subset-v1/HOLDOUT_SUMMARY.json">physics-delta holdout</a>, and <a href="assets/rollout5/sources/out/guidance/guidance-experiments-report/REPORT_DATA.json">combined report data</a>.</p>
+<h2 id="3-increasing-the-correction-strength-exposed-a-bad-direction">3. Increasing the correction strength exposed a bad direction</h2>
+<p>The calibrated physics-delta strength, 0.003, barely changed the videos. A four-video, five-ball, 49-frame sweep increased both absolute-target and delta-target strengths from 0.003 to 0.3.</p>
+<p><a href="assets/rollout5/plots/02_strength_sweep_original.svg"><img alt="Strength sweep using original rollout-5" loading="lazy" src="assets/rollout5/plots/02_strength_sweep_original.svg"/></a></p>
+<p>The four diffusion controls average <strong>0.9843</strong> original rollout-5 error. The lowest tested absolute-target mean is <strong>1.0218</strong> at strength 0.01. The lowest physics-delta mean is <strong>0.9975</strong> at strength 0.003. At strength 0.3, the means rise to <strong>1.7015</strong> and <strong>2.1062</strong>.</p>
+<p>Larger updates made the effect visible but did not repair it. This motivated changes to the reference and state extraction rather than another scale increase.</p>
+<p>Source: <a href="assets/rollout5/data/strength_sweep_original.csv">rescored strength sweep</a>.</p>
+<h2 id="4-cleaner-state-handling-and-local-trajectories-reduced-known-defects-but-not-rollout-5">4. Cleaner state handling and local trajectories reduced known defects, but not rollout-5</h2>
+<p>The next implementation removed evaluation-simulator metadata. It detected balls in the current Tweedie estimate, used the state exactly five frames before each target, and built a complete reference from separately simulated endpoints. This made the guide self-contained, but its mean original rollout-5 error rose from <strong>1.0347 to 1.1666</strong> on four saved matched videos.</p>
+<p>The following version replaced the stitched endpoints with one continuous five-frame trajectory per source and applied the latent change only to that local window. On four saved matched videos, the mean rose from <strong>0.9216 to 0.9292</strong>.</p>
+<p>The archived complete run for this version contains 1,024 paired generations, but its summary stores only the later tracker metrics. Its original rollout-5 values cannot be reconstructed because those full-run videos are absent. The four surviving matched pairs are the original-metric evidence used here.</p>
+<p>The next step tried several strengths at the same noisy latent and accepted only a proposal that lowered the experiment's guidance score. It was tested twice on Case 1. The original rollout-5 results were:</p>
+<div aria-label="4. Cleaner state handling and local trajectories reduced known defects, but not rollout-5 table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Run</th>
+<th style="text-align: right;">Vanilla</th>
+<th style="text-align: right;">Guided</th>
+<th style="text-align: right;">Change</th>
+<th style="text-align: right;">Accepted updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed 0</td>
+<td style="text-align: right;">1.0273</td>
+<td style="text-align: right;">1.0743</td>
+<td style="text-align: right;">+0.0470</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td>Seed 1</td>
+<td style="text-align: right;">1.0607</td>
+<td style="text-align: right;">1.0132</td>
+<td style="text-align: right;">-0.0475</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr>
+<td><strong>Mean</strong></td>
+<td style="text-align: right;"><strong>1.0440</strong></td>
+<td style="text-align: right;"><strong>1.0437</strong></td>
+<td style="text-align: right;"><strong>-0.0003</strong></td>
+<td style="text-align: right;"><strong>69 total</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout5/plots/03_construction_progression_original.svg"><img alt="Successive reference and acceptance changes using original rollout-5" loading="lazy" src="assets/rollout5/plots/03_construction_progression_original.svg"/></a></p>
+<p>The three stages use different saved video sets, so the useful comparison is the guided-minus-control change within each stage. Cleaning the reference made three of four videos worse. Continuous trajectories made three of four worse by smaller amounts. Score checking split evenly across the two Case 1 generations and left their mean unchanged.</p>
+<p>Sources: <a href="assets/rollout5/data/construction_progression_original.csv">paired construction results</a>, <span class="archive-reference">Case 1 run metadata (<code>out/guidance/continuous-window-accept-case1-v1</code>)</span>, and <span class="archive-reference">historical implementation report (<code>out/guidance/guidance-experiments-report/index.html</code>)</span>.</p>
+<h2 id="5-late-guidance-tested-every-usable-five-frame-window">5. Late guidance tested every usable five-frame window</h2>
+<p>Early Tweedie estimates often lacked clean detections. The next set waited until reverse steps <strong>40–49</strong>, found every usable source frame, simulated each five-frame future, combined the latent losses, and allowed up to <strong>12 accepted updates per denoising step</strong>. Every proposal tested strengths 0.1, 0.03, 0.01, and 0.003.</p>
+<p>This stage changed one construction choice at a time:</p>
+<ol>
+<li>Apply the physics-delta loss to the full five-frame latent window.</li>
+<li>Apply it only to the latent time entry containing the endpoint.</li>
+<li>Reject a source frame when the detector finds an extra ball.</li>
+<li>Replace the delta target with the directly encoded physics target.</li>
+</ol>
+<p>All six variants were run on the same five source videos and generation seed. Their common vanilla mean was <strong>1.4163</strong>.</p>
+<div aria-label="5. Late guidance tested every usable five-frame window table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Variant</th>
+<th style="text-align: right;">Guided mean</th>
+<th style="text-align: right;">Change</th>
+<th style="text-align: right;">Videos improved</th>
+<th style="text-align: right;">Accepted updates</th>
+<th style="text-align: right;">Scorable pairs, before → after</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delta, full window</td>
+<td style="text-align: right;">1.4850</td>
+<td style="text-align: right;">+0.0687</td>
+<td style="text-align: right;">2/5</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">890 → 903</td>
+</tr>
+<tr>
+<td>Delta, endpoint</td>
+<td style="text-align: right;">1.5192</td>
+<td style="text-align: right;">+0.1028</td>
+<td style="text-align: right;">2/5</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">890 → 897</td>
+</tr>
+<tr>
+<td>Delta, full + strict validity</td>
+<td style="text-align: right;">1.4540</td>
+<td style="text-align: right;">+0.0377</td>
+<td style="text-align: right;">1/5</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">843 → 856</td>
+</tr>
+<tr>
+<td>Delta, endpoint + strict validity</td>
+<td style="text-align: right;">1.4745</td>
+<td style="text-align: right;">+0.0581</td>
+<td style="text-align: right;">2/5</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">843 → 910</td>
+</tr>
+<tr>
+<td>Direct target, full window</td>
+<td style="text-align: right;">1.4579</td>
+<td style="text-align: right;">+0.0415</td>
+<td style="text-align: right;">1/5</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">843 → 1,033</td>
+</tr>
+<tr>
+<td>Direct target, endpoint</td>
+<td style="text-align: right;">1.5006</td>
+<td style="text-align: right;">+0.0843</td>
+<td style="text-align: right;">2/5</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">843 → 961</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout5/plots/04_late_five_case_original.svg"><img alt="Per-case changes for late guidance variants using original rollout-5" loading="lazy" src="assets/rollout5/plots/04_late_five_case_original.svg"/></a></p>
+<p>Every variant increased the five-video mean. Case 4 became worse under every method. Case 5 improved under five methods, including a 0.2222 reduction from the direct full-window target. This variation did not identify a setting that transferred across the five videos.</p>
+<p>The direct target produced the largest validity gain. Full-window guidance added 190 scorable pairs, reaching 1,033/1,100, while increasing original rollout-5 by 0.0415. The other variants show the same separation between validity and the original metric.</p>
+<p><a href="assets/rollout5/plots/05_validity_vs_original.svg"><img alt="Validity change against original rollout-5 change" loading="lazy" src="assets/rollout5/plots/05_validity_vs_original.svg"/></a></p>
+<p>This explains why the historical acceptance score could improve while the original rollout-5 mean worsened. The two measurements reward different behavior: one strongly tracks whether balls remain valid, while the original metric measures the simulator mismatch after the repository tracker reconstructs the trajectory.</p>
+<p>Sources: <a href="assets/rollout5/data/late_five_case_original.csv">per-case original scores and validity</a>, <span class="archive-reference">late-window runs (<code>out/guidance/late-all-window-local-5cases</code>)</span>, <span class="archive-reference">endpoint runs (<code>out/guidance/late-endpoint-local-5cases</code>)</span>, <span class="archive-reference">strict-validity runs (<code>out/guidance/late-extra-invalid-full-window-5cases</code>)</span>, and <span class="archive-reference">direct-target runs (<code>out/guidance/late-absolute-full-window-5cases</code>)</span>.</p>
+<h2 id="6-the-focused-case-2-sweep-found-a-single-original-metric-improvement">6. The focused Case 2 sweep found a single original-metric improvement</h2>
+<p>The final rollout-5 investigation changed the update rule again. It repeatedly selected the smallest source error above a threshold and applied direct gradients without proposal rollback. Sixty full horizon-5 generations tested strength, start step, threshold, gradient scope, update count, source order, and correction normalization.</p>
+<p>This entire sweep used <strong>Case 2, <code>00000/828.mp4</code>, generation seed 0, five observed frames, 49 output frames, and 50 denoising steps</strong>. Only two guided horizon-5 videos survive in the report archive, so only those two can be evaluated with the original metric.</p>
+<div aria-label="6. The focused Case 2 sweep found a single original-metric improvement table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Saved output</th>
+<th>Key configuration</th>
+<th style="text-align: right;">Original rollout-5</th>
+<th style="text-align: right;">p95</th>
+<th style="text-align: right;">Maximum</th>
+<th style="text-align: right;">Scorable / 220</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vanilla</td>
+<td>No guidance</td>
+<td style="text-align: right;">1.4111</td>
+<td style="text-align: right;">4.0851</td>
+<td style="text-align: right;">7.6662</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr>
+<td>Visual-balance selection</td>
+<td>Start 25; 50 updates/step; strength 0.20 → 0.06</td>
+<td style="text-align: right;"><strong>1.3099</strong></td>
+<td style="text-align: right;"><strong>3.0332</strong></td>
+<td style="text-align: right;"><strong>6.2728</strong></td>
+<td style="text-align: right;">204</td>
+</tr>
+<tr>
+<td>Historical score selection</td>
+<td>Start 25; 75 updates/step; strength 0.225 → 0.0675; ordered sources</td>
+<td style="text-align: right;">1.4508</td>
+<td style="text-align: right;">4.2605</td>
+<td style="text-align: right;">7.3904</td>
+<td style="text-align: right;"><strong>220</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="assets/rollout5/plots/06_case2_selected_original.svg"><img alt="Focused Case 2 selected outputs using original rollout-5" loading="lazy" src="assets/rollout5/plots/06_case2_selected_original.svg"/></a></p>
+<p>The visual-balance output lowers the original mean by <strong>7.2%</strong>, p95 by <strong>25.7%</strong>, and maximum by <strong>18.2%</strong> relative to vanilla. It also raises validity from 55 to 204 scorable pairs.</p>
+<p>The configuration selected historically for its later score gives complete validity, but its original rollout-5 mean is <strong>2.8% higher</strong> than vanilla and its p95 is <strong>4.3% higher</strong>. The selection order therefore changes when the original metric is used.</p>
+<p><a href="assets/rollout5/plots/07_case2_video_frames.svg"><img alt="Decoded frames from the saved Case 2 outputs" loading="lazy" src="assets/rollout5/plots/07_case2_video_frames.svg"/></a></p>
+<p>The 58 other horizon-5 final videos are absent. Their saved summaries use the later metric and cannot determine their original rollout-5 ranking. The measured 7.2% gain belongs to one generation; no multi-video run tested this configuration.</p>
+<p>Sources: <a href="assets/rollout5/data/case2_selected_original.csv">rescored selected outputs</a>, <span class="archive-reference">historical Case 2 report (<code>out/guidance/guidance-experiments-report/rollout-smallest-error-results-so-far.html</code>)</span>, <a href="assets/rollout5/videos/cap50.mp4">visual-balance video</a>, and <a href="assets/rollout5/videos/historical-selection.mp4">historical score-selection video</a>.</p>
+<h2 id="7-result">7. Result</h2>
+<p>The broad result is negative for rollout-derived guidance under the original rollout-5 metric. The initial holdout matrix found no consistent gain, the strength sweep worsened as corrections grew, and all six late five-video variants increased the mean. The exact-future oracle improved every model condition, so the sampler itself can respond to a useful latent direction.</p>
+<p>The focused Case 2 sweep supplies the one positive final-video result: the saved visual-balance output improves original rollout-5 by 7.2% and greatly improves validity. It is evidence that direct rollout-5 guidance can help a particular generation. It is not evidence of improvement across videos because the configuration was only evaluated on Case 2.</p>
+<h2 id="data-and-reproduction">Data and reproduction</h2>
+<p>No new videos were generated for this report.</p>
+<ul>
+<li><a href="assets/rollout5/data/original_rollouts.json">Original scores and provenance</a> and <a href="assets/rollout5/data/original_rollouts.csv">flat score table</a>.</li>
+<li><a href="assets/rollout5/data/figure_data.json">Figure data</a>, <a href="assets/rollout5/data/initial_matrix_original.csv">initial matrix</a>, <a href="assets/rollout5/data/strength_sweep_original.csv">strength sweep</a>, <a href="assets/rollout5/data/construction_progression_original.csv">construction progression</a>, <a href="assets/rollout5/data/late_five_case_original.csv">late five-case results</a>, and <a href="assets/rollout5/data/case2_selected_original.csv">Case 2 results</a>.</li>
+<li>Recompute saved-video scores with <a href="assets/rollout5/sources/out/guidance/rollout5-report-assets/score_original_rollouts.py">score_original_rollouts.py</a>, then rebuild all figures and tables with <a href="assets/rollout5/sources/out/guidance/rollout5-report-assets/build_figures.py">build_figures.py</a>:</li>
+</ul>
+<pre class="method-code"><code class="language-bash">python out/guidance/rollout5-report-assets/score_original_rollouts.py
+python out/guidance/rollout5-report-assets/build_figures.py
+</code></pre></div>
+      <p class="method-return"><a class="button" href="index.html#rollout5-results">Return to the results →</a></p>
+    </article>
+  </main>
+  <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="index.html">Project page →</a></footer>
+</body>
+</html>

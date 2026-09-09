@@ -1,0 +1,8 @@
+{
+  "definition": "Difference.from_simulations(tracked, rollout(tracked, horizon=h)).avg_center_error((5, None)), h=1,5",
+  "video": "guidance-experiments-report/rollout-smallest-error-results-so-far-assets/h5-best-visual.mp4",
+  "video_sha256": "557b8119490775f0691dab8e12459b59f4cfa7169de71c5d930501fc30ff76e5",
+  "rollout_h1_error": 0.381731973602782,
+  "rollout_h5_error": 1.3099498432245167,
+  "validation": "Rollout-5 matches the report archive within 1e-8"
+}

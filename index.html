@@ -25,6 +25,7 @@
       <a href="#guidance">Findings</a>
       <a href="#comparison">Videos</a>
       <a href="#rollout1-results">Rollout-1</a>
+      <a href="#rollout5-results">Rollout-5</a>
       <a href="#data">Data</a>
     </nav>
   </header>
@@ -332,6 +333,98 @@
           <a href="rollout-1-results.html"><span>Experiment report</span><small>Read →</small></a>
           <a href="assets/rollout1/data/original_rollouts.csv" download><span>Original rollout scores</span><small>CSV ↓</small></a>
           <a href="assets/rollout1/data/ten_video_results.csv" download><span>Ten-video results</span><small>CSV ↓</small></a>
+        </div>
+      </div>
+    </section>
+    <section class="experiment" id="rollout5-results" aria-labelledby="rollout5-title">
+      <div class="section-heading reading-width">
+        <p class="eyebrow">04 / Rollout-5 guidance</p>
+        <h2 id="rollout5-title">Rollout-5 guidance results</h2>
+        <p class="section-intro">One tuned Case 2 result lowers original Rollout-5 error by 7.2%. Across five videos, all six tested guidance variants increase the mean error. In the broader tests, only guidance using the correct future improves every model condition.</p>
+        <p class="setup-note">All errors in this section use the repository’s original rollout metrics. Scorable-pair counts describe ball validity separately.</p>
+        <p class="result-links"><a href="rollout-5-results.html">Read the full experiment report →</a></p>
+      </div>
+
+      <div class="comparison-section" id="rollout5-case2">
+        <div class="reading-width comparison-heading">
+          <p class="eyebrow">Single-video tuning · Case 2</p>
+          <h3>Rollout-5 guidance improves this generation</h3>
+          <p>The cap-50 result lowers Rollout-5 from <strong>1.4111 to 1.3099</strong> and raises scorable pairs from <strong>55/220 to 204/220</strong>. The tuned Rollout-1 result does better on this same generation, reaching <strong>1.1459</strong>.</p>
+          <p class="setup-note">Both guided results use 50 denoising steps and up to 50 latent updates at each step index from 25 through 49. Rollout-5 guidance uses strength 0.20 → 0.06. The Rollout-1 result is the same clip shown above, with strength 0.70 → 0.20 and a final-step override of 0.10.</p>
+        </div>
+        <div class="viewer fixed-comparison" id="rollout5-comparison" data-video-group data-frames="49" aria-label="Synchronized Case 2 rollout guidance comparison">
+          <div class="viewer-selection"><p class="sample-info">00000/828.mp4 · 50 denoising steps · seed 0 · single-video tuning</p></div>
+          <div class="video-grid">
+            <article class="video-card" style="--method-color:#64748b">
+              <h4>Vanilla bidirectional DiT</h4>
+              <video src="assets/rollout1/videos/vanilla.mp4" muted playsinline preload="metadata" aria-label="Vanilla control for the single-video tuning experiment"></video>
+              <a class="clip-link" href="assets/rollout1/videos/vanilla.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>1.4111</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.4316</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable Rollout-5 pairs: 55/220</p>
+            </article>
+            <article class="video-card" style="--method-color:#507d74">
+              <h4>Rollout-5 guidance · cap-50</h4>
+              <video src="assets/rollout5/videos/cap50.mp4" muted playsinline preload="metadata" aria-label="Rollout-5 guidance with 50 updates per step and strength 0.20 to 0.06"></video>
+              <a class="clip-link" href="assets/rollout5/videos/cap50.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>1.3099</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.3817</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable Rollout-5 pairs: 204/220</p>
+            </article>
+            <article class="video-card" style="--method-color:#9d792d">
+              <h4>Tuned rollout-1 guidance</h4>
+              <video src="assets/rollout1/videos/tuned-final-scale-0p10.mp4" muted playsinline preload="metadata" aria-label="Rollout-1 guidance with 50 updates per step and final-step strength 0.10"></video>
+              <a class="clip-link" href="assets/rollout1/videos/tuned-final-scale-0p10.mp4" target="_blank" rel="noopener">Open video ↗</a>
+              <div class="score"><small>Rollout-5 ↓</small><strong>1.1459</strong><span>Original repo metric</span></div>
+              <div class="score"><small>Rollout-1 ↓</small><strong>0.3195</strong><span>Original repo metric</span></div>
+              <p class="validity">Scorable Rollout-5 pairs: 220/220</p>
+            </article>
+          </div>
+          <div class="playback-toolbar">
+            <div class="playback-buttons">
+              <button class="button primary" type="button" data-action="play" aria-pressed="false" disabled>Play all</button>
+              <button class="button" type="button" data-action="restart" disabled>Restart</button>
+              <button class="icon-button" type="button" data-action="previous" aria-label="Previous frame in rollout-5 comparison" disabled>←</button>
+              <button class="icon-button" type="button" data-action="next" aria-label="Next frame in rollout-5 comparison" disabled>→</button>
+            </div>
+            <label class="speed-control">Speed<select data-control="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+            <label class="loop-control"><input type="checkbox" data-control="loop" checked> Loop</label>
+            <output class="frame-output" for="rollout5-frame-slider" data-output="frame">Frame 1 / 49</output>
+            <input id="rollout5-frame-slider" class="frame-slider" data-control="frame" type="range" min="0" max="48" step="1" value="0" aria-label="Shared frame in rollout-5 comparison" disabled>
+          </div>
+          <p class="viewer-status" data-output="status" role="status" aria-live="polite">Loading the three videos…</p>
+          <noscript><p class="metric-note">Open each clip using its Open video link.</p></noscript>
+        </div>
+        <p class="metric-note reading-width">These saved clips share the single-video tuning experiment’s vanilla control. The cap-50 Rollout-5 setting was tested on this one generation. Only two final videos survive from the 60-run Rollout-5 sweep, so the original metric cannot rank all 60 settings. <a href="assets/rollout5/data/case2_selected_original.csv" download>Download Rollout-5 results</a> · <a href="assets/rollout5/data/viewer_original_rollouts.json" download>Cap-50 viewer metrics and video hash</a>.</p>
+      </div>
+
+      <figure class="plot" id="rollout5-five-video">
+        <div class="figure-heading"><h3>All six variants raise the five-video mean</h3><a href="assets/rollout5/plots/04_late_five_case_original.svg" download>Download SVG ↓</a></div>
+        <img src="assets/rollout5/plots/04_late_five_case_original.svg" alt="Six rollout-5 guidance variants tested on five videos: every variant increases mean original Rollout-5 error, although some individual videos improve" loading="lazy">
+        <figcaption><span class="figure-number">Figure 5.</span> The common vanilla mean is <strong>1.4163</strong>; guided means range from <strong>1.4540 to 1.5192</strong>. These experiments guide only at step indices 40–49, with up to 12 accepted updates per step. They test different target constructions and whether to correct a whole five-frame window or only its endpoint. They do not test the cap-50 setting shown above. <a href="assets/rollout5/data/late_five_case_original.csv" download>Download data</a>.</figcaption>
+      </figure>
+      <div class="findings reading-width">
+        <h3>Keeping the balls valid did not guarantee lower Rollout-5 error</h3>
+        <p>For the directly encoded target applied to the full window, scorable pairs increase from <strong>843/1,100 to 1,033/1,100</strong>, while original Rollout-5 rises from <strong>1.4163 to 1.4579</strong>. A guidance score that penalizes missing or incorrect balls can improve even when the original metric gets worse.</p>
+      </div>
+
+      <figure class="plot" id="rollout5-broad-comparison">
+        <div class="figure-heading"><h3>The correct future helps; physics-derived targets show no consistent gain</h3><a href="assets/rollout5/plots/01_initial_matrix_original.svg" download>Download SVG ↓</a></div>
+        <img src="assets/rollout5/plots/01_initial_matrix_original.svg" alt="Six model conditions: exact-future oracle guidance improves original Rollout-5 by 16 to 40 percent; random corrections and both physics-derived targets show small, inconsistent changes" loading="lazy">
+        <figcaption><span class="figure-number">Figure 6.</span> Six model conditions, with 896 videos per seed and seeds 0–2. Percent improvements are averaged over 50, 100, and 200 denoising steps. Positive values mean lower error. Exact-future oracle guidance improves every condition by <strong>16–40%</strong>; both physics-derived methods stay within <strong>2.1%</strong> of vanilla and vary between gains and losses. <a href="assets/rollout5/data/initial_matrix_original.csv" download>Download data</a>.</figcaption>
+      </figure>
+      <div class="reading-width findings">
+        <p>The absolute target encodes a video built from five-frame physics rollouts. The delta target uses the latent change caused by those rollouts, subtracting the change from encoding and decoding the video itself. These initial methods use the evaluation’s exact initial state to build the reference; later experiments estimate ball states from the generated video. The oracle uses the correct future video.</p>
+        <p>The sampler can use a useful latent correction. The tested physics-derived corrections did not consistently provide one.</p>
+      </div>
+
+      <div class="data-section reading-width">
+        <h3>Full report and result tables</h3>
+        <p>The full report includes the correction-strength sweep, changes to target construction, the five-video tests, and both saved Case 2 selections. It evaluates saved videos; no new videos were generated for this page.</p>
+        <div class="data-links">
+          <a href="rollout-5-results.html"><span>Experiment report</span><small>Read →</small></a>
+          <a href="assets/rollout5/data/original_rollouts.csv" download><span>Original Rollout-5 scores</span><small>CSV ↓</small></a>
+          <a href="assets/rollout5/data/late_five_case_original.csv" download><span>Five-video results</span><small>CSV ↓</small></a>
         </div>
       </div>
     </section>
