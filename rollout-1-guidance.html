@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How the displayed rollout-1-guided videos were obtained: source selection, one-frame physics targets, latent loss, gradient updates, and saved run settings.">
+  <meta name="description" content="How the displayed rollout-1-guided videos were obtained: choosing the frame to update by lowest error, one-frame physics targets, latent loss, gradient updates, and saved run settings.">
   <meta name="theme-color" content="#faf9f6">
   <title>Rollout-1 guidance · Mind the Seriality Gap</title>
   <link rel="icon" href="data:,">
@@ -29,7 +29,7 @@
       <header class="method-heading">
         <p class="eyebrow">Method / Rollout-1 guidance</p>
         <h1>How rollout-1 guidance is calculated</h1>
-        <p class="section-intro">Guidance constructs a one-frame physics target from the current predicted video, measures a latent-space loss against that target, and uses its gradient to update the noisy sampling state. The pretrained bidirectional DiT and VAE stay fixed. “Rollout-1” means that the physics simulator advances one video frame from a selected source state.</p>
+        <p class="section-intro">Guidance constructs a one-frame physics target from the current predicted video, measures a latent-space loss against that target, and uses its gradient to update the noisy sampling state. The pretrained bidirectional DiT and VAE stay fixed. “Rollout-1” means that the physics simulator advances the estimated ball positions and velocities by one video frame.</p>
       </header>
 
       <div class="theory-prose method-content">
@@ -41,7 +41,7 @@
             <tr><th scope="row">Reverse steps</th><td>\(K\in\{10,20,50,100,200\}\); seed 0</td></tr>
             <tr><th scope="row">Guidance window</th><td>Step indices 25 through \(K-1\), counting from zero</td></tr>
             <tr><th scope="row">Inner update cap</th><td>75 guidance updates per active denoising step</td></tr>
-            <tr><th scope="row">Source selection</th><td>Smallest local penalized Rollout-1 error above the step’s fixed threshold</td></tr>
+            <tr><th scope="row">Frame to update</th><td>Choose the frame with the lowest local penalized Rollout-1 error above the step’s fixed threshold</td></tr>
             <tr><th scope="row">Threshold</th><td>Half the step’s initial minimum local error, with a floor of \(10^{-6}\)</td></tr>
             <tr><th scope="row">Guidance strength</th><td>Linear decrease from 0.7 to 0.2 over the active steps</td></tr>
             <tr><th scope="row">Loss and update</th><td>MSE at one target latent time slice; gradient through the DiT updates all future latent slices</td></tr>
@@ -59,19 +59,20 @@
         </div>
         <p>The code decodes \(\hat z_0\) with the VAE and replaces its first five RGB frames with the supplied conditioning frames. The resulting video is the input to the tracker. Decoding and target construction run outside the gradient graph.</p>
 
-        <h2 id="selection">2. Track the balls and select a source frame</h2>
-        <p>The tracker retains all ball detections, matches them to the five expected color identities, and records missing, wrong-color, and extra balls. Centers are converted to simulation coordinates. A usable source belongs to a consecutive block of at least three frames in which all five balls have their expected colors and no extra ball is detected.</p>
+        <h2 id="selection">2. Choose the frame to update: lowest error above the threshold</h2>
+        <p>Track the balls in the current predicted video, then <strong>choose the frame to update with the lowest local Rollout-1 error above the stopping threshold</strong>. To calculate a frame’s error, simulate the balls forward from the preceding frame and compare those simulated positions with the current prediction. For example, the estimated positions and velocities at frame 12 provide the physics target for updating frame 13.</p>
+        <p>The tracker retains all ball detections, matches them to the five expected color identities, and records missing, wrong-color, and extra balls. Centers are converted to simulation coordinates. The preceding frame must belong to a consecutive block of at least three frames in which all five balls have their expected colors and no extra ball is detected.</p>
         <p>Within each usable block, the code estimates velocities from position differences and applies its simulator-based velocity repair. At the block’s first frame, the initial estimate is the displacement to the third frame divided by two frame intervals. The simulator uses a 10 × 10 world, radius 0.7, radius adjustment −0.05, and a frame interval of \(1/15\) second.</p>
-        <p>For each usable source frame \(k\in\{4,\ldots,47\}\), simulate all five balls forward by one frame and compare the simulated centers with the detected centers at \(q=k+1\). Average the five Euclidean center errors to obtain the local score \(e_k\). A missing or wrong-color target ball receives the world-diagonal penalty \(\sqrt{200}\approx14.1421\); an extra target ball makes all five entries receive that penalty.</p>
+        <p>For each candidate frame to update \(q\in\{5,\ldots,48\}\) (zero-based), simulate all five balls forward from frame \(q-1\) and compare the simulated centers with the detected centers at frame \(q\). Average the five Euclidean center errors to obtain that frame’s local score \(e_q\). A missing or wrong-color target ball receives the world-diagonal penalty \(\sqrt{200}\approx14.1421\); an extra target ball makes all five entries receive that penalty.</p>
         <p>At the first inner iteration of each active denoising step, set the threshold below. Keep it fixed for the rest of that step, and select the smallest score still above it:</p>
-        <div class="equation" tabindex="0" role="region" aria-label="Fixed threshold and smallest-above-threshold source selection">
-          \[\tau_j=\max\!\left(0.5\min_{k\in S_{j,0}}e_k,\,10^{-6}\right),\qquad
-          k^*\in\underset{k\in S:\,e_k>\tau_j}{\arg\min}\ e_k.\]
+        <div class="equation" tabindex="0" role="region" aria-label="Fixed threshold and selection of the frame to update with the lowest error above it">
+          \[\tau_j=\max\!\left(0.5\min_{q\in S_{j,0}}e_q,\,10^{-6}\right),\qquad
+          q^*\in\underset{q\in S:\,e_q>\tau_j}{\arg\min}\ e_q.\]
         </div>
-        <p>\(S_{j,0}\) is the set of usable sources at the start of the step; \(S\) is the current set. Tracking and selection are repeated after every update. Exact ties are broken with a random generator seeded at 0. The same source can be selected repeatedly.</p>
+        <p>\(S_{j,0}\) is the set of candidate frames to update at the start of the step; \(S\) is the current set. Tracking and selection are repeated after every update. Exact ties are broken with a random generator seeded at 0. The same frame can be selected repeatedly.</p>
 
         <h2 id="target">3. Render and encode the one-frame physics target</h2>
-        <p>First redraw the entire detected video as balls on the simulation background, retaining all detections, including extras. Copy that redraw and replace only frame \(q=k^*+1\) with the five balls at their one-frame simulated positions. Every other reference frame remains the detection redraw.</p>
+        <p>First redraw the entire detected video as balls on the simulation background, retaining all detections, including extras. Copy that redraw and replace only the chosen frame to update, \(q^*\), with the five balls at their one-frame simulated positions. Every other reference frame remains the detection redraw.</p>
         <p>Scale the reference RGB values to \([-1,1]\), then VAE-encode the complete 49-frame reference video with tiling disabled:</p>
         <div class="equation" tabindex="0" role="region" aria-label="Encode the reference video">
           \[r=E_{\mathrm{VAE}}(x_{\mathrm{reference}}).\]
@@ -79,9 +80,9 @@
         <p>The encoded reference is detached and treated as a fixed target for this update. It is rebuilt from the newly predicted video on the next inner iteration. Its future target comes from the detected state and simulator.</p>
 
         <h2 id="loss">4. Measure MSE at the target latent time slice</h2>
-        <p>The latent shape is \(1\times16\times13\times16\times16\): batch, channels, time, height, width. The implementation maps zero-based target video frame \(q\) to latent time index</p>
+        <p>The latent shape is \(1\times16\times13\times16\times16\): batch, channels, time, height, width. The implementation maps the chosen zero-based video frame \(q^*\) to latent time index</p>
         <div class="equation" tabindex="0" role="region" aria-label="Map the target video frame to its latent time index">
-          \[\ell=\max\!\left(2,\left\lfloor\frac{q-1}{4}\right\rfloor+1\right).\]
+          \[\ell=\max\!\left(2,\left\lfloor\frac{q^*-1}{4}\right\rfloor+1\right).\]
         </div>
         <p>It compares the clean prediction directly with the encoded reference at index \(\ell\), averaging over all 4,096 channel-and-spatial entries in that slice. The subtraction and squared-error reduction use float32:</p>
         <div class="equation" tabindex="0" role="region" aria-label="Mean squared error at the selected latent time slice">
@@ -105,7 +106,7 @@
           \end{aligned}\]
         </div>
         <p>The strength formula applies to the active runs, where \(K\ge50\). The code calculates the future-gradient RMS in float32, casts it back to the gradient’s dtype for division, and restores the conditioning latents after subtraction.</p>
-        <p>Each correction is applied directly. The updated state is detached before the next DiT evaluation. Continue at the same noise level until 75 updates have been applied, no usable source remains, or all current usable sources are at or below \(\tau_j\).</p>
+        <p>Each correction is applied directly. The updated state is detached before the next DiT evaluation. Continue at the same noise level until 75 updates have been applied, no candidate frame to update remains, or all candidate frames have errors at or below \(\tau_j\).</p>
 
         <h2 id="sampler">6. Take the denoising step and decode the final video</h2>
         <p>After the inner loop, evaluate the DiT at the final corrected state if that state has changed since the last evaluation. Use that velocity in the ordinary flow-scheduler update:</p>
