@@ -57,6 +57,7 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | --- | --- |
 | `index.html` | Page content and section structure |
 | `clean-latent-oracle.html` | Separate description of the oracle calculation, linked from the findings and oracle video card |
+| `rollout-1-guidance.html` | Rollout-1 guidance procedure, settings, and saved-run provenance, linked from the rollout-1 video card |
 | `assets/style.css` | Shared layout and responsive styles |
 | `assets/math.js` | Render the page's LaTeX equations |
 | `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |

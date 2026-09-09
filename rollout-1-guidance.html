@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How the displayed rollout-1-guided videos were obtained: source selection, one-frame physics targets, latent loss, gradient updates, and saved run settings.">
+  <meta name="theme-color" content="#faf9f6">
+  <title>Rollout-1 guidance · Mind the Seriality Gap</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/vendor/katex/katex.min.js"></script>
+  <script defer src="assets/vendor/katex/auto-render.min.js"></script>
+  <script defer src="assets/math.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Project page">
+      <a href="index.html#guidance">Findings</a>
+      <a href="index.html#comparison">Videos</a>
+    </nav>
+  </header>
+
+  <main id="main" class="method-page">
+    <article class="reading-width">
+      <a class="back-link" href="index.html#comparison">← Back to the video comparison</a>
+      <header class="method-heading">
+        <p class="eyebrow">Method / Rollout-1 guidance</p>
+        <h1>How rollout-1 guidance is calculated</h1>
+        <p class="section-intro">Guidance constructs a one-frame physics target from the current predicted video, measures a latent-space loss against that target, and uses its gradient to update the noisy sampling state. The pretrained bidirectional DiT and VAE stay fixed. “Rollout-1” means that the physics simulator advances one video frame from a selected source state.</p>
+      </header>
+
+      <div class="theory-prose method-content">
+        <h2 id="settings">Settings used in the comparison</h2>
+        <table class="method-table">
+          <tbody>
+            <tr><th scope="row">Video</th><td>5 balls; 49 frames at 128 × 128 pixels</td></tr>
+            <tr><th scope="row">Conditioning</th><td>First 2 latent frames, corresponding to 5 video frames</td></tr>
+            <tr><th scope="row">Reverse steps</th><td>\(K\in\{10,20,50,100,200\}\); seed 0</td></tr>
+            <tr><th scope="row">Guidance window</th><td>Step indices 25 through \(K-1\), counting from zero</td></tr>
+            <tr><th scope="row">Inner update cap</th><td>75 guidance updates per active denoising step</td></tr>
+            <tr><th scope="row">Source selection</th><td>Smallest local penalized Rollout-1 error above the step’s fixed threshold</td></tr>
+            <tr><th scope="row">Threshold</th><td>Half the step’s initial minimum local error, with a floor of \(10^{-6}\)</td></tr>
+            <tr><th scope="row">Guidance strength</th><td>Linear decrease from 0.7 to 0.2 over the active steps</td></tr>
+            <tr><th scope="row">Loss and update</th><td>MSE at one target latent time slice; gradient through the DiT updates all future latent slices</td></tr>
+            <tr><th scope="row">Sampler</th><td>Flow matching, shift 5, denoising strength 1; empty prompts and classifier-free guidance scale 1</td></tr>
+          </tbody>
+        </table>
+        <p>At 10 or 20 reverse steps, guidance never activates because the run ends before step index 25. The settings above are shared by all ten cases.</p>
+
+        <h2 id="prediction">1. Form the current clean-video estimate</h2>
+        <p>The input video is VAE-encoded, and its first two latent frames become the fixed conditioning. The remaining latent entries start from seeded Gaussian noise. The comparison launcher reproduces each vanilla run’s noise batch shape and selects the same sample position from that batch.</p>
+        <p>Let \(z\) be the current noisy latent at reverse-step index \(j\). Every inner guidance update begins with a fresh DiT evaluation at that step’s noise level:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Velocity and current clean-latent prediction">
+          \[v=v_\theta(z,t_j),\qquad \hat z_0=z-\sigma_jv,\qquad t_j=1000\sigma_j.\]
+        </div>
+        <p>The code decodes \(\hat z_0\) with the VAE and replaces its first five RGB frames with the supplied conditioning frames. The resulting video is the input to the tracker. Decoding and target construction run outside the gradient graph.</p>
+
+        <h2 id="selection">2. Track the balls and select a source frame</h2>
+        <p>The tracker retains all ball detections, matches them to the five expected color identities, and records missing, wrong-color, and extra balls. Centers are converted to simulation coordinates. A usable source belongs to a consecutive block of at least three frames in which all five balls have their expected colors and no extra ball is detected.</p>
+        <p>Within each usable block, the code estimates velocities from position differences and applies its simulator-based velocity repair. At the block’s first frame, the initial estimate is the displacement to the third frame divided by two frame intervals. The simulator uses a 10 × 10 world, radius 0.7, radius adjustment −0.05, and a frame interval of \(1/15\) second.</p>
+        <p>For each usable source frame \(k\in\{4,\ldots,47\}\), simulate all five balls forward by one frame and compare the simulated centers with the detected centers at \(q=k+1\). Average the five Euclidean center errors to obtain the local score \(e_k\). A missing or wrong-color target ball receives the world-diagonal penalty \(\sqrt{200}\approx14.1421\); an extra target ball makes all five entries receive that penalty.</p>
+        <p>At the first inner iteration of each active denoising step, set the threshold below. Keep it fixed for the rest of that step, and select the smallest score still above it:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Fixed threshold and smallest-above-threshold source selection">
+          \[\tau_j=\max\!\left(0.5\min_{k\in S_{j,0}}e_k,\,10^{-6}\right),\qquad
+          k^*\in\underset{k\in S:\,e_k>\tau_j}{\arg\min}\ e_k.\]
+        </div>
+        <p>\(S_{j,0}\) is the set of usable sources at the start of the step; \(S\) is the current set. Tracking and selection are repeated after every update. Exact ties are broken with a random generator seeded at 0. The same source can be selected repeatedly.</p>
+
+        <h2 id="target">3. Render and encode the one-frame physics target</h2>
+        <p>First redraw the entire detected video as balls on the simulation background, retaining all detections, including extras. Copy that redraw and replace only frame \(q=k^*+1\) with the five balls at their one-frame simulated positions. Every other reference frame remains the detection redraw.</p>
+        <p>Scale the reference RGB values to \([-1,1]\), then VAE-encode the complete 49-frame reference video with tiling disabled:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Encode the reference video">
+          \[r=E_{\mathrm{VAE}}(x_{\mathrm{reference}}).\]
+        </div>
+        <p>The encoded reference is detached and treated as a fixed target for this update. It is rebuilt from the newly predicted video on the next inner iteration. Its future target comes from the detected state and simulator.</p>
+
+        <h2 id="loss">4. Measure MSE at the target latent time slice</h2>
+        <p>The latent shape is \(1\times16\times13\times16\times16\): batch, channels, time, height, width. The implementation maps zero-based target video frame \(q\) to latent time index</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Map the target video frame to its latent time index">
+          \[\ell=\max\!\left(2,\left\lfloor\frac{q-1}{4}\right\rfloor+1\right).\]
+        </div>
+        <p>It compares the clean prediction directly with the encoded reference at index \(\ell\), averaging over all 4,096 channel-and-spatial entries in that slice. The subtraction and squared-error reduction use float32:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Mean squared error at the selected latent time slice">
+          \[L=\frac{1}{4096}\left\|\hat z_0[:,:,\ell,:,:]-r[:,:,\ell,:,:]\right\|_2^2.\]
+        </div>
+        <p>The local physics score selects the target; this latent MSE supplies the gradient. The original Rollout-5 score shown under each video is computed separately from the final generated clip.</p>
+
+        <h2 id="update">5. Differentiate through the DiT and update the noisy state</h2>
+        <p>First differentiate \(L\) with respect to the clean prediction while holding the reference fixed. Then propagate that gradient through \(\hat z_0=z-\sigma_jv_\theta(z,t_j)\) to the noisy state:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Gradient through the current DiT evaluation">
+          \[g=\left(\frac{\partial\hat z_0}{\partial z}\right)^{\!\top}\nabla_{\hat z_0}L.\]
+        </div>
+        <p>The gradient includes the DiT’s dependence on its input. Although the loss uses one latent time slice, the state update covers all future slices. Let \(P_F\) retain latent time indices 2 through 12 and zero the two conditioning slices. There are \(|F|=45{,}056\) future entries. The correction is</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Normalize and apply the inner guidance correction">
+          \[\begin{aligned}
+          u&amp;=\frac{P_Fg}{\max\!\left(\sqrt{\|P_Fg\|_2^2/|F|},\,10^{-6}\right)},\\[6pt]
+          \gamma_j&amp;=0.7+(0.2-0.7)\frac{j-25}{K-26},\qquad 25\le j\le K-1,\\[6pt]
+          z^{\mathrm{new}}&amp;=\operatorname{restore}_C\!\left(
+            z-\gamma_j\,|\sigma_j-\sigma_{j+1}|\,\sqrt{L}\,u
+          \right).
+          \end{aligned}\]
+        </div>
+        <p>The strength formula applies to the active runs, where \(K\ge50\). The code calculates the future-gradient RMS in float32, casts it back to the gradient’s dtype for division, and restores the conditioning latents after subtraction.</p>
+        <p>Each correction is applied directly. The updated state is detached before the next DiT evaluation. Continue at the same noise level until 75 updates have been applied, no usable source remains, or all current usable sources are at or below \(\tau_j\).</p>
+
+        <h2 id="sampler">6. Take the denoising step and decode the final video</h2>
+        <p>After the inner loop, evaluate the DiT at the final corrected state if that state has changed since the last evaluation. Use that velocity in the ordinary flow-scheduler update:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Flow-scheduler update after the inner guidance loop">
+          \[z_{j+1}=\operatorname{restore}_C\!\left(
+            z_{\mathrm{end}}+(\sigma_{j+1}-\sigma_j)v_\theta(z_{\mathrm{end}},t_j)
+          \right).\]
+        </div>
+        <p>The terminal noise level is \(\sigma_K=0\). On inactive steps, the code makes one DiT evaluation and takes this scheduler step directly. After the last step, it VAE-decodes the latent, restores the first five observed RGB frames, and saves the resulting 49-frame video.</p>
+
+        <h2 id="runs">Which saved runs the webpage shows</h2>
+        <p>The webpage copies existing clips from <code>out/guidance/best-rollout1-matched-10samples-5steps-v1/case-{case}/steps-{K}/guided-final.mp4</code>. There are ten cases and five step counts. The launcher uses one fixed configuration for all 50 outputs; it does not rank alternative results for each displayed clip.</p>
+        <p>The recorded numbers of applied guidance updates and DiT evaluations are:</p>
+        <table class="method-table">
+          <thead><tr><th scope="col">Reverse steps</th><th scope="col">Guidance updates</th><th scope="col">DiT evaluations</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">10</th><td>0</td><td>10</td></tr>
+            <tr><th scope="row">20</th><td>0</td><td>20</td></tr>
+            <tr><th scope="row">50</th><td>1,875</td><td>1,925</td></tr>
+            <tr><th scope="row">100</th><td>5,580–5,625</td><td>5,680–5,725</td></tr>
+            <tr><th scope="row">200</th><td>13,125</td><td>13,325</td></tr>
+          </tbody>
+        </table>
+        <p>Ranges show variation across the ten cases. Every applied guidance update also performs one reference VAE encoding and a gradient calculation through the current DiT evaluation.</p>
+
+        <details class="method-sources">
+          <summary>Implementation references</summary>
+          <p>This description follows research-repository revision <code>06c91ab</code> and the saved manifests and diagnostics for the 50 displayed rollout-1 runs.</p>
+          <ul>
+            <li><code>configs/guidance/smallest_error_rollout_h1_best_u75.yaml</code>: explicit guidance settings; defaults are in <code>src/sshv2/guidance/latent_rollout_guidance.py</code>.</li>
+            <li><code>scripts/sshv2/run_best_rollout1_matched_matrix.py</code>: ten source videos, five step counts, and noise replay arguments.</li>
+            <li><code>scripts/sshv2/run_rollout1_single_source_case.py</code>: released bidirectional checkpoint, conditioning, task constants, generation, and video saving.</li>
+            <li><code>src/sshv2/diffsynth/pipelines/wan_video_guided.py</code>: <code>_smallest_error_direct_call</code>, <code>_smallest_error_endpoint_gradient</code>, <code>_single_reference_latent_slice_loss</code>, <code>_five_frame_window_latent_interval</code>, <code>_normalised_correction</code>, and <code>_prepare_inputs</code>.</li>
+            <li><code>src/sshv2/guidance/rollout_guidance.py</code>: <code>build_smallest_error_endpoint_reference</code> and <code>RolloutGuideContext.from_bounce_task</code>.</li>
+            <li><code>src/sshv2/simulation/reliable_rollout.py</code>: tracking, local penalized scores, simulation, and <code>build_single_rollout_endpoint_reference_videos</code>; velocity repair is in <code>src/sshv2/simulation/fix.py</code>.</li>
+            <li><code>src/sshv2/diffsynth/models/wan_video_vae.py</code> and <code>lib/diffsynth/diffsynth/schedulers/flow_match.py</code>: frame mapping, VAE operations, and scheduler update.</li>
+            <li><code>out/guidance/best-rollout1-matched-10samples-5steps-v1/</code>: each case/step directory contains <code>run.json</code>, <code>diagnostics.json</code>, and <code>guided-final.mp4</code>.</li>
+          </ul>
+        </details>
+
+        <p class="method-return"><a class="button" href="index.html#comparison">Return to the video comparison <span aria-hidden="true">→</span></a></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="index.html">Project page →</a></footer>
+</body>
+</html>

@@ -94,6 +94,11 @@
       methodLink.href = "clean-latent-oracle.html";
       card.append(methodLink);
     }
+    if (entry.method === "rollout1") {
+      const methodLink = element("a", "method-link", "How rollout-1 guidance is calculated →");
+      methodLink.href = "rollout-1-guidance.html";
+      card.append(methodLink);
+    }
     return card;
   }
 
