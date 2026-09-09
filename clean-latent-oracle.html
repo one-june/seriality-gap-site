@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How the clean-latent oracle-guided video diffusion variant is calculated: target encoding, future-latent loss, gradients, normalization, and sampler update.">
+  <meta name="theme-color" content="#faf9f6">
+  <title>Clean-latent oracle guidance · Mind the Seriality Gap</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/vendor/katex/katex.min.js"></script>
+  <script defer src="assets/vendor/katex/auto-render.min.js"></script>
+  <script defer src="assets/math.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Project page">
+      <a href="index.html#guidance">Findings</a>
+      <a href="index.html#comparison">Videos</a>
+    </nav>
+  </header>
+
+  <main id="main" class="method-page">
+    <article class="reading-width">
+      <a class="back-link" href="index.html#comparison">← Back to the video comparison</a>
+      <header class="method-heading">
+        <p class="eyebrow">Method / Clean-latent oracle</p>
+        <h1>How clean-latent oracle guidance is calculated</h1>
+        <p class="section-intro">The oracle encodes the complete correct video, measures the error of the DiT’s current clean-latent prediction, and uses its gradient to correct the noisy sampling state. This page describes the operations performed by the code for the 5-ball, 49-frame comparison.</p>
+      </header>
+
+      <div class="theory-prose method-content">
+        <h2 id="settings">Settings used in the comparison</h2>
+        <table class="method-table">
+          <tbody>
+            <tr><th scope="row">Video</th><td>49 frames at 128 × 128 pixels</td></tr>
+            <tr><th scope="row">Conditioning</th><td>First 2 latent frames, corresponding to 5 video frames</td></tr>
+            <tr><th scope="row">Oracle target</th><td>VAE encoding of the complete ground-truth video</td></tr>
+            <tr><th scope="row">Guidance strength</th><td>\(\lambda=12\)</td></tr>
+            <tr><th scope="row">RMS floor</th><td>\(\varepsilon=10^{-6}\)</td></tr>
+            <tr><th scope="row">Guidance window</th><td>Every reverse step: start 0, end 1</td></tr>
+            <tr><th scope="row">Reverse steps</th><td>\(K\in\{10,20,50,100,200\}\)</td></tr>
+            <tr><th scope="row">Sampler</th><td>Flow matching, shift 5, denoising strength 1</td></tr>
+            <tr><th scope="row">Model parameters</th><td>DiT and VAE frozen; empty prompts and classifier-free guidance scale 1</td></tr>
+          </tbody>
+        </table>
+        <p>Each latent tensor has shape \(B\times16\times13\times16\times16\): batch, channels, time, height, width. Let \(F\) contain all entries in latent time indices 2 through 12, and let \(C\) contain indices 0 and 1. Thus \(|F|=16\cdot11\cdot16\cdot16=45{,}056\) entries per video. \(P_F\) keeps the future entries and zeros the conditioning entries.</p>
+
+        <h2 id="target">1. Encode the target and conditioning</h2>
+        <p>The evaluator supplies the complete held-out video as <code>oracle_target_frames</code>. Its RGB values are scaled to \([-1,1]\). The sampler encodes it once with its VAE, including the VAE’s channel-wise latent scaling:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Encode the clean oracle target">
+          \[z^\star=E_{\mathrm{VAE}}(x^\star).\]
+        </div>
+        <p>Here \(x^\star\) is the ground-truth video and \(z^\star\) is its clean target latent. The target is detached from the gradient graph and kept fixed throughout sampling. The encoder runs with tiling disabled.</p>
+        <p>The conditioning path also VAE-encodes the supplied video and keeps its first two latent frames. These are the fixed conditioning latents. Sampling starts from seeded Gaussian noise, with those two latent frames overwritten by the conditioning latents.</p>
+
+        <h2 id="prediction">2. Evaluate the DiT at the current noise level</h2>
+        <p>Index reverse steps by \(j=0,\ldots,K-1\). With shift 5, the scheduler constructs its noise levels and model timesteps as</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The flow-matching noise schedule">
+          \[\begin{aligned}
+          \rho_j&amp;=1-\frac{j}{K},\\[4pt]
+          \sigma_j&amp;=\frac{5\rho_j}{1+4\rho_j},\qquad t_j=1000\sigma_j.
+          \end{aligned}\]
+        </div>
+        <p>The terminal noise level is \(\sigma_K=0\). At the start of each step, the code restores the conditioning entries in \(z_j\), detaches the state from the preceding step, and enables gradients with respect to this state. It then evaluates the frozen DiT once:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Velocity and clean-latent prediction">
+          \[v_j=v_\theta(z_j,t_j),\qquad
+          \hat z_{0,j}=z_j-\sigma_jv_j.\]
+        </div>
+        <p>\(v_j\) is the model’s velocity prediction. \(\hat z_{0,j}\) is the clean-latent estimate used to calculate the oracle loss at this step.</p>
+
+        <h2 id="loss">3. Compute the future-latent MSE</h2>
+        <p>For each video \(b\), subtract the target from the clean prediction on the future entries, square the differences, and average over channels, future latent frames, and spatial positions. Then average over the batch:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Per-video and batch oracle losses">
+          \[\begin{aligned}
+          L_{j,b}&amp;=\frac{1}{|F|}
+          \left\|P_F\!\left(\hat z_{0,j,b}-z_b^\star\right)\right\|_2^2,\\[6pt]
+          L_j&amp;=\frac{1}{B}\sum_{b=1}^{B}L_{j,b}.
+          \end{aligned}\]
+        </div>
+        <p>The subtraction and squared-error reduction use float32. In code, the future slice is <code>[:, :, num_condition_frames:]</code>. The oracle’s optimization loss is this latent MSE; Rollout-5 is calculated separately when evaluating the generated video.</p>
+
+        <h2 id="gradient">4. Differentiate through the clean estimate</h2>
+        <p>The implementation calculates the gradient in two operations. First it differentiates the loss with respect to the clean estimate and detaches that result. Then it propagates this gradient through the clean estimate to the current noisy state:</p>
+        <pre class="method-code" tabindex="0" aria-label="The two gradient operations"><code>clean_gradient = torch.autograd.grad(
+    oracle_loss, clean_prediction,
+    only_inputs=True, retain_graph=True,
+)[0].detach()
+
+state_gradient = torch.autograd.grad(
+    (clean_prediction * clean_gradient).sum(),
+    latents, only_inputs=True,
+)[0]</code></pre>
+        <div class="equation" tabindex="0" role="region" aria-label="Gradient with respect to the current noisy state">
+          \[g_j=\nabla_{z_j}L_j
+          =\left(\frac{\partial\hat z_{0,j}}{\partial z_j}\right)^{\!\top}
+          \nabla_{\hat z_{0,j}}L_j.\]
+        </div>
+        <p>The gradient includes the dependence of \(v_\theta(z_j,t_j)\) on \(z_j\). Model weights stay fixed. The gradient graph covers the current DiT evaluation; each completed sampler update is detached before the next step.</p>
+
+        <h2 id="normalization">5. Normalize the future-state gradient</h2>
+        <p>Take the future slice of \(g_j\). For each video independently, calculate its root mean square in float32 and clamp it from below at \(10^{-6}\). Divide that video’s future gradient by the resulting scalar:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Per-video RMS normalization of the future gradient">
+          \[\begin{aligned}
+          r_{j,b}&amp;=\max\!\left(
+            \sqrt{\frac{\|P_Fg_{j,b}\|_2^2}{|F|}},\,
+            10^{-6}\right),\\[6pt]
+          u_{j,b}&amp;=\frac{P_Fg_{j,b}}{r_{j,b}}.
+          \end{aligned}\]
+        </div>
+        <p>The RMS is cast back to the gradient’s dtype before division. The correction tensor starts as zeros, and only its future slice is filled. Its conditioning entries remain zero.</p>
+
+        <h2 id="update">6. Apply the correction and decode the result</h2>
+        <p>The code forms the ordinary flow-scheduler proposal using the same \(v_j\), subtracts the scaled normalized gradient, and restores the conditioning latents:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Ordinary scheduler proposal and oracle correction">
+          \[\begin{aligned}
+          \tilde z_{j+1}&amp;=z_j+(\sigma_{j+1}-\sigma_j)v_j,\\[6pt]
+          z_{j+1}&amp;=\operatorname{restore}_C\!\left(
+            \tilde z_{j+1}-12\,|\sigma_j-\sigma_{j+1}|\,u_j
+          \right).
+          \end{aligned}\]
+        </div>
+        <p>The gradient comes from the current state \(z_j\); the code subtracts its correction from the scheduler proposal \(\tilde z_{j+1}\). It applies one correction at each reverse step. After the final step, the VAE decodes the resulting latent into the generated video, with tiling disabled.</p>
+        <p>The code also records the final future-latent MSE, calculated between the final latent and the fixed target. The videos and Rollout-5 scores on the project page are evaluated from these final decoded outputs.</p>
+
+        <h2 id="strength">Where strength 12 comes from</h2>
+        <p>The scale-selection code groups calibration results by guidance strength and chooses the candidate with the lowest mean original Rollout-5 error over seeds 0, 1, and 2. The saved selection for the 5-ball, 49-frame model is 12. The holdout run manifests use that same strength for all five reverse-step counts.</p>
+
+        <details class="method-sources">
+          <summary>Implementation references</summary>
+          <p>This description follows research-repository revision <code>109de50</code> and the saved oracle run settings.</p>
+          <ul>
+            <li><code>src/sshv2/diffsynth/pipelines/wan_video_guided.py</code>: <code>_encode_oracle_target</code>, <code>_prepare_inputs</code>, <code>_oracle_call</code>, <code>_normalised_correction</code>, and <code>_restore_condition</code>.</li>
+            <li><code>src/sshv2/guidance/oracle.py</code>: <code>OracleLatentGuide.per_sample_loss</code> and its batch mean.</li>
+            <li><code>src/sshv2/diffsynth/models/wan_video_vae.py</code>: latent scaling, encoding, decoding, and video/latent frame counts.</li>
+            <li><code>lib/diffsynth/diffsynth/pipelines/wan_video_new.py</code> and <code>lib/diffsynth/diffsynth/schedulers/flow_match.py</code>: scheduler construction, noise levels, and Euler update.</li>
+            <li><code>scripts/sshv2/eval_guidance.py</code>: input video, conditioning, and oracle-target arguments.</li>
+            <li><code>scripts/sshv2/select_clean_latent_oracle_seriality_scales.py</code>: calibration selection rule.</li>
+            <li><code>out/guidance/clean-latent-oracle-hf-seriality-subset-v1/CALIBRATION_SELECTIONS.json</code>: selected strength.</li>
+            <li><code>out/guidance/missing-ball-aware-rollout5-5ball49f-d-oracle-v1/oracle/5ball-49f/holdout/</code>: settings for the displayed oracle runs.</li>
+          </ul>
+        </details>
+
+        <p class="method-return"><a class="button" href="index.html#comparison">Return to the video comparison <span aria-hidden="true">→</span></a></p>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="index.html">Project page →</a></footer>
+</body>
+</html>

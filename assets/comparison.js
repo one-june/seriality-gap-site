@@ -89,6 +89,11 @@
     }
     details.append(element("p", "validity", entry.validity));
     card.append(details);
+    if (entry.method === "oracle") {
+      const methodLink = element("a", "method-link", "How the oracle is calculated →");
+      methodLink.href = "clean-latent-oracle.html";
+      card.append(methodLink);
+    }
     return card;
   }
 

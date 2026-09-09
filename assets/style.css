@@ -57,6 +57,23 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .theory-callout { margin: 28px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--tint); border-radius: 0 6px 6px 0; }
 .theory-callout p + p { margin-top: 12px; }
 .theory-takeaway { margin-bottom: 0; }
+.method-page { max-width: 1280px; margin: auto; padding: 38px 32px 74px; }
+.back-link { display: inline-block; font-size: .86rem; text-decoration: none; }
+.method-heading { margin-top: 38px; }
+.method-heading h1 { font-size: clamp(2.55rem, 4.5vw, 3.8rem); }
+.method-content h2 { margin: 44px 0 18px; font: 650 1.5rem/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.025em; }
+.method-table { width: 100%; margin: 20px 0 26px; border-collapse: collapse; font-size: .92rem; }
+.method-table th, .method-table td { padding: 12px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.method-table th { width: 31%; padding-right: 20px; font-weight: 650; }
+.method-content code { font-size: .85em; overflow-wrap: anywhere; }
+.method-code { max-width: 100%; overflow-x: auto; margin: 24px 0; padding: 20px; background: var(--tint); border: 1px solid var(--line); border-radius: 6px; line-height: 1.6; }
+.method-code code { overflow-wrap: normal; }
+.method-sources { margin-top: 40px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: .9rem; }
+.method-sources summary { color: var(--accent); font-weight: 600; cursor: pointer; }
+.method-sources p { margin-top: 18px; }
+.method-sources ul { margin-bottom: 0; }
+.method-return { margin-top: 32px; }
+.method-return .button { white-space: normal; }
 .study-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .study-facts span { background: var(--tint); border-radius: 5px; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: #3e5e56; }
 .setup-note { color: var(--muted); font-size: .88rem; margin-top: 16px; }
@@ -84,6 +101,7 @@ select { min-height: 40px; padding: 6px 30px 6px 10px; border: 1px solid #cfd6d0
 .video-card h4 { min-height: 55px; display: flex; align-items: center; margin: 0; padding: 8px 0; font-size: .82rem; font-weight: 650; line-height: 1.35; }
 .video-card video { display: block; width: 100%; aspect-ratio: 1; background: #f3f3ed; border-radius: 5px; object-fit: contain; }
 .clip-link { display: inline-block; margin-top: 7px; font-size: .73rem; text-decoration: none; }
+.method-link { display: inline-block; margin-top: 13px; font-size: .74rem; }
 .score { margin-top: 10px; padding: 11px 0 12px; border-bottom: 1px solid var(--line); }
 .score small { display: block; color: var(--muted); font-size: .69rem; line-height: 1.35; }
 .score strong { display: block; font-size: 1.4rem; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -.03em; line-height: 1.55; }
@@ -133,6 +151,10 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
   .theory-prose { font-size: 1rem; }
   .theory-prose h3 { margin-top: 36px; font-size: 1.3rem; }
   .theory-callout { padding: 16px 18px; }
+  .method-page { padding: 26px 20px 50px; }
+  .method-content h2 { font-size: 1.3rem; }
+  .method-table { font-size: .83rem; }
+  .method-table th { width: 37%; padding-right: 12px; }
   .equation { font-size: .94rem; }
   .figure-heading { display: block; }
   .figure-heading a { display: inline-block; margin-top: 8px; }

@@ -185,7 +185,7 @@
         <ol class="finding-list">
           <li><strong>Autoregressive diffusion outperforms vanilla bidirectional diffusion.</strong> This holds at every tested step count on rollout-5 error, exact-future error, and penalized rollout-5 error.</li>
           <li><strong>Autoregressive accuracy does not improve steadily with more reverse steps.</strong> Its rollout-5 and exact-future errors rise slightly at 100–200 steps; penalized rollout-5 stays near 0.9 across the sweep.</li>
-          <li><strong>Clean-latent oracle guidance shows that bidirectional diffusion can use the correct target.</strong> It sharply lowers exact-future error and reaches the autoregressive model’s rollout-5 error around 50 steps. This guide uses the exact ground-truth future video.</li>
+          <li><strong>Clean-latent oracle guidance shows that bidirectional diffusion can use the correct target.</strong> It sharply lowers exact-future error and reaches the autoregressive model’s rollout-5 error around 50 steps. This guide uses the exact ground-truth future video. <a href="clean-latent-oracle.html">How the oracle is calculated →</a></li>
           <li><strong>Penalizing invalid balls changes the oracle comparison.</strong> Oracle penalized rollout-5 is 13.07 at 10 steps and 12.50 at 20 steps. It beats autoregressive diffusion at 100 and 200 steps, reaching about 0.73 versus 0.90–0.93.</li>
         </ol>
       </div>
