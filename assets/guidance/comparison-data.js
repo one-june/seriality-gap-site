@@ -139,7 +139,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-1/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -246,7 +246,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-1/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -353,7 +353,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-1/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -460,7 +460,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-1/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -567,7 +567,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-1/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -674,7 +674,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-2/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -781,7 +781,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-2/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -888,7 +888,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-2/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -995,7 +995,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-2/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1102,7 +1102,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-2/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1209,7 +1209,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-3/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1316,7 +1316,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-3/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1423,7 +1423,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-3/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1530,7 +1530,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-3/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1637,7 +1637,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-3/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1744,7 +1744,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-4/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1851,7 +1851,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-4/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -1958,7 +1958,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-4/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2065,7 +2065,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-4/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2172,7 +2172,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-4/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2279,7 +2279,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-5/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2386,7 +2386,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-5/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2493,7 +2493,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-5/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2600,7 +2600,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-5/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2707,7 +2707,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-5/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2814,7 +2814,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-6/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -2921,7 +2921,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-6/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3028,7 +3028,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-6/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3135,7 +3135,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-6/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3242,7 +3242,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-6/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3349,7 +3349,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-7/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3456,7 +3456,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-7/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3563,7 +3563,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-7/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3670,7 +3670,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-7/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3777,7 +3777,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-7/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3884,7 +3884,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-8/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -3991,7 +3991,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-8/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4098,7 +4098,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-8/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4205,7 +4205,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-8/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4312,7 +4312,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-8/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4419,7 +4419,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-9/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4526,7 +4526,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-9/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4633,7 +4633,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-9/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4740,7 +4740,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-9/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4847,7 +4847,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-9/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -4954,7 +4954,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-10/steps-10/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -5061,7 +5061,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-10/steps-20/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -5168,7 +5168,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-10/steps-50/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -5275,7 +5275,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-10/steps-100/rollout1.mp4",
         "metrics": {
           "Rollout-1": {
@@ -5382,7 +5382,7 @@ window.guidanceComparison = {
       },
       {
         "method": "rollout1",
-        "label": "Best rollout-1 guided bidir DiT",
+        "label": "Rollout-1-guided bidirectional DiT",
         "src": "assets/guidance/videos/case-10/steps-200/rollout1.mp4",
         "metrics": {
           "Rollout-1": {

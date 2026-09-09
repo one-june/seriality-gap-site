@@ -26,7 +26,7 @@
     bidirectional: "Vanilla bidirectional DiT",
     autoregressive: "Autoregressive DiT",
     oracle: "Clean-latent guided bidirectional DiT",
-    rollout1: "Best rollout-1 guided bidirectional DiT",
+    rollout1: "Rollout-1-guided bidirectional DiT",
   };
   let videos = [];
   let ready = false;
