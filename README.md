@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and rollout-1 guidance results: a synchronized tuned example, two results plots, and a full experiment report. A Rollout-5 section adds a matched Case 2 comparison, five-video results, the broad oracle comparison, and its full report.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives.
 
 ## Preview
 
@@ -62,7 +62,8 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `assets/rollout1/` | Saved tuning clips, report figures, original metrics, configurations, and source references |
 | `rollout-5-results.html` | Full HTML version of `out/guidance/ROLLOUT5_GUIDANCE_REPORT.md` |
 | `assets/rollout5/` | Saved Rollout-5 clips, figures, original metrics, and source references |
-| `assets/video-group.js` | Independent synchronized playback for each fixed three-clip comparison |
+| `assets/rollout-comparison/` | Common five-video metrics and plot, matching run settings, and the 5-ball/49-frame holdout subset |
+| `assets/video-group.js` | Synchronized playback for the combined three-clip Case 2 comparison |
 | `assets/style.css` | Shared layout and responsive styles |
 | `assets/math.js` | Render the page's LaTeX equations |
 | `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |
@@ -105,3 +106,11 @@ Run `python scripts/export_project_page_rollout5.py` with Python Markdown and Be
 The cap-50 viewer also shows original Rollout-1, computed from that saved clip using the same evaluator as the existing viewer. To recompute its two metrics, use `python scripts/export_project_page_rollout5.py --score-viewer` in the project environment with the simulation dependencies and source data available. Rollout-5 is checked against the report archive. Scores and the video hash are stored in `assets/rollout5/data/viewer_original_rollouts.json`. No videos are generated.
 
 The summary in `index.html` is edited separately. Its Case 2 player compares vanilla, cap-50 Rollout-5 guidance (strength 0.20 → 0.06), and the existing tuned Rollout-1 clip. The five-video plot uses late guidance with up to 12 accepted updates per step, not this cap-50 setting. Each viewer has independent playback controls.
+
+## Refresh the combined guidance comparison
+
+Run `python scripts/build_project_page_rollout_comparison.py` with Matplotlib installed. It builds the common five-video plot and CSV tables from the score archives and exported cache, verifies matching controls and shared experiment settings, and extracts only the 5-ball/49-frame holdout results. `matched_setup.json` records the common settings and each run's guidance configuration.
+
+To recalculate original Rollout-1 and Rollout-5 for the 30 saved Rollout-5 pilot clips, add `--score-pilot` in the project environment with Beautiful Soup and the simulation dependencies. The script uses the existing original evaluator and checks every Rollout-5 value against the report archive within 1e-8. It does not generate videos. The Rollout-1 pilot metrics come from its validated score archive. Detector-validity counts are excluded from this comparison because the experiments used different tracker versions.
+
+The combined section uses `#rollout-guidance`; the previous `#rollout1-results` and `#rollout5-results` links still lead to it. `index.html` is edited separately from the plots and report archives. The large holdout table uses only the filtered `holdout_5ball49f.csv`; the full Rollout-5 archive retains the other video settings.

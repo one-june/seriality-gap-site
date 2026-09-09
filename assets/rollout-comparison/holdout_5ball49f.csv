@@ -1,0 +1,5 @@
+condition,method,relative_improvement_percent
+5ball-49f,gaussian,0.15637268891783232
+5ball-49f,absolute,0.07961473611085287
+5ball-49f,delta,0.11923232644255423
+5ball-49f,oracle,34.92415905170201

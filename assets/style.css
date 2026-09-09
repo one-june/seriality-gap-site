@@ -89,6 +89,9 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .report-content table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .88rem; }
 .report-content th, .report-content td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .report-content th { font-weight: 650; }
+.rollout-results .findings h3 + p, .rollout-results .findings p + p { margin-top: 16px; }
+.rollout-results figure + .report-content { margin-top: 32px; }
+.rollout-results .archive-heading { margin-top: 32px; }
 .study-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .study-facts span { background: var(--tint); border-radius: 5px; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: #3e5e56; }
 .setup-note { color: var(--muted); font-size: .88rem; margin-top: 16px; }

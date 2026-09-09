@@ -1,0 +1,755 @@
+{
+  "shared_settings": {
+    "seed": 0,
+    "num_inference_steps": 50,
+    "observed_frames": 5,
+    "checkpoint": "/scratch/wkim/code/seriality-gap/ckpt/huggingface/20k-49f-5n-0c-B-1536d-30l-64b-2e4lr/model-avg.safetensors",
+    "guide_start": 0.8,
+    "guide_end": 1.0,
+    "trial_scales": [
+      0.1,
+      0.03,
+      0.01,
+      0.003
+    ],
+    "max_inner_updates": 12
+  },
+  "runs": {
+    "rollout1-single-source-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 1,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_worst_source_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 1
+      }
+    },
+    "rollout1-single-source-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 1,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_worst_source_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 1
+      }
+    },
+    "rollout1-single-source-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 1,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_worst_source_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 1
+      }
+    },
+    "rollout1-single-source-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 1,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_worst_source_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 1
+      }
+    },
+    "rollout1-single-source-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 1,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_worst_source_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 1
+      }
+    },
+    "late-all-window-accept-case1-v1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-all-window-local-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-all-window-local-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-all-window-local-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-all-window-local-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-endpoint-local-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-endpoint-local-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-endpoint-local-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-endpoint-local-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-endpoint-local-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-full-window-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-full-window-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-full-window-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-full-window-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-full-window-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-endpoint-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-endpoint-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-endpoint-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-endpoint-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-extra-invalid-endpoint-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-full-window-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-full-window-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-full-window-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-full-window-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-full-window-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_all_window_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-endpoint-5cases/case-1": {
+      "source": "00000/164.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-endpoint-5cases/case-2": {
+      "source": "00000/828.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-endpoint-5cases/case-3": {
+      "source": "00000/037.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-endpoint-5cases/case-4": {
+      "source": "00000/871.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    },
+    "late-absolute-endpoint-5cases/case-5": {
+      "source": "00000/066.mp4",
+      "guidance_config": {
+        "scale": 0.1,
+        "horizon": 5,
+        "color_tolerance": 80,
+        "guide_start": 0.8,
+        "guide_end": 1.0,
+        "eps": 1e-06,
+        "reference_mode": "late_endpoint_absolute_accept",
+        "trial_scales": [
+          0.1,
+          0.03,
+          0.01,
+          0.003
+        ],
+        "max_inner_updates": 12,
+        "acceptance_tolerance": 1e-06,
+        "reference_encode_batch_size": 44
+      }
+    }
+  },
+  "validation": "Every Rollout-5 control file has the same SHA-256 as its corresponding Rollout-1 pilot control."
+}
