@@ -1,6 +1,6 @@
 # Project page
 
-This directory is a complete static website for the repository's experimental findings. It starts with the contents of `out/guidance/KEY_FINDINGS.md`, both comparison plots, and the full video viewer: 10 cases × 5 step counts × 5 methods.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experimental section contains the findings from `out/guidance/KEY_FINDINGS.md`, both comparison plots, and the full video viewer: 10 cases × 5 step counts × 5 methods.
 
 ## Preview
 
@@ -10,7 +10,7 @@ From the repository root:
 python -m http.server 8000 --directory docs
 ```
 
-Open <http://localhost:8000>. You can also open `index.html` directly in a browser. No build step, package installation, external fonts, or CDN is required to view the site.
+Open <http://localhost:8000>. You can also open `index.html` directly in a browser. No build step, package installation, or CDN is required to view the site. Equation rendering and its fonts are bundled locally.
 
 ## Publish on GitHub Pages
 
@@ -49,6 +49,7 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 - Copy the figures, clips, and summaries into `assets/your-result/`. Reference those copies with relative paths; do not link outside `docs/`.
 - Add an entry to the header navigation for the new section. Reuse `reading-width`, `plot`, and `data-links` for consistent formatting.
 - Edit the page's text in `index.html`. The current guidance prose was adapted from `out/guidance/KEY_FINDINGS.md`; changes to that Markdown file are not automatically applied to the page.
+- Write inline equations as `\( ... \)` and display equations as `\[ ... \]`. Wrap display equations in `<div class="equation" tabindex="0" role="region" aria-label="Describe the equation">` so wide equations can scroll on small screens. Use HTML escapes such as `&amp;` for alignment markers and `&lt;` for less-than signs. Bundled KaTeX renders equations inside `<main>` automatically.
 
 ## Files
 
@@ -56,6 +57,8 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | --- | --- |
 | `index.html` | Page content and section structure |
 | `assets/style.css` | Shared layout and responsive styles |
+| `assets/math.js` | Render the page's LaTeX equations |
+| `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |
 | `assets/comparison.js` | Video selection, synchronized playback, frame stepping, and metrics |
 | `assets/guidance/plots/` | The two original SVG plots |
 | `assets/guidance/videos/` | The 210 unique clips used by the comparison |

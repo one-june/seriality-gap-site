@@ -3,19 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Experimental findings on autoregressive generation, bidirectional video diffusion, and guidance, with interactive video comparisons.">
+  <meta name="description" content="Mind the Seriality Gap: why denoising steps may not provide scalable serial computation, with experimental findings and interactive video comparisons.">
   <meta name="theme-color" content="#faf9f6">
-  <title>The Seriality Gap · Experimental Findings</title>
+  <title>Mind the Seriality Gap</title>
   <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
   <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/vendor/katex/katex.min.js"></script>
+  <script defer src="assets/vendor/katex/auto-render.min.js"></script>
+  <script defer src="assets/math.js"></script>
   <script defer src="assets/guidance/comparison-data.js"></script>
   <script defer src="assets/comparison.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to results</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="#">Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <a class="wordmark" href="#">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
     <nav aria-label="Page sections">
+      <a href="#theory">Argument</a>
       <a href="#guidance">Findings</a>
       <a href="#comparison">Videos</a>
       <a href="#data">Data</a>
@@ -24,19 +29,147 @@
 
   <main id="main">
     <div class="hero">
-      <p class="eyebrow">Experimental findings</p>
-      <h1>The Seriality Gap<br>in Video Diffusion Models</h1>
-      <p class="hero-description">Experiments on autoregressive generation,<br class="desktop-break"> bidirectional diffusion, and guidance.</p>
+      <p class="eyebrow">Theory and experiments</p>
+      <h1>Mind the Seriality Gap</h1>
+      <p class="hero-description">What denoising steps can compute,<br class="desktop-break"> and what our video experiments show.</p>
       <div class="hero-links">
-        <a class="button primary" href="#comparison">Explore the videos <span aria-hidden="true">↗</span></a>
-        <a class="button" href="#guidance">Read the findings <span aria-hidden="true">↓</span></a>
+        <a class="button primary" href="#theory">Read the argument <span aria-hidden="true">↓</span></a>
+        <a class="button" href="#comparison">Explore the videos <span aria-hidden="true">↗</span></a>
       </div>
     </div>
+
+    <section class="experiment theory-section" id="theory" aria-labelledby="theory-title">
+      <div class="section-heading reading-width">
+        <p class="eyebrow">01 / The argument</p>
+        <h2 id="theory-title">Does denoising provide<br class="desktop-break"> serial computation?</h2>
+      </div>
+      <div class="theory-prose reading-width">
+        <p><strong>For us to say that the denoising loop of \(T\) steps provides “serial computation,”</strong> we would need to show that allowing \(T\) to grow enlarges the class of problems the model can solve beyond what constant \(T\) can solve. Here, “constant” means independent of input size, with the same limits on the computation in each score evaluation.</p>
+
+        <aside class="theory-callout" aria-label="What we mean by problems">
+          <p><strong>“Problems” are input-output mappings:</strong> given the first few billiard frames, predict the next few frames; given a Boolean circuit and an input bitstring, predict the circuit’s output.</p>
+        </aside>
+
+        <p><strong>SSH’s claim</strong> is that, under its assumptions, including the low-score-error condition at a fixed step budget, the tasks in question can already be solved with some constant \(T^*\). Allowing \(T\) to grow then adds no new class of solvable problems. This is the sense in which <strong>“the denoising loop does not provide scalable serial computation.”</strong> SSH refers to <a href="https://arxiv.org/html/2507.12549v4#A6">The Serial Scaling Hypothesis</a>.</p>
+
+        <h3 id="perfect-score">The easiest case: a perfect score</h3>
+        <p>Let \(c\) be the conditioning frames and \(y^*=f(c)\) the unique correct future video. At an intermediate noise level \(t_k\), with \(\alpha_k,\sigma_k&gt;0\),</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Forward noising equation">
+          \[x_k=\alpha_k f(c)+\sigma_k\epsilon,\qquad \epsilon\sim\mathcal N(0,I).\]
+        </div>
+        <p>The exact conditional score is</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Exact conditional score">
+          \[s_k^*(x_k,c)=\frac{\alpha_k f(c)-x_k}{\sigma_k^2}.\]
+        </div>
+        <p>Therefore, the Tweedie-denoised estimate is</p>
+        <div class="equation" tabindex="0" role="region" aria-label="An exact score recovers the complete future">
+          \[\begin{aligned}
+          \hat f_k^*(x_k,c)
+          &amp;=\frac{x_k+\sigma_k^2 s_k^*(x_k,c)}{\alpha_k}\\[6pt]
+          &amp;=\frac{x_k+\sigma_k^2\frac{\alpha_k f(c)-x_k}{\sigma_k^2}}{\alpha_k}\\[6pt]
+          &amp;=f(c).
+          \end{aligned}\]
+        </div>
+        <p>This holds for every \(x_k\). Even with different noisy states at different noise scales, the exact score always gives \(x_k\to f(c)\). Therefore,</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The clean estimate has zero state Jacobian">
+          \[\frac{\partial\hat f_k^*}{\partial x_k}=0.\]
+        </div>
+        <p>This is the Jacobian of the clean-video estimate with respect to the current noisy state. Once conditioning \(c\) is fixed, changing \(x_k\) does not change the predicted future. The current state is irrelevant to the current clean estimate. More importantly, <strong>information carried through the denoising state from any earlier step cannot affect any later clean prediction.</strong> Every score evaluation, followed by the Tweedie formula, independently outputs the complete future \(f(c)\).</p>
+        <p>Information can propagate through the trajectory, but there is no path by which that propagated information can influence the computed solution \(f(c)\).</p>
+
+        <h3 id="approximate-score">What about an approximate score?</h3>
+        <div class="equation" tabindex="0" role="region" aria-label="Approximate score as exact score plus error">
+          \[s_k^\theta(x_k,c)=s_k^*(x_k,c)+e_k(x_k,c),\]
+        </div>
+        <p>where \(e_k\) is the score error. The Tweedie-denoised estimate becomes</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The score error changes the clean estimate">
+          \[\begin{aligned}
+          \hat f_k^\theta(x_k,c)
+          &amp;=\frac{x_k+\sigma_k^2 s_k^\theta(x_k,c)}{\alpha_k}\\[6pt]
+          &amp;=f(c)+\frac{\sigma_k^2}{\alpha_k}e_k(x_k,c)\\[6pt]
+          &amp;=f(c)+\lambda_k e_k(x_k,c),
+          \end{aligned}\]
+        </div>
+        <p>with \(\lambda_k=\sigma_k^2/\alpha_k\). Like the score, \(e_k\) is a vector field: it assigns a vector to each point in latent or video space. It depends on the noisy state \(x_k\) and contributes to the next denoising step. This provides a channel for recurrence.</p>
+        <p>As before, we can express this with the Jacobian:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="State dependence enters through the score error">
+          \[\frac{\partial\hat f_k^\theta}{\partial x_k}
+          =\lambda_k\frac{\partial e_k}{\partial x_k}.\]
+        </div>
+        <p>If \(\partial e_k/\partial x_k\ne0\), information written into \(x_k\) by earlier steps can affect the computation at this step.</p>
+
+        <h3 id="step-jacobian">The Jacobian of a denoising step</h3>
+        <p>An even more directly relevant object is the Jacobian of a single sampler step. For a numerical reverse-SDE update,</p>
+        <div class="equation" tabindex="0" role="region" aria-label="A numerical reverse diffusion step">
+          \[x_{k-1}=x_k+a_k x_k+b_k s_k^\theta(x_k,c)+\xi_k.\]
+        </div>
+        <p>Holding the conditioning and sampled noise \(\xi_k\) fixed,</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Jacobian of one sampler step">
+          \[J_k:=\frac{\partial x_{k-1}}{\partial x_k}
+          =(1+a_k)I+b_k\frac{\partial s_k^\theta}{\partial x_k}.\]
+        </div>
+        <p>Since \(s_k^\theta=s_k^*+e_k\),</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The contribution of score error to the step Jacobian">
+          \[\begin{aligned}
+          J_k&amp;=(1+a_k)I+b_k\frac{\partial s_k^*}{\partial x_k}
+          +b_k\frac{\partial e_k}{\partial x_k}\\[6pt]
+          &amp;=\left(1+a_k-\frac{b_k}{\sigma_k^2}\right)I
+          +b_k\frac{\partial e_k}{\partial x_k}.
+          \end{aligned}\]
+        </div>
+        <p>The last term, \(b_k\,\partial e_k/\partial x_k\), is the part introduced by score error. Across several sampler steps, these state Jacobians multiply, just as in an RNN:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Chain rule across denoising steps">
+          \[\begin{aligned}
+          \frac{\partial x_0}{\partial x_k}
+          &amp;=\frac{\partial x_0}{\partial x_1}
+          \frac{\partial x_1}{\partial x_2}\cdots
+          \frac{\partial x_{k-1}}{\partial x_k}\\[6pt]
+          &amp;=J_1J_2\cdots J_k.
+          \end{aligned}\]
+        </div>
+
+        <aside class="theory-callout" aria-label="Recurrence is necessary but not sufficient">
+          <p><strong>A nonzero Jacobian establishes a channel for recurrent dependence.</strong> It does not establish that the channel carries useful, task-relevant computation.</p>
+          <p>For this deterministic target, state-dependent score error is necessary for earlier denoising states to influence a later clean estimate. It is not sufficient for useful serial computation.</p>
+        </aside>
+
+        <p>In the perfect-score case, the Jacobians between denoising states can still be nonzero. For a later step \(j&lt;k\),</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The exact clean estimate removes dependence on earlier states">
+          \[\frac{\partial\hat f_j^*}{\partial x_k}
+          =\underbrace{\frac{\partial\hat f_j^*}{\partial x_j}}_{=\,0}
+          \frac{\partial x_j}{\partial x_k}=0.\]
+        </div>
+        <p>The state-to-state Jacobian \(\partial x_j/\partial x_k\) can be nonzero, but the clean estimate’s Jacobian is zero. The result is zero regardless of how complicated the state-to-state dependence is.</p>
+        <p>This makes progress toward Amir’s question: <strong>“Why doesn’t composing score evaluations amount to serial computation?”</strong> With a perfect score, the state can carry information through the trajectory, but the map from the state to the task solution removes all dependence on that information.</p>
+
+        <h3 id="low-score-error">How does SSH cover approximate scores?</h3>
+        <p>This is where the <strong>low-score-error assumption</strong> enters. It would be useful to have a similar Jacobian argument for approximate scores, but low score error alone does not bound its derivative. Instead, SSH uses a convergence argument.</p>
+        <p>Let \(q_K(y\mid c)\) be the output distribution after \(K\) approximate-score sampling steps. In SSH’s formulation, the convergence bound has the form</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Sampling error bound used by SSH">
+          \[\mathrm{TV}(q_K,p_{\mathrm{truth}})
+          \le C\left[
+          \frac{d_{\mathrm{int}}(\log K)^3}{K}
+          +\epsilon_{\mathrm{score}}\sqrt{\log K}
+          \right].\]
+        </div>
+        <p>Here \(C\) is a theorem constant and \(d_{\mathrm{int}}\) denotes the discrete intrinsic dimension in the bound. The two terms account for:</p>
+        <ul>
+          <li><strong>Finite-step error:</strong> using finitely many denoising steps.</li>
+          <li><strong>Score error:</strong> imperfect score estimation accumulated through the sampler.</li>
+        </ul>
+        <p>When the intrinsic-dimension term stays bounded as input size grows, we can choose a fixed \(K^*\) large enough to make the first term small. Increasing \(K\) also increases the score-error term in this bound, so \(\epsilon_{\mathrm{score}}\) must be small enough for their sum to remain below the required threshold.</p>
+        <p>The formal premise is that <strong>one constant \(K^*\) satisfies this error threshold for every input size</strong>, together with the paper’s network, sampler, and moment assumptions. SSH then derives a constant-depth solution to the task. See <a href="https://arxiv.org/html/2507.12549v4#A6.SS4">Theorem F.2</a> and its <a href="https://arxiv.org/html/2507.12549v4#A6.SS5">interpretation</a>.</p>
+
+        <aside class="theory-callout theory-takeaway" aria-label="What the low-score-error assumption does">
+          <p><strong>So, in a sense, the assumptions already require the score model to be accurate enough that a constant number of steps suffices.</strong> Our reading is that the needed task computation must then be achievable within a fixed number of score evaluations. The denoising-step count does not need to grow, and the loop supplies no scalable serial computation under those assumptions.</p>
+        </aside>
+      </div>
+    </section>
 
     <!-- Add future experiment sections inside main, following this section. -->
     <section class="experiment" id="guidance" aria-labelledby="guidance-title">
       <div class="section-heading reading-width">
-        <p class="eyebrow">01 / Guidance</p>
+        <p class="eyebrow">02 / Guidance</p>
         <h2 id="guidance-title">Autoregressive and<br class="desktop-break"> bidirectional diffusion</h2>
         <p class="section-intro">Autoregressive diffusion gives lower errors than vanilla bidirectional diffusion across the tested reverse-step counts. Clean-latent oracle guidance reveals how much the bidirectional sampler can improve when given the correct future.</p>
         <div class="study-facts" aria-label="Experiment setup">
@@ -115,6 +248,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>The Seriality Gap · Experimental findings</span><a href="#">Back to top ↑</a></footer>
+  <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="#">Back to top ↑</a></footer>
 </body>
 </html>

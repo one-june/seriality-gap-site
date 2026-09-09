@@ -45,6 +45,18 @@ h1 { font-size: clamp(2.8rem, 5.2vw, 4.65rem); }
 .reading-width { max-width: 840px; margin-left: auto; margin-right: auto; }
 h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .section-intro { font-size: 1.12rem; margin-top: 25px; }
+.theory-prose { margin-top: 32px; font-size: 1.04rem; }
+.theory-prose > p + p { margin-top: 20px; }
+.theory-prose h3 { margin: 48px 0 20px; font-size: 1.5rem; }
+.theory-prose ul { padding-left: 24px; margin: 18px 0 22px; }
+.theory-prose li + li { margin-top: 8px; }
+.theory-prose .katex { font-size: 1.08em; }
+.equation { max-width: 100%; overflow-x: auto; margin: 23px 0; padding: 10px 4px 14px; }
+.equation .katex-display { margin: 0; }
+.equation .katex-display > .katex { text-align: left; }
+.theory-callout { margin: 28px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--tint); border-radius: 0 6px 6px 0; }
+.theory-callout p + p { margin-top: 12px; }
+.theory-takeaway { margin-bottom: 0; }
 .study-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .study-facts span { background: var(--tint); border-radius: 5px; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: #3e5e56; }
 .setup-note { color: var(--muted); font-size: .88rem; margin-top: 16px; }
@@ -108,7 +120,7 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
   .sample-info { flex-basis: 100%; margin: 0; }
 }
 @media (max-width: 600px) {
-  .site-header { min-height: 72px; padding: 16px 20px; }
+  .site-header { min-height: 72px; padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
   nav { gap: 17px; }
   nav a { font-size: .8rem; }
   .hero { padding: 54px 20px 60px; }
@@ -118,6 +130,10 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
   .desktop-break { display: none; }
   .experiment { padding: 42px 20px 50px; }
   .section-intro { font-size: 1rem; }
+  .theory-prose { font-size: 1rem; }
+  .theory-prose h3 { margin-top: 36px; font-size: 1.3rem; }
+  .theory-callout { padding: 16px 18px; }
+  .equation { font-size: .94rem; }
   .figure-heading { display: block; }
   .figure-heading a { display: inline-block; margin-top: 8px; }
   .plot { margin-top: 42px; }
