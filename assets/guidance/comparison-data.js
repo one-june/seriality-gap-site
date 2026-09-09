@@ -62,7 +62,8 @@ window.guidanceComparison = {
             "valid": "0.0103",
             "penalized": "0.0103",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0186"
           },
           "Rollout-5": {
             "valid": "0.0519",
@@ -83,7 +84,8 @@ window.guidanceComparison = {
             "valid": "0.1132",
             "penalized": "6.2349",
             "scored": "124/220",
-            "sourceAvailable": "125/220"
+            "sourceAvailable": "125/220",
+            "original": "0.2507"
           },
           "Rollout-5": {
             "valid": "0.6315",
@@ -104,7 +106,8 @@ window.guidanceComparison = {
             "valid": "0.0454",
             "penalized": "0.0454",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1491"
           },
           "Rollout-5": {
             "valid": "0.2332",
@@ -125,7 +128,8 @@ window.guidanceComparison = {
             "valid": "0.0703",
             "penalized": "13.8863",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.7404"
           },
           "Rollout-5": {
             "valid": "0.2312",
@@ -146,7 +150,8 @@ window.guidanceComparison = {
             "valid": "0.0905",
             "penalized": "6.2221",
             "scored": "124/220",
-            "sourceAvailable": "125/220"
+            "sourceAvailable": "125/220",
+            "original": "0.3846"
           },
           "Rollout-5": {
             "valid": "0.5127",
@@ -169,7 +174,8 @@ window.guidanceComparison = {
             "valid": "0.0103",
             "penalized": "0.0103",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0186"
           },
           "Rollout-5": {
             "valid": "0.0519",
@@ -190,7 +196,8 @@ window.guidanceComparison = {
             "valid": "0.1017",
             "penalized": "2.3993",
             "scored": "184/220",
-            "sourceAvailable": "185/220"
+            "sourceAvailable": "185/220",
+            "original": "0.2439"
           },
           "Rollout-5": {
             "valid": "0.6029",
@@ -211,7 +218,8 @@ window.guidanceComparison = {
             "valid": "0.0674",
             "penalized": "0.0674",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1750"
           },
           "Rollout-5": {
             "valid": "0.3701",
@@ -232,7 +240,8 @@ window.guidanceComparison = {
             "valid": "0.0783",
             "penalized": "13.6307",
             "scored": "8/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.7624"
           },
           "Rollout-5": {
             "valid": "0.1899",
@@ -253,7 +262,8 @@ window.guidanceComparison = {
             "valid": "0.0998",
             "penalized": "2.3976",
             "scored": "184/220",
-            "sourceAvailable": "185/220"
+            "sourceAvailable": "185/220",
+            "original": "0.4179"
           },
           "Rollout-5": {
             "valid": "0.6163",
@@ -276,7 +286,8 @@ window.guidanceComparison = {
             "valid": "0.0103",
             "penalized": "0.0103",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0186"
           },
           "Rollout-5": {
             "valid": "0.0519",
@@ -297,7 +308,8 @@ window.guidanceComparison = {
             "valid": "0.1027",
             "penalized": "1.1238",
             "scored": "204/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.1906"
           },
           "Rollout-5": {
             "valid": "0.5945",
@@ -318,7 +330,8 @@ window.guidanceComparison = {
             "valid": "0.0501",
             "penalized": "0.0501",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1556"
           },
           "Rollout-5": {
             "valid": "0.2301",
@@ -339,7 +352,8 @@ window.guidanceComparison = {
             "valid": "0.0336",
             "penalized": "0.0336",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1118"
           },
           "Rollout-5": {
             "valid": "0.1871",
@@ -360,7 +374,8 @@ window.guidanceComparison = {
             "valid": "0.1482",
             "penalized": "2.6289",
             "scored": "181/220",
-            "sourceAvailable": "185/220"
+            "sourceAvailable": "185/220",
+            "original": "0.5238"
           },
           "Rollout-5": {
             "valid": "0.9313",
@@ -383,7 +398,8 @@ window.guidanceComparison = {
             "valid": "0.0103",
             "penalized": "0.0103",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0186"
           },
           "Rollout-5": {
             "valid": "0.0519",
@@ -404,7 +420,8 @@ window.guidanceComparison = {
             "valid": "0.0878",
             "penalized": "1.4294",
             "scored": "199/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.1880"
           },
           "Rollout-5": {
             "valid": "0.5502",
@@ -425,7 +442,8 @@ window.guidanceComparison = {
             "valid": "0.0647",
             "penalized": "0.0647",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1711"
           },
           "Rollout-5": {
             "valid": "0.3123",
@@ -446,7 +464,8 @@ window.guidanceComparison = {
             "valid": "0.0281",
             "penalized": "0.6697",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1184"
           },
           "Rollout-5": {
             "valid": "0.1544",
@@ -467,7 +486,8 @@ window.guidanceComparison = {
             "valid": "0.1147",
             "penalized": "0.1147",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4004"
           },
           "Rollout-5": {
             "valid": "0.6299",
@@ -490,7 +510,8 @@ window.guidanceComparison = {
             "valid": "0.0103",
             "penalized": "0.0103",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0186"
           },
           "Rollout-5": {
             "valid": "0.0519",
@@ -511,7 +532,8 @@ window.guidanceComparison = {
             "valid": "0.1109",
             "penalized": "0.1109",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1942"
           },
           "Rollout-5": {
             "valid": "0.6429",
@@ -532,7 +554,8 @@ window.guidanceComparison = {
             "valid": "0.0462",
             "penalized": "0.0462",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1647"
           },
           "Rollout-5": {
             "valid": "0.2223",
@@ -553,7 +576,8 @@ window.guidanceComparison = {
             "valid": "0.0304",
             "penalized": "0.6719",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1058"
           },
           "Rollout-5": {
             "valid": "0.1686",
@@ -574,7 +598,8 @@ window.guidanceComparison = {
             "valid": "0.1227",
             "penalized": "7.4510",
             "scored": "105/220",
-            "sourceAvailable": "110/220"
+            "sourceAvailable": "110/220",
+            "original": "0.5639"
           },
           "Rollout-5": {
             "valid": "0.5709",
@@ -597,7 +622,8 @@ window.guidanceComparison = {
             "valid": "0.0091",
             "penalized": "0.0091",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0162"
           },
           "Rollout-5": {
             "valid": "0.0578",
@@ -618,7 +644,8 @@ window.guidanceComparison = {
             "valid": "0.0998",
             "penalized": "0.0998",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1868"
           },
           "Rollout-5": {
             "valid": "0.5521",
@@ -639,7 +666,8 @@ window.guidanceComparison = {
             "valid": "0.0723",
             "penalized": "0.0723",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1365"
           },
           "Rollout-5": {
             "valid": "0.3882",
@@ -660,7 +688,8 @@ window.guidanceComparison = {
             "valid": "0.1538",
             "penalized": "13.9514",
             "scored": "3/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.7668"
           },
           "Rollout-5": {
             "valid": "0.1890",
@@ -681,7 +710,8 @@ window.guidanceComparison = {
             "valid": "0.1168",
             "penalized": "0.1168",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3749"
           },
           "Rollout-5": {
             "valid": "0.6044",
@@ -704,7 +734,8 @@ window.guidanceComparison = {
             "valid": "0.0091",
             "penalized": "0.0091",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0162"
           },
           "Rollout-5": {
             "valid": "0.0578",
@@ -725,7 +756,8 @@ window.guidanceComparison = {
             "valid": "0.0964",
             "penalized": "0.0964",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1778"
           },
           "Rollout-5": {
             "valid": "0.5740",
@@ -746,7 +778,8 @@ window.guidanceComparison = {
             "valid": "0.0645",
             "penalized": "0.0645",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1182"
           },
           "Rollout-5": {
             "valid": "0.4171",
@@ -767,7 +800,8 @@ window.guidanceComparison = {
             "valid": "0.0898",
             "penalized": "13.9505",
             "scored": "3/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.6015"
           },
           "Rollout-5": {
             "valid": "0.2729",
@@ -788,7 +822,8 @@ window.guidanceComparison = {
             "valid": "0.1071",
             "penalized": "0.1071",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3679"
           },
           "Rollout-5": {
             "valid": "0.6225",
@@ -811,7 +846,8 @@ window.guidanceComparison = {
             "valid": "0.0091",
             "penalized": "0.0091",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0162"
           },
           "Rollout-5": {
             "valid": "0.0578",
@@ -832,7 +868,8 @@ window.guidanceComparison = {
             "valid": "0.0960",
             "penalized": "0.0960",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1647"
           },
           "Rollout-5": {
             "valid": "0.5579",
@@ -853,7 +890,8 @@ window.guidanceComparison = {
             "valid": "0.0631",
             "penalized": "0.0631",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0954"
           },
           "Rollout-5": {
             "valid": "0.3647",
@@ -874,7 +912,8 @@ window.guidanceComparison = {
             "valid": "0.0548",
             "penalized": "0.0548",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1176"
           },
           "Rollout-5": {
             "valid": "0.3159",
@@ -895,7 +934,8 @@ window.guidanceComparison = {
             "valid": "0.1227",
             "penalized": "13.5686",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.8621"
           },
           "Rollout-5": {
             "valid": "0.3994",
@@ -918,7 +958,8 @@ window.guidanceComparison = {
             "valid": "0.0091",
             "penalized": "0.0091",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0162"
           },
           "Rollout-5": {
             "valid": "0.0578",
@@ -939,7 +980,8 @@ window.guidanceComparison = {
             "valid": "0.0987",
             "penalized": "0.0987",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1700"
           },
           "Rollout-5": {
             "valid": "0.5694",
@@ -960,7 +1002,8 @@ window.guidanceComparison = {
             "valid": "0.0788",
             "penalized": "0.0788",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1298"
           },
           "Rollout-5": {
             "valid": "0.5092",
@@ -981,7 +1024,8 @@ window.guidanceComparison = {
             "valid": "0.0533",
             "penalized": "0.0533",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1140"
           },
           "Rollout-5": {
             "valid": "0.3138",
@@ -1002,7 +1046,8 @@ window.guidanceComparison = {
             "valid": "0.0824",
             "penalized": "13.5670",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.4835"
           },
           "Rollout-5": {
             "valid": "0.4697",
@@ -1025,7 +1070,8 @@ window.guidanceComparison = {
             "valid": "0.0091",
             "penalized": "0.0091",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0162"
           },
           "Rollout-5": {
             "valid": "0.0578",
@@ -1046,7 +1092,8 @@ window.guidanceComparison = {
             "valid": "0.1025",
             "penalized": "0.1025",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1780"
           },
           "Rollout-5": {
             "valid": "0.5833",
@@ -1067,7 +1114,8 @@ window.guidanceComparison = {
             "valid": "0.0712",
             "penalized": "0.0712",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1353"
           },
           "Rollout-5": {
             "valid": "0.4152",
@@ -1088,7 +1136,8 @@ window.guidanceComparison = {
             "valid": "0.0528",
             "penalized": "0.0528",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1036"
           },
           "Rollout-5": {
             "valid": "0.3067",
@@ -1109,7 +1158,8 @@ window.guidanceComparison = {
             "valid": "0.0648",
             "penalized": "13.5662",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.5022"
           },
           "Rollout-5": {
             "valid": "0.3298",
@@ -1132,7 +1182,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0171"
           },
           "Rollout-5": {
             "valid": "0.0615",
@@ -1153,7 +1204,8 @@ window.guidanceComparison = {
             "valid": "0.1188",
             "penalized": "0.1188",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1554"
           },
           "Rollout-5": {
             "valid": "0.5757",
@@ -1174,7 +1226,8 @@ window.guidanceComparison = {
             "valid": "0.0455",
             "penalized": "0.0455",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0912"
           },
           "Rollout-5": {
             "valid": "0.2263",
@@ -1195,7 +1248,8 @@ window.guidanceComparison = {
             "valid": "0.2138",
             "penalized": "13.9522",
             "scored": "3/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.8485"
           },
           "Rollout-5": {
             "valid": "0.2945",
@@ -1216,7 +1270,8 @@ window.guidanceComparison = {
             "valid": "0.1196",
             "penalized": "0.1196",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3446"
           },
           "Rollout-5": {
             "valid": "0.5603",
@@ -1239,7 +1294,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0171"
           },
           "Rollout-5": {
             "valid": "0.0615",
@@ -1260,7 +1316,8 @@ window.guidanceComparison = {
             "valid": "0.1160",
             "penalized": "0.1160",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1461"
           },
           "Rollout-5": {
             "valid": "0.5923",
@@ -1281,7 +1338,8 @@ window.guidanceComparison = {
             "valid": "0.0497",
             "penalized": "0.0497",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0906"
           },
           "Rollout-5": {
             "valid": "0.2664",
@@ -1302,7 +1360,8 @@ window.guidanceComparison = {
             "valid": "0.1662",
             "penalized": "11.7916",
             "scored": "37/220",
-            "sourceAvailable": "40/220"
+            "sourceAvailable": "40/220",
+            "original": "0.7847"
           },
           "Rollout-5": {
             "valid": "0.4412",
@@ -1323,7 +1382,8 @@ window.guidanceComparison = {
             "valid": "0.1185",
             "penalized": "1.7121",
             "scored": "195/220",
-            "sourceAvailable": "200/220"
+            "sourceAvailable": "200/220",
+            "original": "0.3575"
           },
           "Rollout-5": {
             "valid": "0.5794",
@@ -1346,7 +1406,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0171"
           },
           "Rollout-5": {
             "valid": "0.0615",
@@ -1367,7 +1428,8 @@ window.guidanceComparison = {
             "valid": "0.1172",
             "penalized": "0.1172",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1645"
           },
           "Rollout-5": {
             "valid": "0.5708",
@@ -1388,7 +1450,8 @@ window.guidanceComparison = {
             "valid": "0.0467",
             "penalized": "0.0467",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1395"
           },
           "Rollout-5": {
             "valid": "0.2418",
@@ -1409,7 +1472,8 @@ window.guidanceComparison = {
             "valid": "0.0411",
             "penalized": "0.0411",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1151"
           },
           "Rollout-5": {
             "valid": "0.2021",
@@ -1430,7 +1494,8 @@ window.guidanceComparison = {
             "valid": "0.1767",
             "penalized": "12.9360",
             "scored": "19/220",
-            "sourceAvailable": "20/220"
+            "sourceAvailable": "20/220",
+            "original": "0.3972"
           },
           "Rollout-5": {
             "valid": "0.4015",
@@ -1453,7 +1518,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0171"
           },
           "Rollout-5": {
             "valid": "0.0615",
@@ -1474,7 +1540,8 @@ window.guidanceComparison = {
             "valid": "0.1179",
             "penalized": "0.1179",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1767"
           },
           "Rollout-5": {
             "valid": "0.5635",
@@ -1495,7 +1562,8 @@ window.guidanceComparison = {
             "valid": "0.0452",
             "penalized": "0.0452",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1090"
           },
           "Rollout-5": {
             "valid": "0.2555",
@@ -1516,7 +1584,8 @@ window.guidanceComparison = {
             "valid": "0.0445",
             "penalized": "0.0445",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1180"
           },
           "Rollout-5": {
             "valid": "0.2195",
@@ -1537,7 +1606,8 @@ window.guidanceComparison = {
             "valid": "0.1491",
             "penalized": "13.6969",
             "scored": "7/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.5036"
           },
           "Rollout-5": {
             "valid": "0.5365",
@@ -1560,7 +1630,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0171"
           },
           "Rollout-5": {
             "valid": "0.0615",
@@ -1581,7 +1652,8 @@ window.guidanceComparison = {
             "valid": "0.0984",
             "penalized": "0.0984",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1418"
           },
           "Rollout-5": {
             "valid": "0.5250",
@@ -1602,7 +1674,8 @@ window.guidanceComparison = {
             "valid": "0.0530",
             "penalized": "0.0530",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1203"
           },
           "Rollout-5": {
             "valid": "0.2608",
@@ -1623,7 +1696,8 @@ window.guidanceComparison = {
             "valid": "0.0390",
             "penalized": "0.0390",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1115"
           },
           "Rollout-5": {
             "valid": "0.2015",
@@ -1644,7 +1718,8 @@ window.guidanceComparison = {
             "valid": "0.0726",
             "penalized": "9.4097",
             "scored": "74/220",
-            "sourceAvailable": "80/220"
+            "sourceAvailable": "80/220",
+            "original": "0.3945"
           },
           "Rollout-5": {
             "valid": "0.5417",
@@ -1667,7 +1742,8 @@ window.guidanceComparison = {
             "valid": "0.0131",
             "penalized": "0.0131",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0193"
           },
           "Rollout-5": {
             "valid": "0.1202",
@@ -1688,7 +1764,8 @@ window.guidanceComparison = {
             "valid": "0.1112",
             "penalized": "0.4939",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2978"
           },
           "Rollout-5": {
             "valid": "0.6215",
@@ -1709,7 +1786,8 @@ window.guidanceComparison = {
             "valid": "0.0590",
             "penalized": "0.0590",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1235"
           },
           "Rollout-5": {
             "valid": "0.3466",
@@ -1730,7 +1808,8 @@ window.guidanceComparison = {
             "valid": "0.0817",
             "penalized": "13.8865",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.4622"
           },
           "Rollout-5": {
             "valid": "0.5334",
@@ -1751,7 +1830,8 @@ window.guidanceComparison = {
             "valid": "0.1162",
             "penalized": "0.4987",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.5114"
           },
           "Rollout-5": {
             "valid": "0.6344",
@@ -1774,7 +1854,8 @@ window.guidanceComparison = {
             "valid": "0.0131",
             "penalized": "0.0131",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0193"
           },
           "Rollout-5": {
             "valid": "0.1202",
@@ -1795,7 +1876,8 @@ window.guidanceComparison = {
             "valid": "0.0857",
             "penalized": "0.7246",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2432"
           },
           "Rollout-5": {
             "valid": "0.5576",
@@ -1816,7 +1898,8 @@ window.guidanceComparison = {
             "valid": "0.0555",
             "penalized": "0.0555",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1189"
           },
           "Rollout-5": {
             "valid": "0.3223",
@@ -1837,7 +1920,8 @@ window.guidanceComparison = {
             "valid": "0.0687",
             "penalized": "12.9267",
             "scored": "19/220",
-            "sourceAvailable": "20/220"
+            "sourceAvailable": "20/220",
+            "original": "0.5296"
           },
           "Rollout-5": {
             "valid": "0.4366",
@@ -1858,7 +1942,8 @@ window.guidanceComparison = {
             "valid": "0.0876",
             "penalized": "0.7264",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4692"
           },
           "Rollout-5": {
             "valid": "0.5427",
@@ -1881,7 +1966,8 @@ window.guidanceComparison = {
             "valid": "0.0131",
             "penalized": "0.0131",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0193"
           },
           "Rollout-5": {
             "valid": "0.1202",
@@ -1902,7 +1988,8 @@ window.guidanceComparison = {
             "valid": "0.0823",
             "penalized": "0.7853",
             "scored": "209/220",
-            "sourceAvailable": "210/220"
+            "sourceAvailable": "210/220",
+            "original": "0.2698"
           },
           "Rollout-5": {
             "valid": "0.5182",
@@ -1923,7 +2010,8 @@ window.guidanceComparison = {
             "valid": "0.0507",
             "penalized": "0.0507",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1267"
           },
           "Rollout-5": {
             "valid": "0.2838",
@@ -1944,7 +2032,8 @@ window.guidanceComparison = {
             "valid": "0.0510",
             "penalized": "0.0510",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1051"
           },
           "Rollout-5": {
             "valid": "0.3517",
@@ -1965,7 +2054,8 @@ window.guidanceComparison = {
             "valid": "0.1098",
             "penalized": "0.9390",
             "scored": "207/220",
-            "sourceAvailable": "210/220"
+            "sourceAvailable": "210/220",
+            "original": "0.5391"
           },
           "Rollout-5": {
             "valid": "0.6577",
@@ -1988,7 +2078,8 @@ window.guidanceComparison = {
             "valid": "0.0131",
             "penalized": "0.0131",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0193"
           },
           "Rollout-5": {
             "valid": "0.1202",
@@ -2009,7 +2100,8 @@ window.guidanceComparison = {
             "valid": "0.0808",
             "penalized": "0.7199",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2328"
           },
           "Rollout-5": {
             "valid": "0.5555",
@@ -2030,7 +2122,8 @@ window.guidanceComparison = {
             "valid": "0.0522",
             "penalized": "0.0522",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1303"
           },
           "Rollout-5": {
             "valid": "0.3025",
@@ -2051,7 +2144,8 @@ window.guidanceComparison = {
             "valid": "0.0478",
             "penalized": "0.0478",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1036"
           },
           "Rollout-5": {
             "valid": "0.3375",
@@ -2072,7 +2166,8 @@ window.guidanceComparison = {
             "valid": "0.0985",
             "penalized": "6.5458",
             "scored": "119/220",
-            "sourceAvailable": "125/220"
+            "sourceAvailable": "125/220",
+            "original": "0.9142"
           },
           "Rollout-5": {
             "valid": "0.6256",
@@ -2095,7 +2190,8 @@ window.guidanceComparison = {
             "valid": "0.0131",
             "penalized": "0.0131",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0193"
           },
           "Rollout-5": {
             "valid": "0.1202",
@@ -2116,7 +2212,8 @@ window.guidanceComparison = {
             "valid": "0.0852",
             "penalized": "0.7241",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2687"
           },
           "Rollout-5": {
             "valid": "0.5806",
@@ -2137,7 +2234,8 @@ window.guidanceComparison = {
             "valid": "0.0531",
             "penalized": "0.0531",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1337"
           },
           "Rollout-5": {
             "valid": "0.2677",
@@ -2158,7 +2256,8 @@ window.guidanceComparison = {
             "valid": "0.0476",
             "penalized": "0.0476",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1154"
           },
           "Rollout-5": {
             "valid": "0.3314",
@@ -2179,7 +2278,8 @@ window.guidanceComparison = {
             "valid": "0.1195",
             "penalized": "3.6889",
             "scored": "164/220",
-            "sourceAvailable": "170/220"
+            "sourceAvailable": "170/220",
+            "original": "0.8892"
           },
           "Rollout-5": {
             "valid": "0.7119",
@@ -2202,7 +2302,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0165"
           },
           "Rollout-5": {
             "valid": "0.1259",
@@ -2223,7 +2324,8 @@ window.guidanceComparison = {
             "valid": "0.1009",
             "penalized": "5.0153",
             "scored": "143/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "0.7464"
           },
           "Rollout-5": {
             "valid": "0.7073",
@@ -2244,7 +2346,8 @@ window.guidanceComparison = {
             "valid": "0.0457",
             "penalized": "0.0457",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1032"
           },
           "Rollout-5": {
             "valid": "0.2919",
@@ -2265,7 +2368,8 @@ window.guidanceComparison = {
             "valid": "0.1281",
             "penalized": "13.8873",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "1.1762"
           },
           "Rollout-5": {
             "valid": "0.8512",
@@ -2286,7 +2390,8 @@ window.guidanceComparison = {
             "valid": "0.1293",
             "penalized": "10.7026",
             "scored": "54/220",
-            "sourceAvailable": "55/220"
+            "sourceAvailable": "55/220",
+            "original": "0.8679"
           },
           "Rollout-5": {
             "valid": "0.7744",
@@ -2309,7 +2414,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0165"
           },
           "Rollout-5": {
             "valid": "0.1259",
@@ -2330,7 +2436,8 @@ window.guidanceComparison = {
             "valid": "0.1737",
             "penalized": "1.5070",
             "scored": "199/220",
-            "sourceAvailable": "200/220"
+            "sourceAvailable": "200/220",
+            "original": "0.2550"
           },
           "Rollout-5": {
             "valid": "0.9740",
@@ -2351,7 +2458,8 @@ window.guidanceComparison = {
             "valid": "0.0569",
             "penalized": "0.0569",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1329"
           },
           "Rollout-5": {
             "valid": "0.3588",
@@ -2372,7 +2480,8 @@ window.guidanceComparison = {
             "valid": "0.1570",
             "penalized": "12.5529",
             "scored": "25/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "0.6288"
           },
           "Rollout-5": {
             "valid": "0.7712",
@@ -2393,7 +2502,8 @@ window.guidanceComparison = {
             "valid": "0.2216",
             "penalized": "6.2960",
             "scored": "124/220",
-            "sourceAvailable": "125/220"
+            "sourceAvailable": "125/220",
+            "original": "0.9853"
           },
           "Rollout-5": {
             "valid": "1.0839",
@@ -2416,7 +2526,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0165"
           },
           "Rollout-5": {
             "valid": "0.1259",
@@ -2437,7 +2548,8 @@ window.guidanceComparison = {
             "valid": "0.1270",
             "penalized": "0.5093",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2227"
           },
           "Rollout-5": {
             "valid": "0.7534",
@@ -2458,7 +2570,8 @@ window.guidanceComparison = {
             "valid": "0.0499",
             "penalized": "0.0499",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1232"
           },
           "Rollout-5": {
             "valid": "0.3119",
@@ -2479,7 +2592,8 @@ window.guidanceComparison = {
             "valid": "0.0465",
             "penalized": "0.0465",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2317"
           },
           "Rollout-5": {
             "valid": "0.3100",
@@ -2500,7 +2614,8 @@ window.guidanceComparison = {
             "valid": "0.1625",
             "penalized": "0.1625",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5227"
           },
           "Rollout-5": {
             "valid": "0.8640",
@@ -2523,7 +2638,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0165"
           },
           "Rollout-5": {
             "valid": "0.1259",
@@ -2544,7 +2660,8 @@ window.guidanceComparison = {
             "valid": "0.1469",
             "penalized": "0.5285",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.2686"
           },
           "Rollout-5": {
             "valid": "0.7898",
@@ -2565,7 +2682,8 @@ window.guidanceComparison = {
             "valid": "0.0524",
             "penalized": "0.0524",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1118"
           },
           "Rollout-5": {
             "valid": "0.3150",
@@ -2586,7 +2704,8 @@ window.guidanceComparison = {
             "valid": "0.0435",
             "penalized": "0.0435",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2142"
           },
           "Rollout-5": {
             "valid": "0.2865",
@@ -2607,7 +2726,8 @@ window.guidanceComparison = {
             "valid": "0.1497",
             "penalized": "1.8669",
             "scored": "193/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "0.7083"
           },
           "Rollout-5": {
             "valid": "0.7637",
@@ -2630,7 +2750,8 @@ window.guidanceComparison = {
             "valid": "0.0112",
             "penalized": "0.0112",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0165"
           },
           "Rollout-5": {
             "valid": "0.1259",
@@ -2651,7 +2772,8 @@ window.guidanceComparison = {
             "valid": "0.1043",
             "penalized": "11.5898",
             "scored": "40/220",
-            "sourceAvailable": "45/220"
+            "sourceAvailable": "45/220",
+            "original": "0.2599"
           },
           "Rollout-5": {
             "valid": "0.6223",
@@ -2672,7 +2794,8 @@ window.guidanceComparison = {
             "valid": "0.0565",
             "penalized": "0.0565",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1125"
           },
           "Rollout-5": {
             "valid": "0.3059",
@@ -2693,7 +2816,8 @@ window.guidanceComparison = {
             "valid": "0.0428",
             "penalized": "0.0428",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2247"
           },
           "Rollout-5": {
             "valid": "0.2896",
@@ -2714,7 +2838,8 @@ window.guidanceComparison = {
             "valid": "0.1669",
             "penalized": "1.8820",
             "scored": "193/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "0.4921"
           },
           "Rollout-5": {
             "valid": "0.9243",
@@ -2737,7 +2862,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0152"
           },
           "Rollout-5": {
             "valid": "0.0539",
@@ -2758,7 +2884,8 @@ window.guidanceComparison = {
             "valid": "0.1913",
             "penalized": "9.7032",
             "scored": "70/220",
-            "sourceAvailable": "75/220"
+            "sourceAvailable": "75/220",
+            "original": "0.2480"
           },
           "Rollout-5": {
             "valid": "0.7877",
@@ -2779,7 +2906,8 @@ window.guidanceComparison = {
             "valid": "0.0473",
             "penalized": "0.0473",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1284"
           },
           "Rollout-5": {
             "valid": "0.2618",
@@ -2800,7 +2928,8 @@ window.guidanceComparison = {
             "valid": "0.1858",
             "penalized": "12.9368",
             "scored": "19/220",
-            "sourceAvailable": "20/220"
+            "sourceAvailable": "20/220",
+            "original": "0.5374"
           },
           "Rollout-5": {
             "valid": "0.3924",
@@ -2821,7 +2950,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "2.9883",
             "scored": "175/220",
-            "sourceAvailable": "180/220"
+            "sourceAvailable": "180/220",
+            "original": "0.4784"
           },
           "Rollout-5": {
             "valid": "0.7323",
@@ -2844,7 +2974,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0152"
           },
           "Rollout-5": {
             "valid": "0.0539",
@@ -2865,7 +2996,8 @@ window.guidanceComparison = {
             "valid": "0.1069",
             "penalized": "3.2967",
             "scored": "170/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "0.2222"
           },
           "Rollout-5": {
             "valid": "0.6331",
@@ -2886,7 +3018,8 @@ window.guidanceComparison = {
             "valid": "0.0473",
             "penalized": "0.0473",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1037"
           },
           "Rollout-5": {
             "valid": "0.2191",
@@ -2907,7 +3040,8 @@ window.guidanceComparison = {
             "valid": "0.0705",
             "penalized": "13.5665",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.5855"
           },
           "Rollout-5": {
             "valid": "0.2721",
@@ -2928,7 +3062,8 @@ window.guidanceComparison = {
             "valid": "0.1156",
             "penalized": "2.9846",
             "scored": "175/220",
-            "sourceAvailable": "180/220"
+            "sourceAvailable": "180/220",
+            "original": "0.5533"
           },
           "Rollout-5": {
             "valid": "0.6591",
@@ -2951,7 +3086,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0152"
           },
           "Rollout-5": {
             "valid": "0.0539",
@@ -2972,7 +3108,8 @@ window.guidanceComparison = {
             "valid": "0.1375",
             "penalized": "6.8852",
             "scored": "114/220",
-            "sourceAvailable": "115/220"
+            "sourceAvailable": "115/220",
+            "original": "0.4010"
           },
           "Rollout-5": {
             "valid": "0.7695",
@@ -2993,7 +3130,8 @@ window.guidanceComparison = {
             "valid": "0.0476",
             "penalized": "0.6883",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1217"
           },
           "Rollout-5": {
             "valid": "0.2548",
@@ -3014,7 +3152,8 @@ window.guidanceComparison = {
             "valid": "0.0377",
             "penalized": "0.6788",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.0932"
           },
           "Rollout-5": {
             "valid": "0.1657",
@@ -3035,7 +3174,8 @@ window.guidanceComparison = {
             "valid": "0.1253",
             "penalized": "13.6324",
             "scored": "8/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.7815"
           },
           "Rollout-5": {
             "valid": "0.5001",
@@ -3058,7 +3198,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0152"
           },
           "Rollout-5": {
             "valid": "0.0539",
@@ -3079,7 +3220,8 @@ window.guidanceComparison = {
             "valid": "0.1568",
             "penalized": "0.8560",
             "scored": "209/220",
-            "sourceAvailable": "210/220"
+            "sourceAvailable": "210/220",
+            "original": "0.3230"
           },
           "Rollout-5": {
             "valid": "0.8772",
@@ -3100,7 +3242,8 @@ window.guidanceComparison = {
             "valid": "0.0599",
             "penalized": "0.0599",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1614"
           },
           "Rollout-5": {
             "valid": "0.3182",
@@ -3121,7 +3264,8 @@ window.guidanceComparison = {
             "valid": "0.0350",
             "penalized": "0.6762",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.0910"
           },
           "Rollout-5": {
             "valid": "0.1619",
@@ -3142,7 +3286,8 @@ window.guidanceComparison = {
             "valid": "0.0498",
             "penalized": "13.5656",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.6001"
           },
           "Rollout-5": {
             "valid": "0.4233",
@@ -3165,7 +3310,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0152"
           },
           "Rollout-5": {
             "valid": "0.0539",
@@ -3186,7 +3332,8 @@ window.guidanceComparison = {
             "valid": "0.1253",
             "penalized": "0.1253",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1779"
           },
           "Rollout-5": {
             "valid": "0.7342",
@@ -3207,7 +3354,8 @@ window.guidanceComparison = {
             "valid": "0.0518",
             "penalized": "0.0518",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1585"
           },
           "Rollout-5": {
             "valid": "0.2768",
@@ -3228,7 +3376,8 @@ window.guidanceComparison = {
             "valid": "0.0364",
             "penalized": "0.6775",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1003"
           },
           "Rollout-5": {
             "valid": "0.1674",
@@ -3249,7 +3398,8 @@ window.guidanceComparison = {
             "valid": "0.0502",
             "penalized": "13.5656",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.3739"
           },
           "Rollout-5": {
             "valid": "0.2660",
@@ -3272,7 +3422,8 @@ window.guidanceComparison = {
             "valid": "0.0106",
             "penalized": "0.0106",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0159"
           },
           "Rollout-5": {
             "valid": "0.0530",
@@ -3293,7 +3444,8 @@ window.guidanceComparison = {
             "valid": "0.1400",
             "penalized": "4.9771",
             "scored": "144/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "0.2964"
           },
           "Rollout-5": {
             "valid": "0.7311",
@@ -3314,7 +3466,8 @@ window.guidanceComparison = {
             "valid": "0.0648",
             "penalized": "0.0648",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1669"
           },
           "Rollout-5": {
             "valid": "0.3786",
@@ -3335,7 +3488,8 @@ window.guidanceComparison = {
             "valid": "0.1371",
             "penalized": "12.3597",
             "scored": "28/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "0.5851"
           },
           "Rollout-5": {
             "valid": "0.4369",
@@ -3356,7 +3510,8 @@ window.guidanceComparison = {
             "valid": "0.1405",
             "penalized": "4.9774",
             "scored": "144/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "0.4489"
           },
           "Rollout-5": {
             "valid": "0.6812",
@@ -3379,7 +3534,8 @@ window.guidanceComparison = {
             "valid": "0.0106",
             "penalized": "0.0106",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0159"
           },
           "Rollout-5": {
             "valid": "0.0530",
@@ -3400,7 +3556,8 @@ window.guidanceComparison = {
             "valid": "0.1449",
             "penalized": "3.0716",
             "scored": "174/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "0.2402"
           },
           "Rollout-5": {
             "valid": "0.8009",
@@ -3421,7 +3578,8 @@ window.guidanceComparison = {
             "valid": "0.0708",
             "penalized": "0.0708",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1226"
           },
           "Rollout-5": {
             "valid": "0.4611",
@@ -3442,7 +3600,8 @@ window.guidanceComparison = {
             "valid": "0.1306",
             "penalized": "13.5689",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.7893"
           },
           "Rollout-5": {
             "valid": "0.2824",
@@ -3463,7 +3622,8 @@ window.guidanceComparison = {
             "valid": "0.1033",
             "penalized": "5.3359",
             "scored": "138/220",
-            "sourceAvailable": "140/220"
+            "sourceAvailable": "140/220",
+            "original": "0.4523"
           },
           "Rollout-5": {
             "valid": "0.6986",
@@ -3486,7 +3646,8 @@ window.guidanceComparison = {
             "valid": "0.0106",
             "penalized": "0.0106",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0159"
           },
           "Rollout-5": {
             "valid": "0.0530",
@@ -3507,7 +3668,8 @@ window.guidanceComparison = {
             "valid": "0.1358",
             "penalized": "3.3827",
             "scored": "169/220",
-            "sourceAvailable": "170/220"
+            "sourceAvailable": "170/220",
+            "original": "0.2313"
           },
           "Rollout-5": {
             "valid": "0.7410",
@@ -3528,7 +3690,8 @@ window.guidanceComparison = {
             "valid": "0.0651",
             "penalized": "0.0651",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1146"
           },
           "Rollout-5": {
             "valid": "0.3654",
@@ -3549,7 +3712,8 @@ window.guidanceComparison = {
             "valid": "0.0463",
             "penalized": "0.6870",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1236"
           },
           "Rollout-5": {
             "valid": "0.2028",
@@ -3570,7 +3734,8 @@ window.guidanceComparison = {
             "valid": "0.2077",
             "penalized": "9.5818",
             "scored": "72/220",
-            "sourceAvailable": "75/220"
+            "sourceAvailable": "75/220",
+            "original": "0.7743"
           },
           "Rollout-5": {
             "valid": "0.9715",
@@ -3593,7 +3758,8 @@ window.guidanceComparison = {
             "valid": "0.0106",
             "penalized": "0.0106",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0159"
           },
           "Rollout-5": {
             "valid": "0.0530",
@@ -3614,7 +3780,8 @@ window.guidanceComparison = {
             "valid": "0.1292",
             "penalized": "3.1229",
             "scored": "173/220",
-            "sourceAvailable": "175/220"
+            "sourceAvailable": "175/220",
+            "original": "0.2330"
           },
           "Rollout-5": {
             "valid": "0.6896",
@@ -3635,7 +3802,8 @@ window.guidanceComparison = {
             "valid": "0.0690",
             "penalized": "0.0690",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1126"
           },
           "Rollout-5": {
             "valid": "0.3917",
@@ -3656,7 +3824,8 @@ window.guidanceComparison = {
             "valid": "0.0470",
             "penalized": "0.6877",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1155"
           },
           "Rollout-5": {
             "valid": "0.2058",
@@ -3677,7 +3846,8 @@ window.guidanceComparison = {
             "valid": "0.1299",
             "penalized": "4.9705",
             "scored": "144/220",
-            "sourceAvailable": "150/220"
+            "sourceAvailable": "150/220",
+            "original": "0.5392"
           },
           "Rollout-5": {
             "valid": "0.7960",
@@ -3700,7 +3870,8 @@ window.guidanceComparison = {
             "valid": "0.0106",
             "penalized": "0.0106",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0159"
           },
           "Rollout-5": {
             "valid": "0.0530",
@@ -3721,7 +3892,8 @@ window.guidanceComparison = {
             "valid": "0.1002",
             "penalized": "5.2702",
             "scored": "139/220",
-            "sourceAvailable": "140/220"
+            "sourceAvailable": "140/220",
+            "original": "0.4060"
           },
           "Rollout-5": {
             "valid": "0.5612",
@@ -3742,7 +3914,8 @@ window.guidanceComparison = {
             "valid": "0.0707",
             "penalized": "0.0707",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1167"
           },
           "Rollout-5": {
             "valid": "0.4056",
@@ -3763,7 +3936,8 @@ window.guidanceComparison = {
             "valid": "0.0470",
             "penalized": "0.6876",
             "scored": "210/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.1235"
           },
           "Rollout-5": {
             "valid": "0.2119",
@@ -3784,7 +3958,8 @@ window.guidanceComparison = {
             "valid": "0.0814",
             "penalized": "13.5669",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.7184"
           },
           "Rollout-5": {
             "valid": "0.2372",
@@ -3807,7 +3982,8 @@ window.guidanceComparison = {
             "valid": "0.0171",
             "penalized": "0.0171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0195"
           },
           "Rollout-5": {
             "valid": "0.1245",
@@ -3828,7 +4004,8 @@ window.guidanceComparison = {
             "valid": "0.0921",
             "penalized": "10.3742",
             "scored": "59/220",
-            "sourceAvailable": "60/220"
+            "sourceAvailable": "60/220",
+            "original": "0.4508"
           },
           "Rollout-5": {
             "valid": "0.4408",
@@ -3849,7 +4026,8 @@ window.guidanceComparison = {
             "valid": "0.0488",
             "penalized": "0.0488",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1518"
           },
           "Rollout-5": {
             "valid": "0.2688",
@@ -3870,7 +4048,8 @@ window.guidanceComparison = {
             "valid": "0.0964",
             "penalized": "13.2483",
             "scored": "14/220",
-            "sourceAvailable": "15/220"
+            "sourceAvailable": "15/220",
+            "original": "1.0198"
           },
           "Rollout-5": {
             "valid": "0.2880",
@@ -3891,7 +4070,8 @@ window.guidanceComparison = {
             "valid": "0.0888",
             "penalized": "10.3733",
             "scored": "59/220",
-            "sourceAvailable": "60/220"
+            "sourceAvailable": "60/220",
+            "original": "0.7214"
           },
           "Rollout-5": {
             "valid": "0.3831",
@@ -3914,7 +4094,8 @@ window.guidanceComparison = {
             "valid": "0.0171",
             "penalized": "0.0171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0195"
           },
           "Rollout-5": {
             "valid": "0.1245",
@@ -3935,7 +4116,8 @@ window.guidanceComparison = {
             "valid": "0.1133",
             "penalized": "1.1335",
             "scored": "204/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.1883"
           },
           "Rollout-5": {
             "valid": "0.5709",
@@ -3956,7 +4138,8 @@ window.guidanceComparison = {
             "valid": "0.0631",
             "penalized": "0.0631",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1219"
           },
           "Rollout-5": {
             "valid": "0.3179",
@@ -3977,7 +4160,8 @@ window.guidanceComparison = {
             "valid": "0.0301",
             "penalized": "13.8856",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.7196"
           },
           "Rollout-5": {
             "valid": "0.2551",
@@ -3998,7 +4182,8 @@ window.guidanceComparison = {
             "valid": "0.0910",
             "penalized": "10.3739",
             "scored": "59/220",
-            "sourceAvailable": "60/220"
+            "sourceAvailable": "60/220",
+            "original": "0.6086"
           },
           "Rollout-5": {
             "valid": "0.4540",
@@ -4021,7 +4206,8 @@ window.guidanceComparison = {
             "valid": "0.0171",
             "penalized": "0.0171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0195"
           },
           "Rollout-5": {
             "valid": "0.1245",
@@ -4042,7 +4228,8 @@ window.guidanceComparison = {
             "valid": "0.1101",
             "penalized": "0.1101",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1647"
           },
           "Rollout-5": {
             "valid": "0.5750",
@@ -4063,7 +4250,8 @@ window.guidanceComparison = {
             "valid": "0.0465",
             "penalized": "0.0465",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1212"
           },
           "Rollout-5": {
             "valid": "0.2286",
@@ -4084,7 +4272,8 @@ window.guidanceComparison = {
             "valid": "0.0581",
             "penalized": "0.0581",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1657"
           },
           "Rollout-5": {
             "valid": "0.3276",
@@ -4105,7 +4294,8 @@ window.guidanceComparison = {
             "valid": "0.0356",
             "penalized": "13.8857",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.4979"
           },
           "Rollout-5": {
             "valid": "0.3736",
@@ -4128,7 +4318,8 @@ window.guidanceComparison = {
             "valid": "0.0171",
             "penalized": "0.0171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0195"
           },
           "Rollout-5": {
             "valid": "0.1245",
@@ -4149,7 +4340,8 @@ window.guidanceComparison = {
             "valid": "0.1202",
             "penalized": "0.1202",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1762"
           },
           "Rollout-5": {
             "valid": "0.6281",
@@ -4170,7 +4362,8 @@ window.guidanceComparison = {
             "valid": "0.0528",
             "penalized": "0.0528",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1515"
           },
           "Rollout-5": {
             "valid": "0.2592",
@@ -4191,7 +4384,8 @@ window.guidanceComparison = {
             "valid": "0.0584",
             "penalized": "0.0584",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1669"
           },
           "Rollout-5": {
             "valid": "0.3188",
@@ -4212,7 +4406,8 @@ window.guidanceComparison = {
             "valid": "0.1442",
             "penalized": "11.0244",
             "scored": "49/220",
-            "sourceAvailable": "50/220"
+            "sourceAvailable": "50/220",
+            "original": "0.4549"
           },
           "Rollout-5": {
             "valid": "0.4906",
@@ -4235,7 +4430,8 @@ window.guidanceComparison = {
             "valid": "0.0171",
             "penalized": "0.0171",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0195"
           },
           "Rollout-5": {
             "valid": "0.1245",
@@ -4256,7 +4452,8 @@ window.guidanceComparison = {
             "valid": "0.1081",
             "penalized": "0.1081",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1861"
           },
           "Rollout-5": {
             "valid": "0.5507",
@@ -4277,7 +4474,8 @@ window.guidanceComparison = {
             "valid": "0.0640",
             "penalized": "0.0640",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1344"
           },
           "Rollout-5": {
             "valid": "0.3478",
@@ -4298,7 +4496,8 @@ window.guidanceComparison = {
             "valid": "0.0554",
             "penalized": "0.0554",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1630"
           },
           "Rollout-5": {
             "valid": "0.3213",
@@ -4319,7 +4518,8 @@ window.guidanceComparison = {
             "valid": "0.1364",
             "penalized": "0.5183",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4327"
           },
           "Rollout-5": {
             "valid": "0.7816",
@@ -4342,7 +4542,8 @@ window.guidanceComparison = {
             "valid": "0.0239",
             "penalized": "0.0239",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0183"
           },
           "Rollout-5": {
             "valid": "0.1541",
@@ -4363,7 +4564,8 @@ window.guidanceComparison = {
             "valid": "0.1213",
             "penalized": "0.1213",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3822"
           },
           "Rollout-5": {
             "valid": "0.6519",
@@ -4384,7 +4586,8 @@ window.guidanceComparison = {
             "valid": "0.0564",
             "penalized": "5.1785",
             "scored": "140/220",
-            "sourceAvailable": "145/220"
+            "sourceAvailable": "145/220",
+            "original": "0.2018"
           },
           "Rollout-5": {
             "valid": "0.2700",
@@ -4405,7 +4608,8 @@ window.guidanceComparison = {
             "valid": "0.1351",
             "penalized": "13.8875",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "1.4450"
           },
           "Rollout-5": {
             "valid": "0.1445",
@@ -4426,7 +4630,8 @@ window.guidanceComparison = {
             "valid": "0.1406",
             "penalized": "0.5224",
             "scored": "214/220",
-            "sourceAvailable": "215/220"
+            "sourceAvailable": "215/220",
+            "original": "0.4993"
           },
           "Rollout-5": {
             "valid": "0.6134",
@@ -4449,7 +4654,8 @@ window.guidanceComparison = {
             "valid": "0.0239",
             "penalized": "0.0239",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0183"
           },
           "Rollout-5": {
             "valid": "0.1541",
@@ -4470,7 +4676,8 @@ window.guidanceComparison = {
             "valid": "0.1220",
             "penalized": "0.1220",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3462"
           },
           "Rollout-5": {
             "valid": "0.6058",
@@ -4491,7 +4698,8 @@ window.guidanceComparison = {
             "valid": "0.0483",
             "penalized": "0.0483",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3100"
           },
           "Rollout-5": {
             "valid": "0.2230",
@@ -4512,7 +4720,8 @@ window.guidanceComparison = {
             "valid": "0.1333",
             "penalized": "12.2955",
             "scored": "29/220",
-            "sourceAvailable": "30/220"
+            "sourceAvailable": "30/220",
+            "original": "0.6348"
           },
           "Rollout-5": {
             "valid": "0.3136",
@@ -4533,7 +4742,8 @@ window.guidanceComparison = {
             "valid": "0.1152",
             "penalized": "0.1152",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.5547"
           },
           "Rollout-5": {
             "valid": "0.6026",
@@ -4556,7 +4766,8 @@ window.guidanceComparison = {
             "valid": "0.0239",
             "penalized": "0.0239",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0183"
           },
           "Rollout-5": {
             "valid": "0.1541",
@@ -4577,7 +4788,8 @@ window.guidanceComparison = {
             "valid": "0.1203",
             "penalized": "0.1203",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3695"
           },
           "Rollout-5": {
             "valid": "0.6138",
@@ -4598,7 +4810,8 @@ window.guidanceComparison = {
             "valid": "0.0636",
             "penalized": "0.0636",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2568"
           },
           "Rollout-5": {
             "valid": "0.3552",
@@ -4619,7 +4832,8 @@ window.guidanceComparison = {
             "valid": "0.0462",
             "penalized": "0.0462",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2967"
           },
           "Rollout-5": {
             "valid": "0.2238",
@@ -4640,7 +4854,8 @@ window.guidanceComparison = {
             "valid": "0.1271",
             "penalized": "4.6501",
             "scored": "149/220",
-            "sourceAvailable": "155/220"
+            "sourceAvailable": "155/220",
+            "original": "0.8058"
           },
           "Rollout-5": {
             "valid": "0.6471",
@@ -4663,7 +4878,8 @@ window.guidanceComparison = {
             "valid": "0.0239",
             "penalized": "0.0239",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0183"
           },
           "Rollout-5": {
             "valid": "0.1541",
@@ -4684,7 +4900,8 @@ window.guidanceComparison = {
             "valid": "0.1167",
             "penalized": "0.1167",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2376"
           },
           "Rollout-5": {
             "valid": "0.6159",
@@ -4705,7 +4922,8 @@ window.guidanceComparison = {
             "valid": "0.0670",
             "penalized": "0.0670",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2545"
           },
           "Rollout-5": {
             "valid": "0.4016",
@@ -4726,7 +4944,8 @@ window.guidanceComparison = {
             "valid": "0.0439",
             "penalized": "0.0439",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2004"
           },
           "Rollout-5": {
             "valid": "0.2130",
@@ -4747,7 +4966,8 @@ window.guidanceComparison = {
             "valid": "0.2015",
             "penalized": "4.1302",
             "scored": "158/220",
-            "sourceAvailable": "160/220"
+            "sourceAvailable": "160/220",
+            "original": "0.7567"
           },
           "Rollout-5": {
             "valid": "0.9455",
@@ -4770,7 +4990,8 @@ window.guidanceComparison = {
             "valid": "0.0239",
             "penalized": "0.0239",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0183"
           },
           "Rollout-5": {
             "valid": "0.1541",
@@ -4791,7 +5012,8 @@ window.guidanceComparison = {
             "valid": "0.0950",
             "penalized": "0.0950",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.4128"
           },
           "Rollout-5": {
             "valid": "0.5150",
@@ -4812,7 +5034,8 @@ window.guidanceComparison = {
             "valid": "0.0550",
             "penalized": "0.0550",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2332"
           },
           "Rollout-5": {
             "valid": "0.3276",
@@ -4833,7 +5056,8 @@ window.guidanceComparison = {
             "valid": "0.0457",
             "penalized": "0.0457",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.2162"
           },
           "Rollout-5": {
             "valid": "0.2207",
@@ -4854,7 +5078,8 @@ window.guidanceComparison = {
             "valid": "0.1199",
             "penalized": "1.1397",
             "scored": "204/220",
-            "sourceAvailable": "205/220"
+            "sourceAvailable": "205/220",
+            "original": "0.7565"
           },
           "Rollout-5": {
             "valid": "0.6162",
@@ -4877,7 +5102,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0144"
           },
           "Rollout-5": {
             "valid": "0.0514",
@@ -4898,7 +5124,8 @@ window.guidanceComparison = {
             "valid": "0.1116",
             "penalized": "1.4508",
             "scored": "199/220",
-            "sourceAvailable": "200/220"
+            "sourceAvailable": "200/220",
+            "original": "0.2737"
           },
           "Rollout-5": {
             "valid": "0.6745",
@@ -4919,7 +5146,8 @@ window.guidanceComparison = {
             "valid": "0.0427",
             "penalized": "0.0427",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1402"
           },
           "Rollout-5": {
             "valid": "0.2416",
@@ -4940,7 +5168,8 @@ window.guidanceComparison = {
             "valid": "0.1618",
             "penalized": "13.8879",
             "scored": "4/220",
-            "sourceAvailable": "5/220"
+            "sourceAvailable": "5/220",
+            "original": "0.7451"
           },
           "Rollout-5": {
             "valid": "0.2780",
@@ -4961,7 +5190,8 @@ window.guidanceComparison = {
             "valid": "0.1206",
             "penalized": "0.1206",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.3934"
           },
           "Rollout-5": {
             "valid": "0.6387",
@@ -4984,7 +5214,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0144"
           },
           "Rollout-5": {
             "valid": "0.0514",
@@ -5005,7 +5236,8 @@ window.guidanceComparison = {
             "valid": "0.0919",
             "penalized": "1.7524",
             "scored": "194/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "0.2039"
           },
           "Rollout-5": {
             "valid": "0.5351",
@@ -5026,7 +5258,8 @@ window.guidanceComparison = {
             "valid": "0.0397",
             "penalized": "0.0397",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1038"
           },
           "Rollout-5": {
             "valid": "0.2425",
@@ -5047,7 +5280,8 @@ window.guidanceComparison = {
             "valid": "0.1644",
             "penalized": "12.0455",
             "scored": "33/220",
-            "sourceAvailable": "35/220"
+            "sourceAvailable": "35/220",
+            "original": "0.5425"
           },
           "Rollout-5": {
             "valid": "0.3309",
@@ -5068,7 +5302,8 @@ window.guidanceComparison = {
             "valid": "0.0775",
             "penalized": "1.7397",
             "scored": "194/220",
-            "sourceAvailable": "195/220"
+            "sourceAvailable": "195/220",
+            "original": "0.4440"
           },
           "Rollout-5": {
             "valid": "0.4222",
@@ -5091,7 +5326,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0144"
           },
           "Rollout-5": {
             "valid": "0.0514",
@@ -5112,7 +5348,8 @@ window.guidanceComparison = {
             "valid": "0.0759",
             "penalized": "0.0759",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1383"
           },
           "Rollout-5": {
             "valid": "0.4612",
@@ -5133,7 +5370,8 @@ window.guidanceComparison = {
             "valid": "0.0463",
             "penalized": "0.0463",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1102"
           },
           "Rollout-5": {
             "valid": "0.2604",
@@ -5154,7 +5392,8 @@ window.guidanceComparison = {
             "valid": "0.0411",
             "penalized": "0.0411",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1372"
           },
           "Rollout-5": {
             "valid": "0.2157",
@@ -5175,7 +5414,8 @@ window.guidanceComparison = {
             "valid": "0.1304",
             "penalized": "11.2761",
             "scored": "45/220",
-            "sourceAvailable": "50/220"
+            "sourceAvailable": "50/220",
+            "original": "0.4708"
           },
           "Rollout-5": {
             "valid": "0.3896",
@@ -5198,7 +5438,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0144"
           },
           "Rollout-5": {
             "valid": "0.0514",
@@ -5219,7 +5460,8 @@ window.guidanceComparison = {
             "valid": "0.0737",
             "penalized": "0.0737",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1533"
           },
           "Rollout-5": {
             "valid": "0.4381",
@@ -5240,7 +5482,8 @@ window.guidanceComparison = {
             "valid": "0.0482",
             "penalized": "0.0482",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1058"
           },
           "Rollout-5": {
             "valid": "0.2623",
@@ -5261,7 +5504,8 @@ window.guidanceComparison = {
             "valid": "0.0371",
             "penalized": "0.0371",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1390"
           },
           "Rollout-5": {
             "valid": "0.2051",
@@ -5282,7 +5526,8 @@ window.guidanceComparison = {
             "valid": "0.1173",
             "penalized": "13.5684",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.6189"
           },
           "Rollout-5": {
             "valid": "0.3859",
@@ -5305,7 +5550,8 @@ window.guidanceComparison = {
             "valid": "0.0090",
             "penalized": "0.0090",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.0144"
           },
           "Rollout-5": {
             "valid": "0.0514",
@@ -5326,7 +5572,8 @@ window.guidanceComparison = {
             "valid": "0.1068",
             "penalized": "0.1068",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1616"
           },
           "Rollout-5": {
             "valid": "0.6007",
@@ -5347,7 +5594,8 @@ window.guidanceComparison = {
             "valid": "0.0420",
             "penalized": "0.0420",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1157"
           },
           "Rollout-5": {
             "valid": "0.1937",
@@ -5368,7 +5616,8 @@ window.guidanceComparison = {
             "valid": "0.0371",
             "penalized": "0.0371",
             "scored": "220/220",
-            "sourceAvailable": "220/220"
+            "sourceAvailable": "220/220",
+            "original": "0.1384"
           },
           "Rollout-5": {
             "valid": "0.1950",
@@ -5389,7 +5638,8 @@ window.guidanceComparison = {
             "valid": "0.0334",
             "penalized": "13.5650",
             "scored": "9/220",
-            "sourceAvailable": "10/220"
+            "sourceAvailable": "10/220",
+            "original": "0.3929"
           },
           "Rollout-5": {
             "valid": "0.2005",

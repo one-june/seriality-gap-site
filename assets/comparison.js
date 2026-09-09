@@ -65,14 +65,15 @@
     link.target = "_blank";
     link.rel = "noopener";
     card.append(link);
-    const score = element("div", "score");
-    const rollout5 = entry.metrics["Rollout-5"];
-    score.append(
-      element("small", "", "Rollout-5 ↓"),
-      element("strong", "", rollout5.original),
-      element("span", "", "Original repo metric"),
-    );
-    card.append(score);
+    for (const horizon of ["Rollout-5", "Rollout-1"]) {
+      const score = element("div", "score");
+      score.append(
+        element("small", "", `${horizon} ↓`),
+        element("strong", "", entry.metrics[horizon].original),
+        element("span", "", "Original repo metric"),
+      );
+      card.append(score);
+    }
     const details = element("details", "metric-details");
     details.append(element("summary", "", "All metrics"));
     for (const [horizon, metric] of Object.entries(entry.metrics)) {
