@@ -34,6 +34,63 @@
     </nav>
   </header>
 
+  <nav class="rail" aria-label="Section trajectory">
+    <svg class="rail-svg" viewBox="0 0 84 420" xmlns="http://www.w3.org/2000/svg">
+      <title>The four experiments in order, with the argument off the path</title>
+      <defs>
+        <marker id="rail-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
+        </marker>
+      </defs>
+      <path class="traj-line" d="M 28 103 L 28 130 C 28 157 56 178 56 205 C 56 232 28 253 28 280 C 28 307 56 328 56 355 L 56 383" marker-end="url(#rail-head)"></path>
+      <a class="rail-node traj-theory" href="#theory" data-section="theory">
+        <circle class="rail-ring" cx="52" cy="56" r="18"></circle>
+        <circle cx="52" cy="56" r="12"></circle>
+        <text class="rail-number" x="52" y="56" dy=".35em" text-anchor="middle">01</text>
+        <g class="rail-tip">
+          <rect x="72" y="41" width="128" height="30" rx="6"></rect>
+          <text x="82" y="56" dy=".35em">01 / The argument</text>
+        </g>
+      </a>
+      <a class="rail-node" href="#guidance" data-section="guidance">
+        <circle class="rail-ring" cx="28" cy="130" r="20"></circle>
+        <circle cx="28" cy="130" r="14"></circle>
+        <text class="rail-number" x="28" y="130" dy=".35em" text-anchor="middle">02</text>
+        <g class="rail-tip">
+          <rect x="48" y="115" width="104" height="30" rx="6"></rect>
+          <text x="58" y="130" dy=".35em">02 / Guidance</text>
+        </g>
+      </a>
+      <a class="rail-node" href="#rollout-guidance" data-section="rollout-guidance">
+        <circle class="rail-ring" cx="56" cy="205" r="20"></circle>
+        <circle cx="56" cy="205" r="14"></circle>
+        <text class="rail-number" x="56" y="205" dy=".35em" text-anchor="middle">03</text>
+        <g class="rail-tip">
+          <rect x="76" y="190" width="154" height="30" rx="6"></rect>
+          <text x="86" y="205" dy=".35em">03 / Rollout guidance</text>
+        </g>
+      </a>
+      <a class="rail-node" href="#state-diffusion" data-section="state-diffusion">
+        <circle class="rail-ring" cx="28" cy="280" r="20"></circle>
+        <circle cx="28" cy="280" r="14"></circle>
+        <text class="rail-number" x="28" y="280" dy=".35em" text-anchor="middle">04</text>
+        <g class="rail-tip">
+          <rect x="48" y="265" width="148" height="30" rx="6"></rect>
+          <text x="58" y="280" dy=".35em">04 / State diffusion</text>
+        </g>
+      </a>
+      <a class="rail-node" href="#state-guidance" data-section="state-guidance">
+        <circle class="rail-ring" cx="56" cy="355" r="20"></circle>
+        <circle cx="56" cy="355" r="14"></circle>
+        <text class="rail-number" x="56" y="355" dy=".35em" text-anchor="middle">05</text>
+        <g class="rail-tip">
+          <rect x="76" y="340" width="180" height="30" rx="6"></rect>
+          <text x="86" y="355" dy=".35em">05 / State-space guidance</text>
+        </g>
+      </a>
+    </svg>
+  </nav>
+
   <main id="main">
     <div class="hero">
       <p class="eyebrow">Theory and experiments</p>

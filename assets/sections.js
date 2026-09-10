@@ -22,4 +22,27 @@
 
   window.addEventListener('hashchange', () => reveal(location.hash, true));
   reveal(location.hash, false);
+
+  // Mark the rail node for the section the reader is in.
+  const rail = document.querySelector('.rail');
+  if (rail) {
+    const nodes = [...rail.querySelectorAll('[data-section]')].map((node) => ({
+      node, section: document.getElementById(node.dataset.section),
+    })).filter((entry) => entry.section);
+    let queued = false;
+    const mark = () => {
+      queued = false;
+      let current = null;
+      nodes.forEach((entry) => {
+        if (entry.section.getBoundingClientRect().top <= 140) current = entry.node;
+      });
+      nodes.forEach((entry) => entry.node.classList.toggle('is-current', entry.node === current));
+    };
+    addEventListener('scroll', () => {
+      if (!queued) { queued = true; requestAnimationFrame(mark); }
+    }, { passive: true });
+    addEventListener('resize', mark, { passive: true });
+    sections().forEach((details) => details.addEventListener('toggle', mark));
+    mark();
+  }
 })();

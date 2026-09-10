@@ -169,6 +169,28 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .data-links small { font-size: .72rem; color: var(--muted); }
 .site-footer { padding: 25px 32px 35px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--muted); }
 .site-footer a { text-decoration: none; }
+.rail { display: none; }
+/* A fixed rail needs a clear left gutter: main gets 96px of padding, and the
+   header and footer are widened by the same amount so their text still lines
+   up with the sections'. */
+@media (min-width: 1180px) and (min-height: 620px) {
+  .rail { display: block; position: fixed; left: 6px; top: 50%; transform: translateY(-50%); width: 84px; z-index: 5; }
+  .rail-svg { display: block; width: 84px; height: 420px; overflow: visible; }
+  main { padding-left: 96px; }
+  .site-header, .site-footer { max-width: 1376px; padding-left: 128px; }
+}
+.rail-node circle { fill: var(--accent); }
+.rail-number { fill: #fff; font-size: 12px; font-weight: 700; }
+.rail-node.traj-theory circle { fill: var(--tint); stroke: #7ba699; stroke-width: 1.5; stroke-dasharray: 3.5 3.5; }
+.rail-node.traj-theory .rail-number { fill: var(--accent); font-size: 10px; }
+.rail-node .rail-ring { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0; }
+.rail-node.is-current .rail-ring { opacity: .45; }
+.rail-tip { opacity: 0; pointer-events: none; }
+.rail-tip rect { fill: var(--paper); stroke: var(--line); }
+.rail-tip text { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
+.rail-node:hover .rail-tip, .rail-node:focus-visible .rail-tip { opacity: 1; }
+.rail-node:hover circle:not(.rail-ring) { fill: #075950; }
+.rail-node.traj-theory:hover circle:not(.rail-ring) { fill: #d5e4dc; }
 .traj { max-width: 1030px; margin: 46px auto 0; }
 .traj svg { display: block; width: 100%; height: auto; overflow: visible; }
 .traj svg.traj-tall { display: none; }
