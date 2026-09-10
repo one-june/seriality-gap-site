@@ -15,6 +15,7 @@
   <script defer src="assets/guidance/comparison-data.js"></script>
   <script defer src="assets/comparison.js"></script>
   <script defer src="assets/video-group.js"></script>
+  <script defer src="assets/statebench-gallery.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -428,12 +429,92 @@
       </div>
 
       <figure class="plot" id="state-data">
-        <div class="figure-heading"><h3>What the model works on</h3><a href="assets/statebench/figures/r1_data.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
-        <img src="assets/statebench/figures/r1_data.png" alt="One held-out clip drawn as coloured trails in a square box: the true 49-frame trajectory on the left, the bidirectional state model's generation from the same first five frames on the right" width="1563" height="816" loading="lazy">
-        <figcaption><span class="figure-number">Figure 6.</span> One held-out clip, drawn as trails in the 10 × 10 box. Left: the true trajectory. Right: what the bidirectional state model generates from the same first 5 frames, at 50 denoising steps. Five balls of radius 0.7 move for 49 frames at 15 frames per second and collide elastically with each other and the walls.</figcaption>
+        <div class="figure-heading">
+          <h3>What the model works on</h3>
+          <label class="gallery-select">Balls <select id="gallery-balls" disabled><option value="5" selected>5</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
+        </div>
+        <div class="gallery" id="state-gallery">
+          <div class="gallery-group" data-balls="5">
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/clip0000_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="5 balls, clip 0: five balls moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">5 balls, held-out clip 0 · <a href="assets/statebench/videos/clip0000_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/clip0001_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="5 balls, clip 1: five balls moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">5 balls, held-out clip 1 · <a href="assets/statebench/videos/clip0001_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/clip0002_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="5 balls, clip 2: five balls moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">5 balls, held-out clip 2 · <a href="assets/statebench/videos/clip0002_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/clip0003_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="5 balls, clip 3: five balls moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">5 balls, held-out clip 3 · <a href="assets/statebench/videos/clip0003_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <p class="gallery-source">Checkpoints and settings for these clips: <a href="assets/statebench/videos/5ball_steps50_sources.json" download>JSON ↓</a></p>
+          </div>
+          <div class="gallery-group" data-balls="1">
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/1ball_clip0000_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="1 ball, clip 0: one ball moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">1 ball, held-out clip 0 · <a href="assets/statebench/videos/1ball_clip0000_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/1ball_clip0001_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="1 ball, clip 1: one ball moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">1 ball, held-out clip 1 · <a href="assets/statebench/videos/1ball_clip0001_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/1ball_clip0002_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="1 ball, clip 2: one ball moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">1 ball, held-out clip 2 · <a href="assets/statebench/videos/1ball_clip0002_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/1ball_clip0003_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="1 ball, clip 3: one ball moving in a box, shown as truth, the bidirectional model's generation, and the block-4 model's generation"></video>
+              <p class="gallery-label">1 ball, held-out clip 3 · <a href="assets/statebench/videos/1ball_clip0003_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <p class="gallery-source">Checkpoints and settings for these clips: <a href="assets/statebench/videos/1ball_steps50_sources.json" download>JSON ↓</a></p>
+          </div>
+          <div class="gallery-group" data-balls="2">
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/2ball_clip0000_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="2 balls, clip 0: two balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">2 balls, held-out clip 0 · <a href="assets/statebench/videos/2ball_clip0000_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/2ball_clip0001_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="2 balls, clip 1: two balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">2 balls, held-out clip 1 · <a href="assets/statebench/videos/2ball_clip0001_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/2ball_clip0002_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="2 balls, clip 2: two balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">2 balls, held-out clip 2 · <a href="assets/statebench/videos/2ball_clip0002_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/2ball_clip0003_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="2 balls, clip 3: two balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">2 balls, held-out clip 3 · <a href="assets/statebench/videos/2ball_clip0003_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <p class="gallery-source">Checkpoints and settings for these clips: <a href="assets/statebench/videos/2ball_steps50_sources.json" download>JSON ↓</a></p>
+          </div>
+          <div class="gallery-group" data-balls="3">
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/3ball_clip0000_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="3 balls, clip 0: three balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">3 balls, held-out clip 0 · <a href="assets/statebench/videos/3ball_clip0000_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/3ball_clip0001_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="3 balls, clip 1: three balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">3 balls, held-out clip 1 · <a href="assets/statebench/videos/3ball_clip0001_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/3ball_clip0002_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="3 balls, clip 2: three balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">3 balls, held-out clip 2 · <a href="assets/statebench/videos/3ball_clip0002_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <div class="gallery-item">
+              <video src="assets/statebench/videos/3ball_clip0003_steps50.mp4" width="1104" height="368" muted loop playsinline controls preload="metadata" aria-label="3 balls, clip 3: three balls moving in a box, shown as truth, the bidirectional model's generation, and an empty third panel"></video>
+              <p class="gallery-label">3 balls, held-out clip 3 · <a href="assets/statebench/videos/3ball_clip0003_steps50.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+            </div>
+            <p class="gallery-source">Checkpoints and settings for these clips: <a href="assets/statebench/videos/3ball_steps50_sources.json" download>JSON ↓</a></p>
+          </div>
+        </div>
+        <figcaption><span class="figure-number">Figure 6.</span> Four held-out clips per ball count. Left: truth. Middle: the bidirectional model. Right: the block-4 autoregressive model — this panel is empty at 2 and 3 balls, which have no block-4 run. Each model receives frames 0–4, marked “given”, and generates frames 5–48 at 50 denoising steps per block. Playback is 15 frames per second. Every clip is rendered from the saved generations behind the numbers below: seed 0, the 25,000-step checkpoint, sampling seed 0.</figcaption>
       </figure>
       <div class="reading-width report-content">
-        <p>The model sees only numbers: 49 frames × 5 balls × (x, y, vx, vy) = 980 values per clip. No pixels, no VAE, no tracker. It is a small transformer with one token per (frame, ball), 8 layers, width 256, 6.85M parameters, trained with flow matching.</p>
+        <p>Balls of radius 0.7 collide elastically in a 10 × 10 box at 15 frames per second. The model sees only numbers: 49 frames × 5 balls × (x, y, vx, vy) = 980 values per clip. No pixels, no VAE, no tracker. It is a small transformer with one token per (frame, ball), 8 layers, width 256, 6.85M parameters, trained with flow matching.</p>
 
         <h3>The datasets</h3>
         <p>Each dataset is built by the paper’s own generator: 400 frames simulated per seed, the first 200 discarded as burn-in, at most one accepted window kept per seed. Initial conditions, solver, window filters, collision-density limits, and the held-out collision-count quotas are the original code, unchanged.</p>

@@ -72,8 +72,10 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `assets/guidance/videos/` | The 210 unique clips used by the comparison |
 | `assets/guidance/comparison-data.js` | Sample choices, video paths, and per-sample metrics |
 | `assets/guidance/summaries/` | The three original holdout summary files |
-| `assets/statebench/figures/` | The 12 state-diffusion figures from `experiments/statebench/out/retrain_figures/` |
-| `assets/statebench/data/` | Per-seed evaluation numbers behind those figures |
+| `assets/statebench/figures/` | The 11 state-diffusion charts from `experiments/statebench/out/retrain_figures/` |
+| `assets/statebench/videos/` | The 16 trajectory clips (truth, bidirectional, block 4) and their source records |
+| `assets/statebench/data/` | Per-seed evaluation numbers behind those charts |
+| `assets/statebench-gallery.js` | Ball-count selector and on-screen playback for the trajectory gallery |
 | `.nojekyll` | Publish these files directly without Jekyll processing |
 | `.gitignore` | Include the curated clips despite the repository's general MP4 exclusion |
 
@@ -111,11 +113,18 @@ The summary in `index.html` is edited separately. Its Case 2 player compares van
 
 ## Refresh the state-diffusion section
 
-Run `python scripts/export_project_page_statebench.py` from the repository root. It copies the 12 figures from `experiments/statebench/out/retrain_figures/` into `assets/statebench/figures/` and writes two CSVs of the per-seed numbers behind them, read from each run's saved `eval/metrics.json` at 50 denoising steps. It runs no training, sampling, or evaluation, and it does not change `index.html`.
+Run `python scripts/export_project_page_statebench.py` from the repository root. It copies the 11 charts from `experiments/statebench/out/retrain_figures/` into `assets/statebench/figures/`, the 16 trajectory MP4s and their four source records from `out/retrain_figures/gallery/` into `assets/statebench/videos/`, and writes two CSVs of the per-seed numbers behind the charts, read from each run's saved `eval/metrics.json` at 50 denoising steps. It runs no training, sampling, or evaluation, and it does not change `index.html`.
 
-Build the figures first with `python experiments/statebench/scripts/make_retrain_figures.py --out out/retrain_figures` from `experiments/statebench/`. The export fails if a figure is missing.
+Build the inputs first, from `experiments/statebench/`:
 
-The section's prose was adapted from `experiments/statebench/RETRAIN_REPORT.md`; edits to that Markdown file are not applied to the page automatically. It keeps the report's visuals-first order: each result is a figure, then its explanation. The section uses `#state-diffusion`; per-result anchors are `#state-data`, `#state-main`, `#state-steps`, `#state-horizon-profile`, `#state-training`, `#state-control`, `#state-horizon-sweep`, `#state-ballcount`, `#state-block-size`, `#state-depth-width`, `#state-shift`, and `#state-cost`.
+```bash
+python scripts/make_retrain_figures.py --out out/retrain_figures
+python scripts/make_report_gifs.py --indep --mp4 --balls 1 2 3 5 --clips 0 1 2 3
+```
+
+The export fails if any of them is missing. The gallery script reads each run's saved `eval/generated_steps50.npy`, so it needs no GPU; `--indep` selects the independent-simulation runs and `--mp4` adds the H.264 copies the page uses next to the GIFs the Markdown report uses. `r1_data.png`, the still that the gallery replaced, is deliberately not exported.
+
+The section's prose was adapted from `experiments/statebench/RETRAIN_REPORT.md`; edits to that Markdown file are not applied to the page automatically. It keeps the report's visuals-first order: each result is a figure, then its explanation. The gallery at `#state-data` shows one ball count at a time; without JavaScript the selector is disabled and all four ball counts are listed, and videos autoplay only while on screen and never under `prefers-reduced-motion`. The section uses `#state-diffusion`; per-result anchors are `#state-data`, `#state-main`, `#state-steps`, `#state-horizon-profile`, `#state-training`, `#state-control`, `#state-horizon-sweep`, `#state-ballcount`, `#state-block-size`, `#state-depth-width`, `#state-shift`, and `#state-cost`.
 
 ## Refresh the combined guidance comparison
 

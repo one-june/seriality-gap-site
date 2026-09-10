@@ -1,0 +1,22 @@
+{
+  "balls": 3,
+  "clips": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "steps": 50,
+  "source": "saved evaluations",
+  "eval_cache": "/scratch/wkim/code/seriality-gap/experiments/statebench/data/indep/eval_49f_3n.pt",
+  "models": {
+    "Bidirectional": {
+      "generated": "/scratch/wkim/code/seriality-gap/experiments/statebench/out/runs/indep_49f_3n_ball_d8_w256_s1_seed0/eval/generated_steps50.npy",
+      "checkpoint": "/scratch/wkim/code/seriality-gap/experiments/statebench/out/runs/indep_49f_3n_ball_d8_w256_s1_seed0/ema_0025000.pt",
+      "checkpoint_step": 25000,
+      "block_size": null,
+      "clips_evaluated": 1024
+    },
+    "Block 4 (autoregressive)": null
+  }
+}

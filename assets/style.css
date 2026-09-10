@@ -96,6 +96,13 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .statebench .report-content h3:first-child { margin-top: 0; }
 .statebench .report-content h3 + p { margin-top: 14px; }
 .statebench .data-links { grid-template-columns: repeat(2, 1fr); }
+.gallery, .gallery-group { display: grid; gap: 26px; }
+.gallery-select { display: flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: .74rem; font-weight: 650; color: var(--muted); }
+.gallery-select select { min-height: 36px; font-size: .8rem; }
+.gallery-item video { display: block; width: 100%; height: auto; background: #fff; border: 1px solid #e8e5df; border-radius: 8px; }
+.gallery-label { margin-top: 9px; color: var(--muted); font-size: .78rem; }
+.gallery-label a { text-decoration: none; }
+.gallery-source { color: var(--muted); font-size: .78rem; }
 .study-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .study-facts span { background: var(--tint); border-radius: 5px; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: #3e5e56; }
 .setup-note { color: var(--muted); font-size: .88rem; margin-top: 16px; }
@@ -182,6 +189,7 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
   .equation { font-size: .94rem; }
   .figure-heading { display: block; }
   .figure-heading a { display: inline-block; margin-top: 8px; }
+  .gallery-select { margin-top: 10px; }
   .plot { margin-top: 42px; }
   .comparison-section { margin-top: 54px; }
   .viewer-selection { padding: 15px; gap: 12px; }
