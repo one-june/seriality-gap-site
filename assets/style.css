@@ -174,7 +174,6 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .traj svg.traj-tall { display: none; }
 .traj-line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-opacity: .45; stroke-linecap: round; }
 .traj-arrow { fill: var(--accent); fill-opacity: .45; }
-.traj-connector { fill: none; stroke: #a9bfb7; stroke-width: 1.5; stroke-dasharray: 4 5; }
 .traj-node { cursor: pointer; }
 .traj-node circle { fill: var(--accent); }
 .traj-number { fill: #fff; font-size: 16px; font-weight: 700; }
