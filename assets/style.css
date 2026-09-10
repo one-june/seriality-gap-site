@@ -90,8 +90,12 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .report-content th, .report-content td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .report-content th { font-weight: 650; }
 .rollout-results .findings h3 + p, .rollout-results .findings p + p { margin-top: 16px; }
-.rollout-results figure + .report-content { margin-top: 32px; }
-.rollout-results .archive-heading { margin-top: 32px; }
+.rollout-results figure + .report-content, .statebench figure + .report-content { margin-top: 32px; }
+.rollout-results .archive-heading, .statebench .archive-heading { margin-top: 32px; }
+.statebench .report-content h3 { margin-top: 40px; }
+.statebench .report-content h3:first-child { margin-top: 0; }
+.statebench .report-content h3 + p { margin-top: 14px; }
+.statebench .data-links { grid-template-columns: repeat(2, 1fr); }
 .study-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .study-facts span { background: var(--tint); border-radius: 5px; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: #3e5e56; }
 .setup-note { color: var(--muted); font-size: .88rem; margin-top: 16px; }
@@ -151,6 +155,8 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .site-footer { padding: 25px 32px 35px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--muted); }
 .site-footer a { text-decoration: none; }
 @media (max-width: 960px) {
+  .site-header { flex-wrap: wrap; gap: 12px; }
+  nav { flex-wrap: wrap; gap: 12px 20px; }
   .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .video-card h4 { min-height: 52px; }
   .sample-info { flex-basis: 100%; margin: 0; }

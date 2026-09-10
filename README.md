@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives. A final state-diffusion section ports `experiments/statebench/RETRAIN_REPORT.md`: the same billiards experiment retrained on positions and velocities, with no VAE or tracker in the loop.
 
 ## Preview
 
@@ -72,6 +72,8 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `assets/guidance/videos/` | The 210 unique clips used by the comparison |
 | `assets/guidance/comparison-data.js` | Sample choices, video paths, and per-sample metrics |
 | `assets/guidance/summaries/` | The three original holdout summary files |
+| `assets/statebench/figures/` | The 12 state-diffusion figures from `experiments/statebench/out/retrain_figures/` |
+| `assets/statebench/data/` | Per-seed evaluation numbers behind those figures |
 | `.nojekyll` | Publish these files directly without Jekyll processing |
 | `.gitignore` | Include the curated clips despite the repository's general MP4 exclusion |
 
@@ -106,6 +108,14 @@ Run `python scripts/export_project_page_rollout5.py` with Python Markdown and Be
 The cap-50 viewer also shows original Rollout-1, computed from that saved clip using the same evaluator as the existing viewer. To recompute its two metrics, use `python scripts/export_project_page_rollout5.py --score-viewer` in the project environment with the simulation dependencies and source data available. Rollout-5 is checked against the report archive. Scores and the video hash are stored in `assets/rollout5/data/viewer_original_rollouts.json`. No videos are generated.
 
 The summary in `index.html` is edited separately. Its Case 2 player compares vanilla, cap-50 Rollout-5 guidance (strength 0.20 → 0.06), and the existing tuned Rollout-1 clip. The five-video plot uses late guidance with up to 12 accepted updates per step, not this cap-50 setting. Each viewer has independent playback controls.
+
+## Refresh the state-diffusion section
+
+Run `python scripts/export_project_page_statebench.py` from the repository root. It copies the 12 figures from `experiments/statebench/out/retrain_figures/` into `assets/statebench/figures/` and writes two CSVs of the per-seed numbers behind them, read from each run's saved `eval/metrics.json` at 50 denoising steps. It runs no training, sampling, or evaluation, and it does not change `index.html`.
+
+Build the figures first with `python experiments/statebench/scripts/make_retrain_figures.py --out out/retrain_figures` from `experiments/statebench/`. The export fails if a figure is missing.
+
+The section's prose was adapted from `experiments/statebench/RETRAIN_REPORT.md`; edits to that Markdown file are not applied to the page automatically. It keeps the report's visuals-first order: each result is a figure, then its explanation. The section uses `#state-diffusion`; per-result anchors are `#state-data`, `#state-main`, `#state-steps`, `#state-horizon-profile`, `#state-training`, `#state-control`, `#state-horizon-sweep`, `#state-ballcount`, `#state-block-size`, `#state-depth-width`, `#state-shift`, and `#state-cost`.
 
 ## Refresh the combined guidance comparison
 

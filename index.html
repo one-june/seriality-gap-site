@@ -25,6 +25,7 @@
       <a href="#guidance">Findings</a>
       <a href="#comparison">Videos</a>
       <a href="#rollout-guidance">Rollout guidance</a>
+      <a href="#state-diffusion">State diffusion</a>
       <a href="#data">Data</a>
     </nav>
   </header>
@@ -399,6 +400,311 @@
           <a href="rollout-1-results.html"><span>Rollout-1 report</span><small>Read →</small></a>
           <a href="rollout-5-results.html"><span>Full Rollout-5 archive</span><small>Read →</small></a>
           <a href="assets/rollout-comparison/five_video_comparison.csv" download><span>Shared-control comparison</span><small>CSV ↓</small></a>
+        </div>
+      </div>
+    </section>
+    <section class="experiment statebench" id="state-diffusion" aria-labelledby="state-diffusion-title">
+      <div class="section-heading reading-width">
+        <p class="eyebrow">04 / State diffusion</p>
+        <h2 id="state-diffusion-title">The same gap,<br class="desktop-break"> without pixels or a VAE</h2>
+        <p class="section-intro">We retrained the billiards experiment from scratch on positions and velocities instead of video. The gap between one-pass and block-by-block generation reproduces at 1/30 of the parameters, with no VAE and no tracker anywhere in the loop.</p>
+        <div class="study-facts" aria-label="Experiment setup">
+          <span>1, 2, 3, 5 balls · 25–49 frames</span>
+          <span>1,024 held-out clips</span>
+          <span>Seeds 0–2</span>
+          <span>6.85M parameters</span>
+        </div>
+        <p class="setup-note">The seriality-gap paper’s released checkpoints generate pixels, so every number they produce passes through a VAE encoder, a VAE decoder, and a ball tracker. Those stages carry their own error, and it is not separable from the model’s: the repository’s own check puts the local-error floor of that pipeline at 0.19 world units, which is close to the 1-ball values the paper reports. These models predict the state directly and the metric is exact to about 1e-6, so nothing is hidden under a floor. The datasets were also rebuilt: every clip comes from its own independent simulation, where the paper’s generator takes up to 1,000 overlapping clips from each of about twenty simulations, making dataset diversity a hidden variable along the clip-length axis the experiment measures. “The paper” below means the seriality-gap paper, not SSH. Source: <code>experiments/statebench/RETRAIN_REPORT.md</code>.</p>
+      </div>
+
+      <div class="findings reading-width">
+        <h3>What we found</h3>
+        <ol class="finding-list">
+          <li><strong>Generating in order is four times more physically accurate.</strong> At 5 balls and 49 frames the block-4 model reaches 0.223 local error against the bidirectional model’s 0.885. The paper’s video models split 0.607 against 0.867 at about 200M parameters; these models have 6.85M.</li>
+          <li><strong>Finer generation order keeps helping, all the way down.</strong> 0.885 for all frames at once, 0.223 at 4 frames per block, 0.110 one frame at a time. No bidirectional model of any depth, width, step count, or noise schedule we tested comes close.</li>
+          <li><strong>What hurts one-pass generation is dependent collisions, not clip length.</strong> With one ball the future is a closed-form function of the given frames, and the two architectures become nearly equal (0.0300 against 0.0229) and flat in clip length. With 5 balls the gap grows from 2.94× at 25 frames to 3.98× at 49.</li>
+          <li><strong>Score error per predicted number does not grow with clip length.</strong> At every ball count it is flat or slightly falling. The total score error grows as the square root of the output size, which is exactly what a fixed per-number error produces on a larger output — not a length-dependent breakdown in score accuracy.</li>
+        </ol>
+      </div>
+
+      <figure class="plot" id="state-data">
+        <div class="figure-heading"><h3>What the model works on</h3><a href="assets/statebench/figures/r1_data.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r1_data.png" alt="One held-out clip drawn as coloured trails in a square box: the true 49-frame trajectory on the left, the bidirectional state model's generation from the same first five frames on the right" width="1563" height="816" loading="lazy">
+        <figcaption><span class="figure-number">Figure 6.</span> One held-out clip, drawn as trails in the 10 × 10 box. Left: the true trajectory. Right: what the bidirectional state model generates from the same first 5 frames, at 50 denoising steps. Five balls of radius 0.7 move for 49 frames at 15 frames per second and collide elastically with each other and the walls.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>The model sees only numbers: 49 frames × 5 balls × (x, y, vx, vy) = 980 values per clip. No pixels, no VAE, no tracker. It is a small transformer with one token per (frame, ball), 8 layers, width 256, 6.85M parameters, trained with flow matching.</p>
+
+        <h3>The datasets</h3>
+        <p>Each dataset is built by the paper’s own generator: 400 frames simulated per seed, the first 200 discarded as burn-in, at most one accepted window kept per seed. Initial conditions, solver, window filters, collision-density limits, and the held-out collision-count quotas are the original code, unchanged.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Dataset sizes">
+          <table>
+            <thead><tr><th>Set, every cell</th><th>Clips</th><th>Independent simulations</th></tr></thead>
+            <tbody>
+              <tr><td>Training</td><td>20,000</td><td>20,000</td></tr>
+              <tr><td>Held-out</td><td>1,024</td><td>1,024</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The burn-in keeps the state distribution equal to the original data’s. First-frame ball speeds, 5 balls at 49 frames:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="First-frame ball speed quantiles">
+          <table>
+            <thead><tr><th>Quantile</th><th>5%</th><th>25%</th><th>50%</th><th>75%</th><th>95%</th></tr></thead>
+            <tbody>
+              <tr><td>This data</td><td>2.28</td><td>5.32</td><td>8.04</td><td>10.90</td><td>14.66</td></tr>
+              <tr><td>Original data</td><td>2.27</td><td>5.30</td><td>8.01</td><td>10.88</td><td>14.66</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Without the burn-in every clip would start from a freshly sampled initial condition, where 100% of ball speeds lie in [8, 10] against 18% in equilibrated data. Held-out sets keep the original repository’s balancing across ball-ball collision counts; one ball has no ball-ball collisions and no balancing.</p>
+      </div>
+
+      <figure class="plot" id="state-main">
+        <div class="figure-heading"><h3>Main result at 5 balls</h3><a href="assets/statebench/figures/r3_main.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r3_main.png" alt="Three bar panels — global error, one-step local error, five-step local error — comparing the paper's video models with the bidirectional and block-4 state models" width="2125" height="748" loading="lazy">
+        <figcaption><span class="figure-number">Figure 7.</span> All 1,024 held-out clips, 49 frames, the paper’s metric definitions, mean over 3 seeds. Grey bars are the paper’s published video-model values, at about 200M parameters against these models’ 6.85M. Lower is better.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>Global error Δx(GT) is the mean distance between generated and true ball centres over frames 5 to 48. Local error Δx(k) runs the exact simulator k frames forward from the generated frame t−k and compares it with the generated frame t, with velocities read off the generated positions by the paper’s finite-difference estimator.</p>
+        <p>The bidirectional model reaches <strong>0.885</strong> on the five-step local error. The block-4 model — the paper’s autoregressive scheme applied to states, 4 frames generated per block, earlier frames held fixed — reaches <strong>0.223</strong>, four times more physically accurate, and also has the lower global error.</p>
+      </div>
+
+      <figure class="plot" id="state-steps">
+        <div class="figure-heading"><h3>More denoising steps stop helping at about 20</h3><a href="assets/statebench/figures/r4_steps.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r4_steps.png" alt="Two line panels against number of denoising steps: local error falls until about 20 steps and is then flat; the bidirectional model's global error is lowest at one step and rises" width="1785" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 8.</span> 5 balls, 49 frames, mean over 3 seeds. The lighter lines use the model’s own generated velocities instead of reading them off positions; comparisons with the paper must use the paper’s estimator, the dark lines.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>Left: the local error falls until about 20 steps and is flat from 20 to 200, the paper’s Observation 4. No number of denoising steps brings the bidirectional model near the block-4 model.</p>
+        <p>Right: the bidirectional model’s global error is lowest at 1 step and rises with more steps. One step returns roughly the conditional mean of all futures consistent with the given frames — close to the truth on average, but not a physically consistent trajectory. <strong>The global error therefore does not measure physical accuracy; the local error does.</strong></p>
+      </div>
+
+      <figure class="plot" id="state-horizon-profile">
+        <div class="figure-heading"><h3>Where the error comes from</h3><a href="assets/statebench/figures/r5_horizon_profile.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r5_horizon_profile.png" alt="Distance between generated and true ball positions plotted against frame index, for one and fifty denoising steps, with a straight-line no-collision reference" width="1275" height="748" loading="lazy">
+        <figcaption><span class="figure-number">Figure 9.</span> Mean distance between generated and true positions at each frame, over the 1,024 held-out clips. The grey line shows how fast error grows with no collision handling at all: straight-line motion from frame 4.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>The bidirectional model is accurate at the first generated frame and drifts to the level of unrelated positions in the box by about frame 30.</p>
+        <p>The 1-step curve lies below the 50-step curve, which looks backwards but is expected. One denoising step returns a blend of trajectories rather than any one of them; being the mean, it minimises squared distance to the truth while being physically wrong. Fifty steps return one physically consistent sample, and because the dynamics are chaotic a single valid future ends up as far from the true one as any other valid future.</p>
+      </div>
+
+      <figure class="plot" id="state-training">
+        <div class="figure-heading"><h3>Training</h3><a href="assets/statebench/figures/r6_training.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r6_training.png" alt="Held-out local error against training step for the bidirectional and block-4 models, all three seeds drawn, both falling monotonically to 25,000 steps" width="1870" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 10.</span> Held-out local error on 128 validation clips, measured every 5,000 steps, all three seeds drawn. Both panels fall monotonically to the 25,000-step checkpoint, and the three seeds of each configuration lie on top of one another. Every result in this section uses the checkpoint at exactly 25,000 updates, never the best validation score.</figcaption>
+      </figure>
+
+      <figure class="plot" id="state-control">
+        <div class="figure-heading"><h3>Control: one ball</h3><a href="assets/statebench/figures/r8_control.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r8_control.png" alt="Bar comparison of five-ball and one-ball local error for the bidirectional and block-4 models: at one ball both are far lower and nearly equal" width="1615" height="680" loading="lazy">
+        <figcaption><span class="figure-number">Figure 11.</span> 49 frames, mean over 3 seeds. With one ball there are no ball-ball collisions, only wall bounces, and the future is a closed-form function of the given frames.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>The paper’s control removes the serial structure. Both models become far more accurate, and — the substantive point — <strong>the two architectures become nearly equal</strong>: 0.0300 bidirectional against 0.0229 block-4 at 49 frames, a ratio of 1.31. Global error agrees: 0.0434 against 0.0399.</p>
+        <p>That matches the paper’s Observation 2, which reports 0.246 and 0.220 for its two video models at one ball and 49 frames, a ratio of 1.12. <strong>The gap that exists at 5 balls does not exist at 1 ball.</strong></p>
+      </div>
+
+      <figure class="plot" id="state-horizon-sweep">
+        <div class="figure-heading"><h3>Horizon sweep</h3><a href="assets/statebench/figures/r9_horizon_sweep.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r9_horizon_sweep.png" alt="Local error against clip length: at five balls the bidirectional curve rises and the block-4 curve is flat; at one ball both are flat and nearly equal" width="1785" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 12.</span> Local error against clip length, 5 balls on the left and the 1-ball control on the right. Filled circles are the state models, mean over 3 seeds with the standard deviation across seeds as error bars; dotted squares are the paper’s published video-model values.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p><strong>5 balls:</strong> the bidirectional model degrades with clip length, 0.684 at 25 frames to 0.885 at 49, tracking the paper’s video curve (0.670 to 0.883). The block-4 model is flat at 0.223 to 0.239, as the paper’s autoregressive video model is flat at about 0.61. Observations 1 and 3 reproduce, at 1/30 of the parameters.</p>
+        <p><strong>1 ball:</strong> both models are flat, and so is the gap between them. The bidirectional model goes from 0.0371 at 25 frames to 0.0300 at 49 — slightly <em>down</em>, not up. Clip length by itself is not what hurts one-pass generation; dependent collisions are.</p>
+      </div>
+
+      <figure class="plot" id="state-ballcount">
+        <div class="figure-heading"><h3>All ball counts</h3><a href="assets/statebench/figures/r13_ballcount.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r13_ballcount.png" alt="Local five-step error and global error against clip length, one curve per ball count, for the bidirectional models" width="1870" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 13.</span> Bidirectional models, local five-step error and global error, mean over 3 seeds. Error rises with ball count at every length, and with length at every ball count above one.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>Local five-step error, bidirectional models, mean over 3 seeds with the standard deviation across seeds:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Bidirectional local error by ball count and clip length">
+          <table>
+            <thead><tr><th>Balls</th><th>25 frames</th><th>33 frames</th><th>41 frames</th><th>49 frames</th><th>25 → 49</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>0.0371 ±0.0017</td><td>0.0343 ±0.0004</td><td>0.0316 ±0.0003</td><td>0.0300 ±0.0001</td><td><strong>0.81×</strong></td></tr>
+              <tr><td>2</td><td>0.1774 ±0.0030</td><td>0.2653 ±0.0043</td><td>0.2970 ±0.0120</td><td>0.3433 ±0.0081</td><td><strong>1.94×</strong></td></tr>
+              <tr><td>3</td><td>0.3833 ±0.0184</td><td>0.5474 ±0.0160</td><td>0.6164 ±0.0145</td><td>0.6432 ±0.0086</td><td><strong>1.68×</strong></td></tr>
+              <tr><td>5</td><td>0.6841 ±0.0095</td><td>0.8396 ±0.0291</td><td>0.8846 ±0.0156</td><td>0.8851 ±0.0156</td><td><strong>1.29×</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Block-4 models, with the bidirectional-to-block-4 ratio in parentheses. The gap grows with clip length at 5 balls and is flat at 1 ball:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Block-4 local error and the gap to the bidirectional model">
+          <table>
+            <thead><tr><th>Balls</th><th>25 frames</th><th>33 frames</th><th>41 frames</th><th>49 frames</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>0.0320 ±0.0007 (1.16×)</td><td>0.0272 ±0.0004 (1.26×)</td><td>0.0258 ±0.0013 (1.23×)</td><td>0.0229 ±0.0005 (<strong>1.31×</strong>)</td></tr>
+              <tr><td>5</td><td>0.2326 ±0.0044 (2.94×)</td><td>0.2388 ±0.0028 (3.52×)</td><td>0.2332 ±0.0049 (3.79×)</td><td>0.2226 ±0.0026 (<strong>3.98×</strong>)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Conditional score error</h3>
+        <p>Total score RMSE from the score-error audit run on these checkpoints: 25,000-step weights, 1,024 held-out clips, 32 uniform noise levels, 8 noise draws, float32 with TF32 disabled. “Generated frames” is clip length minus the 5 conditioning frames.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Total conditional score RMSE">
+          <table>
+            <thead><tr><th>Balls</th><th>20 generated frames</th><th>28</th><th>36</th><th>44</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>19.13 ±0.60</td><td>23.15 ±0.22</td><td>25.91 ±0.53</td><td>27.91 ±0.47</td></tr>
+              <tr><td>2</td><td>52.50 ±0.34</td><td>62.81 ±0.56</td><td>71.35 ±0.77</td><td>77.59 ±0.07</td></tr>
+              <tr><td>3</td><td>65.56 ±0.59</td><td>80.99 ±0.68</td><td>91.72 ±0.33</td><td>98.15 ±0.43</td></tr>
+              <tr><td>5</td><td>87.68 ±1.24</td><td>103.28 ±2.02</td><td>112.24 ±2.10</td><td>120.39 ±1.17</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The same audit, as mean squared score error per predicted number:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Score error per predicted number">
+          <table>
+            <thead><tr><th>Balls</th><th>20 generated frames</th><th>28</th><th>36</th><th>44</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>4.575</td><td>4.783</td><td>4.664</td><td>4.426</td></tr>
+              <tr><td>2</td><td>17.229</td><td>17.616</td><td>17.680</td><td>17.103</td></tr>
+              <tr><td>3</td><td>17.912</td><td>19.522</td><td>19.474</td><td>18.247</td></tr>
+              <tr><td>5</td><td>19.223</td><td>19.051</td><td>17.501</td><td>16.471</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Per-number score error is flat or slightly declining with length at every ball count</strong>, one ball included. The total grows only because there are more numbers to predict. From 20 to 44 generated frames the output grows by a factor of 2.2, so a flat per-number error predicts √2.2 = 1.48× growth in the total; measured growth is 1.46× at 1 ball, 1.50× at 3 balls, and 1.37× at 5 balls.</p>
+        <p>This matters for the audit’s question. A total score error that grows as the square root of the output size, with no increase per number, is what a model whose per-number score error is fixed and positive produces on a larger output. It is not evidence of a length-dependent breakdown in score accuracy.</p>
+
+        <h3>Sampling accuracy</h3>
+        <p>Denoising-step budgets of 1, 2, 4, 8, 16, 32, 64, and 128, shared initial-noise seed, all 1,024 held-out clips. Best mean local error over all tested budgets:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Best mean local error across step budgets">
+          <table>
+            <thead><tr><th>Balls</th><th>20 generated frames</th><th>28</th><th>36</th><th>44</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>0.0338</td><td>0.0297</td><td>0.0273</td><td>0.0256</td></tr>
+              <tr><td>2</td><td>0.1755</td><td>0.2524</td><td>0.2972</td><td>0.3351</td></tr>
+              <tr><td>3</td><td>0.3895</td><td>0.5398</td><td>0.6252</td><td>0.6288</td></tr>
+              <tr><td>5</td><td>0.6837</td><td>0.8311</td><td>0.8926</td><td>0.8927</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>A successful global prediction has mean position error at most 0.1 world units; a successful local prediction has five-frame physics error at most 0.05. <strong>The 1-ball models meet both thresholds at a fixed budget that does not grow with length</strong>: 2 steps for the global criterion at every length, and 32 steps for the stricter local criterion at 28, 36, and 44 generated frames. The 20-frame case needs 128 steps for the local criterion, the one place a shorter clip is harder — its best mean local error, 0.0338, is also the worst of the four. <strong>No multi-ball cell reaches 90% on either criterion at any tested budget</strong>, and adding steps does not fix it.</p>
+      </div>
+
+      <figure class="plot" id="state-block-size">
+        <div class="figure-heading"><h3>Block size: finer generation order, better physics</h3><a href="assets/statebench/figures/r10_block_size.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r10_block_size.png" alt="Local error and global error against the number of frames denoised together, falling monotonically from 44 frames at once down to one frame at a time" width="1785" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 14.</span> Block size is how many frames are denoised together before being frozen so the next block starts. 44 means all generated frames at once, which is the bidirectional model; 1 means one frame at a time. 5 balls, 49 frames, mean over 3 seeds.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Error against block size">
+          <table>
+            <thead><tr><th>Frames per block</th><th>Local error Δx(5)</th><th>Global error Δx(GT)</th></tr></thead>
+            <tbody>
+              <tr><td>44 (bidirectional)</td><td>0.8851 ±0.0156</td><td>2.928</td></tr>
+              <tr><td>22</td><td>0.7459 ±0.0158</td><td>2.793</td></tr>
+              <tr><td>11</td><td>0.4730 ±0.0214</td><td>2.600</td></tr>
+              <tr><td>4</td><td>0.2226 ±0.0026</td><td>2.358</td></tr>
+              <tr><td>1</td><td>0.1100 ±0.0044</td><td>2.115</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Both metrics fall monotonically as blocks get finer — the paper’s Observation 3, with a much wider spread than in pixel space, where its models span 0.88 down to 0.61. Block-causal models are cheaper at inference than the bidirectional one only when blocks are large: block 1 costs 44 times as many model calls at the same number of denoising steps.</p>
+        <p>Block 1 also shows the step saturation: 0.401 at 1 denoising step, 0.133 at 5, 0.116 at 20, 0.115 at 50.</p>
+      </div>
+
+      <figure class="plot" id="state-depth-width">
+        <div class="figure-heading"><h3>Depth buys more than width</h3><a href="assets/statebench/figures/r12_depth_width.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r12_depth_width.png" alt="Local error against depth at fixed width and against width at fixed depth: depth keeps improving to 32 layers while width saturates immediately" width="1785" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 15.</span> Bidirectional models, 5 balls, 49 frames, mean over 3 seeds. Depth 64 and width 1024 were not rerun.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Local error against depth and width">
+          <table>
+            <thead><tr><th>Depth at width 256</th><th>Local error</th><th>Width at depth 8</th><th>Local error</th></tr></thead>
+            <tbody>
+              <tr><td>4</td><td>1.1566 ±0.0171</td><td>128</td><td>1.0824 ±0.0233</td></tr>
+              <tr><td>8</td><td>0.8851 ±0.0156</td><td>256</td><td>0.8851 ±0.0156</td></tr>
+              <tr><td>16</td><td>0.7646 ±0.0055</td><td>512</td><td>0.8492 ±0.0117</td></tr>
+              <tr><td>32</td><td>0.7171 ±0.0109</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Depth gains keep coming to 32 layers but flatten (0.885 to 0.765 to 0.717), while width saturates almost immediately (0.885 to 0.849 for a 4× parameter increase). Depth buys more than width per parameter, the paper’s Observation 5.</p>
+        <p><strong>No bidirectional model of any size tested approaches the block-4 model’s 0.223, let alone block 1’s 0.110.</strong> More layers do not substitute for generating in order.</p>
+      </div>
+
+      <figure class="plot" id="state-shift">
+        <div class="figure-heading"><h3>The noise schedule does not change the conclusions</h3><a href="assets/statebench/figures/r11_shift.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r11_shift.png" alt="Bars comparing shift 1 and shift 5 noise schedules for the bidirectional and block-4 models: shift 5 is worse for both and the ordering is unchanged" width="1190" height="714" loading="lazy">
+        <figcaption><span class="figure-number">Figure 16.</span> 5 balls, 49 frames, 3 seeds each. The paper’s video models use Wan’s noise schedule (shift 5), which concentrates training and sampling effort at high noise; this bench uses uniform noise levels (shift 1).</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Local error under the two noise schedules">
+          <table>
+            <thead><tr><th>Model</th><th>Shift 1</th><th>Shift 5</th></tr></thead>
+            <tbody>
+              <tr><td>Bidirectional</td><td>0.8851 ±0.0156</td><td>1.0442 ±0.0115</td></tr>
+              <tr><td>Block 4</td><td>0.2226 ±0.0026</td><td>0.2828 ±0.0023</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Shift 5 makes both models worse and leaves the ordering and the size of the gap unchanged (3.98× against 3.69×). The schedule choice is not what produces the results above.</p>
+      </div>
+
+      <figure class="plot" id="state-cost">
+        <div class="figure-heading"><h3>Cost</h3><a href="assets/statebench/figures/r7_cost.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench/figures/r7_cost.png" alt="Horizontal bars of training minutes per run by ball count and architecture, from 7 minutes for one-ball bidirectional to 50 minutes for five-ball block-4" width="1360" height="734" loading="lazy">
+        <figcaption><span class="figure-number">Figure 17.</span> Training time for one 49-frame run, 25,000 steps, on one A100. Data generation is CPU-only and takes seconds to minutes per cell, with the one exception below.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>7 minutes for 1-ball bidirectional, 22 minutes for 5-ball bidirectional, 10 and 50 minutes for the corresponding block-4 models. Block-causal training is slower because the paper’s scheme doubles the sequence and needs an explicit attention mask, which prevents the fused attention kernel; at one ball the sequence is short enough that this costs almost nothing.</p>
+
+        <h3>Side note: predicting how long a balanced held-out set takes to build</h3>
+        <p>The original repository balances each held-out set across ball-ball collision counts. Under one clip per simulation, the rarest bin must be found by rejection sampling rather than harvested from a single collision-heavy simulation, and the cost varies enormously by cell.</p>
+        <p><strong>The collision-count distribution has a geometric tail</strong>, so a short sample predicts the rare bins. 24,000 fresh simulations for the 2-ball 49-frame cell, 82 seconds on 8 cores:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Accepted clips by collision count">
+          <table>
+            <thead><tr><th>Ball-ball collisions</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+            <tbody>
+              <tr><td>Accepted clips</td><td>6,719</td><td>1,094</td><td>129</td><td>20</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Consecutive ratios are near-constant at <strong>0.140</strong>. Fitting on the well-populated bins and extrapolating:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Extrapolated acceptance rates and required simulations">
+          <table>
+            <thead><tr><th>Collisions</th><th>Predicted rate</th><th>Simulations for a 171-clip bin</th></tr></thead>
+            <tbody>
+              <tr><td>7</td><td>7.5e-4</td><td>227,000</td></tr>
+              <tr><td>8</td><td>1.1e-4</td><td>1.6M</td></tr>
+              <tr><td>9</td><td>1.5e-5</td><td><strong>11.5M</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Checked against the live build: the model predicts about 119 clips in the 9-collision bin after 8.0M simulations; the build had about 100. Roughly 20% accurate, from 82 seconds of sampling.</p>
+        <p>A single-rate Poisson process would have a factorial tail, falling off much faster than this. A constant ratio is what a Poisson mixture gives: mixing over a Gamma-distributed rate yields a negative binomial, whose tail is geometric. Physically that fits, since how often two balls meet depends on their configuration, so the collision rate varies between simulations. This is an inference from the shape, not verified against the simulator.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Measured held-out build cost per cell">
+          <table>
+            <thead><tr><th>Cell</th><th>Simulations</th><th>Wall time</th></tr></thead>
+            <tbody>
+              <tr><td>Any 1-ball cell</td><td>~24,000</td><td>13 s</td></tr>
+              <tr><td>5-ball, 49 frames</td><td>23,000</td><td>4 min</td></tr>
+              <tr><td>3-ball, 49 frames</td><td>314,000</td><td>21 min</td></tr>
+              <tr><td>2-ball, 41 frames</td><td>1.0M</td><td>33 min</td></tr>
+              <tr><td>2-ball, 49 frames</td><td>~11M</td><td>~2.5 h</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Practical rule:</strong> before building a balanced cell, run about 25,000 simulations, fit the ratio on the bins with good counts, and extrapolate. A 6,000-simulation smoke test whose rarest bin has a single observation gives an unusable estimate.</p>
+      </div>
+
+      <div class="data-section reading-width" id="state-diffusion-data">
+        <p class="eyebrow">Scope and data</p>
+        <h3>What was run</h3>
+        <p>102 training runs: bidirectional at 1, 2, 3, and 5 balls and block-4 at 1 and 5 balls, each at 25, 33, 41, and 49 frames with three seeds. 48 score audits, 48 sampling sweeps, and 384 physics evaluations on the bidirectional checkpoints. All 16 datasets rebuilt and validated. A further 30 runs cover the block-size, depth, width, and noise-schedule sweeps at 5 balls and 49 frames. Not rerun: depth 64 and width 1024, the two most expensive families, and the memorisation gates.</p>
+        <h3 class="archive-heading">Per-seed numbers</h3>
+        <p>One row per training run: global error, one-step local error, and five-step local error at 50 denoising steps, read from each run’s saved evaluation. These are the numbers behind the horizon, ball-count, block-size, depth, width, and schedule results above. The score-error and sampling-accuracy tables come from the separate score-error audit.</p>
+        <div class="data-links">
+          <a href="assets/statebench/data/horizon_ballcount.csv" download><span>Horizon and ball count</span><small>CSV <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/statebench/data/sweeps_5ball_49f.csv" download><span>Block, depth, width, schedule</span><small>CSV <span aria-hidden="true">↓</span></small></a>
         </div>
       </div>
     </section>
