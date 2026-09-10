@@ -1386,7 +1386,7 @@
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error on the matched sampler">
           <table>
-            <thead><tr><th>Δx(5), matched sampler</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25→49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
+            <thead><tr><th>Δx(5), 24 restarts + 8 tries for every method</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25→49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
             <tbody>
               <tr><td>oracle (positive control)</td><td>0.096</td><td>0.096</td><td>0.095</td><td>0.088</td><td>0.91×</td><td>every length</td></tr>
               <tr><td><strong>block 4 (autoregressive)</strong></td><td><strong>0.237</strong></td><td><strong>0.261</strong></td><td><strong>0.267</strong></td><td><strong>0.276</strong></td><td>1.17×</td><td>every length</td></tr>
@@ -1407,7 +1407,7 @@
         <h4>What survives is the flatness</h4>
         <p>Laws-only grows 1.06× from 25 to 49 frames while rollout-5 grows 1.38×, rollout-1 1.35× and vanilla 1.19×, and it holds the data&rsquo;s speed at every length. That is a property of the laws, not of the extra sampling: every curve here got the same restarts and the same 8 tries. It is the one claim from this section that the matched comparison leaves standing.</p>
         <h4>Block 4 still wins, while carrying a handicap</h4>
-        <p>Block 4 is the most accurate method at every clip length, 0.237 to 0.276. It is also the method this sampler hurts: re-noising a finished block-causal clip and regenerating it block by block breaks the coherence between blocks, so 24 restarts take it from 0.223 to 0.276. Its own best setting is the plain one, and 0.223 is the fair target. Generating in order still beats guiding a one-pass model, by 0.11 at 49 frames even with the handicap.</p>
+        <p>Block 4 is the most accurate method at every clip length, 0.237 to 0.276. It is also the method the restarts hurt: re-noising a finished block-causal clip and regenerating it block by block breaks the coherence between blocks, so 24 restarts take it from 0.223 to 0.276. Its own best setting is the plain one, and 0.223 is the fair target. Generating in order still beats guiding a one-pass model, by 0.11 at 49 frames even with the handicap.</p>
         <h4>Round 1 bought its falling curve by slowing down</h4>
         <p>The earlier round-1 method, laws plus differentiable rollouts, appeared to <em>improve</em> with clip length, 0.408 at 25 frames to 0.317 at 49. Its samples keep only 0.99, 0.93, 0.89 and 0.83 of the data&rsquo;s mean speed across those four lengths. Slower balls travel less far between the frames the metric compares, so the error falls without the prediction getting better. That curve is not evidence of anything and is no longer plotted.</p>
       </div>
