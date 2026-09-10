@@ -16,12 +16,14 @@
   <script defer src="assets/comparison.js"></script>
   <script defer src="assets/video-group.js"></script>
   <script defer src="assets/gallery.js"></script>
+  <script defer src="assets/sections.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="#">Mind the Seriality Gap<span class="wordmark-dot" aria-hidden="true">.</span></a>
     <nav aria-label="Page sections">
+      <a href="#overview">Overview</a>
       <a href="#theory">Argument</a>
       <a href="#guidance">Findings</a>
       <a href="#comparison">Videos</a>
@@ -43,11 +45,81 @@
       </div>
     </div>
 
-    <section class="experiment theory-section" id="theory" aria-labelledby="theory-title">
+    <section class="experiment overview" id="overview" aria-labelledby="overview-title">
       <div class="section-heading reading-width">
-        <p class="eyebrow">01 / The argument</p>
-        <h2 id="theory-title">Does denoising provide<br class="desktop-break"> serial computation?</h2>
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-title">How the sections<br class="desktop-break"> fit together</h2>
+        <p class="section-intro">Four experiments run in sequence, each one removing a suspected cause of the previous result. Section 01 is a derivation rather than an experiment: it states the claim the experiments test.</p>
+        <p class="setup-note">02 asks whether generating frames in order beats generating them in one pass. 03 tries to repair the one-pass model with guidance toward a simulated future, still in pixel space. 04 drops the VAE and the ball tracker by retraining the whole experiment on ball positions and velocities. 05 retries the guidance there, where the positions are exact.</p>
       </div>
+
+      <div class="flow" aria-label="Flow of sections">
+        <a class="flow-node flow-theory" href="#theory">
+          <p class="flow-num">01 / The argument</p>
+          <p class="flow-title">Does denoising provide serial computation?</p>
+          <p class="flow-what">Under SSH’s assumptions a constant number of denoising steps already suffices, so letting the step count grow adds no new solvable problems.</p>
+          <p class="flow-tag">Derivation, not an experiment</p>
+        </a>
+        <div class="flow-bridge">
+          <span class="flow-bridge-line" aria-hidden="true"></span>
+          <p class="flow-bridge-label">sets the question the four experiments test</p>
+          <span class="flow-bridge-line" aria-hidden="true"></span>
+        </div>
+        <div class="flow-chain">
+          <a class="flow-node" href="#guidance">
+            <p class="flow-num">02 / Guidance</p>
+            <p class="flow-title">Autoregressive and bidirectional diffusion</p>
+            <p class="flow-what">Generating frames in order gives lower error than one pass at every tested step count. Feeding the true future to the one-pass sampler recovers part of the difference.</p>
+            <p class="flow-tag">Pixel video</p>
+          </a>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <a class="flow-node" href="#rollout-guidance">
+            <p class="flow-num">03 / Rollout guidance</p>
+            <p class="flow-title">Rollout-1 and Rollout-5 guidance</p>
+            <p class="flow-what">Guiding the one-pass model toward a simulated future changes the pixel metrics by within ±2%: a tracker has to recover ball positions from video before the target can be built.</p>
+            <p class="flow-tag">Pixel video</p>
+          </a>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <a class="flow-node" href="#state-diffusion">
+            <p class="flow-num">04 / State diffusion</p>
+            <p class="flow-title">The same gap, without pixels or a VAE</p>
+            <p class="flow-what">Retrained on positions and velocities at 6.85M parameters: 0.223 local error generating in blocks of 4 frames against 0.885 in one pass.</p>
+            <p class="flow-tag">Positions and velocities</p>
+          </a>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <a class="flow-node" href="#state-guidance">
+            <p class="flow-num">05 / State-space guidance</p>
+            <p class="flow-title">Can guidance replace generating in order?</p>
+            <p class="flow-what">The same targets now lower the five-step error by 28%, but the error still grows with clip length, and block-4 stays ahead at 0.223.</p>
+            <p class="flow-tag">Positions and velocities</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-controls reading-width">
+        <p>Every section below collapses: use the toggle beside its heading, or these buttons.</p>
+        <div class="section-controls-buttons">
+          <button class="button" type="button" data-sections="expand">Expand all</button>
+          <button class="button" type="button" data-sections="collapse">Collapse all</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="experiment theory-section" id="theory" aria-labelledby="theory-title">
+      <details class="section-details" open>
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">01 / The argument</p>
+            <h2 id="theory-title">Does denoising provide<br class="desktop-break"> serial computation?</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
       <div class="theory-prose reading-width">
         <p><strong>For us to say that the denoising loop of \(T\) steps provides “serial computation,”</strong> we would need to show that allowing \(T\) to grow enlarges the class of problems the model can solve beyond what constant \(T\) can solve. Here, “constant” means independent of input size, with the same limits on the computation in each score evaluation.</p>
 
@@ -169,13 +241,27 @@
           <p><strong>So, in a sense, the assumptions already require the score model to be accurate enough that a constant number of steps suffices.</strong> Our reading is that the needed task computation must then be achievable within a fixed number of score evaluations. The denoising-step count does not need to grow, and the loop supplies no scalable serial computation under those assumptions.</p>
         </aside>
       </div>
+        </div>
+      </details>
     </section>
 
     <!-- Add future experiment sections inside main, following this section. -->
     <section class="experiment" id="guidance" aria-labelledby="guidance-title">
-      <div class="section-heading reading-width">
-        <p class="eyebrow">02 / Guidance</p>
-        <h2 id="guidance-title">Autoregressive and<br class="desktop-break"> bidirectional diffusion</h2>
+      <details class="section-details" open>
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">02 / Guidance</p>
+            <h2 id="guidance-title">Autoregressive and<br class="desktop-break"> bidirectional diffusion</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
         <p class="section-intro">Autoregressive diffusion gives lower errors than vanilla bidirectional diffusion across the tested reverse-step counts. Clean-latent oracle guidance reveals how much the bidirectional sampler can improve when given the correct future.</p>
         <div class="study-facts" aria-label="Experiment setup">
           <span>5 balls · 49 frames</span>
@@ -183,7 +269,7 @@
           <span>Seeds 0–2</span>
         </div>
         <p class="setup-note">Both models use the same conditioning, targets, step counts, and metrics. We test 10, 20, 50, 100, and 200 reverse steps. Results are averaged over seeds, with no checkpoint averaging.</p>
-      </div>
+          </div>
 
       <div class="findings reading-width">
         <h3>What we found</h3>
@@ -251,19 +337,33 @@
           <a href="assets/guidance/summaries/oracle.json" download><span>Clean-latent oracle</span><small>JSON <span aria-hidden="true">↓</span></small></a>
         </div>
       </div>
+        </div>
+      </details>
     </section>
     <section class="experiment rollout-results" id="rollout-guidance" aria-labelledby="rollout-guidance-title">
       <span id="rollout1-results"></span><span id="rollout5-results"></span>
-      <div class="section-heading reading-width">
-        <p class="eyebrow">03 / Rollout guidance</p>
-        <h2 id="rollout-guidance-title">Rollout-1 and Rollout-5 guidance</h2>
+      <details class="section-details" open>
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">03 / Rollout guidance</p>
+            <h2 id="rollout-guidance-title">Rollout-1 and Rollout-5 guidance</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
         <p class="section-intro">Both guides improve a tuned Case 2 generation. In the earlier five-video tests, every tested variant worsens both mean errors. Below, we compare results that share the same vanilla controls and identify the settings that differed.</p>
         <div class="study-facts" aria-label="Shared video setting">
           <span>5 balls · 49 frames</span><span>5 conditioning frames</span><span>Bidirectional DiT</span>
         </div>
         <p class="setup-note">Every result in this section uses this video setting. Rollout-1 and Rollout-5 name the physics horizon used to build the guidance target. We evaluate the finished videos with both original repository metrics; lower is better. Ball-validity counts are separate.</p>
         <p class="result-links"><a href="#guidance-case2">Same Case 2 generation ↓</a><a href="#guidance-five-video">Same five-video controls ↓</a><a href="#guidance-other-tests">Tests without a matching comparison ↓</a></p>
-      </div>
+          </div>
 
       <div class="comparison-section" id="guidance-case2">
         <span id="rollout1-tuned"></span><span id="rollout5-case2"></span><span id="rollout5-comparison"></span>
@@ -404,11 +504,25 @@
           <a href="assets/rollout-comparison/five_video_comparison.csv" download><span>Shared-control comparison</span><small>CSV ↓</small></a>
         </div>
       </div>
+        </div>
+      </details>
     </section>
     <section class="experiment report-section" id="state-diffusion" aria-labelledby="state-diffusion-title">
-      <div class="section-heading reading-width">
-        <p class="eyebrow">04 / State diffusion</p>
-        <h2 id="state-diffusion-title">The same gap,<br class="desktop-break"> without pixels or a VAE</h2>
+      <details class="section-details" open>
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">04 / State diffusion</p>
+            <h2 id="state-diffusion-title">The same gap,<br class="desktop-break"> without pixels or a VAE</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
         <p class="section-intro">We retrained the billiards experiment from scratch on positions and velocities instead of video. The gap between one-pass and block-by-block generation reproduces at 1/30 of the parameters, with no VAE and no tracker anywhere in the loop.</p>
         <div class="study-facts" aria-label="Experiment setup">
           <span>1, 2, 3, 5 balls · 25–49 frames</span>
@@ -417,7 +531,7 @@
           <span>6.85M parameters</span>
         </div>
         <p class="setup-note">The seriality-gap paper’s released checkpoints generate pixels, so every number they produce passes through a VAE encoder, a VAE decoder, and a ball tracker. Those stages carry their own error, and it is not separable from the model’s: the repository’s own check puts the local-error floor of that pipeline at 0.19 world units, which is close to the 1-ball values the paper reports. These models predict the state directly and the metric is exact to about 1e-6, so nothing is hidden under a floor. The datasets were also rebuilt: every clip comes from its own independent simulation, where the paper’s generator takes up to 1,000 overlapping clips from each of about twenty simulations, making dataset diversity a hidden variable along the clip-length axis the experiment measures. “The paper” below means the seriality-gap paper, not SSH. Source: <code>experiments/statebench/RETRAIN_REPORT.md</code>.</p>
-      </div>
+          </div>
 
       <div class="findings reading-width">
         <h3>What we found</h3>
@@ -789,11 +903,25 @@
           <a href="assets/statebench/data/sweeps_5ball_49f.csv" download><span>Block, depth, width, schedule</span><small>CSV <span aria-hidden="true">↓</span></small></a>
         </div>
       </div>
+        </div>
+      </details>
     </section>
     <section class="experiment report-section" id="state-guidance" aria-labelledby="state-guidance-title">
-      <div class="section-heading reading-width">
-        <p class="eyebrow">05 / State-space guidance</p>
-        <h2 id="state-guidance-title">Can guidance replace<br class="desktop-break"> generating in order?</h2>
+      <details class="section-details" open>
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">05 / State-space guidance</p>
+            <h2 id="state-guidance-title">Can guidance replace<br class="desktop-break"> generating in order?</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
         <p class="section-intro">One gradient step toward a physics target at every denoising step. In state space the guides that failed in pixels now work — they lower every error of the bidirectional model — but they shift the whole length curve down rather than flattening it. Guidance built from physics laws alone, plus restart sampling, does flatten it, and still lands above the block-4 model.</p>
         <div class="study-facts" aria-label="Experiment setup">
           <span>5 balls · 25–49 frames</span>
@@ -802,7 +930,7 @@
           <span>1,121 guided runs</span>
         </div>
         <p class="setup-note">Every number here is on the 896 holdout clips — the 1,024 held-out clips minus 128 kept for calibration — as the mean ± standard deviation over 3 training seeds, using the retrained bidirectional state models from the previous section at 25,000 updates. Guidance strength is selected per (frames, steps, guide) on the calibration clips; the selected value is 1 in every main-grid cell except three 20-step cells, where it is 0.3. Source: <code>experiments/statebench-guidance/REPORT.md</code>.</p>
-      </div>
+          </div>
 
       <div class="findings reading-width">
         <h3>What we found</h3>
@@ -1213,6 +1341,8 @@
           <a href="assets/statebench-guidance/data/distribution_summary.csv" download><span>Distribution distances</span><small>CSV <span aria-hidden="true">↓</span></small></a>
         </div>
       </div>
+        </div>
+      </details>
     </section>
   </main>
   <footer class="site-footer"><span>Mind the Seriality Gap</span><a href="#">Back to top ↑</a></footer>

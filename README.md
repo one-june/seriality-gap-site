@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives. A state-diffusion section ports `experiments/statebench/RETRAIN_REPORT.md`: the same billiards experiment retrained on positions and velocities, with no VAE or tracker in the loop. A final state-guidance section ports `experiments/statebench-guidance/REPORT.md`: DPS guidance toward physics targets on those retrained models, the ten plausibility measures, the whole-trajectory distribution tests, and the two rounds of physics-law guidance.
+This directory is the complete static website **Mind the Seriality Gap**. An overview section at the top (`#overview`) states what each numbered section does and draws the flow of the four experiments, 02 → 03 → 04 → 05, with the theoretical argument (01) shown apart from that chain. Every numbered section collapses; see "Collapsible sections" below. The page opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives. A state-diffusion section ports `experiments/statebench/RETRAIN_REPORT.md`: the same billiards experiment retrained on positions and velocities, with no VAE or tracker in the loop. A final state-guidance section ports `experiments/statebench-guidance/REPORT.md`: DPS guidance toward physics targets on those retrained models, the ten plausibility measures, the whole-trajectory distribution tests, and the two rounds of physics-law guidance.
 
 ## Preview
 
@@ -46,10 +46,17 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 ## Add results
 
 - Add a `<section class="experiment" id="your-result">` inside `<main>` in `index.html`. The guidance section provides the layout for findings, figures, videos, and data downloads.
+- Wrap it the way the existing sections are wrapped so it collapses: `<details class="section-details" open>` holding a `<summary class="section-summary">` with the eyebrow and `<h2>`, then a `<div class="section-body">` with everything else. Add a node for it in the overview diagram (`.flow-chain`) and a link in the header navigation.
 - Copy the figures, clips, and summaries into `assets/your-result/`. Reference those copies with relative paths; do not link outside `docs/`.
 - Add an entry to the header navigation for the new section. Reuse `reading-width`, `plot`, and `data-links` for consistent formatting.
 - Edit the page's text in `index.html`. The current guidance prose was adapted from `out/guidance/KEY_FINDINGS.md`; changes to that Markdown file are not automatically applied to the page.
 - Write inline equations as `\( ... \)` and display equations as `\[ ... \]`. Wrap display equations in `<div class="equation" tabindex="0" role="region" aria-label="Describe the equation">` so wide equations can scroll on small screens. Use HTML escapes such as `&amp;` for alignment markers and `&lt;` for less-than signs. Bundled KaTeX renders equations inside `<main>` automatically.
+
+## Collapsible sections
+
+Each numbered section is a `<details class="section-details" open>`. Its `<summary>` holds the eyebrow and the `<h2>`, so a collapsed page is a list of the five headings; everything else lives in `<div class="section-body">`. The toggle beside each heading is the summary's own control, so collapsing works with JavaScript disabled. `assets/sections.js` adds two things: the **Expand all** and **Collapse all** buttons in the overview (`[data-sections="expand"]`, `[data-sections="collapse"]`), and opening a collapsed section when a link points to an anchor inside it, so the header navigation and the overview diagram keep working. Sections start expanded.
+
+The overview diagram is plain HTML in `.flow`: one `.flow-node` per section, `.flow-theory` for the dashed 01 card, `.flow-bridge` for the dashed connector under it, and `.flow-chain` for the four experiments with `.flow-arrow` between them. The chain is a row above 900px wide and a column with downward arrows below it.
 
 ## Files
 
@@ -65,6 +72,7 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `assets/rollout-comparison/` | Common five-video metrics and plot, matching run settings, and the 5-ball/49-frame holdout subset |
 | `assets/video-group.js` | Synchronized playback for the combined three-clip Case 2 comparison |
 | `assets/style.css` | Shared layout and responsive styles |
+| `assets/sections.js` | Expand-all and collapse-all buttons, and opening a collapsed section when a link targets something inside it |
 | `assets/math.js` | Render the page's LaTeX equations |
 | `assets/vendor/katex/` | KaTeX 0.18.7, fonts, and MIT license; no external requests |
 | `assets/comparison.js` | Video selection, synchronized playback, frame stepping, and metrics |
