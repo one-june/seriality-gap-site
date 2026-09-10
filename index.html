@@ -49,51 +49,80 @@
       <div class="section-heading reading-width">
         <p class="eyebrow">Overview</p>
         <h2 id="overview-title">How the sections<br class="desktop-break"> fit together</h2>
-        <p class="section-intro">Four experiments run in sequence, each one removing a suspected cause of the previous result. Section 01 is a derivation rather than an experiment: it states the claim the experiments test.</p>
-        <p class="setup-note">02 asks whether generating frames in order beats generating them in one pass. 03 tries to repair the one-pass model with guidance toward a simulated future, still in pixel space. 04 drops the VAE and the ball tracker by retraining the whole experiment on ball positions and velocities. 05 retries the guidance there, where the positions are exact.</p>
+        <p class="section-intro">The four experiments run in sequence. 01 is the derivation that sets up what they test, not an experiment.</p>
       </div>
 
-      <div class="flow" aria-label="Flow of sections">
-        <a class="flow-node flow-theory" href="#theory">
-          <p class="flow-num">01 / The argument</p>
-          <p class="flow-title">Does denoising provide serial computation?</p>
-          <p class="flow-what">Under SSH’s assumptions a constant number of denoising steps already suffices, so letting the step count grow adds no new solvable problems.</p>
-          <p class="flow-tag">Derivation, not an experiment</p>
-        </a>
-        <div class="flow-bridge">
-          <span class="flow-bridge-line" aria-hidden="true"></span>
-          <p class="flow-bridge-label">sets the question the four experiments test</p>
-          <span class="flow-bridge-line" aria-hidden="true"></span>
-        </div>
-        <div class="flow-chain">
-          <a class="flow-node" href="#guidance">
-            <p class="flow-num">02 / Guidance</p>
-            <p class="flow-title">Autoregressive and bidirectional diffusion</p>
-            <p class="flow-what">Generating frames in order gives lower error than one pass at every tested step count. Feeding the true future to the one-pass sampler recovers part of the difference.</p>
-            <p class="flow-tag">Pixel video</p>
+      <div class="traj">
+        <svg class="traj-wide" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+          <title>The four experiments in order, with the argument beside the path</title>
+          <defs>
+            <marker id="traj-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
+            </marker>
+          </defs>
+          <path class="traj-line" d="M 65 213 L 120 210 C 220 205 300 130 400 125 C 500 120 560 220 660 215 C 760 210 800 115 890 110 L 948 107" marker-end="url(#traj-head)"></path>
+          <path class="traj-connector" d="M 160 84 C 195 112 230 140 260 167"></path>
+          <a class="traj-node traj-theory" href="#theory">
+            <circle cx="150" cy="62" r="23"></circle>
+            <text class="traj-number" x="150" y="62" dy=".35em" text-anchor="middle">01</text>
+            <text class="traj-label" x="182" y="62" dy=".35em">The argument</text>
           </a>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <a class="flow-node" href="#rollout-guidance">
-            <p class="flow-num">03 / Rollout guidance</p>
-            <p class="flow-title">Rollout-1 and Rollout-5 guidance</p>
-            <p class="flow-what">Guiding the one-pass model toward a simulated future changes the pixel metrics by within ±2%: a tracker has to recover ball positions from video before the target can be built.</p>
-            <p class="flow-tag">Pixel video</p>
+          <a class="traj-node" href="#guidance">
+            <circle cx="120" cy="210" r="27"></circle>
+            <text class="traj-number" x="120" y="210" dy=".35em" text-anchor="middle">02</text>
+            <text class="traj-label" x="120" y="265" dy=".35em" text-anchor="middle">Guidance</text>
           </a>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <a class="flow-node" href="#state-diffusion">
-            <p class="flow-num">04 / State diffusion</p>
-            <p class="flow-title">The same gap, without pixels or a VAE</p>
-            <p class="flow-what">Retrained on positions and velocities at 6.85M parameters: 0.223 local error generating in blocks of 4 frames against 0.885 in one pass.</p>
-            <p class="flow-tag">Positions and velocities</p>
+          <a class="traj-node" href="#rollout-guidance">
+            <circle cx="400" cy="125" r="27"></circle>
+            <text class="traj-number" x="400" y="125" dy=".35em" text-anchor="middle">03</text>
+            <text class="traj-label" x="400" y="80" dy=".35em" text-anchor="middle">Rollout guidance</text>
           </a>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <a class="flow-node" href="#state-guidance">
-            <p class="flow-num">05 / State-space guidance</p>
-            <p class="flow-title">Can guidance replace generating in order?</p>
-            <p class="flow-what">The same targets now lower the five-step error by 28%, but the error still grows with clip length, and block-4 stays ahead at 0.223.</p>
-            <p class="flow-tag">Positions and velocities</p>
+          <a class="traj-node" href="#state-diffusion">
+            <circle cx="660" cy="215" r="27"></circle>
+            <text class="traj-number" x="660" y="215" dy=".35em" text-anchor="middle">04</text>
+            <text class="traj-label" x="660" y="270" dy=".35em" text-anchor="middle">State diffusion</text>
           </a>
-        </div>
+          <a class="traj-node" href="#state-guidance">
+            <circle cx="890" cy="110" r="27"></circle>
+            <text class="traj-number" x="890" y="110" dy=".35em" text-anchor="middle">05</text>
+            <text class="traj-label" x="890" y="65" dy=".35em" text-anchor="middle">State-space guidance</text>
+          </a>
+        </svg>
+        <svg class="traj-tall" viewBox="0 0 340 660" xmlns="http://www.w3.org/2000/svg">
+          <title>The four experiments in order, with the argument beside the path</title>
+          <defs>
+            <marker id="traj-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
+            </marker>
+          </defs>
+          <path class="traj-line" d="M 78 130 L 78 180 C 78 230 118 270 118 320 C 118 370 78 410 78 460 C 78 510 118 550 118 600 L 118 648" marker-end="url(#traj-head-tall)"></path>
+          <path class="traj-connector" d="M 231 71 C 190 95 130 105 82 133"></path>
+          <a class="traj-node traj-theory" href="#theory">
+            <circle cx="250" cy="58" r="22"></circle>
+            <text class="traj-number" x="250" y="58" dy=".35em" text-anchor="middle">01</text>
+            <text class="traj-label" x="250" y="100" dy=".35em" text-anchor="middle">The argument</text>
+          </a>
+          <a class="traj-node" href="#guidance">
+            <circle cx="78" cy="180" r="25"></circle>
+            <text class="traj-number" x="78" y="180" dy=".35em" text-anchor="middle">02</text>
+            <text class="traj-label" x="120" y="180" dy=".35em">Guidance</text>
+          </a>
+          <a class="traj-node" href="#rollout-guidance">
+            <circle cx="118" cy="320" r="25"></circle>
+            <text class="traj-number" x="118" y="320" dy=".35em" text-anchor="middle">03</text>
+            <text class="traj-label" x="160" y="320" dy=".35em">Rollout guidance</text>
+          </a>
+          <a class="traj-node" href="#state-diffusion">
+            <circle cx="78" cy="460" r="25"></circle>
+            <text class="traj-number" x="78" y="460" dy=".35em" text-anchor="middle">04</text>
+            <text class="traj-label" x="120" y="460" dy=".35em">State diffusion</text>
+          </a>
+          <a class="traj-node" href="#state-guidance">
+            <circle cx="118" cy="600" r="25"></circle>
+            <text class="traj-number" x="118" y="600" dy=".35em" text-anchor="middle">05</text>
+            <text class="traj-label" x="160" y="600" dy=".35em">State-space guidance</text>
+          </a>
+        </svg>
       </div>
 
       <div class="section-controls reading-width">

@@ -46,7 +46,7 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 ## Add results
 
 - Add a `<section class="experiment" id="your-result">` inside `<main>` in `index.html`. The guidance section provides the layout for findings, figures, videos, and data downloads.
-- Wrap it the way the existing sections are wrapped so it collapses: `<details class="section-details" open>` holding a `<summary class="section-summary">` with the eyebrow and `<h2>`, then a `<div class="section-body">` with everything else. Add a node for it in the overview diagram (`.flow-chain`) and a link in the header navigation.
+- Wrap it the way the existing sections are wrapped so it collapses: `<details class="section-details" open>` holding a `<summary class="section-summary">` with the eyebrow and `<h2>`, then a `<div class="section-body">` with everything else. Add a node for it in both overview SVGs and a link in the header navigation.
 - Copy the figures, clips, and summaries into `assets/your-result/`. Reference those copies with relative paths; do not link outside `docs/`.
 - Add an entry to the header navigation for the new section. Reuse `reading-width`, `plot`, and `data-links` for consistent formatting.
 - Edit the page's text in `index.html`. The current guidance prose was adapted from `out/guidance/KEY_FINDINGS.md`; changes to that Markdown file are not automatically applied to the page.
@@ -56,7 +56,7 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 
 Each numbered section is a `<details class="section-details" open>`. Its `<summary>` holds the eyebrow and the `<h2>`, so a collapsed page is a list of the five headings; everything else lives in `<div class="section-body">`. The toggle beside each heading is the summary's own control, so collapsing works with JavaScript disabled. `assets/sections.js` adds two things: the **Expand all** and **Collapse all** buttons in the overview (`[data-sections="expand"]`, `[data-sections="collapse"]`), and opening a collapsed section when a link points to an anchor inside it, so the header navigation and the overview diagram keep working. Sections start expanded.
 
-The overview diagram is plain HTML in `.flow`: one `.flow-node` per section, `.flow-theory` for the dashed 01 card, `.flow-bridge` for the dashed connector under it, and `.flow-chain` for the four experiments with `.flow-arrow` between them. The chain is a row above 900px wide and a column with downward arrows below it.
+The overview diagram is hand-written inline SVG in `.traj`, with no library and no image file. Two versions of the same drawing sit in the markup: `.traj-wide` (viewBox `0 0 1000 300`) draws the trajectory left to right, and `.traj-tall` (viewBox `0 0 340 660`) draws it top to bottom; the CSS shows the tall one below 820px wide and the wide one above. In both, `.traj-line` is the path with an arrowhead marker at its end, each `.traj-node` is a link holding the circle, the number inside it, and the section name beside it, and `.traj-theory` is the dashed 01 node placed off the path with a dashed `.traj-connector` running to it. The four experiment nodes sit exactly on the path because each one is an endpoint of a cubic segment; the connector ends at the midpoint of the first segment, `(260, 167)`. Text sizes are SVG units, so they scale with the width: 16px at 1030px wide down to about 13px at the 820px breakpoint.
 
 ## Files
 
