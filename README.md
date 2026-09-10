@@ -1,6 +1,6 @@
 # Project page
 
-This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives. A final state-diffusion section ports `experiments/statebench/RETRAIN_REPORT.md`: the same billiards experiment retrained on positions and velocities, with no VAE or tracker in the loop.
+This directory is the complete static website **Mind the Seriality Gap**. It opens with the argument about perfect scores, score error, state Jacobians, and SSH's constant-step assumptions. The experiments include the findings from `out/guidance/KEY_FINDINGS.md`, the 10-case × 5-step × 5-method video viewer, and a combined Rollout-1 / Rollout-5 guidance section restricted to five balls and 49 frames. That section compares tuned Case 2 clips and five-video pilots sharing identical controls, then separates tests without a matching guidance-horizon comparison. Both full experiment reports remain available as archives. A state-diffusion section ports `experiments/statebench/RETRAIN_REPORT.md`: the same billiards experiment retrained on positions and velocities, with no VAE or tracker in the loop. A final state-guidance section ports `experiments/statebench-guidance/REPORT.md`: DPS guidance toward physics targets on those retrained models, the ten plausibility measures, the whole-trajectory distribution tests, and the two rounds of physics-law guidance.
 
 ## Preview
 
@@ -75,7 +75,10 @@ tar -czf /tmp/seriality-gap-project-page.tar.gz -C docs .
 | `assets/statebench/figures/` | The 11 state-diffusion charts from `experiments/statebench/out/retrain_figures/` |
 | `assets/statebench/videos/` | The 16 trajectory clips (truth, bidirectional, block 4) and their source records |
 | `assets/statebench/data/` | Per-seed evaluation numbers behind those charts |
-| `assets/statebench-gallery.js` | Ball-count selector and on-screen playback for the trajectory gallery |
+| `assets/statebench-guidance/figures/` | The 16 state-guidance figures from `experiments/statebench-guidance/out/` |
+| `assets/statebench-guidance/videos/` | The three qualitative clips, eight methods side by side |
+| `assets/statebench-guidance/data/` | Selected strengths, every run, and both evaluation suites |
+| `assets/gallery.js` | Group selector and on-screen playback, shared by both figure galleries |
 | `.nojekyll` | Publish these files directly without Jekyll processing |
 | `.gitignore` | Include the curated clips despite the repository's general MP4 exclusion |
 
@@ -124,7 +127,26 @@ python scripts/make_report_gifs.py --indep --mp4 --balls 1 2 3 5 --clips 0 1 2 3
 
 The export fails if any of them is missing. The gallery script reads each run's saved `eval/generated_steps50.npy`, so it needs no GPU; `--indep` selects the independent-simulation runs and `--mp4` adds the H.264 copies the page uses next to the GIFs the Markdown report uses. `r1_data.png`, the still that the gallery replaced, is deliberately not exported.
 
-The section's prose was adapted from `experiments/statebench/RETRAIN_REPORT.md`; edits to that Markdown file are not applied to the page automatically. It keeps the report's visuals-first order: each result is a figure, then its explanation. The gallery at `#state-data` shows one ball count at a time; without JavaScript the selector is disabled and all four ball counts are listed, and videos autoplay only while on screen and never under `prefers-reduced-motion`. The section uses `#state-diffusion`; per-result anchors are `#state-data`, `#state-main`, `#state-steps`, `#state-horizon-profile`, `#state-training`, `#state-control`, `#state-horizon-sweep`, `#state-ballcount`, `#state-block-size`, `#state-depth-width`, `#state-shift`, and `#state-cost`.
+The section's prose was adapted from `experiments/statebench/RETRAIN_REPORT.md`; edits to that Markdown file are not applied to the page automatically. It keeps the report's visuals-first order: each result is a figure, then its explanation. The gallery at `#state-data` shows one ball count at a time, driven by `assets/gallery.js`: a `<select data-gallery="ID">` switches between the `.gallery-group` children of `#ID` by matching its value against each group's `data-key`. Without JavaScript the selector is disabled and every group is listed, and videos autoplay only while on screen and never under `prefers-reduced-motion`. The section uses `#state-diffusion`; per-result anchors are `#state-data`, `#state-main`, `#state-steps`, `#state-horizon-profile`, `#state-training`, `#state-control`, `#state-horizon-sweep`, `#state-ballcount`, `#state-block-size`, `#state-depth-width`, `#state-shift`, and `#state-cost`.
+
+## Refresh the state-guidance section
+
+Run `python scripts/export_project_page_statebench_guidance.py` from the repository root. It copies 16 figures into `assets/statebench-guidance/figures/`, the three qualitative MP4s into `assets/statebench-guidance/videos/`, and four summary CSVs into `assets/statebench-guidance/data/`. It runs no training, sampling, or evaluation, and it does not change `index.html`.
+
+Build the inputs first, from `experiments/statebench-guidance/`:
+
+```bash
+python scripts/aggregate.py
+python scripts/make_qualitative.py --mp4
+python scripts/shotgun_eval.py && python scripts/shotgun_figures.py
+python scripts/distribution_eval.py && python scripts/distribution_figures.py
+```
+
+The export names the missing step if any figure is absent. `make_qualitative.py --mp4` writes the H.264 copies the page uses next to the GIFs the Markdown report uses, at a larger panel size so the labels are legible on screen; the GIFs themselves are unchanged by that flag.
+
+The section's prose was adapted from `experiments/statebench-guidance/REPORT.md`; edits to that Markdown file are not applied to the page automatically. It uses `#state-guidance`, with per-result anchors `#guidance-horizon`, `#guidance-strength`, `#guidance-qualitative`, `#guidance-frames`, `#guidance-error-by-frame`, `#guidance-dashboard`, `#guidance-energy`, `#guidance-distributions`, `#guidance-divergence`, `#guidance-rollout-horizon`, `#guidance-frechet`, `#guidance-saliency`, `#guidance-dist-length`, `#guidance-umap`, `#guidance-laws-search`, `#guidance-laws-restarts`, and `#guidance-laws-length`.
+
+Its wide tables and the eight-panel clips sit in `wide-width` and `plot wide` containers, which span the full 1,216-pixel content column instead of the 840-pixel reading column. The clips are also wrapped in `video-scroll`, so they scroll sideways rather than shrinking below a legible size on a phone.
 
 ## Refresh the combined guidance comparison
 

@@ -90,12 +90,20 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .report-content th, .report-content td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .report-content th { font-weight: 650; }
 .rollout-results .findings h3 + p, .rollout-results .findings p + p { margin-top: 16px; }
-.rollout-results figure + .report-content, .statebench figure + .report-content { margin-top: 32px; }
-.rollout-results .archive-heading, .statebench .archive-heading { margin-top: 32px; }
-.statebench .report-content h3 { margin-top: 40px; }
-.statebench .report-content h3:first-child { margin-top: 0; }
-.statebench .report-content h3 + p { margin-top: 14px; }
-.statebench .data-links { grid-template-columns: repeat(2, 1fr); }
+.rollout-results figure + .report-content, .report-section figure + .report-content { margin-top: 32px; }
+.rollout-results .archive-heading, .report-section .archive-heading { margin-top: 32px; }
+.report-section .report-content h3 { margin-top: 40px; }
+.report-section .report-content h3:first-child { margin-top: 0; }
+.report-section .report-content h3 + p { margin-top: 14px; }
+.report-section .report-content h4 { margin-top: 28px; font-size: 1.05rem; font-weight: 650; }
+.report-section .report-content h4 + p { margin-top: 12px; }
+.report-section .data-links { grid-template-columns: repeat(2, 1fr); }
+.report-section .report-content ul, .report-section .report-content ol { padding-left: 24px; margin: 18px 0; }
+.report-section .report-content li + li { margin-top: 8px; }
+.wide-width { max-width: 1216px; margin-left: auto; margin-right: auto; }
+.plot.wide { max-width: 1216px; }
+.video-scroll { max-width: 100%; overflow-x: auto; }
+.video-scroll video { min-width: 860px; }
 .gallery, .gallery-group { display: grid; gap: 26px; }
 .gallery-select { display: flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: .74rem; font-weight: 650; color: var(--muted); }
 .gallery-select select { min-height: 36px; font-size: .8rem; }
@@ -161,9 +169,11 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .data-links small { font-size: .72rem; color: var(--muted); }
 .site-footer { padding: 25px 32px 35px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--muted); }
 .site-footer a { text-decoration: none; }
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   .site-header { flex-wrap: wrap; gap: 12px; }
   nav { flex-wrap: wrap; gap: 12px 20px; }
+}
+@media (max-width: 960px) {
   .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .video-card h4 { min-height: 52px; }
   .sample-info { flex-basis: 100%; margin: 0; }
