@@ -1384,7 +1384,7 @@
         <figcaption><span class="figure-number">Figure 34.</span> Every curve here got the extra sampling that only laws-only had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better.</figcaption>
       </figure>
       <div class="wide-width report-content">
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error on the matched sampler">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and 8 tries">
           <table>
             <thead><tr><th>Δx(5), 24 restarts + 8 tries for every method</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25→49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
             <tbody>
