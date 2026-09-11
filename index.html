@@ -1729,7 +1729,17 @@
         <p class="setup-note">896 holdout clips, mean over 3 seeds. Speed is the mean ball speed measured from the generated positions, divided by the truth&rsquo;s; a method that slows every ball down lowers the local error without predicting better, so a value below 0.95 disqualifies the number.</p>
       </div>
       <div class="reading-width report-content">
-        <h4>What the full law set actually does</h4>
+        <figure class="plot" id="guidance-laws-onetry">
+        <div class="figure-heading"><h3>The same comparison again, with the best-of-eight pick removed</h3><a href="assets/statebench-guidance/figures/matched_horizon_onetry.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/statebench-guidance/figures/matched_horizon_onetry.png" alt="The previous comparison redrawn with no selection: every curve is the average of its eight tries. Block 4 run plainly is still lowest, and both rollout targets carry hollow markers on the longer clips" width="1760" height="992" loading="lazy">
+        <figcaption><span class="figure-number">Figure 41.</span> The previous figure with one thing changed: no method keeps the best of its eight tries, and every curve is the average of all eight instead. Same restarts, same corrections per step, same guidance strengths, same axes. Block 4 run plainly is the only curve unaffected, since it never had tries to pick from.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>Removing the selection costs every method something, and it costs them similar amounts, so the ordering barely moves. The full law set and block 4 given the same restarts still finish level on the longest clips, and block 4 run plainly is still clearly ahead of both. What the selection was worth is the gap between each pair of lines across the two figures, and no method gains a decisive advantage from it.</p>
+        <p>One thing does change. Block 4 given the restarts now fails the speed check at the longest clip length, which it passed when the critic was choosing for it. Picking the best of eight was partly repairing the damage the restarts do to it — more evidence that the restarts are the wrong setting for that model, and that its plain run is the number worth comparing against.</p>
+      </div>
+
+      <h4>What the full law set actually does</h4>
         <p>At every denoising step the model produces its current guess at the finished clip. Ten laws are evaluated on that guess, each one an equation the true motion satisfies exactly, and the guess is nudged toward satisfying them. Nothing simulates the motion forward at any point.</p>
         <p>Write \(p_t^b\) and \(v_t^b\) for the position and velocity of ball \(b\) at frame \(t\) in the current guess, \(\Delta t\) for the frame interval, \(r\) for the ball radius, and \(\rho_t^{ij} = p_t^i - p_t^j\) for the vector between a pair of balls. Every law is written on one interval, from frame \(t-1\) to frame \(t\), and averaged over balls or pairs and over the generated frames.</p>
 
