@@ -36,14 +36,15 @@
 
   <nav class="rail" aria-label="Section trajectory">
     <svg class="rail-svg" viewBox="0 0 210 390" xmlns="http://www.w3.org/2000/svg">
-      <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
+      <title>The three experiments in order, the physics simulator and the score-error audit on side paths, and the argument off the path</title>
       <defs>
         <marker id="rail-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
         </marker>
       </defs>
       <path class="traj-line" d="M 28 82 L 28 110 C 28 140 50 170 50 200 C 50 230 28 290 28 320 L 28 348" marker-end="url(#rail-head)"></path>
-      <path class="traj-branch" d="M 38 258 C 50 263 58 267 64 270"></path>
+      <path class="traj-branch" d="M 36 276 C 48 282 57 286 62 289"></path>
+      <path class="traj-branch" d="M 60 214 C 64 221 67 227 69 232"></path>
       <a class="rail-node traj-theory" href="#theory" data-section="theory">
         <circle class="rail-ring" cx="52" cy="44" r="17"></circle>
         <circle cx="52" cy="44" r="11"></circle>
@@ -62,11 +63,17 @@
         <text class="rail-number" x="50" y="200" dy=".35em" text-anchor="middle">03</text>
         <text class="rail-label" x="76" y="200" dy=".35em">State diffusion</text>
       </a>
+      <a class="rail-node traj-side" href="#physics-simulator">
+        <circle class="rail-ring" cx="75" cy="241" r="17"></circle>
+        <circle cx="75" cy="241" r="11"></circle>
+        <text class="rail-number rail-number-small" x="75" y="241" dy=".35em" text-anchor="middle">3.1</text>
+        <text class="rail-label" x="96" y="241" dy=".35em">Physics simulator</text>
+      </a>
       <a class="rail-node traj-side" href="#score-error" data-section="score-error">
-        <circle class="rail-ring" cx="75" cy="272" r="17"></circle>
-        <circle cx="75" cy="272" r="11"></circle>
-        <text class="rail-number rail-number-small" x="75" y="272" dy=".35em" text-anchor="middle">3.5</text>
-        <text class="rail-label" x="96" y="272" dy=".35em">Score-error audit</text>
+        <circle class="rail-ring" cx="75" cy="290" r="17"></circle>
+        <circle cx="75" cy="290" r="11"></circle>
+        <text class="rail-number rail-number-small" x="75" y="290" dy=".35em" text-anchor="middle">3.5</text>
+        <text class="rail-label" x="96" y="290" dy=".35em">Score-error audit</text>
       </a>
       <a class="rail-node" href="#state-guidance" data-section="state-guidance">
         <circle class="rail-ring" cx="28" cy="320" r="19"></circle>
@@ -91,7 +98,7 @@
     <section class="experiment overview" id="overview" aria-label="Overview">
       <div class="traj">
         <svg class="traj-wide" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
-          <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
+          <title>The three experiments in order, the physics simulator and the score-error audit on side paths, and the argument off the path</title>
           <defs>
             <marker id="traj-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
@@ -99,6 +106,12 @@
           </defs>
           <path class="traj-line" d="M 60 218 L 130 215 C 250 210 360 120 480 115 C 600 110 760 210 880 215 L 955 217" marker-end="url(#traj-head)"></path>
           <path class="traj-branch" d="M 680 161 C 694 135 706 108 716 102"></path>
+          <path class="traj-branch" d="M 480 143 L 480 176"></path>
+          <a class="traj-node traj-side" href="#physics-simulator">
+            <circle cx="480" cy="200" r="22"></circle>
+            <text class="traj-number" x="480" y="200" dy=".35em" text-anchor="middle">3.1</text>
+            <text class="traj-label" x="510" y="200" dy=".35em">The physics simulator</text>
+          </a>
           <a class="traj-node traj-side" href="#score-error">
             <circle cx="720" cy="80" r="22"></circle>
             <text class="traj-number" x="720" y="80" dy=".35em" text-anchor="middle">3.5</text>
@@ -126,7 +139,7 @@
           </a>
         </svg>
         <svg class="traj-tall" viewBox="0 0 340 545" xmlns="http://www.w3.org/2000/svg">
-          <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
+          <title>The three experiments in order, the physics simulator and the score-error audit on side paths, and the argument off the path</title>
           <defs>
             <marker id="traj-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
@@ -134,6 +147,12 @@
           </defs>
           <path class="traj-line" d="M 78 100 L 78 150 C 78 200 118 250 118 300 C 118 350 78 420 78 470 L 78 518" marker-end="url(#traj-head-tall)"></path>
           <path class="traj-branch" d="M 98 385 C 116 390 128 395 140 398"></path>
+          <path class="traj-branch" d="M 130 321 C 136 330 140 336 143 341"></path>
+          <a class="traj-node traj-side" href="#physics-simulator">
+            <circle cx="160" cy="352" r="20"></circle>
+            <text class="traj-number" x="160" y="352" dy=".35em" text-anchor="middle">3.1</text>
+            <text class="traj-label" x="186" y="352" dy=".35em">Physics simulator</text>
+          </a>
           <a class="traj-node traj-side" href="#score-error">
             <circle cx="160" cy="400" r="20"></circle>
             <text class="traj-number" x="160" y="400" dy=".35em" text-anchor="middle">3.5</text>
