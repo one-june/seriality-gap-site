@@ -176,9 +176,9 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 /* The rail is fixed, so it needs a clear left gutter: main gets 228px of left
    padding, and the header and footer are widened by the same amount so their
    text still lines up with the sections'. */
-@media (min-width: 1180px) and (min-height: 660px) {
+@media (min-width: 1180px) and (min-height: 560px) {
   .rail { display: block; position: fixed; left: 6px; top: 50%; transform: translateY(-50%); width: 210px; z-index: 5; }
-  .rail-svg { display: block; width: 210px; height: 490px; overflow: visible; }
+  .rail-svg { display: block; width: 210px; height: 390px; overflow: visible; }
   main { padding-left: 228px; }
   .site-header, .site-footer { max-width: 1508px; padding-left: 260px; }
 }
@@ -210,6 +210,8 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .traj-theory circle { fill: var(--tint); stroke: #a9bfb7; stroke-width: 1.5; stroke-dasharray: 4 4; }
 .traj-theory .traj-number { fill: var(--accent); }
 .traj-theory:hover circle { fill: #dbe7e0; }
+.part-heading { margin-top: 82px; padding-top: 36px; border-top: 1px solid var(--line); }
+.part-heading h3 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem, 3.8vw, 2.95rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.15; }
 .section-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 20px; margin-top: 50px; padding-top: 22px; border-top: 1px solid var(--line); }
 .section-controls p { color: var(--muted); font-size: .88rem; }
 .section-controls-buttons { display: flex; gap: 10px; }
@@ -284,6 +286,7 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
   .summary-inner { flex-direction: column; gap: 16px; }
   .section-toggle { margin-top: 0; }
   .section-controls { margin-top: 36px; }
+  .part-heading { margin-top: 48px; padding-top: 28px; }
   .section-controls-buttons { width: 100%; }
   .section-controls-buttons .button { flex: 1; }
 }

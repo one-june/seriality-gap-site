@@ -25,9 +25,8 @@
     <nav aria-label="Page sections">
       <a href="#overview">Overview</a>
       <a href="#theory">Argument</a>
-      <a href="#guidance">Findings</a>
+      <a href="#guidance">Something naive</a>
       <a href="#comparison">Videos</a>
-      <a href="#rollout-guidance">Rollout guidance</a>
       <a href="#state-diffusion">State diffusion</a>
       <a href="#score-error">Score error</a>
       <a href="#state-guidance">State guidance</a>
@@ -36,15 +35,15 @@
   </header>
 
   <nav class="rail" aria-label="Section trajectory">
-    <svg class="rail-svg" viewBox="0 0 210 490" xmlns="http://www.w3.org/2000/svg">
-      <title>The four experiments in order, the score-error audit on a side path, and the argument off the path</title>
+    <svg class="rail-svg" viewBox="0 0 210 390" xmlns="http://www.w3.org/2000/svg">
+      <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
       <defs>
         <marker id="rail-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
         </marker>
       </defs>
-      <path class="traj-line" d="M 28 82 L 28 110 C 28 137 50 163 50 190 C 50 217 28 243 28 270 C 28 297 50 403 50 430 L 50 458" marker-end="url(#rail-head)"></path>
-      <path class="traj-branch" d="M 33 318 C 46 333 58 346 64 351"></path>
+      <path class="traj-line" d="M 28 82 L 28 110 C 28 140 50 170 50 200 C 50 230 28 290 28 320 L 28 348" marker-end="url(#rail-head)"></path>
+      <path class="traj-branch" d="M 38 258 C 50 263 58 267 64 270"></path>
       <a class="rail-node traj-theory" href="#theory" data-section="theory">
         <circle class="rail-ring" cx="52" cy="44" r="17"></circle>
         <circle cx="52" cy="44" r="11"></circle>
@@ -55,31 +54,25 @@
         <circle class="rail-ring" cx="28" cy="110" r="19"></circle>
         <circle cx="28" cy="110" r="13"></circle>
         <text class="rail-number" x="28" y="110" dy=".35em" text-anchor="middle">02</text>
-        <text class="rail-label" x="76" y="110" dy=".35em">Guidance</text>
-      </a>
-      <a class="rail-node" href="#rollout-guidance" data-section="rollout-guidance">
-        <circle class="rail-ring" cx="50" cy="190" r="19"></circle>
-        <circle cx="50" cy="190" r="13"></circle>
-        <text class="rail-number" x="50" y="190" dy=".35em" text-anchor="middle">03</text>
-        <text class="rail-label" x="76" y="190" dy=".35em">Rollout guidance</text>
+        <text class="rail-label" x="76" y="110" dy=".35em">Something naive</text>
       </a>
       <a class="rail-node" href="#state-diffusion" data-section="state-diffusion">
-        <circle class="rail-ring" cx="28" cy="270" r="19"></circle>
-        <circle cx="28" cy="270" r="13"></circle>
-        <text class="rail-number" x="28" y="270" dy=".35em" text-anchor="middle">04</text>
-        <text class="rail-label" x="76" y="270" dy=".35em">State diffusion</text>
+        <circle class="rail-ring" cx="50" cy="200" r="19"></circle>
+        <circle cx="50" cy="200" r="13"></circle>
+        <text class="rail-number" x="50" y="200" dy=".35em" text-anchor="middle">03</text>
+        <text class="rail-label" x="76" y="200" dy=".35em">State diffusion</text>
       </a>
       <a class="rail-node traj-side" href="#score-error" data-section="score-error">
-        <circle class="rail-ring" cx="75" cy="358" r="17"></circle>
-        <circle cx="75" cy="358" r="11"></circle>
-        <text class="rail-number rail-number-small" x="75" y="358" dy=".35em" text-anchor="middle">4.5</text>
-        <text class="rail-label" x="96" y="358" dy=".35em">Score-error audit</text>
+        <circle class="rail-ring" cx="75" cy="272" r="17"></circle>
+        <circle cx="75" cy="272" r="11"></circle>
+        <text class="rail-number rail-number-small" x="75" y="272" dy=".35em" text-anchor="middle">3.5</text>
+        <text class="rail-label" x="96" y="272" dy=".35em">Score-error audit</text>
       </a>
       <a class="rail-node" href="#state-guidance" data-section="state-guidance">
-        <circle class="rail-ring" cx="50" cy="430" r="19"></circle>
-        <circle cx="50" cy="430" r="13"></circle>
-        <text class="rail-number" x="50" y="430" dy=".35em" text-anchor="middle">05</text>
-        <text class="rail-label" x="76" y="430" dy=".35em">State-space guidance</text>
+        <circle class="rail-ring" cx="28" cy="320" r="19"></circle>
+        <circle cx="28" cy="320" r="13"></circle>
+        <text class="rail-number" x="28" y="320" dy=".35em" text-anchor="middle">04</text>
+        <text class="rail-label" x="76" y="320" dy=".35em">State-space guidance</text>
       </a>
     </svg>
   </nav>
@@ -98,83 +91,73 @@
     <section class="experiment overview" id="overview" aria-label="Overview">
       <div class="traj">
         <svg class="traj-wide" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
-          <title>The four experiments in order, with the argument beside the path</title>
+          <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
           <defs>
             <marker id="traj-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
             </marker>
           </defs>
-          <path class="traj-line" d="M 65 213 L 120 210 C 220 205 300 130 400 125 C 500 120 560 220 660 215 C 760 210 800 115 890 110 L 948 107" marker-end="url(#traj-head)"></path>
+          <path class="traj-line" d="M 60 218 L 130 215 C 250 210 360 120 480 115 C 600 110 760 210 880 215 L 955 217" marker-end="url(#traj-head)"></path>
+          <path class="traj-branch" d="M 680 161 C 694 135 706 108 716 102"></path>
+          <a class="traj-node traj-side" href="#score-error">
+            <circle cx="720" cy="80" r="22"></circle>
+            <text class="traj-number" x="720" y="80" dy=".35em" text-anchor="middle">3.5</text>
+            <text class="traj-label" x="750" y="80" dy=".35em">Score-error audit</text>
+          </a>
           <a class="traj-node traj-theory" href="#theory">
             <circle cx="150" cy="62" r="23"></circle>
             <text class="traj-number" x="150" y="62" dy=".35em" text-anchor="middle">01</text>
             <text class="traj-label" x="182" y="62" dy=".35em">The argument</text>
           </a>
-          <path class="traj-branch" d="M 748 184 C 762 210 775 235 790 243"></path>
-          <a class="traj-node traj-side" href="#score-error">
-            <circle cx="790" cy="265" r="22"></circle>
-            <text class="traj-number" x="790" y="265" dy=".35em" text-anchor="middle">4.5</text>
-            <text class="traj-label" x="820" y="265" dy=".35em">Score-error audit</text>
-          </a>
           <a class="traj-node" href="#guidance">
-            <circle cx="120" cy="210" r="27"></circle>
-            <text class="traj-number" x="120" y="210" dy=".35em" text-anchor="middle">02</text>
-            <text class="traj-label" x="120" y="265" dy=".35em" text-anchor="middle">Guidance</text>
-          </a>
-          <a class="traj-node" href="#rollout-guidance">
-            <circle cx="400" cy="125" r="27"></circle>
-            <text class="traj-number" x="400" y="125" dy=".35em" text-anchor="middle">03</text>
-            <text class="traj-label" x="400" y="80" dy=".35em" text-anchor="middle">Rollout guidance</text>
+            <circle cx="130" cy="215" r="27"></circle>
+            <text class="traj-number" x="130" y="215" dy=".35em" text-anchor="middle">02</text>
+            <text class="traj-label" x="130" y="270" dy=".35em" text-anchor="middle">Something naive</text>
           </a>
           <a class="traj-node" href="#state-diffusion">
-            <circle cx="660" cy="215" r="27"></circle>
-            <text class="traj-number" x="660" y="215" dy=".35em" text-anchor="middle">04</text>
-            <text class="traj-label" x="660" y="270" dy=".35em" text-anchor="middle">State diffusion</text>
+            <circle cx="480" cy="115" r="27"></circle>
+            <text class="traj-number" x="480" y="115" dy=".35em" text-anchor="middle">03</text>
+            <text class="traj-label" x="480" y="68" dy=".35em" text-anchor="middle">State diffusion</text>
           </a>
           <a class="traj-node" href="#state-guidance">
-            <circle cx="890" cy="110" r="27"></circle>
-            <text class="traj-number" x="890" y="110" dy=".35em" text-anchor="middle">05</text>
-            <text class="traj-label" x="890" y="65" dy=".35em" text-anchor="middle">State-space guidance</text>
+            <circle cx="880" cy="215" r="27"></circle>
+            <text class="traj-number" x="880" y="215" dy=".35em" text-anchor="middle">04</text>
+            <text class="traj-label" x="880" y="270" dy=".35em" text-anchor="middle">State-space guidance</text>
           </a>
         </svg>
-        <svg class="traj-tall" viewBox="0 0 340 715" xmlns="http://www.w3.org/2000/svg">
-          <title>The four experiments in order, with the argument beside the path</title>
+        <svg class="traj-tall" viewBox="0 0 340 545" xmlns="http://www.w3.org/2000/svg">
+          <title>The three experiments in order, the score-error audit on a side path, and the argument off the path</title>
           <defs>
             <marker id="traj-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
             </marker>
           </defs>
-          <path class="traj-line" d="M 78 130 L 78 180 C 78 230 118 270 118 320 C 118 370 78 410 78 460 C 78 510 118 600 118 650 L 118 698" marker-end="url(#traj-head-tall)"></path>
-          <a class="traj-node traj-theory" href="#theory">
-            <circle cx="250" cy="58" r="22"></circle>
-            <text class="traj-number" x="250" y="58" dy=".35em" text-anchor="middle">01</text>
-            <text class="traj-label" x="250" y="100" dy=".35em" text-anchor="middle">The argument</text>
-          </a>
-          <path class="traj-branch" d="M 89 524 C 108 534 122 544 130 550"></path>
+          <path class="traj-line" d="M 78 100 L 78 150 C 78 200 118 250 118 300 C 118 350 78 420 78 470 L 78 518" marker-end="url(#traj-head-tall)"></path>
+          <path class="traj-branch" d="M 98 385 C 116 390 128 395 140 398"></path>
           <a class="traj-node traj-side" href="#score-error">
-            <circle cx="150" cy="556" r="20"></circle>
-            <text class="traj-number" x="150" y="556" dy=".35em" text-anchor="middle">4.5</text>
-            <text class="traj-label" x="176" y="556" dy=".35em">Score-error audit</text>
+            <circle cx="160" cy="400" r="20"></circle>
+            <text class="traj-number" x="160" y="400" dy=".35em" text-anchor="middle">3.5</text>
+            <text class="traj-label" x="186" y="400" dy=".35em">Score-error audit</text>
+          </a>
+          <a class="traj-node traj-theory" href="#theory">
+            <circle cx="250" cy="44" r="22"></circle>
+            <text class="traj-number" x="250" y="44" dy=".35em" text-anchor="middle">01</text>
+            <text class="traj-label" x="250" y="86" dy=".35em" text-anchor="middle">The argument</text>
           </a>
           <a class="traj-node" href="#guidance">
-            <circle cx="78" cy="180" r="25"></circle>
-            <text class="traj-number" x="78" y="180" dy=".35em" text-anchor="middle">02</text>
-            <text class="traj-label" x="120" y="180" dy=".35em">Guidance</text>
-          </a>
-          <a class="traj-node" href="#rollout-guidance">
-            <circle cx="118" cy="320" r="25"></circle>
-            <text class="traj-number" x="118" y="320" dy=".35em" text-anchor="middle">03</text>
-            <text class="traj-label" x="160" y="320" dy=".35em">Rollout guidance</text>
+            <circle cx="78" cy="150" r="25"></circle>
+            <text class="traj-number" x="78" y="150" dy=".35em" text-anchor="middle">02</text>
+            <text class="traj-label" x="120" y="150" dy=".35em">Something naive</text>
           </a>
           <a class="traj-node" href="#state-diffusion">
-            <circle cx="78" cy="460" r="25"></circle>
-            <text class="traj-number" x="78" y="460" dy=".35em" text-anchor="middle">04</text>
-            <text class="traj-label" x="120" y="460" dy=".35em">State diffusion</text>
+            <circle cx="118" cy="300" r="25"></circle>
+            <text class="traj-number" x="118" y="300" dy=".35em" text-anchor="middle">03</text>
+            <text class="traj-label" x="160" y="300" dy=".35em">State diffusion</text>
           </a>
           <a class="traj-node" href="#state-guidance">
-            <circle cx="118" cy="650" r="25"></circle>
-            <text class="traj-number" x="118" y="650" dy=".35em" text-anchor="middle">05</text>
-            <text class="traj-label" x="160" y="650" dy=".35em">State-space guidance</text>
+            <circle cx="78" cy="470" r="25"></circle>
+            <text class="traj-number" x="78" y="470" dy=".35em" text-anchor="middle">04</text>
+            <text class="traj-label" x="120" y="470" dy=".35em">State-space guidance</text>
           </a>
         </svg>
       </div>
@@ -328,13 +311,14 @@
     </section>
 
     <!-- Add future experiment sections inside main, following this section. -->
-    <section class="experiment" id="guidance" aria-labelledby="guidance-title">
+    <section class="experiment rollout-results" id="guidance" aria-labelledby="guidance-title">
+      <span id="rollout-guidance"></span><span id="rollout1-results"></span><span id="rollout5-results"></span>
       <details class="section-details">
         <summary class="section-summary">
           <div class="summary-inner reading-width">
             <div class="summary-text">
-            <p class="eyebrow">02 / Guidance</p>
-            <h2 id="guidance-title">Autoregressive and<br class="desktop-break"> bidirectional diffusion</h2>
+            <p class="eyebrow">02 / Something naive</p>
+            <h2 id="guidance-title">First attempts,<br class="desktop-break"> in pixel space</h2>
             </div>
             <span class="section-toggle">
               <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
@@ -343,6 +327,14 @@
           </div>
         </summary>
         <div class="section-body">
+          <div class="section-heading reading-width">
+        <p class="section-intro">Both experiments here run on the paper’s video models, so every number passes through a VAE and a ball tracker. Part 1 compares generating frames in order against generating them in one pass, and measures how much the one-pass sampler improves when it is handed the correct future. Part 2 tries to repair the one-pass model with guidance toward a simulated future.</p>
+      </div>
+
+      <div class="part-heading reading-width">
+        <p class="eyebrow">Part 1 · Generation order</p>
+        <h3>Autoregressive and bidirectional diffusion</h3>
+      </div>
           <div class="section-heading reading-width">
         <p class="section-intro">Autoregressive diffusion gives lower errors than vanilla bidirectional diffusion across the tested reverse-step counts. Clean-latent oracle guidance reveals how much the bidirectional sampler can improve when given the correct future.</p>
         <div class="study-facts" aria-label="Experiment setup">
@@ -419,31 +411,17 @@
           <a href="assets/guidance/summaries/oracle.json" download><span>Clean-latent oracle</span><small>JSON <span aria-hidden="true">↓</span></small></a>
         </div>
       </div>
-        </div>
-      </details>
-    </section>
-    <section class="experiment rollout-results" id="rollout-guidance" aria-labelledby="rollout-guidance-title">
-      <span id="rollout1-results"></span><span id="rollout5-results"></span>
-      <details class="section-details">
-        <summary class="section-summary">
-          <div class="summary-inner reading-width">
-            <div class="summary-text">
-            <p class="eyebrow">03 / Rollout guidance</p>
-            <h2 id="rollout-guidance-title">Rollout-1 and Rollout-5 guidance</h2>
-            </div>
-            <span class="section-toggle">
-              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
-              <span class="toggle-chevron" aria-hidden="true"></span>
-            </span>
-          </div>
-        </summary>
-        <div class="section-body">
+
+      <div class="part-heading reading-width">
+        <p class="eyebrow">Part 2 · Physics-based guidance</p>
+        <h3>Rollout-1 and Rollout-5 guidance</h3>
+      </div>
           <div class="section-heading reading-width">
         <p class="section-intro">Both guides improve a tuned Case 2 generation. In the earlier five-video tests, every tested variant worsens both mean errors. Below, we compare results that share the same vanilla controls and identify the settings that differed.</p>
         <div class="study-facts" aria-label="Shared video setting">
           <span>5 balls · 49 frames</span><span>5 conditioning frames</span><span>Bidirectional DiT</span>
         </div>
-        <p class="setup-note">Every result in this section uses this video setting. Rollout-1 and Rollout-5 name the physics horizon used to build the guidance target. We evaluate the finished videos with both original repository metrics; lower is better. Ball-validity counts are separate.</p>
+        <p class="setup-note">Every result in Part 2 uses this video setting. Rollout-1 and Rollout-5 name the physics horizon used to build the guidance target. We evaluate the finished videos with both original repository metrics; lower is better. Ball-validity counts are separate.</p>
         <p class="result-links"><a href="#guidance-case2">Same Case 2 generation ↓</a><a href="#guidance-five-video">Same five-video controls ↓</a><a href="#guidance-other-tests">Tests without a matching comparison ↓</a></p>
           </div>
 
@@ -594,7 +572,7 @@
         <summary class="section-summary">
           <div class="summary-inner reading-width">
             <div class="summary-text">
-            <p class="eyebrow">04 / State diffusion</p>
+            <p class="eyebrow">03 / State diffusion</p>
             <h2 id="state-diffusion-title">The same gap,<br class="desktop-break"> without pixels or a VAE</h2>
             </div>
             <span class="section-toggle">
@@ -993,7 +971,7 @@
         <summary class="section-summary">
           <div class="summary-inner reading-width">
             <div class="summary-text">
-            <p class="eyebrow">04.5 / Score-error audit · side path</p>
+            <p class="eyebrow">03.5 / Score-error audit · side path</p>
             <h2 id="score-error-title">Is the score error<br class="desktop-break"> bounded as the future grows?</h2>
             </div>
             <span class="section-toggle">
@@ -1012,7 +990,7 @@
           <span>32 noise levels × 8 noise draws</span>
           <span>48 audits · 384 physics evaluations</span>
         </div>
-        <p class="setup-note">This audits the same state models as section 04, at their 25,000-update checkpoints. A state component is one ball’s x position, y position, horizontal velocity, or vertical velocity in one frame; a clip of <em>B</em> balls and <em>F</em> future frames has \(d=4BF\) of them. Network evaluations run in float32 with TF32 disabled; squared residuals and their sums accumulate in float64. The noise levels 0.001, 0.003 and 0.01 are separate diagnostics and are excluded from every primary average. Source: <code>experiments/score-error-audit/REPORT.md</code>.</p>
+        <p class="setup-note">This audits the same state models as section 03, at their 25,000-update checkpoints. A state component is one ball’s x position, y position, horizontal velocity, or vertical velocity in one frame; a clip of <em>B</em> balls and <em>F</em> future frames has \(d=4BF\) of them. Network evaluations run in float32 with TF32 disabled; squared residuals and their sums accumulate in float64. The noise levels 0.001, 0.003 and 0.01 are separate diagnostics and are excluded from every primary average. Source: <code>experiments/score-error-audit/REPORT.md</code>.</p>
       </div>
 
       <div class="findings reading-width">
@@ -1145,7 +1123,7 @@
         <p class="setup-note">The 1-ball, 20-frame cell needing 128 steps for the local threshold while 28, 36 and 44 frames need 32 runs opposite to a length-based account, and is unexplained. <a href="assets/score-error-audit/data/sampling_summary.csv" download>Download the sampling summary</a>.</p>
 
         <h3>The datasets</h3>
-        <p>Every clip comes from its own simulation: 400 frames simulated per seed, the first 200 discarded as burn-in, at most one accepted window kept. The original generator supplies the initial conditions, solver, window filters, collision-density limits and the held-out collision-count balancing; training and evaluation use disjoint simulation seeds. Each training set holds 20,000 clips from 20,000 simulations, each held-out set 1,024 from 1,024. Section 04 explains why this replaced the earlier datasets, which drew up to 1,000 overlapping clips from each of about twenty simulations.</p>
+        <p>Every clip comes from its own simulation: 400 frames simulated per seed, the first 200 discarded as burn-in, at most one accepted window kept. The original generator supplies the initial conditions, solver, window filters, collision-density limits and the held-out collision-count balancing; training and evaluation use disjoint simulation seeds. Each training set holds 20,000 clips from 20,000 simulations, each held-out set 1,024 from 1,024. Section 03 explains why this replaced the earlier datasets, which drew up to 1,000 overlapping clips from each of about twenty simulations.</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Ball-ball collision counts in the datasets">
           <table>
             <thead><tr><th>Balls</th><th>Generated frames</th><th>Training min</th><th>Training mean</th><th>Held-out min</th><th>Held-out max</th><th>Held-out mean</th></tr></thead>
@@ -1318,7 +1296,7 @@
         <summary class="section-summary">
           <div class="summary-inner reading-width">
             <div class="summary-text">
-            <p class="eyebrow">05 / State-space guidance</p>
+            <p class="eyebrow">04 / State-space guidance</p>
             <h2 id="state-guidance-title">Can guidance replace<br class="desktop-break"> generating in order?</h2>
             </div>
             <span class="section-toggle">
