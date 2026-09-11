@@ -210,6 +210,12 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
 .traj-theory circle { fill: var(--tint); stroke: #a9bfb7; stroke-width: 1.5; stroke-dasharray: 4 4; }
 .traj-theory .traj-number { fill: var(--accent); }
 .traj-theory:hover circle { fill: #dbe7e0; }
+.overview-aside { color: var(--muted); font-size: .88rem; }
+.overview-aside a { font-weight: 650; text-decoration: none; }
+.overview-aside a:hover { text-decoration: underline; }
+.todo-item + .todo-item { margin-top: 52px; padding-top: 40px; border-top: 1px solid var(--line); }
+.todo-item .eyebrow { margin-bottom: 12px; }
+.todo-item h3 { margin-bottom: 4px; }
 .part-heading { margin-top: 82px; padding-top: 36px; border-top: 1px solid var(--line); }
 .part-heading h3 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem, 3.8vw, 2.95rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.15; }
 .section-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 20px; margin-top: 50px; padding-top: 22px; border-top: 1px solid var(--line); }

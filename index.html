@@ -30,6 +30,7 @@
       <a href="#state-diffusion">State diffusion</a>
       <a href="#score-error">Score error</a>
       <a href="#state-guidance">State guidance</a>
+      <a href="#todo">To-do</a>
       <a href="#data">Data</a>
     </nav>
   </header>
@@ -186,6 +187,7 @@
           <button class="button" type="button" data-sections="expand">Expand all</button>
           <button class="button" type="button" data-sections="collapse">Collapse all</button>
         </div>
+        <p class="overview-aside"><a href="#todo">To-do &amp; ideas ↓</a> — off the path: what we might run next.</p>
       </div>
     </section>
 
@@ -1915,6 +1917,52 @@
           <a href="assets/statebench-guidance/data/runs.csv" download><span>Every guided run</span><small>CSV <span aria-hidden="true">↓</span></small></a>
           <a href="assets/statebench-guidance/data/shotgun_summary.csv" download><span>Plausibility measures</span><small>CSV <span aria-hidden="true">↓</span></small></a>
           <a href="assets/statebench-guidance/data/distribution_summary.csv" download><span>Distribution distances</span><small>CSV <span aria-hidden="true">↓</span></small></a>
+        </div>
+      </div>
+        </div>
+      </details>
+    </section>
+    <section class="experiment todo-section" id="todo" aria-labelledby="todo-title">
+      <details class="section-details">
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">Off the path · Not run yet</p>
+            <h2 id="todo-title">To-do &amp; ideas</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
+        <p class="section-intro">Things worth running that are not part of the sequence above. Nothing here has been measured; each entry says what it would show and where it would hook into the existing code.</p>
+      </div>
+
+      <div class="reading-width report-content todo-list">
+        <div class="todo-item">
+          <p class="eyebrow">Idea 1 · Visualization</p>
+          <h3>Watch each frame settle over the denoising steps</h3>
+          <p>Show frames 1, 2, 4, 10, 20, 30 and 40 of one generated clip side by side — but animate each panel over the <strong>denoising steps</strong> instead of over clip time. Panel <em>t</em> plays \(k=0,\dots,K\): the state frame <em>t</em> holds at each step of the reverse process. The clip’s own motion is frozen; what moves is the model’s guess about that one frame.</p>
+          <p><strong>What it would show.</strong> Where in the loop each frame stops changing. If the late frames keep moving until the last few steps while the early ones settle immediately, the loop is spending its steps unevenly along the clip. The quantitative version of the same picture is per-frame displacement per step, \(\lVert \hat x_k(t)-\hat x_{k-1}(t)\rVert\) against \(k\), one curve per frame.</p>
+          <p class="setup-note">Where it hooks in: <code>sample()</code> in <code>experiments/statebench/statebench/diffusion.py</code> already holds the running state at every one of the K steps. Record the clean estimate \(\hat x = x_\sigma - \sigma v\) at each step rather than only the final state, then render the selected frames with the existing trail renderer, one video per frame with the denoising step as the time axis. Worth doing for both models: under block 4 a frame should sit still except during its own block, which is the same contrast section 03 reports as numbers.</p>
+        </div>
+
+        <div class="todo-item">
+          <p class="eyebrow">Idea 2 · Measurement</p>
+          <h3>Look at the score direction from a cloud of neighbouring points</h3>
+          <p>Take one noisy state \(x_k\) at a fixed noise level and evaluate the model not only there but at many neighbours \(x_k+\delta\), with \(\delta\) drawn from a small sphere. Then compare the directions the model returns.</p>
+          <p><strong>What it would show.</strong> Whether the model’s error is coherent. With an exact score the field around \(x_k\) is affine: \(s^*(z)=\big((1-\sigma)y^*-z\big)/\sigma^2\), so every neighbour implies the <em>same</em> clean future \(y^*\), and the Jacobian is exactly \(-I/\sigma^2\). Two things are then measurable on a cloud of neighbours — the spread of the implied clean states \(\hat x(z)\), and the finite-difference Jacobian against \(-I/\sigma^2\). If the neighbours all point at one wrong future, the model has learned a coherent but incorrect target; if they disagree, there is no single target at all. Section 01’s argument is about that Jacobian, and section 03.5 measures only the size of the score error, never its local structure.</p>
+          <p class="setup-note">Cheap to run: one batch of perturbed copies of a single clip through the network, at a few noise levels. The exact score for every neighbour is available in closed form, because the conditioning frames fix \(y^*\).</p>
+        </div>
+
+        <div class="todo-item">
+          <p class="eyebrow">To-do 3 · Figure</p>
+          <h3>Plot the score-error audit against the denoising step count</h3>
+          <p>The audit’s figures put generated frames and noise level on the x-axis. The bound in section 01 is a function of the step count \(K\): \(d_{\mathrm{int}}(\log K)^3/K+\epsilon_{\mathrm{score}}\sqrt{\log K}\). A plot with \(K\) on the x-axis would put both terms on the same axis as the measurement, and pair with the existing physics-error-against-steps figure in section 03.5.</p>
+          <p><strong>What it would take.</strong> \(\epsilon_{\mathrm{score}}\) is an average over the sampler’s own grid of noise levels, and the audit fixes a 32-level uniform grid for every cell. Getting \(\epsilon_{\mathrm{score}}(K)\) means re-running the audit on each K-step grid, not reweighting the existing numbers. \(d_{\mathrm{int}}\) and the theorem constant are unknown, so the sum can only be drawn up to them; what the plot gives is the shape in \(K\) — the first term falling, the second rising like \(\sqrt{\log K}\), and where their sum turns.</p>
         </div>
       </div>
         </div>
