@@ -29,64 +29,57 @@
       <a href="#comparison">Videos</a>
       <a href="#rollout-guidance">Rollout guidance</a>
       <a href="#state-diffusion">State diffusion</a>
+      <a href="#score-error">Score error</a>
       <a href="#state-guidance">State guidance</a>
       <a href="#data">Data</a>
     </nav>
   </header>
 
   <nav class="rail" aria-label="Section trajectory">
-    <svg class="rail-svg" viewBox="0 0 84 420" xmlns="http://www.w3.org/2000/svg">
-      <title>The four experiments in order, with the argument off the path</title>
+    <svg class="rail-svg" viewBox="0 0 210 490" xmlns="http://www.w3.org/2000/svg">
+      <title>The four experiments in order, the score-error audit on a side path, and the argument off the path</title>
       <defs>
         <marker id="rail-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
         </marker>
       </defs>
-      <path class="traj-line" d="M 28 103 L 28 130 C 28 157 56 178 56 205 C 56 232 28 253 28 280 C 28 307 56 328 56 355 L 56 383" marker-end="url(#rail-head)"></path>
+      <path class="traj-line" d="M 28 82 L 28 110 C 28 137 50 163 50 190 C 50 217 28 243 28 270 C 28 297 50 403 50 430 L 50 458" marker-end="url(#rail-head)"></path>
+      <path class="traj-branch" d="M 33 318 C 46 333 58 346 64 351"></path>
       <a class="rail-node traj-theory" href="#theory" data-section="theory">
-        <circle class="rail-ring" cx="52" cy="56" r="18"></circle>
-        <circle cx="52" cy="56" r="12"></circle>
-        <text class="rail-number" x="52" y="56" dy=".35em" text-anchor="middle">01</text>
-        <g class="rail-tip">
-          <rect x="72" y="41" width="128" height="30" rx="6"></rect>
-          <text x="82" y="56" dy=".35em">01 / The argument</text>
-        </g>
+        <circle class="rail-ring" cx="52" cy="44" r="17"></circle>
+        <circle cx="52" cy="44" r="11"></circle>
+        <text class="rail-number" x="52" y="44" dy=".35em" text-anchor="middle">01</text>
+        <text class="rail-label" x="76" y="44" dy=".35em">The argument</text>
       </a>
       <a class="rail-node" href="#guidance" data-section="guidance">
-        <circle class="rail-ring" cx="28" cy="130" r="20"></circle>
-        <circle cx="28" cy="130" r="14"></circle>
-        <text class="rail-number" x="28" y="130" dy=".35em" text-anchor="middle">02</text>
-        <g class="rail-tip">
-          <rect x="48" y="115" width="104" height="30" rx="6"></rect>
-          <text x="58" y="130" dy=".35em">02 / Guidance</text>
-        </g>
+        <circle class="rail-ring" cx="28" cy="110" r="19"></circle>
+        <circle cx="28" cy="110" r="13"></circle>
+        <text class="rail-number" x="28" y="110" dy=".35em" text-anchor="middle">02</text>
+        <text class="rail-label" x="76" y="110" dy=".35em">Guidance</text>
       </a>
       <a class="rail-node" href="#rollout-guidance" data-section="rollout-guidance">
-        <circle class="rail-ring" cx="56" cy="205" r="20"></circle>
-        <circle cx="56" cy="205" r="14"></circle>
-        <text class="rail-number" x="56" y="205" dy=".35em" text-anchor="middle">03</text>
-        <g class="rail-tip">
-          <rect x="76" y="190" width="154" height="30" rx="6"></rect>
-          <text x="86" y="205" dy=".35em">03 / Rollout guidance</text>
-        </g>
+        <circle class="rail-ring" cx="50" cy="190" r="19"></circle>
+        <circle cx="50" cy="190" r="13"></circle>
+        <text class="rail-number" x="50" y="190" dy=".35em" text-anchor="middle">03</text>
+        <text class="rail-label" x="76" y="190" dy=".35em">Rollout guidance</text>
       </a>
       <a class="rail-node" href="#state-diffusion" data-section="state-diffusion">
-        <circle class="rail-ring" cx="28" cy="280" r="20"></circle>
-        <circle cx="28" cy="280" r="14"></circle>
-        <text class="rail-number" x="28" y="280" dy=".35em" text-anchor="middle">04</text>
-        <g class="rail-tip">
-          <rect x="48" y="265" width="148" height="30" rx="6"></rect>
-          <text x="58" y="280" dy=".35em">04 / State diffusion</text>
-        </g>
+        <circle class="rail-ring" cx="28" cy="270" r="19"></circle>
+        <circle cx="28" cy="270" r="13"></circle>
+        <text class="rail-number" x="28" y="270" dy=".35em" text-anchor="middle">04</text>
+        <text class="rail-label" x="76" y="270" dy=".35em">State diffusion</text>
+      </a>
+      <a class="rail-node traj-side" href="#score-error" data-section="score-error">
+        <circle class="rail-ring" cx="75" cy="358" r="17"></circle>
+        <circle cx="75" cy="358" r="11"></circle>
+        <text class="rail-number rail-number-small" x="75" y="358" dy=".35em" text-anchor="middle">4.5</text>
+        <text class="rail-label" x="96" y="358" dy=".35em">Score-error audit</text>
       </a>
       <a class="rail-node" href="#state-guidance" data-section="state-guidance">
-        <circle class="rail-ring" cx="56" cy="355" r="20"></circle>
-        <circle cx="56" cy="355" r="14"></circle>
-        <text class="rail-number" x="56" y="355" dy=".35em" text-anchor="middle">05</text>
-        <g class="rail-tip">
-          <rect x="76" y="340" width="180" height="30" rx="6"></rect>
-          <text x="86" y="355" dy=".35em">05 / State-space guidance</text>
-        </g>
+        <circle class="rail-ring" cx="50" cy="430" r="19"></circle>
+        <circle cx="50" cy="430" r="13"></circle>
+        <text class="rail-number" x="50" y="430" dy=".35em" text-anchor="middle">05</text>
+        <text class="rail-label" x="76" y="430" dy=".35em">State-space guidance</text>
       </a>
     </svg>
   </nav>
@@ -102,13 +95,7 @@
       </div>
     </div>
 
-    <section class="experiment overview" id="overview" aria-labelledby="overview-title">
-      <div class="section-heading reading-width">
-        <p class="eyebrow">Overview</p>
-        <h2 id="overview-title">How the sections<br class="desktop-break"> fit together</h2>
-        <p class="section-intro">The four experiments run in sequence. 01 is the derivation that sets up what they test, not an experiment.</p>
-      </div>
-
+    <section class="experiment overview" id="overview" aria-label="Overview">
       <div class="traj">
         <svg class="traj-wide" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
           <title>The four experiments in order, with the argument beside the path</title>
@@ -122,6 +109,12 @@
             <circle cx="150" cy="62" r="23"></circle>
             <text class="traj-number" x="150" y="62" dy=".35em" text-anchor="middle">01</text>
             <text class="traj-label" x="182" y="62" dy=".35em">The argument</text>
+          </a>
+          <path class="traj-branch" d="M 748 184 C 762 210 775 235 790 243"></path>
+          <a class="traj-node traj-side" href="#score-error">
+            <circle cx="790" cy="265" r="22"></circle>
+            <text class="traj-number" x="790" y="265" dy=".35em" text-anchor="middle">4.5</text>
+            <text class="traj-label" x="820" y="265" dy=".35em">Score-error audit</text>
           </a>
           <a class="traj-node" href="#guidance">
             <circle cx="120" cy="210" r="27"></circle>
@@ -144,18 +137,24 @@
             <text class="traj-label" x="890" y="65" dy=".35em" text-anchor="middle">State-space guidance</text>
           </a>
         </svg>
-        <svg class="traj-tall" viewBox="0 0 340 660" xmlns="http://www.w3.org/2000/svg">
+        <svg class="traj-tall" viewBox="0 0 340 715" xmlns="http://www.w3.org/2000/svg">
           <title>The four experiments in order, with the argument beside the path</title>
           <defs>
             <marker id="traj-head-tall" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path class="traj-arrow" d="M 0 1 L 9 5 L 0 9 Z"></path>
             </marker>
           </defs>
-          <path class="traj-line" d="M 78 130 L 78 180 C 78 230 118 270 118 320 C 118 370 78 410 78 460 C 78 510 118 550 118 600 L 118 648" marker-end="url(#traj-head-tall)"></path>
+          <path class="traj-line" d="M 78 130 L 78 180 C 78 230 118 270 118 320 C 118 370 78 410 78 460 C 78 510 118 600 118 650 L 118 698" marker-end="url(#traj-head-tall)"></path>
           <a class="traj-node traj-theory" href="#theory">
             <circle cx="250" cy="58" r="22"></circle>
             <text class="traj-number" x="250" y="58" dy=".35em" text-anchor="middle">01</text>
             <text class="traj-label" x="250" y="100" dy=".35em" text-anchor="middle">The argument</text>
+          </a>
+          <path class="traj-branch" d="M 89 524 C 108 534 122 544 130 550"></path>
+          <a class="traj-node traj-side" href="#score-error">
+            <circle cx="150" cy="556" r="20"></circle>
+            <text class="traj-number" x="150" y="556" dy=".35em" text-anchor="middle">4.5</text>
+            <text class="traj-label" x="176" y="556" dy=".35em">Score-error audit</text>
           </a>
           <a class="traj-node" href="#guidance">
             <circle cx="78" cy="180" r="25"></circle>
@@ -173,15 +172,14 @@
             <text class="traj-label" x="120" y="460" dy=".35em">State diffusion</text>
           </a>
           <a class="traj-node" href="#state-guidance">
-            <circle cx="118" cy="600" r="25"></circle>
-            <text class="traj-number" x="118" y="600" dy=".35em" text-anchor="middle">05</text>
-            <text class="traj-label" x="160" y="600" dy=".35em">State-space guidance</text>
+            <circle cx="118" cy="650" r="25"></circle>
+            <text class="traj-number" x="118" y="650" dy=".35em" text-anchor="middle">05</text>
+            <text class="traj-label" x="160" y="650" dy=".35em">State-space guidance</text>
           </a>
         </svg>
       </div>
 
       <div class="section-controls reading-width">
-        <p>Every section below starts collapsed: use the toggle beside its heading, or these buttons.</p>
         <div class="section-controls-buttons">
           <button class="button" type="button" data-sections="expand">Expand all</button>
           <button class="button" type="button" data-sections="collapse">Collapse all</button>
@@ -990,6 +988,331 @@
         </div>
       </details>
     </section>
+    <section class="experiment report-section side-section" id="score-error" aria-labelledby="score-error-title">
+      <details class="section-details">
+        <summary class="section-summary">
+          <div class="summary-inner reading-width">
+            <div class="summary-text">
+            <p class="eyebrow">04.5 / Score-error audit · side path</p>
+            <h2 id="score-error-title">Is the score error<br class="desktop-break"> bounded as the future grows?</h2>
+            </div>
+            <span class="section-toggle">
+              <span class="toggle-word toggle-open">Collapse</span><span class="toggle-word toggle-closed">Expand</span>
+              <span class="toggle-chevron" aria-hidden="true"></span>
+            </span>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-heading reading-width">
+        <p class="section-intro">A side path off the main sequence: instead of measuring generated trajectories, we measure the models’ score itself against the exact score, which the simulator makes available. Summed over a trajectory the error grows with clip length. Per state component it is flat. The theorem’s low-score-error assumption is exactly the per-component error shrinking like 1/√d, and that shrinkage is absent at every ball count.</p>
+        <div class="study-facts" aria-label="Experiment setup">
+          <span>1, 2, 3, 5 balls · 20–44 generated frames</span>
+          <span>1,024 held-out clips</span>
+          <span>Seeds 0–2</span>
+          <span>32 noise levels × 8 noise draws</span>
+          <span>48 audits · 384 physics evaluations</span>
+        </div>
+        <p class="setup-note">This audits the same state models as section 04, at their 25,000-update checkpoints. A state component is one ball’s x position, y position, horizontal velocity, or vertical velocity in one frame; a clip of <em>B</em> balls and <em>F</em> future frames has \(d=4BF\) of them. Network evaluations run in float32 with TF32 disabled; squared residuals and their sums accumulate in float64. The noise levels 0.001, 0.003 and 0.01 are separate diagnostics and are excluded from every primary average. Source: <code>experiments/score-error-audit/REPORT.md</code>.</p>
+      </div>
+
+      <div class="findings reading-width">
+        <h3>What we found</h3>
+        <ol class="finding-list">
+          <li><strong>The total error grows; the error per state component does not.</strong> From 20 to 44 generated frames the output grows by 2.2×. The error summed over a trajectory grows by 1.37–1.50×, and √2.2 = 1.48. The error per state component changes by 0.93–1.01×.</li>
+          <li><strong>The assumption is equivalent to a trend we can measure, and the trend is absent.</strong> The two quantities are related by an exact identity, \(\varepsilon_{\mathsf{score}}(d)=\sqrt{d}\,a(d)\), so “\(\varepsilon_{\mathsf{score}}\le C\) for every \(d\)” is the same claim as “\(a(d)\le C/\sqrt d\)”. Keeping the total fixed across the tested range needs the per-component error to fall to 0.67× of its starting value. It changes by 0.93–1.01×.</li>
+          <li><strong>The measured growth is the pure √d rate.</strong> Fitting \(\log\varepsilon_{\mathsf{score}}=\text{const}+p\log F\) gives \(p\) = 0.482, 0.499, 0.518 and 0.399 at 1, 2, 3 and 5 balls, with a largest residual of 0.021 in log space. \(p=0.5\) is exactly √d growth; \(p=0\) would mean the total had stopped growing.</li>
+          <li><strong>The paper’s one-ball control reproduces.</strong> At one ball, from 20 to 44 generated frames, the five-frame physics error goes 0.036 → 0.028 and the score error per predicted number 4.575 → 4.426. Both hold up; only the total grows, and it grows because there are more numbers to predict.</li>
+          <li><strong>Score accuracy and generation quality coincide on every cell of the grid.</strong> One ball is the only case with a small per-component score error, and the only case where quality holds up with length. So these measurements cannot separate a depth limit from the model failing to learn the score — both predict the same degradation.</li>
+        </ol>
+      </div>
+
+      <div class="reading-width report-content">
+        <h3 id="score-method">How the score error is calculated</h3>
+        <p><strong>The exact score is available because the conditioning frames determine one future and the noise we add has a known distribution.</strong> The simulator supplies that future; differentiating the Gaussian log density gives the score. The simulator is never differentiated.</p>
+        <h4>1. Take the true future from the held-out simulation</h4>
+        <p>Each held-out clip stores the simulator’s positions and velocities for every ball at every frame. The first five frames are the conditioning, \(c\). With the simulation parameters fixed, they determine one future, \(y^*(c)\), holding \(d=4BF\) state components. Positions are centred at 5 and divided by 2.5, velocities divided by 6.25; every score below is with respect to these standardized variables.</p>
+        <h4>2. Add noise and write down its exact conditional score</h4>
+        <p>We draw independent standard Gaussian noise for those \(d\) numbers and form a noisy future, leaving the five conditioning frames clean:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The noised future">
+          \[\epsilon\sim\mathcal N(0,I_d),\qquad z_\sigma=(1-\sigma)y^*(c)+\sigma\epsilon,\qquad 0&lt;\sigma&lt;1.\]
+        </div>
+        <p>Because \(y^*(c)\) is fixed once \(c\) is given, the noisy future is Gaussian with a known mean and variance, \(p_\sigma(z\mid c)=\mathcal N\!\left(z;(1-\sigma)y^*(c),\sigma^2 I_d\right)\). Differentiating its log density with respect to \(z\) gives the score, and at the sample we just built it collapses to the noise we drew:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The exact conditional score">
+          \[s^*(z\mid c,\sigma)=\frac{(1-\sigma)y^*(c)-z}{\sigma^2},\qquad s^*(z_\sigma\mid c,\sigma)=-\frac{\epsilon}{\sigma}.\]
+        </div>
+        <p>This exactness depends on one future per conditioning. If the same conditioning allowed several futures, the noisy distribution would be a mixture and one example’s noise would not give its score.</p>
+        <h4>3. Convert the model’s output to a score and subtract</h4>
+        <p>These networks were trained with flow matching: they predict \(\hat v_\theta(z_\sigma,c,\sigma)\) against the target \(v^*=\epsilon-y^*(c)\). Under this noise convention the score implied by a predicted flow, and its error, are</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Score implied by the predicted flow, and the score error">
+          \[\hat s_\theta=-\frac{z_\sigma+(1-\sigma)\hat v_\theta}{\sigma},\qquad \hat s_\theta-s^*=-\frac{1-\sigma}{\sigma}\left(\hat v_\theta-v^*\right).\]
+        </div>
+        <p>So the audit computes the squared score error straight from the flow residual, which is algebraically the same as building both score vectors and subtracting. Only the \(F\) future frames enter the sum. Each noisy input costs one network evaluation; the separate sampling experiment runs the full denoising loop instead.</p>
+        <h4>4. Average, and report two numbers</h4>
+        <p>For each trained model we evaluate 1,024 held-out clips at the 32 levels \(\sigma_k=(k+1/2)/32\), with eight independent noise draws per clip reused across levels. <strong>Score error for the full trajectory</strong> sums the squared errors over all \(d\) state components, averages over clips, draws and levels, then takes the square root. <strong>Score error per state component</strong> averages over the \(d\) components as well before the square root, so it is the first divided by \(\sqrt d\):</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The two reported errors">
+          \[E_r=\sqrt{\operatorname{mean}\left[\sum_{j=1}^{d}\left(\hat s_{r,j}-s_j^*\right)^2\right]},\qquad R_r=\frac{E_r}{\sqrt{d}}.\]
+        </div>
+        <p>Both take a square root; their only difference is whether squared errors are summed or averaged over components. Tables and frame-count curves average \(E_r\) or \(R_r\) across the three training seeds, with error bars showing the standard deviation across seeds. Noise-level plots use one level per point. The full-trajectory number uses the same unnormalized L2 norm as the assumption it tests.</p>
+      </div>
+
+      <figure class="plot" id="score-frames">
+        <div class="figure-heading"><h3>The total grows, the per-component error does not</h3><a href="assets/score-error-audit/figures/score_vs_frames.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/score_vs_frames.png" alt="Two panels against generated frame count: score error summed over a trajectory rises at every ball count, while score error per state component stays flat" width="1980" height="900" loading="lazy">
+        <figcaption><span class="figure-number">Figure 18.</span> Left: squared score errors summed over all state components in the future trajectory. Right: averaged over those components. Both average over held-out clips, noise draws and the 32 primary noise levels before taking the square root. Lines average 3 training seeds; shading and error bars show ±1 SD across seeds. Both vertical axes are logarithmic.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>From 20 to 44 generated frames, the total changes by <strong>1.46×</strong> at one ball, 1.48× at two, 1.50× at three and 1.37× at five. The per-component error changes by 0.98×, 1.00×, 1.01× and 0.93× over the same range.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Score error by ball count and generated frame count">
+          <table>
+            <thead><tr><th>Balls</th><th>Generated frames</th><th>Seeds</th><th>Full trajectory (RMS L2)</th><th>Per state component (RMSE)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>20</td><td>3</td><td>19.13</td><td>2.138</td></tr>
+              <tr><td>1</td><td>28</td><td>3</td><td>23.15</td><td>2.187</td></tr>
+              <tr><td>1</td><td>36</td><td>3</td><td>25.91</td><td>2.159</td></tr>
+              <tr><td>1</td><td>44</td><td>3</td><td>27.91</td><td>2.104</td></tr>
+              <tr><td>2</td><td>20</td><td>3</td><td>52.50</td><td>4.151</td></tr>
+              <tr><td>2</td><td>28</td><td>3</td><td>62.81</td><td>4.197</td></tr>
+              <tr><td>2</td><td>36</td><td>3</td><td>71.35</td><td>4.205</td></tr>
+              <tr><td>2</td><td>44</td><td>3</td><td>77.59</td><td>4.136</td></tr>
+              <tr><td>3</td><td>20</td><td>3</td><td>65.56</td><td>4.232</td></tr>
+              <tr><td>3</td><td>28</td><td>3</td><td>80.99</td><td>4.418</td></tr>
+              <tr><td>3</td><td>36</td><td>3</td><td>91.72</td><td>4.413</td></tr>
+              <tr><td>3</td><td>44</td><td>3</td><td>98.15</td><td>4.272</td></tr>
+              <tr><td>5</td><td>20</td><td>3</td><td>87.68</td><td>4.384</td></tr>
+              <tr><td>5</td><td>28</td><td>3</td><td>103.28</td><td>4.364</td></tr>
+              <tr><td>5</td><td>36</td><td>3</td><td>112.24</td><td>4.183</td></tr>
+              <tr><td>5</td><td>44</td><td>3</td><td>120.39</td><td>4.058</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">Means over 3 training seeds. <a href="assets/score-error-audit/data/score_summary.csv" download>Download the score summary</a>, which also carries the per-seed values and the per-component figure as <code>score_rmse_per_component</code>.</p>
+      </div>
+
+      <figure class="plot" id="score-noise">
+        <div class="figure-heading"><h3>The same totals, level by level</h3><a href="assets/score-error-audit/figures/score_vs_noise.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/score_vs_noise.png" alt="Score error for the full trajectory against noise level, one panel per ball count" width="1800" height="1440" loading="lazy">
+        <figcaption><span class="figure-number">Figure 19.</span> At each noise level, squared score errors are summed over all state components, averaged over held-out clips and noise draws, then square-rooted. Lines average training seeds; bands show ±1 SD across seeds. The table above additionally averages over noise levels before the square root.</figcaption>
+      </figure>
+
+      <figure class="plot" id="score-per-number">
+        <div class="figure-heading"><h3>Per state component, level by level</h3><a href="assets/score-error-audit/figures/score_per_number_vs_noise.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/score_per_number_vs_noise.png" alt="Score RMSE per state component against noise level, one panel per ball count" width="1800" height="1440" loading="lazy">
+        <figcaption><span class="figure-number">Figure 20.</span> Squared errors averaged over state components as well as clips and draws, then square-rooted: each model’s value is its full-trajectory error divided by \(\sqrt{4BF}\). Lines average training seeds; shading shows ±1 SD. The assumption being tested uses the unnormalized norm of the previous figure.</figcaption>
+      </figure>
+
+      <figure class="plot" id="score-spread-frames">
+        <div class="figure-heading"><h3>How much clips differ from one another</h3><a href="assets/score-error-audit/figures/heldout_spread_vs_frames.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/heldout_spread_vs_frames.png" alt="Median held-out clip error against generated frame count, with bands spanning the 16th to 84th percentiles" width="1980" height="900" loading="lazy">
+        <figcaption><span class="figure-number">Figure 21.</span> Per clip and model, squared errors are summed over state components and averaged over the eight noise draws and the noise levels, then square-rooted; the right panel also divides by \(\sqrt{d}\). Errors are averaged across training seeds for each clip. Lines show the median clip; bands span the 16th to 84th percentiles, the middle 68% of the 1,024 clips. These are spread bands, not confidence intervals for the mean.</figcaption>
+      </figure>
+
+      <figure class="plot" id="score-spread-noise">
+        <div class="figure-heading"><h3>Clip-to-clip spread by noise level</h3><a href="assets/score-error-audit/figures/heldout_spread_vs_noise.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/heldout_spread_vs_noise.png" alt="Median held-out clip error against noise level with 16th-to-84th-percentile bands, one panel per ball count" width="1800" height="1440" loading="lazy">
+        <figcaption><span class="figure-number">Figure 22.</span> The same per-clip construction at each noise level. These median curves describe a typical clip and differ from the dataset-wide RMS curves above. <a href="assets/score-error-audit/data/heldout_score_spread.csv" download>Download the spread statistics</a>: mean, SD, median and percentile bounds.</figcaption>
+      </figure>
+
+      <figure class="plot" id="score-physics-steps">
+        <div class="figure-heading"><h3>No step budget up to 128 fixes the multi-ball case</h3><a href="assets/score-error-audit/figures/physics_vs_steps.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <img src="assets/score-error-audit/figures/physics_vs_steps.png" alt="Five-frame local physics error against denoising step budget, one panel per ball count" width="1800" height="1440" loading="lazy">
+        <figcaption><span class="figure-number">Figure 23.</span> Budgets of 1, 2, 4, 8, 16, 32, 64 and 128 denoising steps. Lines average the 3 training seeds; bands show ±1 SD across seeds.</figcaption>
+      </figure>
+      <div class="reading-width report-content">
+        <p>A successful global prediction has mean position error at most 0.1 world units; a successful local prediction has five-frame physics error at most 0.05. Success fractions are averaged across seeds, and the table gives the smallest tested budget at which at least 90% of clips pass. “None” means no tested budget reaches that.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Denoising steps needed to pass each threshold">
+          <table>
+            <thead><tr><th>Balls</th><th>Generated frames</th><th>Steps for global success</th><th>Steps for local success</th><th>Best mean local error</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>20</td><td>2</td><td>128</td><td>0.0338</td></tr>
+              <tr><td>1</td><td>28</td><td>2</td><td>32</td><td>0.0297</td></tr>
+              <tr><td>1</td><td>36</td><td>2</td><td>32</td><td>0.0273</td></tr>
+              <tr><td>1</td><td>44</td><td>2</td><td>32</td><td>0.0256</td></tr>
+              <tr><td>2</td><td>20</td><td>None</td><td>None</td><td>0.1755</td></tr>
+              <tr><td>2</td><td>28</td><td>None</td><td>None</td><td>0.2525</td></tr>
+              <tr><td>2</td><td>36</td><td>None</td><td>None</td><td>0.2972</td></tr>
+              <tr><td>2</td><td>44</td><td>None</td><td>None</td><td>0.3353</td></tr>
+              <tr><td>3</td><td>20</td><td>None</td><td>None</td><td>0.3895</td></tr>
+              <tr><td>3</td><td>28</td><td>None</td><td>None</td><td>0.5398</td></tr>
+              <tr><td>3</td><td>36</td><td>None</td><td>None</td><td>0.6254</td></tr>
+              <tr><td>3</td><td>44</td><td>None</td><td>None</td><td>0.6293</td></tr>
+              <tr><td>5</td><td>20</td><td>None</td><td>None</td><td>0.6840</td></tr>
+              <tr><td>5</td><td>28</td><td>None</td><td>None</td><td>0.8318</td></tr>
+              <tr><td>5</td><td>36</td><td>None</td><td>None</td><td>0.8848</td></tr>
+              <tr><td>5</td><td>44</td><td>None</td><td>None</td><td>0.8927</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">The 1-ball, 20-frame cell needing 128 steps for the local threshold while 28, 36 and 44 frames need 32 runs opposite to a length-based account, and is unexplained. <a href="assets/score-error-audit/data/sampling_summary.csv" download>Download the sampling summary</a>.</p>
+
+        <h3>The datasets</h3>
+        <p>Every clip comes from its own simulation: 400 frames simulated per seed, the first 200 discarded as burn-in, at most one accepted window kept. The original generator supplies the initial conditions, solver, window filters, collision-density limits and the held-out collision-count balancing; training and evaluation use disjoint simulation seeds. Each training set holds 20,000 clips from 20,000 simulations, each held-out set 1,024 from 1,024. Section 04 explains why this replaced the earlier datasets, which drew up to 1,000 overlapping clips from each of about twenty simulations.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Ball-ball collision counts in the datasets">
+          <table>
+            <thead><tr><th>Balls</th><th>Generated frames</th><th>Training min</th><th>Training mean</th><th>Held-out min</th><th>Held-out max</th><th>Held-out mean</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>20–44</td><td>0</td><td>0.00</td><td>0</td><td>0</td><td>0.00</td></tr>
+              <tr><td>2</td><td>20</td><td>2</td><td>2.17</td><td>2</td><td>3</td><td>2.50</td></tr>
+              <tr><td>2</td><td>44</td><td>4</td><td>4.18</td><td>4</td><td>9</td><td>6.50</td></tr>
+              <tr><td>3</td><td>20</td><td>2</td><td>2.69</td><td>2</td><td>4</td><td>3.00</td></tr>
+              <tr><td>3</td><td>44</td><td>5</td><td>5.68</td><td>5</td><td>13</td><td>8.99</td></tr>
+              <tr><td>5</td><td>20</td><td>4</td><td>6.53</td><td>4</td><td>8</td><td>6.00</td></tr>
+              <tr><td>5</td><td>44</td><td>8</td><td>13.95</td><td>8</td><td>22</td><td>14.98</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">Ball–ball collisions per clip, counted with the original generator’s frame-selection rule; the 28- and 36-frame rows fall between the two shown. The evaluation set balances the allowed collision counts. <a href="assets/score-error-audit/data/data_validation_indep.json" download>Download the full dataset validation record</a>.</p>
+
+        <h3>Numerical precision</h3>
+        <p>Sampling runs in bf16, so one shared noise draw per level compares bf16 inference against float32 at 49 frames. Both ran on the same GPU, an RTX PRO 6000 Blackwell in one Slurm job, so the first ratio isolates the dtype. The second re-runs the same float32 configuration on an A100, isolating the hardware.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Precision and hardware checks">
+          <table>
+            <thead><tr><th>Balls</th><th>Seed</th><th>bf16 / float32, same GPU</th><th>float32 on Blackwell / float32 on A100</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>0</td><td>1.0214</td><td>1.0000</td></tr>
+              <tr><td>2</td><td>0</td><td>1.0169</td><td>1.0000</td></tr>
+              <tr><td>3</td><td>0</td><td>1.0116</td><td>1.0049</td></tr>
+              <tr><td>5</td><td>1</td><td>1.0201</td><td>0.9988</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">bf16 raises the total squared score error by 1.2 to 2.2 percent; moving the same float32 computation to different hardware changes it by at most 0.5 percent. Neither moves any number above enough to change a conclusion.</p>
+      </div>
+
+      <div class="reading-width report-content" id="score-papers">
+        <h3>How this relates to the two papers</h3>
+        <p><strong>What the proofs establish.</strong> For deterministic prediction the exact conditional score contains the correct future: one score evaluation plus arithmetic recovers it, which is <a href="https://arxiv.org/html/2607.13031v1#S4">Seriality Gap, Proposition 4.1</a>. Serial Scaling extends this to approximate scores under further assumptions; its error bound must stay small enough across input sizes, which with the other conditions gives a solver of constant circuit depth (<a href="https://arxiv.org/html/2507.12549v4#A6">Appendix F</a>). Appendix F defers the score-error assumption itself to <a href="https://arxiv.org/html/2409.18959">Li and Yan (2024)</a>, where it reads</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The score-error assumption">
+          \[\varepsilon_{\mathsf{score}}^{2}:=\frac{1}{T}\sum_{t=1}^{T}\mathbb E\left[\left\|s_{t}(X_{t})-s_{t}^{\star}(X_{t})\right\|_{2}^{2}\right].\]
+        </div>
+        <p>The squared L2 norm runs over all \(d\) output coordinates with no \(1/d\) normalization, and the average is over timesteps only. In their Theorem 1 it enters the bound as \(c\,\varepsilon_{\mathsf{score}}\sqrt{\log T}\), linearly and with no \(\sqrt d\) factor. That is why we report the unnormalized total alongside the per-component figure: the total is the quantity the assumption bounds. Our average runs over 32 uniform noise levels under a flow-matching convention rather than their timestep grid, so our number is not a numerical evaluation of their \(\varepsilon_{\mathsf{score}}\).</p>
+        <p>This also says when accurate scores cannot come from a shallow network: if a task needs growing circuit depth, a fixed-depth network cannot keep satisfying the conditions. The theory therefore allows failure to learn accurate scores on hard tasks, and does not require first observing an accurate-score model and then watching it fail. What it does not do is bound the computational limits of an arbitrary inaccurate denoiser. This audit measures score accuracy; it does not read circuit depth off an error curve.</p>
+
+        <h4>What happens with one ball</h4>
+        <p>One ball collides only with walls, so its future is a closed-form function of the given state with no chain of dependent events. It is the paper’s control for the claim that clip length alone is not what hurts one-pass generation.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="One-ball comparison against the paper">
+          <table>
+            <thead><tr><th>1-ball measurement</th><th>20 generated frames</th><th>44 generated frames</th></tr></thead>
+            <tbody>
+              <tr><td>Paper: local physics error</td><td>0.220</td><td>0.246</td></tr>
+              <tr><td>Paper: distance from true trajectory</td><td>0.310</td><td>1.417</td></tr>
+              <tr><td>Our models: local physics error</td><td>0.036</td><td>0.028</td></tr>
+              <tr><td>Our models: distance from true trajectory</td><td>0.024</td><td>0.044</td></tr>
+              <tr><td>Our models: score error per predicted number</td><td>4.575</td><td>4.426</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">The paper’s values come from <a href="https://arxiv.org/html/2607.13031v1#A2">its Table 2</a>; its 25- and 49-frame clips include five conditioning frames. Our rows use the 25,000-update checkpoints, 64 denoising steps, and means across 3 training seeds.</p>
+        <p>Local physical consistency is flat, and slightly better on the longer clips. Score error per predicted number is flat. Distance from the true trajectory grows from 0.024 to 0.044 but stays two orders of magnitude below the box size: a marginally wrong velocity accumulates positional drift over a longer horizon even while the motion stays physically correct. The paper’s own 1-ball global error grows for the same reason, and by far more.</p>
+        <p>Two claims in the earlier state-diffusion write-up do not survive and are withdrawn. First, that single-ball wall bounces are a mild version of the same serial limitation: on these datasets block-causal generation beats one-pass generation by 1.16× to 1.31× at one ball, flat across the tested range, against 2.94× to 3.98× at five balls, and the paper’s two video models differ by 1.12× in the same comparison. Second, that the paper’s flat 1-ball curve sits on a VAE-and-tracker measurement floor of 0.19: no floor needs to be invoked, because the pixel models and the state models agree.</p>
+
+        <h4>The total grows because there are more numbers to predict</h4>
+        <p>From 20 to 44 generated frames the output grows by 2.2×, so a flat per-number error predicts √2.2 = 1.48× growth in the total. Measured: 1.46× at one ball, 1.48× at two, 1.50× at three, 1.37× at five. A total that grows as the square root of output size, with no increase per number, is what a model with a fixed positive per-number error produces on a larger output: if that error settles at any constant \(a\), the total is \(\sqrt{4BF}\,a\), which grows without limit as \(F\) increases.</p>
+        <p><strong>Holding the total bounded would require the per-number error to shrink like \(1/\sqrt d\).</strong> Over a 2.2× growth in output, \(\sqrt d\) grows by 1.48, so the per-number error would have to fall to 0.67× to keep the total fixed. Measured instead:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Per-component change against the change a fixed total requires">
+          <table>
+            <thead><tr><th>Balls</th><th>Per number, 20 frames</th><th>Per number, 44 frames</th><th>Observed change</th><th>Needed for a fixed total</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>2.138</td><td>2.104</td><td>0.98×</td><td>0.67×</td></tr>
+              <tr><td>2</td><td>4.151</td><td>4.136</td><td>1.00×</td><td>0.67×</td></tr>
+              <tr><td>3</td><td>4.232</td><td>4.272</td><td>1.01×</td><td>0.67×</td></tr>
+              <tr><td>5</td><td>4.384</td><td>4.058</td><td>0.93×</td><td>0.67×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>No ball count comes close, and the one-ball case is the most informative: there the task has a closed-form solution, the model learned it — physical accuracy is flat and slightly improving with length — and the per-number score error is flat. That is about as favourable as this setting gets, and the total still grows as √d, because flat per-number error and a growing output force it to.</p>
+        <p>So the growing total is not evidence that score accuracy breaks down as the requested future lengthens. It shows that the assumption, stated as a bound on an unnormalized sum over a growing number of coordinates, would require a model to become more accurate at each individual number as more numbers are asked of it. We see no sign of that and no reason to expect it. A separate structural point runs the same way: the first term of Li and Yan’s bound, \(c\,d\log^{3}T/T\), carries \(d\) whatever the score error is, so even an exact score would need the step count \(T\) to grow roughly linearly in \(d\) to hold that term at a fixed target. We have not examined how Appendix F treats this.</p>
+
+        <h4>What four frame counts can and cannot show</h4>
+        <p>The assumption is not that the score error is small in this experiment. It is that one constant works for every input size: there exists some \(C\), fixed once and for all, with \(\varepsilon_{\mathsf{score}}(d)\le C\) for every output size \(d\). That is a claim about infinitely many sizes. We measured four.</p>
+        <p><strong>Four measurements cannot show the assumption fails.</strong> A sequence can rise and still be bounded — it might climb towards a ceiling and never pass it. These totals could level off at 60 generated frames, or at 600, and the assumption would hold.</p>
+        <p><strong>They also cannot show it holds.</strong> Four numbers have a largest value, so they are trivially bounded by it, and “bounded over the range we tested” is true of any finite set of measurements.</p>
+        <p>The question becomes testable through the exact identity between the two quantities in this section. Writing \(a(d)\) for the error per state component, \(\varepsilon_{\mathsf{score}}(d)=\sqrt d\,a(d)\), so</p>
+        <div class="equation" tabindex="0" role="region" aria-label="The assumption rewritten per component">
+          \[\varepsilon_{\mathsf{score}}(d)\le C \quad\Longleftrightarrow\quad a(d)\;\le\;\frac{C}{\sqrt d}.\]
+        </div>
+        <p>The assumption is therefore exactly the per-component error shrinking at least as fast as \(1/\sqrt d\) — the same claim rewritten, not a weaker version — and that is a trend we can measure. What we measure is that \(a(d)\) does not shrink at all: over a 2.2-fold increase in \(d\) it stays within 7% of where it started, at every ball count, where a 33% drop would have been needed.</p>
+        <p>The totals say the same from the other side. Fitting \(\log\varepsilon_{\mathsf{score}}=\text{const}+p\log F\):</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Fitted growth exponents">
+          <table>
+            <thead><tr><th>Balls</th><th>Totals at 20, 28, 36, 44 generated frames</th><th>Exponent \(p\)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>19.1, 23.1, 25.9, 27.9</td><td>0.482</td></tr>
+              <tr><td>2</td><td>52.5, 62.8, 71.4, 77.6</td><td>0.499</td></tr>
+              <tr><td>3</td><td>65.6, 81.0, 91.7, 98.2</td><td>0.518</td></tr>
+              <tr><td>5</td><td>87.7, 103.3, 112.2, 120.4</td><td>0.399</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The largest residual is 0.021 in log space. The exponents sit at 0.40 to 0.52, so over this range the growth is the pure √d rate that flat per-component error forces, with no sign of flattening. The successive slopes drift down slightly, and that is accounted for by the small decline in per-component error — the 5-ball models have both the lowest exponent and the largest per-component decline — rather than by approaching a ceiling.</p>
+        <p><strong>The honest conclusion.</strong> We have not refuted the assumption and do not claim to. What we can say is sharper than “unsupported”: the assumption is equivalent to a specific measurable trend, we measured that trend, and it is absent. For the assumption to hold, per-component accuracy would have to start improving as the model is asked for more output, somewhere past 44 generated frames, having been flat throughout the range we tested. We know of no mechanism that would produce that. One further constraint is easy to lose sight of: the theorem needs \(\varepsilon_{\mathsf{score}}\) not merely bounded but small enough for the accuracy target, so a large constant would not rescue the argument. Boundedness is the weaker of the two requirements, and it is the one already not in evidence.</p>
+
+        <h4>Very low noise dominates the average</h4>
+        <p>Converting a predicted flow to a score multiplies the flow error by \((1-\sigma)/\sigma\), which is large when \(\sigma\) is small. The lowest primary level, \(\sigma=1/64\), contributes 94 to 97 percent of the total squared score error at one ball and 91 to 92 percent at two, three and five balls, at every frame count. Because of that weighting, the headline averages could hide behaviour at moderate noise, so we recompute per predicted number over \(\sigma\ge0.1\) only:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Per-component error restricted to moderate and high noise">
+          <table>
+            <thead><tr><th>Balls</th><th>20 generated frames</th><th>44 generated frames</th><th>Change</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>0.1242</td><td>0.1641</td><td><strong>1.32×</strong></td></tr>
+              <tr><td>2</td><td>0.6044</td><td>0.5566</td><td>0.92×</td></tr>
+              <tr><td>3</td><td>0.6345</td><td>0.6065</td><td>0.96×</td></tr>
+              <tr><td>5</td><td>0.6448</td><td>0.5937</td><td>0.92×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>At moderate and high noise the multi-ball models are flat or slightly improving, and the 1-ball models show a residual 1.32× rise with length. Two things about that number matter. It is small in absolute terms — the 1-ball error stays four times below every multi-ball value, so the model that grows is the accurate one. And it is far from the earlier models’ behaviour, where the same restricted measurement rose by roughly 24× across the same range. We report it rather than average it away, and we have no explanation for it.</p>
+
+        <h4>Why score error and generation error need not move together</h4>
+        <p>With \(z_\sigma=(1-\sigma)y+\sigma\epsilon\) and \(y\) the true standardized future, the clean-state estimate from the same network call is \(\hat y=z_\sigma-\sigma\hat v_\sigma\), and its error relates to the score error by</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Clean-state error against score error">
+          \[\hat s_\sigma-s^*_\sigma=-\frac{1-\sigma}{\sigma}\left(\hat v_\sigma-v^*_\sigma\right),\qquad \hat y-y=\frac{\sigma^2}{1-\sigma}\left(\hat s_\sigma-s^*_\sigma\right).\]
+        </div>
+        <p>For \(0&lt;\sigma&lt;1\) a large score error at low noise can correspond to a small error in the reconstructed clean state. Reconstruction from a noisy true future is a denoising measurement; ordinary generation starts from pure noise plus the conditioning frames. The two answer different questions, so aggregate score error and generation error need not change in proportion.</p>
+
+        <h4>The pattern is reproduced; the mechanism is not demonstrated</h4>
+        <p>The Seriality Gap paper’s central evidence is a pattern across clip lengths: with five balls, one-pass generation gets worse as clips get longer while generating in order does not, and with one ball neither gets worse and the two are close. We reproduce the pattern. Five-frame physics error, 25-frame clips to 49-frame clips:</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="The paper's pattern against this work">
+          <table>
+            <thead><tr><th>Model</th><th>Paper</th><th>This work</th></tr></thead>
+            <tbody>
+              <tr><td>5 balls, one-pass</td><td>0.670 to 0.883</td><td>0.684 to 0.885</td></tr>
+              <tr><td>5 balls, in order</td><td>0.613 to 0.607</td><td>0.233 to 0.223</td></tr>
+              <tr><td>1 ball, one-pass</td><td>0.220 to 0.246</td><td>0.037 to 0.030</td></tr>
+              <tr><td>1 ball, in order</td><td>0.220 at 49 frames</td><td>0.032 to 0.023</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What the audit adds is that these models do not satisfy the assumption the depth argument rests on.</strong> The theorem that limits one-pass diffusion to constant depth requires an accurate score. Ours is not accurate at any ball count, by the measurements above. So the degradation we observe falls outside the theorem’s reach and cannot be attributed to it. A plainer explanation covers the same observations: the model does not learn an accurate score for long multi-ball futures. That is a learning failure, and in these metrics it is indistinguishable from a depth barrier.</p>
+        <p>Across the grid, score accuracy and generation quality coincide exactly. One ball is the only case where the score error per state component is small, roughly a quarter of the multi-ball values, and it is also the only case where quality holds up with length and where the two architectures are close. Every cell that degrades is a cell whose score is poor.</p>
+        <p>The theory itself allows this, which is why the ambiguity is hard to remove. A fixed-depth network asked for a task needing growing depth should fail to learn accurate scores, so a rising score error is what the theory predicts on such a task. But a model that is too small, trained too briefly, or facing a task that is merely hard also has a rising score error. Score error alone cannot tell them apart, and neither can generation quality, because both explanations predict the same degradation. <strong>What would separate them</strong> is a multi-ball setting where the score is known to be accurate, so a failure could not be blamed on score quality. Two routes are in the open questions below.</p>
+
+        <h4>What these experiments establish</h4>
+        <p>At one ball, on a task with a closed-form solution, these models keep both their physical accuracy and their per-number score accuracy as the requested future grows, and one-pass generation is nearly as good as generating in order. At two or more balls, physical accuracy degrades with length and generating in order is markedly better, while per-number score accuracy stays flat. No tested denoising-step budget up to 128 fixes the multi-ball case. No model at any ball count satisfies the low-score-error assumption: the total rises with output size in every case, and the per-component decay that boundedness requires is absent.</p>
+        <p>What this does not establish: that score error is unbounded as length grows without limit, since four lengths were tested; that the models satisfy the remaining conditions of the approximate-score theorem, which we do not measure; that any observed error curve implies a particular circuit depth; or that the multi-ball degradation is caused by a depth limitation rather than by the model failing to learn an accurate score. The last is the main interpretive limit of this audit.</p>
+
+        <h4>Open questions</h4>
+        <ul>
+          <li><strong>The residual 1-ball rise at moderate noise.</strong> 1.32× across the tested range, with no explanation. Longer training, wider models, or comparison against an analytic single-ball predictor and its exact score would show whether it is an optimization artifact or a property of the task.</li>
+          <li><strong>A multi-ball setting with a known-accurate score.</strong> Training against an analytically computed score, so a failure to generate well cannot be attributed to score quality. This is the direct way to separate a depth limitation from a learning failure.</li>
+          <li><strong>Interacting against independent balls at identical output size.</strong> Same ball counts, frame counts and initial-state distribution, with ball–ball collisions enabled or disabled and wall bounces kept. Without ball–ball collisions each ball has an independent closed-form solution, so this separates the cost of predicting more numbers from the cost of the balls affecting one another. Not yet run.</li>
+        </ul>
+      </div>
+
+      <div class="data-section reading-width" id="score-error-data">
+        <p class="eyebrow">Scope and data</p>
+        <h3>What was run</h3>
+        <p>48 score audits — 4 ball counts × 4 frame counts × 3 seeds — and 384 physics evaluations, all complete. Each audit is 1,024 held-out clips × 32 primary noise levels × 8 noise draws, one network evaluation per noisy input.</p>
+        <h3 class="archive-heading">Tables behind the figures</h3>
+        <p>The per-seed score and sampling numbers, the per-clip spread statistics, and the dataset validation record.</p>
+        <div class="data-links">
+          <a href="assets/score-error-audit/data/score_summary.csv" download><span>Score summary</span><small>CSV <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/score-error-audit/data/sampling_summary.csv" download><span>Sampling summary</span><small>CSV <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/score-error-audit/data/heldout_score_spread.csv" download><span>Held-out spread</span><small>CSV <span aria-hidden="true">↓</span></small></a>
+          <a href="assets/score-error-audit/data/data_validation_indep.json" download><span>Dataset validation</span><small>JSON <span aria-hidden="true">↓</span></small></a>
+        </div>
+      </div>
+        </div>
+      </details>
+    </section>
     <section class="experiment report-section" id="state-guidance" aria-labelledby="state-guidance-title">
       <details class="section-details">
         <summary class="section-summary">
@@ -1029,7 +1352,7 @@
       <figure class="plot" id="guidance-horizon">
         <div class="figure-heading"><h3>Error against clip length</h3><a href="assets/statebench-guidance/figures/horizon_steps50.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/horizon_steps50.png" alt="Three panels of error against clip length at 50 denoising steps: vanilla, rollout-1, rollout-5 and oracle guidance, with the unguided block-4 model as a dotted reference" width="1950" height="570" loading="lazy">
-        <figcaption><span class="figure-number">Figure 18.</span> 50 denoising steps. Dotted orange is the block-4 model without guidance, taken from the state-diffusion evaluations on all 1,024 clips. Guidance lowers every curve and leaves every slope alone.</figcaption>
+        <figcaption><span class="figure-number">Figure 24.</span> 50 denoising steps. Dotted orange is the block-4 model without guidance, taken from the state-diffusion evaluations on all 1,024 clips. Guidance lowers every curve and leaves every slope alone.</figcaption>
       </figure>
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error against clip length">
@@ -1096,7 +1419,7 @@
       <figure class="plot" id="guidance-strength">
         <div class="figure-heading"><h3>Strength</h3><a href="assets/statebench-guidance/figures/strength_49f_steps50.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/strength_49f_steps50.png" alt="Error against guidance strength for the three targets at 49 frames and 50 steps, with a minimum near strength 1 and every guide worsening by strength 10" width="1950" height="570" loading="lazy">
-        <figcaption><span class="figure-number">Figure 19.</span> 49 frames, 50 steps. Strength 1 makes the correction the size of a typical Euler update.</figcaption>
+        <figcaption><span class="figure-number">Figure 25.</span> 49 frames, 50 steps. Strength 1 makes the correction the size of a typical Euler update.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>Below 0.3 the rollout guides do little; at 3 they start to hurt Δx(1); at 10 every guide is worse than no guidance on the local errors, the oracle included. The optimum is 1 for all three targets, and the same value is selected at every clip length and step count from 50 steps upward.</p>
@@ -1148,7 +1471,7 @@
             </div>
           </div>
         </div>
-        <figcaption><span class="figure-number">Figure 20.</span> 49 frames, training seed 0, 50 steps. Panels left to right: ground truth, vanilla, rollout-1 guided, rollout-5 guided, oracle guided, block 4, and the two physics-law methods below. Every generated panel starts from the same initial noise, so the differences between them are due to the guidance alone; block 4 uses its own noise. Frames 0 to 4 are the given frames and are identical in every panel. Each ball drags a fading trail of its previous 8 frames, the same rendering as the state-diffusion gallery. Each panel carries that clip's own Δx(5) and Δx(GT).</figcaption>
+        <figcaption><span class="figure-number">Figure 26.</span> 49 frames, training seed 0, 50 steps. Panels left to right: ground truth, vanilla, rollout-1 guided, rollout-5 guided, oracle guided, block 4, and the two physics-law methods below. Every generated panel starts from the same initial noise, so the differences between them are due to the guidance alone; block 4 uses its own noise. Frames 0 to 4 are the given frames and are identical in every panel. Each ball drags a fading trail of its previous 8 frames, the same rendering as the state-diffusion gallery. Each panel carries that clip's own Δx(5) and Δx(GT).</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>Watching the trails shows what the metrics measure. The vanilla panel produces balls that turn in mid-flight, pass through each other and leave the wall at the wrong angle. Rollout-5 guidance removes many of these, so its trails look like a plausible billiard trajectory, but by the end of the clip the balls are nowhere near their true positions: a physically consistent future that starts from slightly different collisions diverges from the true one within about 20 frames. The oracle panel follows the truth panel almost exactly. Block 4 produces a consistent trajectory that is also a different one.</p>
@@ -1157,7 +1480,7 @@
       <figure class="plot" id="guidance-frames">
         <div class="figure-heading"><h3>The same clip as still frames</h3><a href="assets/statebench-guidance/figures/frames_clip112.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/frames_clip112.png" alt="Grid of six frames by eight methods: each generated ball is a filled disc joined by a line to a dashed circle at its true position, and the lines grow with frame number for every method except the oracle" width="1665" height="2047" loading="lazy">
-        <figcaption><span class="figure-number">Figure 21.</span> The filled disc is the generated ball; the dashed circle in the same colour is where that ball truly is at that frame, and the line joins the two — so the length of each line is that ball's contribution to the global error.</figcaption>
+        <figcaption><span class="figure-number">Figure 27.</span> The filled disc is the generated ball; the dashed circle in the same colour is where that ball truly is at that frame, and the line joins the two — so the length of each line is that ball's contribution to the global error.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>At frame 5 every method sits on the truth. By frame 20 the vanilla and both guided runs have visibly separated, and by frame 36 the lines are as long as the box. Only the oracle keeps every disc inside its dashed circle, which is why it has no visible lines. Guidance shortens these lines a little but does not stop them growing.</p>
@@ -1166,7 +1489,7 @@
       <figure class="plot" id="guidance-error-by-frame">
         <div class="figure-heading"><h3>Distance to the truth, frame by frame</h3><a href="assets/statebench-guidance/figures/error_by_frame.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/error_by_frame.png" alt="Mean distance to the true position against frame number: vanilla and both guided curves rise to the same plateau, block 4 rises later, the oracle stays flat and near zero" width="960" height="570" loading="lazy">
-        <figcaption><span class="figure-number">Figure 22.</span> The same quantity as Figure 21, averaged over the 896 holdout clips. Guidance with rollout targets delays the divergence by a few frames, block 4 delays it more, and all three reach the same plateau of unrelated positions by frame 40. Only the oracle stays near the truth.</figcaption>
+        <figcaption><span class="figure-number">Figure 28.</span> The same quantity as Figure 21, averaged over the 896 holdout clips. Guidance with rollout targets delays the divergence by a few frames, block 4 delays it more, and all three reach the same plateau of unrelated positions by frame 40. Only the oracle stays near the truth.</figcaption>
       </figure>
 
       <div class="reading-width report-content">
@@ -1177,7 +1500,7 @@
       <figure class="plot wide" id="guidance-dashboard">
         <div class="figure-heading"><h3>Every measure, every method, both clip lengths</h3><a href="assets/statebench-guidance/figures/shotgun_dashboard.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/shotgun_dashboard.png" alt="Dashboard of small multiples: each panel is one plausibility measure against clip length, with a line per method" width="2400" height="1152" loading="lazy">
-        <figcaption><span class="figure-number">Figure 23.</span> The figures in this group also carry the two physics-law rows described below, which were added later. Along clip length, every velocity-based measure of the guided models gets worse from 25 to 49 frames while block 4 and the oracle stay flat. The position-based measures are flat for everyone except vanilla's collision count, which grows from 4 to 10 excess collisions per clip.</figcaption>
+        <figcaption><span class="figure-number">Figure 29.</span> The figures in this group also carry the two physics-law rows described below, which were added later. Along clip length, every velocity-based measure of the guided models gets worse from 25 to 49 frames while block 4 and the oracle stay flat. The position-based measures are flat for everyone except vanilla's collision count, which grows from 4 to 10 excess collisions per clip.</figcaption>
       </figure>
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Plausibility measures at 49 frames">
@@ -1208,7 +1531,7 @@
       <figure class="plot" id="guidance-energy">
         <div class="figure-heading"><h3>The velocity channel loses energy through the clip</h3><a href="assets/statebench-guidance/figures/shotgun_energy_time.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/shotgun_energy_time.png" alt="Fraction of initial kinetic energy against frame number: both rollout-guided curves fall steadily while vanilla, oracle and block 4 stay near one" width="1760" height="576" loading="lazy">
-        <figcaption><span class="figure-number">Figure 24.</span> By frame 48 the rollout-5 sample keeps 47% of its initial kinetic energy, rollout-1 65%, vanilla 95%, the oracle and block 4 98%.</figcaption>
+        <figcaption><span class="figure-number">Figure 30.</span> By frame 48 the rollout-5 sample keeps 47% of its initial kinetic energy, rollout-1 65%, vanilla 95%, the oracle and block 4 98%.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>The rollout target's velocity at frame t is the simulator's velocity after running from the estimate's frame t−k. Early in sampling the estimate is a conditional mean whose velocities are averaged over many futures and therefore too small, and the target inherits and then enforces those small velocities. Neither local error catches this: the paper's re-estimates velocities from positions, and the generated-velocity variant only checks that a few frames are consistent with each other, which a trajectory that is too slow but self-consistent passes — both variants improve under rollout guidance. A conserved quantity tracked across the whole clip is what exposes it.</p>
@@ -1218,17 +1541,17 @@
       <figure class="plot" id="guidance-distributions">
         <div class="figure-heading"><h3>Collision counts and speeds</h3><a href="assets/statebench-guidance/figures/shotgun_distributions.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/shotgun_distributions.png" alt="Distributions of ball-ball collisions per clip and of ball speeds, one curve per method against the true distribution" width="1760" height="592" loading="lazy">
-        <figcaption><span class="figure-number">Figure 25.</span> Vanilla collides far too often; block 4 and the oracle match the data.</figcaption>
+        <figcaption><span class="figure-number">Figure 31.</span> Vanilla collides far too often; block 4 and the oracle match the data.</figcaption>
       </figure>
       <figure class="plot" id="guidance-divergence">
         <div class="figure-heading"><h3>Guidance delays divergence by one or two frames; block 4 by five</h3><a href="assets/statebench-guidance/figures/shotgun_divergence.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/shotgun_divergence.png" alt="Distribution of the frame at which a clip first exceeds one ball radius from the truth, per method" width="1760" height="576" loading="lazy">
-        <figcaption><span class="figure-number">Figure 26.</span> Half of vanilla's clips are more than a ball radius from the truth by frame 13, guided clips by frame 14 to 15, block 4 by frame 18. The oracle never diverges.</figcaption>
+        <figcaption><span class="figure-number">Figure 32.</span> Half of vanilla's clips are more than a ball radius from the truth by frame 13, guided clips by frame 14 to 15, block 4 by frame 18. The oracle never diverges.</figcaption>
       </figure>
       <figure class="plot" id="guidance-rollout-horizon">
         <div class="figure-heading"><h3>Rollout error at every horizon</h3><a href="assets/statebench-guidance/figures/shotgun_horizon.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/shotgun_horizon.png" alt="Local error against rollout horizon k, one curve per method, keeping the same order at every horizon" width="1216" height="736" loading="lazy">
-        <figcaption><span class="figure-number">Figure 27.</span> The curves keep their order at every horizon, so the choice of k = 1 and k = 5 does not change any conclusion, and the guided models track vanilla's shape rather than block 4's.</figcaption>
+        <figcaption><span class="figure-number">Figure 33.</span> The curves keep their order at every horizon, so the choice of k = 1 and k = 5 does not change any conclusion, and the guided models track vanilla's shape rather than block 4's.</figcaption>
       </figure>
 
       <div class="reading-width report-content">
@@ -1267,7 +1590,7 @@
       <figure class="plot" id="guidance-frechet">
         <div class="figure-heading"><h3>Fréchet distance against the number of principal components</h3><a href="assets/statebench-guidance/figures/distribution_frechet.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/distribution_frechet.png" alt="Fréchet distance against the number of principal components kept: vanilla, oracle and block 4 sit on the ground-truth noise floor at every dimension, while both rollout-guided methods are well above it" width="1680" height="496" loading="lazy">
-        <figcaption><span class="figure-number">Figure 28.</span> The conclusion does not depend on the dimension: only the rollout-guided models separate from the floor.</figcaption>
+        <figcaption><span class="figure-number">Figure 34.</span> The conclusion does not depend on the dimension: only the rollout-guided models separate from the floor.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <h4>Only the rollout-guided models separate, and only through their velocities</h4>
@@ -1276,17 +1599,17 @@
       <figure class="plot" id="guidance-saliency">
         <div class="figure-heading"><h3>What the classifier looks at</h3><a href="assets/statebench-guidance/figures/distribution_saliency.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/distribution_saliency.png" alt="Classifier input sensitivity by channel and frame, concentrated on the velocity channels at frames 8 to 15" width="1440" height="480" loading="lazy">
-        <figcaption><span class="figure-number">Figure 29.</span> The sensitivity is concentrated on the velocity channels at frames 8 to 15, where the guided models lose kinetic energy fastest — from 97% to 74% of the initial energy between frames 5 and 15.</figcaption>
+        <figcaption><span class="figure-number">Figure 35.</span> The sensitivity is concentrated on the velocity channels at frames 8 to 15, where the guided models lose kinetic energy fastest — from 97% to 74% of the initial energy between frames 5 and 15.</figcaption>
       </figure>
       <figure class="plot" id="guidance-dist-length">
         <div class="figure-heading"><h3>The separation grows with clip length</h3><a href="assets/statebench-guidance/figures/distribution_length.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/distribution_length.png" alt="Velocity distance and classifier accuracy against clip length: both rise for the guided models while the other three methods stay on the noise floor" width="1680" height="480" loading="lazy">
-        <figcaption><span class="figure-number">Figure 30.</span> The guided models' velocity distance and classifier accuracy grow with every step from 25 to 49 frames while the other three methods stay on the floor.</figcaption>
+        <figcaption><span class="figure-number">Figure 36.</span> The guided models' velocity distance and classifier accuracy grow with every step from 25 to 49 frames while the other three methods stay on the floor.</figcaption>
       </figure>
       <figure class="plot wide" id="guidance-umap">
         <div class="figure-heading"><h3>Physics-feature space against raw coordinates</h3><a href="assets/statebench-guidance/figures/distribution_umap.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/distribution_umap.png" alt="UMAP embeddings: in physics-feature space the methods form separate islands, while in raw-coordinate space they are one featureless cloud" width="2346" height="850" loading="lazy">
-        <figcaption><span class="figure-number">Figure 31.</span> Top row: each clip embedded by eleven per-clip physics measures from the table above, nothing relative to the truth. Bottom row: the raw 880 coordinates.</figcaption>
+        <figcaption><span class="figure-number">Figure 37.</span> Top row: each clip embedded by eleven per-clip physics measures from the table above, nothing relative to the truth. Bottom row: the raw 880 coordinates.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>In physics-feature space there are three islands: the truth alone, since every violation measure is exactly zero for it; the two rollout-guided models, with their low final energy; and a third island where vanilla forms its own blob next to a shared oracle-and-block-4 blob. In raw-coordinate space every method is the same featureless cloud. That matches the table: the raw coordinates do not carry the physics violations that the simulator-based measures detect.</p>
@@ -1318,7 +1641,7 @@
       <figure class="plot" id="guidance-laws-search">
         <div class="figure-heading"><h3>Round 1: laws plus differentiable rollouts</h3><a href="assets/statebench-guidance/figures/laws_iterations.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/laws_iterations.png" alt="Error across the search iterations of round 1, ending below the pre-set bar" width="1120" height="576" loading="lazy">
-        <figcaption><span class="figure-number">Figure 32.</span> The best configuration combines the geometry laws — no overlaps at a frame, no crossing between frames, inside the box — with differentiable rollouts of horizon 1, 2 and 3: the paper's dynamics re-implemented in torch with 8 sub-steps per frame, so frame t is compared with the simulated evolution of the model's own frame t−k and the gradient reaches both frames. Each law's gradient is bounded per element, strength 4.5, two corrections per step, then 16 restart rounds that re-noise to σ 0.35 and denoise again under the same guidance.</figcaption>
+        <figcaption><span class="figure-number">Figure 38.</span> The best configuration combines the geometry laws — no overlaps at a frame, no crossing between frames, inside the box — with differentiable rollouts of horizon 1, 2 and 3: the paper's dynamics re-implemented in torch with 8 sub-steps per frame, so frame t is compared with the simulated evolution of the model's own frame t−k and the gradient reaches both frames. Each law's gradient is bounded per element, strength 4.5, two corrections per step, then 16 restart rounds that re-noise to σ 0.35 and denoise again under the same guidance.</figcaption>
       </figure>
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Round 1 results at 49 frames and 50 steps">
@@ -1343,7 +1666,7 @@
       <figure class="plot" id="guidance-laws-restarts">
         <div class="figure-heading"><h3>How much of round 1 is the restarts?</h3><a href="assets/statebench-guidance/figures/laws_restarts.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/laws_restarts.png" alt="Local error against the number of restart rounds, one curve per method. Every curve falls; round 1's law curve is lowest but gains less in absolute terms than vanilla does" width="1312" height="832" loading="lazy">
-        <figcaption><span class="figure-number">Figure 33.</span> Restart count against error, at 49 frames. <strong>This is round 1's law family</strong> — geometry, pass-through and differentiable rollouts 1–3 at strength 3 — not the laws-only method of round 2, which is not plotted here. Unlike Figure 34, every series is matched: one guidance correction per step and one sample per clip. Restarts lower every method's error, and round 1's laws are second on both measures — vanilla gains most in absolute terms (0.134 against 0.108 from 0 to 8 restarts) and the oracle most in relative terms (43% against 22%). The hollow marker at 12 restarts is the one point on σ 0.35 rather than σ 0.5, so it does not belong to its own curve's schedule and no reference has a point there.</figcaption>
+        <figcaption><span class="figure-number">Figure 39.</span> Restart count against error, at 49 frames. <strong>This is round 1's law family</strong> — geometry, pass-through and differentiable rollouts 1–3 at strength 3 — not the laws-only method of round 2, which is not plotted here. Unlike Figure 34, every series is matched: one guidance correction per step and one sample per clip. Restarts lower every method's error, and round 1's laws are second on both measures — vanilla gains most in absolute terms (0.134 against 0.108 from 0 to 8 restarts) and the oracle most in relative terms (43% against 22%). The hollow marker at 12 restarts is the one point on σ 0.35 rather than σ 0.5, so it does not belong to its own curve's schedule and no reference has a point there.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <h3>Round 2: laws only</h3>
@@ -1381,7 +1704,7 @@
       <figure class="plot" id="guidance-laws-length">
         <div class="figure-heading"><h3>The same comparison, with every method given 24 restarts and 8 tries</h3><a href="assets/statebench-guidance/figures/matched_horizon.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/matched_horizon.png" alt="Local error against clip length, with every method given 24 restarts and 8 tries per clip, and block 4 drawn a second time without them. Block 4 is lowest at every length, laws-only is the flattest bidirectional curve, and the rollout curves are drawn with hollow markers where their samples lost more than 5 percent of the data's speed" width="1760" height="1056" loading="lazy">
-        <figcaption><span class="figure-number">Figure 34.</span> Every curve here got the extra sampling that only laws-only had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. Block 4 appears twice because these settings make it worse: the solid line has the same 24 restarts and 8 tries as everything else, the dotted line is block 4 run plainly, which is its best setting. The laws-only curves are round 3's law set, with the best of 8 tries per clip (solid) and with a single try (dashed); both beat round 2's law set at every clip length.</figcaption>
+        <figcaption><span class="figure-number">Figure 40.</span> Every curve here got the extra sampling that only laws-only had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. Block 4 appears twice because these settings make it worse: the solid line has the same 24 restarts and 8 tries as everything else, the dotted line is block 4 run plainly, which is its best setting. The laws-only curves are round 3's law set, with the best of 8 tries per clip (solid) and with a single try (dashed); both beat round 2's law set at every clip length.</figcaption>
       </figure>
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and 8 tries">

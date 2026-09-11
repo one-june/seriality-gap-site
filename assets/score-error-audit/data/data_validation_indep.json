@@ -1,0 +1,581 @@
+{
+  "checks": {
+    "cells": 16,
+    "all_one_clip_per_simulation": true,
+    "all_seed_disjoint": true,
+    "all_quotas_balanced": true,
+    "all_burn_in_respected": true,
+    "all_passed": true
+  },
+  "cells": [
+    {
+      "balls": 1,
+      "frames": 25,
+      "generated_frames": 20,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "0": 1024
+      },
+      "eval_quota_balanced": false,
+      "window_start_range": [
+        208,
+        364
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 8.098075866699219,
+        "0.25": 8.49795150756836,
+        "0.5": 9.011016845703125,
+        "0.75": 9.4695405960083,
+        "0.95": 9.896751403808594
+      },
+      "train_cache_sha256": "19fb0fd1506c7643beb263f558b19dbe79d9a3a02ed6320d97b3c13376279403",
+      "eval_cache_sha256": "cdf6e58323ff9bc92d0c8e5b6e3ccc65dc84d43c4356ec827568482671cf1130"
+    },
+    {
+      "balls": 2,
+      "frames": 25,
+      "generated_frames": 20,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "2": 512,
+        "3": 512
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        375
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.96848726272583,
+        "0.25": 6.5349955558776855,
+        "0.5": 9.068145751953125,
+        "0.75": 10.959891319274902,
+        "0.95": 12.533238410949707
+      },
+      "train_cache_sha256": "954c2dbd0c566928a7a36823daee4c08645202467c1b084fd0129e48158531df",
+      "eval_cache_sha256": "cf0d80efce5f7e8d3d14d4bd3834369e1660d6030910326f5d6ba15b93f3953c"
+    },
+    {
+      "balls": 3,
+      "frames": 25,
+      "generated_frames": 20,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "2": 342,
+        "3": 341,
+        "4": 341
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        375
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.5977253913879395,
+        "0.25": 5.706729888916016,
+        "0.5": 8.499332427978516,
+        "0.75": 11.0643310546875,
+        "0.95": 13.713807106018066
+      },
+      "train_cache_sha256": "5fd2f9390154db8086e10d70e8a507ef24518acb2fc4023034c7faa32e335705",
+      "eval_cache_sha256": "456def5a7e79644d3a4b52eaa198e9396254ab17830a15053e1d3c13cae44802"
+    },
+    {
+      "balls": 5,
+      "frames": 25,
+      "generated_frames": 20,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "4": 205,
+        "5": 205,
+        "6": 205,
+        "7": 205,
+        "8": 204
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        375
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.3710477352142334,
+        "0.25": 5.460220813751221,
+        "0.5": 8.150945663452148,
+        "0.75": 10.93889045715332,
+        "0.95": 14.389989852905273
+      },
+      "train_cache_sha256": "dd14bfd90df8ac25e6d41b96da3f456d418b5eb19c18390230a7d75d1921bdfd",
+      "eval_cache_sha256": "83f0c608b6c96accce30b97f6efb546a838b621fc258ee1011d6ada3078f14f2"
+    },
+    {
+      "balls": 1,
+      "frames": 33,
+      "generated_frames": 28,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "0": 1024
+      },
+      "eval_quota_balanced": false,
+      "window_start_range": [
+        204,
+        357
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 8.098075866699219,
+        "0.25": 8.49795150756836,
+        "0.5": 9.011016845703125,
+        "0.75": 9.4695405960083,
+        "0.95": 9.896751403808594
+      },
+      "train_cache_sha256": "e85a7f1730091fe6f32404626939ffd9a63834dcbb46ba97f9ca88ee2665ef5d",
+      "eval_cache_sha256": "31952cf37348ac6eb1fbd4a8c18df853b0a8e9e8a0221c6ef67c3e0eeffe6d03"
+    },
+    {
+      "balls": 2,
+      "frames": 33,
+      "generated_frames": 28,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "2": 256,
+        "3": 256,
+        "4": 256,
+        "5": 256
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        367
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.915560722351074,
+        "0.25": 6.320067882537842,
+        "0.5": 9.041271209716797,
+        "0.75": 11.098312377929688,
+        "0.95": 12.585148811340332
+      },
+      "train_cache_sha256": "5ddb3e605cc6ca4161c7e87fa3b1b6cae96990193f92f6ab5a0be43b9deaa3d4",
+      "eval_cache_sha256": "b78df42cdf28bb804bc9a5e61c765f72be9281eeb24d702a18d516f50d03e13d"
+    },
+    {
+      "balls": 3,
+      "frames": 33,
+      "generated_frames": 28,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "3": 171,
+        "4": 171,
+        "5": 171,
+        "6": 171,
+        "7": 170,
+        "8": 170
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        367
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.7494730949401855,
+        "0.25": 5.776793479919434,
+        "0.5": 8.47547435760498,
+        "0.75": 11.122832298278809,
+        "0.95": 13.81321907043457
+      },
+      "train_cache_sha256": "d0199e82f88f98bfddb22ece118ad4dda737fe030fd1f36bb2b7baa6c950afea",
+      "eval_cache_sha256": "940e0489e87bc77b9e4b7a8295fd270369a239620615e3a688f85166a5d94300"
+    },
+    {
+      "balls": 5,
+      "frames": 33,
+      "generated_frames": 28,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "5": 103,
+        "6": 103,
+        "7": 103,
+        "8": 103,
+        "9": 102,
+        "10": 102,
+        "11": 102,
+        "12": 102,
+        "13": 102,
+        "14": 102
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        367
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.4089508056640625,
+        "0.25": 5.477200984954834,
+        "0.5": 8.116710662841797,
+        "0.75": 10.843891143798828,
+        "0.95": 14.547374725341797
+      },
+      "train_cache_sha256": "a44ea6bbd3609f50e98c0edd6c03082fc99257b648c9cec95802724f489d83f7",
+      "eval_cache_sha256": "5b34af5c171c698fe1cf3a7659f0b19a952911c27de35a821461138b2658bea6"
+    },
+    {
+      "balls": 1,
+      "frames": 41,
+      "generated_frames": 36,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "0": 1024
+      },
+      "eval_quota_balanced": false,
+      "window_start_range": [
+        210,
+        357
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 8.098075866699219,
+        "0.25": 8.49795150756836,
+        "0.5": 9.011016845703125,
+        "0.75": 9.4695405960083,
+        "0.95": 9.896751403808594
+      },
+      "train_cache_sha256": "d8893e5eadc985ab69bc61cf73d6ebfce4a1dd9cd880cb79bcaddfbbf61fc3df",
+      "eval_cache_sha256": "d862d31c53b86b5cca72b6eba57751a6f4fb66bb35f9d4b34280752f493505d2"
+    },
+    {
+      "balls": 2,
+      "frames": 41,
+      "generated_frames": 36,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "3": 205,
+        "4": 205,
+        "5": 205,
+        "6": 205,
+        "7": 204
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        359
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.7103960514068604,
+        "0.25": 6.274703502655029,
+        "0.5": 9.09035873413086,
+        "0.75": 11.127140045166016,
+        "0.95": 12.701053619384766
+      },
+      "train_cache_sha256": "5ac925761719f5e2401a42601c171084d4ffde56cf54c6300beb04276ab4d4de",
+      "eval_cache_sha256": "f30235975c9a34e3c7684dbf459792236cc3d8602bfdd9ee1f012c7a2eed5c73"
+    },
+    {
+      "balls": 3,
+      "frames": 41,
+      "generated_frames": 36,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "4": 128,
+        "5": 128,
+        "6": 128,
+        "7": 128,
+        "8": 128,
+        "9": 128,
+        "10": 128,
+        "11": 128
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        359
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.479808807373047,
+        "0.25": 5.769510746002197,
+        "0.5": 8.472366333007812,
+        "0.75": 11.048746109008789,
+        "0.95": 13.75394058227539
+      },
+      "train_cache_sha256": "81964c47f88966278d6400b46f38ccf0f6044a8577bda00a6c51cfba23612c83",
+      "eval_cache_sha256": "e3ed71ab8a68cfb7ad2f3a97de7a54dc477e7948864d48c2192c3e23da0d7c96"
+    },
+    {
+      "balls": 5,
+      "frames": 41,
+      "generated_frames": 36,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "7": 86,
+        "8": 86,
+        "9": 86,
+        "10": 86,
+        "11": 85,
+        "12": 85,
+        "13": 85,
+        "14": 85,
+        "15": 85,
+        "16": 85,
+        "17": 85,
+        "18": 85
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        359
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.3428292274475098,
+        "0.25": 5.439418315887451,
+        "0.5": 8.244855880737305,
+        "0.75": 10.926515579223633,
+        "0.95": 14.391740798950195
+      },
+      "train_cache_sha256": "e5cb21ace2db886f04f2c6f29ad71b577865f300a2feb83aa19cba7829e0522d",
+      "eval_cache_sha256": "fe102790d336ca25b5f10f205867641f495c779dc167d6a51d68d5b8afae815c"
+    },
+    {
+      "balls": 1,
+      "frames": 49,
+      "generated_frames": 44,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "0": 1024
+      },
+      "eval_quota_balanced": false,
+      "window_start_range": [
+        200,
+        350
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 8.098075866699219,
+        "0.25": 8.49795150756836,
+        "0.5": 9.011016845703125,
+        "0.75": 9.4695405960083,
+        "0.95": 9.896751403808594
+      },
+      "train_cache_sha256": "c4eb3b489d58551a1a72bbc9c5015173624b5f24564fdf1189c84b02e8c00ebe",
+      "eval_cache_sha256": "1874d890cdae6793e61bf8dabedd12022f0f8c3bbe70fbb100c99ddaeadabc32"
+    },
+    {
+      "balls": 2,
+      "frames": 49,
+      "generated_frames": 44,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "4": 171,
+        "5": 171,
+        "6": 171,
+        "7": 171,
+        "8": 170,
+        "9": 170
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        351
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.777474880218506,
+        "0.25": 6.274796485900879,
+        "0.5": 9.145244598388672,
+        "0.75": 11.15695858001709,
+        "0.95": 12.699118614196777
+      },
+      "train_cache_sha256": "b872e452bf7f18cb11e5701d64b0217e08b5af6aed37445ea3cd1c676042e917",
+      "eval_cache_sha256": "de88902e6165a9370c5e18fee36af877dba292b7e6cecd52c95dd1ed0420f8ce"
+    },
+    {
+      "balls": 3,
+      "frames": 49,
+      "generated_frames": 44,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "5": 114,
+        "6": 114,
+        "7": 114,
+        "8": 114,
+        "9": 114,
+        "10": 114,
+        "11": 114,
+        "12": 113,
+        "13": 113
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        351
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.6834733486175537,
+        "0.25": 5.861133575439453,
+        "0.5": 8.461738586425781,
+        "0.75": 11.097441673278809,
+        "0.95": 13.776371955871582
+      },
+      "train_cache_sha256": "d067e1a8b6cf6fbc500b5bfbc98bf8d3bf3fa6fd3616bfe2fe1ca26d2f3a6b46",
+      "eval_cache_sha256": "788cf7a10cddbe90e198d33d3e7ba0cd315c1c4f62034793a74a20723e737b63"
+    },
+    {
+      "balls": 5,
+      "frames": 49,
+      "generated_frames": 44,
+      "protocol": "independent-simulations-v1",
+      "simulation_len": 400,
+      "burn_in": 200,
+      "train_clips": 20000,
+      "train_simulations": 20000,
+      "eval_clips": 1024,
+      "eval_simulations": 1024,
+      "train_eval_seed_disjoint": true,
+      "one_clip_per_simulation": true,
+      "eval_collision_quota": {
+        "8": 69,
+        "9": 69,
+        "10": 69,
+        "11": 69,
+        "12": 68,
+        "13": 68,
+        "14": 68,
+        "15": 68,
+        "16": 68,
+        "17": 68,
+        "18": 68,
+        "19": 68,
+        "20": 68,
+        "21": 68,
+        "22": 68
+      },
+      "eval_quota_balanced": true,
+      "window_start_range": [
+        200,
+        351
+      ],
+      "eval_first_frame_speed_quantiles": {
+        "0.05": 2.303312063217163,
+        "0.25": 5.3592681884765625,
+        "0.5": 8.159911155700684,
+        "0.75": 10.852813720703125,
+        "0.95": 14.567239761352539
+      },
+      "train_cache_sha256": "fc7fa1124b95084b68473f4b3edfba4ca4b252456ee7e1f6d00beb94c731ba82",
+      "eval_cache_sha256": "5ba097d8068f003b2acd002b4168ce03ba0cbd650d89b44495abd93079456c75"
+    }
+  ]
+}
