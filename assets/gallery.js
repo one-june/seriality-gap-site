@@ -1,13 +1,14 @@
-/* Figure galleries: show one group at a time and play only what is on screen.
+/* Figure galleries: play only what is on screen, and where a gallery has a selector,
+   show one group at a time.
 
    A <select data-gallery="ID"> switches between the .gallery-group children of #ID,
-   matching the option's value against each group's data-key. */
+   matching the option's value against each group's data-key. A gallery without a
+   selector, such as the five guidance clips, simply lists its .gallery-item children. */
 (() => {
   "use strict";
   const galleries = Array.from(document.querySelectorAll("select[data-gallery]"))
     .map((select) => ({ select, container: document.getElementById(select.dataset.gallery) }))
     .filter(({ container }) => container);
-  if (!galleries.length) return;
 
   for (const { select, container } of galleries) {
     const groups = Array.from(container.querySelectorAll(".gallery-group"));
@@ -29,7 +30,8 @@
 
   // Autoplay is a convenience, so skip it when the reader asks for less motion or the
   // browser cannot tell us what is on screen. The per-video controls still work.
-  const videos = galleries.flatMap(({ container }) => Array.from(container.querySelectorAll("video")));
+  const videos = Array.from(document.querySelectorAll(".gallery video"));
+  if (!videos.length) return;
   const still = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (still.matches || !("IntersectionObserver" in window)) return;
 

@@ -1449,38 +1449,39 @@
       <figure class="plot wide" id="guidance-qualitative">
         <div class="figure-heading">
           <h3>What the methods actually produce</h3>
-          <label class="gallery-select">Clip <select id="gallery-clip" data-gallery="guidance-gallery" disabled><option value="112" selected>median error</option><option value="157">guidance helps most</option><option value="69">guidance hurts most</option></select></label>
         </div>
-        <div class="gallery" id="guidance-gallery">
-          <div class="gallery-group" data-key="112">
-            <div class="gallery-item">
-              <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip112.mp4" width="2288" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 112 with the median vanilla error: eight panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, block 4, and both physics-law methods"></video></div>
-              <p class="gallery-label">Clip 112, the median vanilla Δx(5) · <a href="assets/statebench-guidance/videos/clip112.mp4" target="_blank" rel="noopener">open video ↗</a></p>
-            </div>
+        <div class="gallery">
+          <div class="gallery-item">
+            <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip265.mp4" width="1712" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 265: six panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, and block 4"></video></div>
+            <p class="gallery-label">Clip 265 · <a href="assets/statebench-guidance/videos/clip265.mp4" target="_blank" rel="noopener">open video ↗</a></p>
           </div>
-          <div class="gallery-group" data-key="157">
-            <div class="gallery-item">
-              <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip157.mp4" width="2288" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 157, where rollout-5 guidance helps most: the same eight panels"></video></div>
-              <p class="gallery-label">Clip 157, the largest rollout-5 improvement · <a href="assets/statebench-guidance/videos/clip157.mp4" target="_blank" rel="noopener">open video ↗</a></p>
-            </div>
+          <div class="gallery-item">
+            <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip301.mp4" width="1712" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 301: six panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, and block 4"></video></div>
+            <p class="gallery-label">Clip 301 · <a href="assets/statebench-guidance/videos/clip301.mp4" target="_blank" rel="noopener">open video ↗</a></p>
           </div>
-          <div class="gallery-group" data-key="69">
-            <div class="gallery-item">
-              <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip69.mp4" width="2288" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 69, where rollout-5 guidance hurts most: the same eight panels"></video></div>
-              <p class="gallery-label">Clip 69, the largest rollout-5 deterioration · <a href="assets/statebench-guidance/videos/clip69.mp4" target="_blank" rel="noopener">open video ↗</a></p>
-            </div>
+          <div class="gallery-item">
+            <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip512.mp4" width="1712" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 512: six panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, and block 4"></video></div>
+            <p class="gallery-label">Clip 512 · <a href="assets/statebench-guidance/videos/clip512.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+          </div>
+          <div class="gallery-item">
+            <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip642.mp4" width="1712" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 642: six panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, and block 4"></video></div>
+            <p class="gallery-label">Clip 642 · <a href="assets/statebench-guidance/videos/clip642.mp4" target="_blank" rel="noopener">open video ↗</a></p>
+          </div>
+          <div class="gallery-item">
+            <div class="video-scroll"><video src="assets/statebench-guidance/videos/clip864.mp4" width="1712" height="368" muted loop playsinline controls preload="metadata" aria-label="Holdout clip 864: six panels showing truth, vanilla, rollout-1, rollout-5 and oracle guidance, and block 4"></video></div>
+            <p class="gallery-label">Clip 864 · <a href="assets/statebench-guidance/videos/clip864.mp4" target="_blank" rel="noopener">open video ↗</a></p>
           </div>
         </div>
-        <figcaption><span class="figure-number">Figure 26.</span> 49 frames, training seed 0, 50 steps. Panels left to right: ground truth, vanilla, rollout-1 guided, rollout-5 guided, oracle guided, block 4, and the two physics-law methods below. Every generated panel starts from the same initial noise, so the differences between them are due to the guidance alone; block 4 uses its own noise. Frames 0 to 4 are the given frames and are identical in every panel. Each ball drags a fading trail of its previous 8 frames, the same rendering as the state-diffusion gallery. Each panel carries that clip's own Δx(5) and Δx(GT).</figcaption>
+        <figcaption><span class="figure-number">Figure 26.</span> Five holdout clips drawn at random, 49 frames, training seed 0, 50 steps. Panels left to right: ground truth, vanilla, rollout-1 guided, rollout-5 guided, oracle guided, block 4. Every generated panel starts from the same initial noise, so the differences between them are due to the guidance alone; block 4 uses its own noise. Frames 0 to 4 are the given frames and are identical in every panel. Each ball drags a fading trail of its previous 8 frames, the same rendering as the state-diffusion gallery. Each panel carries that clip’s own Δx(5) and Δx(GT).</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>Watching the trails shows what the metrics measure. The vanilla panel produces balls that turn in mid-flight, pass through each other and leave the wall at the wrong angle. Rollout-5 guidance removes many of these, so its trails look like a plausible billiard trajectory, but by the end of the clip the balls are nowhere near their true positions: a physically consistent future that starts from slightly different collisions diverges from the true one within about 20 frames. The oracle panel follows the truth panel almost exactly. Block 4 produces a consistent trajectory that is also a different one.</p>
       </div>
 
       <figure class="plot" id="guidance-frames">
-        <div class="figure-heading"><h3>The same clip as still frames</h3><a href="assets/statebench-guidance/figures/frames_clip112.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
+        <div class="figure-heading"><h3>Clip 112 as still frames</h3><a href="assets/statebench-guidance/figures/frames_clip112.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
         <img src="assets/statebench-guidance/figures/frames_clip112.png" alt="Grid of six frames by eight methods: each generated ball is a filled disc joined by a line to a dashed circle at its true position, and the lines grow with frame number for every method except the oracle" width="1665" height="2047" loading="lazy">
-        <figcaption><span class="figure-number">Figure 27.</span> The filled disc is the generated ball; the dashed circle in the same colour is where that ball truly is at that frame, and the line joins the two — so the length of each line is that ball's contribution to the global error.</figcaption>
+        <figcaption><span class="figure-number">Figure 27.</span> Holdout clip 112, the median vanilla Δx(5), with the two physics-law methods included as the last two rows. The filled disc is the generated ball; the dashed circle in the same colour is where that ball truly is at that frame, and the line joins the two — so the length of each line is that ball's contribution to the global error.</figcaption>
       </figure>
       <div class="reading-width report-content">
         <p>At frame 5 every method sits on the truth. By frame 20 the vanilla and both guided runs have visibly separated, and by frame 36 the lines are as long as the box. Only the oracle keeps every disc inside its dashed circle, which is why it has no visible lines. Guidance shortens these lines a little but does not stop them growing.</p>

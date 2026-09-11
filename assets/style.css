@@ -107,6 +107,7 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .video-scroll { max-width: 100%; overflow-x: auto; }
 .video-scroll video { min-width: 860px; }
 .gallery, .gallery-group { display: grid; gap: 26px; }
+.gallery-group, .gallery-item { min-width: 0; }
 .gallery-select { display: flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: .74rem; font-weight: 650; color: var(--muted); }
 .gallery-select select { min-height: 36px; font-size: .8rem; }
 .gallery-item video { display: block; width: 100%; height: auto; background: #fff; border: 1px solid #e8e5df; border-radius: 8px; }

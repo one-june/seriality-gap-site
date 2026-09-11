@@ -89,7 +89,7 @@ The overview diagram is hand-written inline SVG in `.traj`, with no library and 
 | `assets/statebench/videos/` | The 16 trajectory clips (truth, bidirectional, block 4) and their source records |
 | `assets/statebench/data/` | Per-seed evaluation numbers behind those charts |
 | `assets/statebench-guidance/figures/` | The 16 state-guidance figures from `experiments/statebench-guidance/out/` |
-| `assets/statebench-guidance/videos/` | The three qualitative clips, eight methods side by side |
+| `assets/statebench-guidance/videos/` | Five randomly drawn holdout clips, six methods side by side |
 | `assets/statebench-guidance/data/` | Selected strengths, every run, and both evaluation suites |
 | `assets/gallery.js` | Group selector and on-screen playback, shared by both figure galleries |
 | `.nojekyll` | Publish these files directly without Jekyll processing |
@@ -150,18 +150,19 @@ The section's prose was adapted from `experiments/score-error-audit/REPORT.md`; 
 
 ## Refresh the state-guidance section
 
-Run `python scripts/export_project_page_statebench_guidance.py` from the repository root. It copies 16 figures into `assets/statebench-guidance/figures/`, the three qualitative MP4s into `assets/statebench-guidance/videos/`, and four summary CSVs into `assets/statebench-guidance/data/`. It runs no training, sampling, or evaluation, and it does not change `index.html`.
+Run `python scripts/export_project_page_statebench_guidance.py` from the repository root. It copies 17 figures into `assets/statebench-guidance/figures/`, the five qualitative MP4s into `assets/statebench-guidance/videos/`, and four summary CSVs into `assets/statebench-guidance/data/`. It runs no training, sampling, or evaluation, and it does not change `index.html`.
 
 Build the inputs first, from `experiments/statebench-guidance/`:
 
 ```bash
 python scripts/aggregate.py
-python scripts/make_qualitative.py --mp4
+python scripts/make_qualitative.py --mp4                     # clip 112's frame strips and the error curve
+python scripts/make_qualitative.py --mp4 --no-gif --random 5 --pick-seed 0 --drop laws,laws_only --animation-only
 python scripts/shotgun_eval.py && python scripts/shotgun_figures.py
 python scripts/distribution_eval.py && python scripts/distribution_figures.py
 ```
 
-The export names the missing step if any figure is absent. `make_qualitative.py --mp4` writes the H.264 copies the page uses next to the GIFs the Markdown report uses, at a larger panel size so the labels are legible on screen; the GIFs themselves are unchanged by that flag.
+The export names the missing step if any figure is absent. `make_qualitative.py --mp4` writes the H.264 copies the page uses next to the GIFs the Markdown report uses, at a larger panel size so the labels are legible on screen; the GIFs themselves are unchanged by that flag. The second command writes the five clips the page's gallery shows: `--random 5 --pick-seed 0` draws five holdout clips and records them in `out/qualitative/picks_random.json`, `--drop laws,laws_only` leaves out the two physics-law panels, and `--animation-only` skips the frame strips and the error curve, which still come from clip 112 and keep all eight methods.
 
 The section's prose was adapted from `experiments/statebench-guidance/REPORT.md`; edits to that Markdown file are not applied to the page automatically. It uses `#state-guidance`, with per-result anchors `#guidance-horizon`, `#guidance-strength`, `#guidance-qualitative`, `#guidance-frames`, `#guidance-error-by-frame`, `#guidance-dashboard`, `#guidance-energy`, `#guidance-distributions`, `#guidance-divergence`, `#guidance-rollout-horizon`, `#guidance-frechet`, `#guidance-saliency`, `#guidance-dist-length`, `#guidance-umap`, `#guidance-laws-search`, `#guidance-laws-restarts`, and `#guidance-laws-length`.
 
