@@ -1743,7 +1743,7 @@
       </div>
       <div class="wide-width report-content">
         <h3>What the local errors do not show</h3>
-        <p>The plausibility measures above, recomputed on both rounds' final trajectories. 49 frames, 896 holdout clips, 3 seeds:</p>
+        <p>The plausibility measures from earlier, recomputed on the trajectories both law sets produced:</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Plausibility measures for the physics-law methods">
           <table>
             <thead><tr><th>49 frames</th><th>truth</th><th>vanilla</th><th>rollout-5</th><th>oracle</th><th>block 4</th><th>laws + rollouts</th><th>laws only</th></tr></thead>
@@ -1761,9 +1761,9 @@
         </div>
       </div>
       <div class="reading-width report-content">
-        <p><strong>Round 1 buys its local error partly by collision avoidance.</strong> Its samples contain 5.5 ball–ball collisions per clip against 15 in the data and lose half their kinetic energy; a collision that never happens cannot be resolved wrongly.</p>
-        <p><strong>Round 2 does not.</strong> The laws-only method keeps energy at 0.95, vanilla's level, keeps the speed distribution at 0.21 against 0.23 for vanilla and 1.7 for rollout-5, halves vanilla's phantom velocity changes, has no overlaps, and its collision residual is half of vanilla's. It still collides less often than the data, 11 against 15, which is the remaining distributional defect — smaller than round 1's 5.5, and absent from rollout-5's 15.4.</p>
-        <p>Neither method changes the global error: both make a consistent future, not the true one. <strong>Block 4 remains the only method that is accurate, energy-conserving and collision-faithful at once</strong>, at 0.223.</p>
+        <p><strong>The first law set gets part of its accuracy by avoiding collisions rather than by getting them right.</strong> Its clips contain roughly a third as many ball-to-ball collisions as real ones, and the balls lose half their energy. A collision that never happens cannot be resolved wrongly, so dodging them lowers the error without improving the physics.</p>
+        <p><strong>The geometry law set does not cheat that way.</strong> It keeps as much energy as the unguided model, matches the real distribution of ball speeds, halves the unguided model&rsquo;s unexplained velocity changes, never overlaps two balls, and halves its collision-law error. It still collides less often than real clips, which is its one remaining defect — milder than the first law set&rsquo;s, and absent from the rollout target, which gets the collision rate right.</p>
+        <p>Neither law set improves the global error. Both produce a physically consistent future rather than the true one. <strong>Block 4 is still the only method that is accurate, keeps its energy and collides as often as real clips, all at the same time.</strong></p>
       </div>
 
       <div class="data-section reading-width" id="state-guidance-data">
