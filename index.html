@@ -1692,7 +1692,7 @@
         </div>
       </div>
       <div class="reading-width report-content">
-        <p>Measured against methods run without restarts or repeated tries, this set looked like a clear win. It is not: give the rollout target the same restarts and the same repeated tries and most of the apparent win disappears. The comparison below does that for every method.</p>
+        <p>Measured against methods run without restarts or repeated tries, this set looked like a clear win. It is not: give the rollout target the same restarts and the same repeated tries and most of the apparent win disappears. The two figures below give every method the same settings, and differ only in whether each method keeps the best of its tries.</p>
         <p>This set has three parts, and only the first is guidance:</p>
         <ol>
           <li><strong>Geometry guidance.</strong> No overlaps, no crossings, inside the box; bounded per-element step, strength 3, plus the relative-velocity reflection law at weight 0.3, faded as it is satisfied, applied only when σ ≤ 0.35 and added without renormalising the geometry step. The reflection helper is worth 0.02; nothing else helps as a guide.</li>
@@ -1705,41 +1705,56 @@
         <p>The same laws are useful in a different role. Instead of guiding, they score finished clips, and the best-scoring one is kept. Nothing is being optimised against them, so there is nothing to game, and they rank clips well.</p>
       </div>
       <figure class="plot" id="guidance-laws-length">
-        <div class="figure-heading"><h3>Every method given the same restarts and the same repeated tries</h3><a href="assets/statebench-guidance/figures/matched_horizon.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
-        <img src="assets/statebench-guidance/figures/matched_horizon.png" alt="Local error against clip length. Every method gets the same restarts and repeated tries; block 4 appears a second time without them, and each guided method appears a second time scored on a single try. Block 4 run plainly is lowest at every length and the law curve is the flattest of the one-pass methods" width="1760" height="1120" loading="lazy">
-        <figcaption><span class="figure-number">Figure 40.</span> Every curve here got the three settings that only the law methods had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. Block 4 appears twice because these settings make it worse: the solid line is block 4 run plainly, which is its best setting and the comparison that matters, and the dotted line is block 4 given the same restarts and tries as everything else. Each guided method is drawn twice: solid for the clip its critic keeps out of eight tries, dashed for the average of those eight. The gap between a pair is what the selection buys, and it is similar for all three, so it is not a law-specific advantage. The law curves are the full law set, which beats the geometry-only set at every clip length.</figcaption>
+        <div class="figure-heading"><h3>Every method given the same restarts, with nothing selected</h3><a href="assets/statebench-guidance/figures/matched_noselect.png" download>Download PNG <span aria-hidden="true">&darr;</span></a></div>
+        <img src="assets/statebench-guidance/figures/matched_noselect.png" alt="Local error against clip length for seven methods. Every method gets the same restarts and none of them selects among its tries. Block 4 run plainly is lowest at every length; the full law set is the only guided curve that does not rise with length; both rollout targets carry hollow markers on the longer clips" width="1760" height="976" loading="lazy">
+        <figcaption><span class="figure-number">Figure 40.</span> Nothing is selected here. Each method generates eight clips per holdout clip from different starting noise, and the error is the average over all eight. Every method also gets 24 restarts from &sigma; 0.45, except block 4 run plainly, which gets none &mdash; that is block 4&rsquo;s best setting and the comparison that matters, so it is drawn solid and its restarted version dotted. The guided curves run the model twice per denoising step, at a guidance strength re-picked for these settings on the 128 calibration clips; it came out the same for all three targets, and lower than the strength that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice &mdash; the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data&rsquo;s mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. The dashed lines are the same three guided methods keeping the best of their eight tries instead of averaging over them; the distance from a solid line to its dashed partner is what that selection buys. The law curves are the full law set, which beats the geometry-only set at every clip length.</figcaption>
       </figure>
       <div class="wide-width report-content">
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and 8 tries">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and no selection among tries">
           <table>
-            <thead><tr><th>Δx(5), 24 restarts + 8 tries for every method</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25→49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
+            <thead><tr><th>&Delta;x(5), 24 restarts, nothing selected</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25&rarr;49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
             <tbody>
-              <tr><td>oracle (positive control)</td><td>0.096</td><td>0.096</td><td>0.095</td><td>0.088</td><td>0.91×</td><td>every length</td></tr>
-              <tr><td><strong>block 4 (autoregressive)</strong></td><td><strong>0.237</strong></td><td><strong>0.261</strong></td><td><strong>0.267</strong></td><td><strong>0.276</strong></td><td>1.17×</td><td>every length</td></tr>
-              <tr><td><strong>full law set, repeated tries</strong> — the best we found</td><td><strong>0.293</strong></td><td><strong>0.285</strong></td><td><strong>0.286</strong></td><td><strong>0.278</strong></td><td><strong>0.95×</strong></td><td>every length</td></tr>
-              <tr><td>full law set, one try per clip</td><td>0.335</td><td>0.328</td><td>0.334</td><td>0.322</td><td>0.96×</td><td>every length</td></tr>
-              <tr><td>geometry laws only (superseded)</td><td>0.365</td><td>0.387</td><td>0.391</td><td>0.388</td><td>1.06×</td><td>every length</td></tr>
-              <tr><td>rollout-5 target</td><td>0.307</td><td>0.355</td><td>0.406</td><td>0.425</td><td>1.38×</td><td>no, from 41 frames</td></tr>
-              <tr><td>rollout-1 target</td><td>0.350</td><td>0.412</td><td>0.458</td><td>0.474</td><td>1.35×</td><td>no, from 33 frames</td></tr>
-              <tr><td>vanilla</td><td>0.556</td><td>0.638</td><td>0.653</td><td>0.661</td><td>1.19×</td><td>every length</td></tr>
-              <tr><td><strong>block 4 run plainly</strong>, no restarts and no tries</td><td><strong>0.233</strong></td><td><strong>0.239</strong></td><td><strong>0.233</strong></td><td><strong>0.223</strong></td><td>0.96×</td><td>every length</td></tr>
+              <tr><td>oracle (positive control)</td><td>0.098</td><td>0.097</td><td>0.096</td><td>0.089</td><td>0.91&times;</td><td>every length</td></tr>
+              <tr><td><strong>block 4 (autoregressive)</strong></td><td><strong>0.266</strong></td><td><strong>0.303</strong></td><td><strong>0.320</strong></td><td><strong>0.327</strong></td><td>1.23&times;</td><td>no, at 49 frames</td></tr>
+              <tr><td><strong>full law set</strong> &mdash; the best we found</td><td><strong>0.334</strong></td><td><strong>0.332</strong></td><td><strong>0.333</strong></td><td><strong>0.322</strong></td><td><strong>0.97&times;</strong></td><td>every length</td></tr>
+              <tr><td>rollout-5 target</td><td>0.345</td><td>0.414</td><td>0.478</td><td>0.498</td><td>1.44&times;</td><td>no, from 41 frames</td></tr>
+              <tr><td>rollout-1 target</td><td>0.409</td><td>0.489</td><td>0.530</td><td>0.537</td><td>1.31&times;</td><td>no, from 33 frames</td></tr>
+              <tr><td>vanilla</td><td>0.572</td><td>0.669</td><td>0.689</td><td>0.691</td><td>1.21&times;</td><td>every length</td></tr>
+              <tr><td><strong>block 4 run plainly</strong>, no restarts</td><td><strong>0.233</strong></td><td><strong>0.239</strong></td><td><strong>0.233</strong></td><td><strong>0.223</strong></td><td>0.96&times;</td><td>every length</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="setup-note">896 holdout clips, mean over 3 seeds. Speed is the mean ball speed measured from the generated positions, divided by the truth&rsquo;s; a method that slows every ball down lowers the local error without predicting better, so a value below 0.95 disqualifies the number.</p>
+        <p class="setup-note">896 holdout clips, mean over 3 seeds and over 8 tries per clip. Speed is the mean ball speed measured from the generated positions, divided by the truth&rsquo;s; a method that slows every ball down lowers the local error without predicting better, so a value below 0.95 disqualifies the number.</p>
       </div>
-      <div class="reading-width report-content">
-        <figure class="plot" id="guidance-laws-onetry">
-        <div class="figure-heading"><h3>The same comparison again, with the best-of-eight pick removed</h3><a href="assets/statebench-guidance/figures/matched_horizon_onetry.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
-        <img src="assets/statebench-guidance/figures/matched_horizon_onetry.png" alt="The previous comparison redrawn with no selection: every curve is the average of its eight tries. Block 4 run plainly is still lowest, and both rollout targets carry hollow markers on the longer clips" width="1760" height="992" loading="lazy">
-        <figcaption><span class="figure-number">Figure 41.</span> The previous figure with one thing changed: no method keeps the best of its eight tries, and every curve is the average of all eight instead. Same restarts, same corrections per step, same guidance strengths, same axes. Block 4 run plainly is the only curve unaffected, since it never had tries to pick from.</figcaption>
+      <figure class="plot" id="guidance-laws-bon8">
+        <div class="figure-heading"><h3>The same comparison with every method keeping the best of its eight tries</h3><a href="assets/statebench-guidance/figures/matched_bon8.png" download>Download PNG <span aria-hidden="true">&darr;</span></a></div>
+        <img src="assets/statebench-guidance/figures/matched_bon8.png" alt="The previous comparison with one setting changed: every method now keeps the clip its law critic scores best out of eight tries. Every curve drops, the ordering barely moves, and block 4 given the restarts no longer carries a hollow marker" width="1760" height="976" loading="lazy">
+        <figcaption><span class="figure-number">Figure 41.</span> Figure 40 with one setting changed: every method now keeps the clip its law critic scores best out of its eight tries, rather than averaging over them. The critic scores a finished clip on three of the laws &mdash; position-only free flight, speed constancy outside contacts, and total momentum outside wall contacts &mdash; fixed in advance on a separate run. Same restarts, same corrections per denoising step, same guidance strengths, same axes as Figure 40, and the dashed lines are Figure 40&rsquo;s averages. Block 4 run plainly is the only curve that does not move, since it has no tries to choose from.</figcaption>
       </figure>
-      <div class="reading-width report-content">
-        <p>Removing the selection costs every method something, and it costs them similar amounts, so the ordering barely moves. The full law set and block 4 given the same restarts still finish level on the longest clips, and block 4 run plainly is still clearly ahead of both. What the selection was worth is the gap between each pair of lines across the two figures, and no method gains a decisive advantage from it.</p>
-        <p>One thing does change. Block 4 given the restarts now fails the speed check at the longest clip length, which it passed when the critic was choosing for it. Picking the best of eight was partly repairing the damage the restarts do to it — more evidence that the restarts are the wrong setting for that model, and that its plain run is the number worth comparing against.</p>
+      <div class="wide-width report-content">
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and keeping the best of eight tries">
+          <table>
+            <thead><tr><th>&Delta;x(5), 24 restarts, best of 8 tries</th><th>25f</th><th>33f</th><th>41f</th><th>49f</th><th>25&rarr;49</th><th>keeps the data&rsquo;s speed?</th></tr></thead>
+            <tbody>
+              <tr><td>oracle (positive control)</td><td>0.096</td><td>0.096</td><td>0.095</td><td>0.088</td><td>0.91&times;</td><td>every length</td></tr>
+              <tr><td><strong>block 4 (autoregressive)</strong></td><td><strong>0.237</strong></td><td><strong>0.261</strong></td><td><strong>0.267</strong></td><td><strong>0.276</strong></td><td>1.17&times;</td><td>every length</td></tr>
+              <tr><td><strong>full law set</strong> &mdash; the best we found</td><td><strong>0.293</strong></td><td><strong>0.285</strong></td><td><strong>0.286</strong></td><td><strong>0.278</strong></td><td><strong>0.95&times;</strong></td><td>every length</td></tr>
+              <tr><td>geometry laws only (superseded)</td><td>0.365</td><td>0.387</td><td>0.391</td><td>0.388</td><td>1.06&times;</td><td>every length</td></tr>
+              <tr><td>rollout-5 target</td><td>0.307</td><td>0.355</td><td>0.406</td><td>0.425</td><td>1.38&times;</td><td>no, from 41 frames</td></tr>
+              <tr><td>rollout-1 target</td><td>0.350</td><td>0.412</td><td>0.458</td><td>0.474</td><td>1.35&times;</td><td>no, from 33 frames</td></tr>
+              <tr><td>vanilla</td><td>0.556</td><td>0.638</td><td>0.653</td><td>0.661</td><td>1.19&times;</td><td>every length</td></tr>
+              <tr><td><strong>block 4 run plainly</strong>, no restarts and no tries</td><td><strong>0.233</strong></td><td><strong>0.239</strong></td><td><strong>0.233</strong></td><td><strong>0.223</strong></td><td>0.96&times;</td><td>every length</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="setup-note">896 holdout clips, mean over 3 seeds.</p>
       </div>
-
-      <h4>What the full law set actually does</h4>
+      <div class="reading-width report-content">
+        <p>Keeping the best of eight helps every method, and helps them by similar amounts, so the ordering barely changes. Whatever the critic is picking up on is not specific to the law-guided model. The full law set and block 4 given the same restarts finish level on the longest clips either way, and block 4 run plainly stays clearly ahead of both.</p>
+        <p>One thing does change. Block 4 given the restarts fails the speed check at the longest clip length when its eight tries are averaged, and passes it when the critic chooses one. The selection is partly repairing what the restarts do to that model &mdash; more evidence that the restarts are the wrong setting for it, and that its plain run is the number worth comparing against.</p>
+      </div>
+      <div class="reading-width report-content">
+        <h4>What the full law set actually does</h4>
         <p>At every denoising step the model produces its current guess at the finished clip. Ten laws are evaluated on that guess, each one an equation the true motion satisfies exactly, and the guess is nudged toward satisfying them. Nothing simulates the motion forward at any point.</p>
         <p>Write \(p_t^b\) and \(v_t^b\) for the position and velocity of ball \(b\) at frame \(t\) in the current guess, \(\Delta t\) for the frame interval, \(r\) for the ball radius, and \(\rho_t^{ij} = p_t^i - p_t^j\) for the vector between a pair of balls. Every law is written on one interval, from frame \(t-1\) to frame \(t\), and averaged over balls or pairs and over the generated frames.</p>
 
@@ -1791,16 +1806,16 @@
           \[ \alpha_k = w_k\,\frac{L_k}{\lVert \nabla L_k \rVert^2}, \qquad \text{correction} = \alpha_k \nabla L_k, \]
         </div>
         <p>capped so one law cannot dominate a step. The per-law corrections are then added. This happens twice per denoising step.</p>
-        <p>Two things sit on top and are not guidance: the finished clip is partly re-noised and denoised again twenty-four times, and several clips are generated with three of the laws used to score them and the best kept. Both help any method, which is what the comparison below controls for.</p>
+        <p>Two things sit on top and are not guidance: the finished clip is partly re-noised and denoised again twenty-four times, and several clips are generated with three of the laws used to score them and the best kept. Both help any method, which is what the comparison above controls for.</p>
 
         <h4>Most of the apparent win came from the extra sampling work</h4>
         <p>The geometry law set looked far better than the rollout target, but the rollout target had been run without restarts or repeated tries. Give it both and almost all of that difference disappears. Those two settings help any guidance, and they help the unguided model most of all. The full law set does open a genuine gap over the rollout target, and that gap comes from the laws, because both methods now get the same sampling.</p>
-        <h4>On the shortest clips the rollout target is more accurate</h4>
-        <p>On the shortest clips the rollout target is ahead of the best law set, and its samples still move at the right speed there, so that lead is real. The law set takes over on longer clips. On the two longest, the rollout target has started slowing the balls down, so its numbers there do not count at all.</p>
+        <h4>The full law set beats both rollout targets at every clip length</h4>
+        <p>It does so whether each method averages its eight tries or keeps the best of them, and the margin widens as clips get longer. The rollout targets also start slowing the balls down on the longer clips, so their numbers there do not count at all, while the law set keeps the data&rsquo;s speed everywhere.</p>
         <h4>Law guidance is the only guidance whose error stops growing with clip length</h4>
         <p>The best law set&rsquo;s error is the same at the longest clip length as at the shortest, and slightly lower. Every other guided method gets worse as clips lengthen, and so does block 4 once it is given the restarts. The law set also keeps the data&rsquo;s speed at every length, so this is not the slow-sample effect. It behaves the same way with a single try as with repeated tries, so it comes from the laws and not from picking the best of several clips.</p>
         <h4>Given the same sampling, law guidance matches generating in order</h4>
-        <p>On the longest clips the best law set and block 4 reach the same five-step error, within the spread across training seeds, and the law set is ahead on the one-step error. The two cross: block 4 leads on short clips and loses that lead on long ones, because the restarts make block 4 worse as clips lengthen while the law set holds steady.</p>
+        <p>On the longest clips the best law set and block 4 given the same restarts reach the same five-step error, within the spread across training seeds, and the law set is ahead on the one-step error. Without the selection, block 4&rsquo;s number at that length is disqualified by the speed check as well. The two cross: block 4 leads on short clips and loses that lead on long ones, because the restarts make block 4 worse as clips lengthen while the law set holds steady.</p>
         <p>That tie depends on holding block 4 to settings that damage it. A restart re-noises a finished clip and regenerates it block by block, which breaks the agreement between neighbouring blocks that makes block 4 work. Run without restarts it is ahead on both errors, and the law-guided model cannot match it there because it needs the restarts to reach its own best result. So: equalise the sampling and the two tie; let each method use the settings that suit it and generating in order still wins.</p>
         <h4>The first law set&rsquo;s improving curve came from slower balls</h4>
         <p>The first law set, the one with the differentiable simulator, appeared to get <em>better</em> on longer clips. Its balls also move progressively slower than real ones as clips lengthen. The error measures how far a ball has drifted from where it should be, and a slower ball drifts less, so the error falls without the prediction improving. That curve is not evidence of anything and is no longer plotted.</p>
