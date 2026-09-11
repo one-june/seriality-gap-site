@@ -97,6 +97,8 @@ h2 { font-size: clamp(2.4rem, 4.5vw, 3.45rem); }
 .report-section .report-content h3 + p { margin-top: 14px; }
 .report-section .report-content h4 { margin-top: 28px; font-size: 1.05rem; font-weight: 650; }
 .report-section .report-content h4 + p { margin-top: 12px; }
+.report-section .report-content h5 { margin-top: 26px; font-size: .95rem; font-weight: 650; letter-spacing: -.01em; color: var(--ink); }
+.report-section .report-content h5 + p { margin-top: 10px; }
 .report-section .data-links { grid-template-columns: repeat(2, 1fr); }
 .report-section .report-content ul, .report-section .report-content ol { padding-left: 24px; margin: 18px 0; }
 .report-section .report-content li + li { margin-top: 8px; }

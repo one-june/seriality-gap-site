@@ -1706,8 +1706,8 @@
       </div>
       <figure class="plot" id="guidance-laws-length">
         <div class="figure-heading"><h3>Every method given the same restarts and the same repeated tries</h3><a href="assets/statebench-guidance/figures/matched_horizon.png" download>Download PNG <span aria-hidden="true">↓</span></a></div>
-        <img src="assets/statebench-guidance/figures/matched_horizon.png" alt="Local error against clip length, with every method given 24 restarts and 8 tries per clip, and block 4 drawn a second time without them. Block 4 is lowest at every length, the law curve is the flattest of the one-pass methods, and the rollout curves are drawn with hollow markers where their samples lost more than 5 percent of the data's speed" width="1760" height="1056" loading="lazy">
-        <figcaption><span class="figure-number">Figure 40.</span> Every curve here got the three settings that only the law methods had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. Block 4 appears twice because these settings make it worse: the solid line is block 4 run plainly, which is its best setting and the comparison that matters, and the dotted line is block 4 given the same restarts and tries as everything else. The two pink curves are the full law set, with repeated tries (solid) and with a single try (dashed). Both beat the geometry-only set at every clip length.</figcaption>
+        <img src="assets/statebench-guidance/figures/matched_horizon.png" alt="Local error against clip length. Every method gets the same restarts and repeated tries; block 4 appears a second time without them, and each guided method appears a second time scored on a single try. Block 4 run plainly is lowest at every length and the law curve is the flattest of the one-pass methods" width="1760" height="1120" loading="lazy">
+        <figcaption><span class="figure-number">Figure 40.</span> Every curve here got the three settings that only the law methods had before: 24 restarts from σ 0.45, and 8 tries per clip keeping the one its law critic scores best. The guided curves also run the model twice per denoising step. Their guidance strength was re-picked for these settings on the 128 calibration clips and came out at 0.3 for all three, not the 1 that won without restarts. Vanilla and block 4 have no guidance, so there is no correction to apply twice — the one setting they cannot match. <strong>Hollow markers lost more than 5% of the data's mean speed</strong>, so that error is partly bought by slowing the balls down instead of predicting better. Block 4 appears twice because these settings make it worse: the solid line is block 4 run plainly, which is its best setting and the comparison that matters, and the dotted line is block 4 given the same restarts and tries as everything else. Each guided method is drawn twice: solid for the clip its critic keeps out of eight tries, dashed for the average of those eight. The gap between a pair is what the selection buys, and it is similar for all three, so it is not a law-specific advantage. The law curves are the full law set, which beats the geometry-only set at every clip length.</figcaption>
       </figure>
       <div class="wide-width report-content">
         <div class="table-scroll" tabindex="0" role="region" aria-label="Five-step local error with every method given 24 restarts and 8 tries">
@@ -1730,10 +1730,58 @@
       </div>
       <div class="reading-width report-content">
         <h4>What the full law set actually does</h4>
-        <p>At every denoising step the model produces its current guess at the finished clip. Nine laws are evaluated on that guess, each one an equation the true motion satisfies exactly, and the guess is nudged to satisfy them better. Nothing simulates the motion forward at any point.</p>
-        <p>Three laws constrain <strong>geometry</strong>: no two balls overlap, no ball leaves the box, and no ball jumps through another between consecutive frames. Two constrain <strong>free flight</strong>: a ball touching nothing keeps its velocity and lands exactly where a straight line puts it. Four constrain <strong>collisions</strong>: a colliding pair keeps its total momentum and its total energy, its centre of mass keeps moving at constant velocity, and the pair&rsquo;s relative velocity reflects about the line joining their centres.</p>
-        <p>Two details matter more than the law list. Every residual is divided by how fast the balls are currently moving, so slowing everything down no longer lowers the loss — without that, the guidance learns to stall the balls, which is what happened to the earlier law set. And a ball counts as touching another one from further away than strict contact, so the free-flight laws do not fight real collisions they failed to notice.</p>
-        <p>On top of the guidance it re-noises the finished clip and denoises it again many times over, and generates several clips and keeps the one three of the laws score best. Those two are not guidance and help any method, which is what the comparison below controls for.</p>
+        <p>At every denoising step the model produces its current guess at the finished clip. Ten laws are evaluated on that guess, each one an equation the true motion satisfies exactly, and the guess is nudged toward satisfying them. Nothing simulates the motion forward at any point.</p>
+        <p>Write \(p_t^b\) and \(v_t^b\) for the position and velocity of ball \(b\) at frame \(t\) in the current guess, \(\Delta t\) for the frame interval, \(r\) for the ball radius, and \(\rho_t^{ij} = p_t^i - p_t^j\) for the vector between a pair of balls. Every law is written on one interval, from frame \(t-1\) to frame \(t\), and averaged over balls or pairs and over the generated frames.</p>
+
+        <h5>Which balls each law applies to</h5>
+        <p>A law about free flight must not be applied to a ball that just collided, and a law about collisions must not be applied to a ball that did not. Neither is known, so both are estimated from the guess itself. For a pair, three distances are computed: the closest approach if both balls fly freely forward from \(t-1\), the closest approach flying backward from \(t\), and the closest approach of the straight segment joining the two frames. Taking the smallest, \(d^{ij}\), a soft indicator of contact is</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Soft contact indicator">
+          \[ s^{ij} \;=\; \sigma\!\left(\frac{2r + m - d^{ij}}{\tau}\right), \]
+        </div>
+        <p>and the chance that ball \(b\) touched nothing in the interval is \(\phi^b = \prod_{j \neq b}\left(1 - s^{bj}\right)\). The free-flight laws are weighted by \(\phi^b\), the collision laws by \(s^{ij}\). The margin \(m\) is set wider for the free-flight laws than for the collision laws, so that a collision the indicator underestimates does not leave a free-flight law fighting it.</p>
+
+        <h5>The ten laws</h5>
+        <p><strong>Geometry</strong>, which holds at every frame regardless of what happened:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Geometry laws">
+          \[\begin{aligned}
+          L_{\text{overlap}} &amp;= \big[\,2r - \lVert \rho_t^{ij} \rVert\,\big]_+^2 &amp;&amp;\text{no two balls overlap}\\
+          L_{\text{through}} &amp;= \big[\,2r - d^{ij}_{\text{seg}}\,\big]_+^2 &amp;&amp;\text{no ball crosses through another}\\
+          L_{\text{box}} &amp;= \textstyle\sum_{\text{axes}} \big[\,\ell - p_t^b\,\big]_+^2 + \big[\,p_t^b - u\,\big]_+^2 &amp;&amp;\text{no ball leaves the box}
+          \end{aligned}\]
+        </div>
+        <p><strong>Free flight</strong>, for a ball the indicator says touched nothing. Let \(q = p_{t-1}^b + v_{t-1}^b \Delta t\), mirrored once about a wall if it lands outside, and \(\tilde v = -v_{t-1}^b\) if it was mirrored and \(v_{t-1}^b\) otherwise:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Free-flight laws">
+          \[\begin{aligned}
+          L_{\text{pos}} &amp;= \phi^b \, \lVert p_t^b - q \rVert^2 &amp;&amp;\text{it lands where a straight line puts it}\\
+          L_{\text{vel}} &amp;= \phi^b \, \lVert v_t^b - \tilde v \rVert^2 &amp;&amp;\text{its velocity is unchanged, or reflected by the wall}
+          \end{aligned}\]
+        </div>
+        <p><strong>Collisions</strong>, for a pair the indicator says touched. Write \(V = v^i + v^j\) for the pair&rsquo;s total velocity and \(E = \lVert v^i\rVert^2 + \lVert v^j\rVert^2\) for its energy:</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Collision laws">
+          \[\begin{aligned}
+          L_{\text{mom}} &amp;= s^{ij}\,\lVert V_t - V_{t-1} \rVert^2 &amp;&amp;\text{momentum is conserved}\\
+          L_{\text{energy}} &amp;= s^{ij}\left(\frac{E_t - E_{t-1}}{E_{t-1}}\right)^{\!2} &amp;&amp;\text{energy is conserved}\\
+          L_{\text{com}} &amp;= s^{ij}\,\big\lVert (p_t^i + p_t^j) - (p_{t-1}^i + p_{t-1}^j) - V_{t-1}\Delta t \big\rVert^2 &amp;&amp;\text{the centre of mass keeps its velocity}
+          \end{aligned}\]
+        </div>
+        <p>The last two need the contact normal. Flying both balls freely forward from \(t-1\), let \(s_c \in (0,1)\) be the fraction of the interval at which their separation first reaches \(2r\), \(\rho_c\) the relative position there, and \(n = \rho_c / \lVert \rho_c \rVert\). For equal masses an elastic collision reflects the relative velocity about \(n\), giving \(\hat u = u_{t-1} - 2(u_{t-1}\!\cdot n)\,n\) where \(u = v^i - v^j\):</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Reflection laws">
+          \[\begin{aligned}
+          L_{\text{reflect}} &amp;= s^{ij}\,\lVert u_t - \hat u \rVert^2 &amp;&amp;\text{the relative velocity reflects about the contact normal}\\
+          L_{\text{cpos}} &amp;= s^{ij}\,\big\lVert \rho_t^{ij} - \big(\rho_c + \hat u\,\Delta t\,(1 - s_c)\big) \big\rVert^2 &amp;&amp;\text{and the pair ends the interval where that puts it}
+          \end{aligned}\]
+        </div>
+
+        <h5>Dividing by the current speed, which is what made this set work</h5>
+        <p>As written, every residual above shrinks if the balls simply move less. A guidance that slows everything down therefore lowers the loss without predicting anything better, and that is what an earlier law set did. So each residual is divided by how fast the balls are currently moving — \(\lVert v_{t-1}^b \rVert + \varepsilon\) for a single ball, the sum of both speeds for a pair — squared to match the residual. Scaling every velocity in the clip by a constant now leaves the loss unchanged, so slowing down buys nothing.</p>
+
+        <h5>How the laws become a correction</h5>
+        <p>The laws are not summed into one loss and differentiated once. Each law&rsquo;s gradient with respect to the current guess is taken separately, and each gets its own step, because the gradients differ in scale by orders of magnitude: a law that is already satisfied almost everywhere touches a handful of numbers per frame, and adding it to a dense one would bury it. For a law taking a bounded step, the gradient is divided by its own largest element and scaled by that law&rsquo;s weight, so no law can move any single number by more than its share. For the rest, the step is the exact minimiser along the gradient, which for a squared residual is</p>
+        <div class="equation" tabindex="0" role="region" aria-label="Exact step along the gradient">
+          \[ \alpha_k = w_k\,\frac{L_k}{\lVert \nabla L_k \rVert^2}, \qquad \text{correction} = \alpha_k \nabla L_k, \]
+        </div>
+        <p>capped so one law cannot dominate a step. The per-law corrections are then added. This happens twice per denoising step.</p>
+        <p>Two things sit on top and are not guidance: the finished clip is partly re-noised and denoised again twenty-four times, and several clips are generated with three of the laws used to score them and the best kept. Both help any method, which is what the comparison below controls for.</p>
 
         <h4>Most of the apparent win came from the extra sampling work</h4>
         <p>The geometry law set looked far better than the rollout target, but the rollout target had been run without restarts or repeated tries. Give it both and almost all of that difference disappears. Those two settings help any guidance, and they help the unguided model most of all. The full law set does open a genuine gap over the rollout target, and that gap comes from the laws, because both methods now get the same sampling.</p>
