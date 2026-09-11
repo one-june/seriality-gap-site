@@ -178,13 +178,14 @@ input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px;
    text still lines up with the sections'. */
 @media (min-width: 1180px) and (min-height: 560px) {
   .rail { display: block; position: fixed; left: 6px; top: 50%; transform: translateY(-50%); width: 210px; z-index: 5; }
-  .rail-svg { display: block; width: 210px; height: 390px; overflow: visible; }
+  .rail-svg { display: block; width: 210px; height: 416px; overflow: visible; }
   main { padding-left: 228px; }
   .site-header, .site-footer { max-width: 1508px; padding-left: 260px; }
 }
 .rail-node circle { fill: var(--accent); }
 .rail-number { fill: #fff; font-size: 11.5px; font-weight: 700; }
 .rail-number-small { font-size: 9.5px; }
+.rail-glyph { font-size: 14px; font-weight: 700; }
 .rail-label { fill: var(--ink); font-size: 11.5px; font-weight: 650; }
 .rail-node.traj-theory circle { fill: var(--tint); stroke: #7ba699; stroke-width: 1.5; stroke-dasharray: 3.5 3.5; }
 .rail-node.traj-theory .rail-number { fill: var(--accent); font-size: 9.5px; }

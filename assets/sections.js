@@ -36,6 +36,10 @@
       nodes.forEach((entry) => {
         if (entry.section.getBoundingClientRect().top <= 140) current = entry.node;
       });
+      // The last section can be shorter than the viewport, so its top never reaches 140.
+      // At the bottom of the page it is the one being read.
+      const atBottom = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      if (atBottom && nodes.length) current = nodes[nodes.length - 1].node;
       nodes.forEach((entry) => entry.node.classList.toggle('is-current', entry.node === current));
     };
     addEventListener('scroll', () => {
